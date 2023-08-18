@@ -1,0 +1,334 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module ModifyActions</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>ModifyActions</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href="index.html">index</a><br><a href="../modifyactions.py">d:\virtualstage\modifyactions.py</a></font></td></tr></table>
+    <p><tt>Module&nbsp;ModifyActions&nbsp;-&nbsp;Actions&nbsp;to&nbsp;modify&nbsp;objects&nbsp;of&nbsp;virtual&nbsp;world<br>
+Functions:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-degrab">degrab</a>(acid,objid)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-derezz">derezz</a>(acid,objid)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-take">take</a>(acid,objid,foldname)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-grab">grab</a>(acid,objid)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-touch">touch</a>(acid,objid)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-move">move</a>(acid,&nbsp;objid,&nbsp;x,&nbsp;y,&nbsp;z)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-paint">paint</a>(acid,&nbsp;objid,&nbsp;txtrid)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-resize">resize</a>(acid,&nbsp;objid,&nbsp;sx,&nbsp;sy,&nbsp;sz)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-rezz">rezz</a>(acid,&nbsp;objname,&nbsp;objtyp,&nbsp;subtyp,&nbsp;x,&nbsp;y,&nbsp;z)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-rezz_with_rot">rezz_with_rot</a>(acid,&nbsp;objname,&nbsp;objtyp,&nbsp;subtyp,&nbsp;x,&nbsp;y,&nbsp;z,&nbsp;rotunit,&nbsp;rol,&nbsp;pit,&nbsp;yaw)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-rezz_with_size_rot">rezz_with_size_rot</a>(acid,&nbsp;objname,&nbsp;objtyp,&nbsp;subtyp,&nbsp;x,&nbsp;y,&nbsp;z,&nbsp;sx,&nbsp;sy,&nbsp;sz,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-rezz_with_size">rezz_with_size</a>(acid,&nbsp;objname,&nbsp;objtyp,&nbsp;subtyp,&nbsp;x,&nbsp;y,&nbsp;z,&nbsp;sx,&nbsp;sy,&nbsp;sz)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-rotate">rotate</a>(acid,&nbsp;objid,&nbsp;rotunit,&nbsp;rol,&nbsp;pit,&nbsp;yaw)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-set_descr">set_descr</a>(acid,&nbsp;objid,&nbsp;descr)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-set_material">set_material</a>(acid,&nbsp;objid,&nbsp;mat)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-set_name">set_name</a>(acid,&nbsp;objid,&nbsp;name)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-set_flags">set_flags</a>(acid,&nbsp;objid,&nbsp;phys,&nbsp;temp,&nbsp;phant,&nbsp;shad)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-import_xml">import_xml</a>(acid,&nbsp;objfile,&nbsp;x,&nbsp;y,&nbsp;z)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-export_xml">export_xml</a>(acid,&nbsp;objid,&nbsp;objfile)</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="ActorController.html">ActorController</a><br>
+</td><td width="25%" valign=top></td><td width="25%" valign=top></td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-click"><strong>click</strong></a>(acid, objid)</dt><dd><tt>Click&nbsp;on&nbsp;object&nbsp;identified&nbsp;by&nbsp;objid<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor<br>
+&nbsp;&nbsp;&nbsp;&nbsp;objid:&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;object&nbsp;to&nbsp;be&nbsp;clicked<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;False<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;True</tt></dd></dl>
+ <dl><dt><a name="-degrab"><strong>degrab</strong></a>(acid, objid)</dt><dd><tt>Drop&nbsp;or&nbsp;'de&nbsp;grab'&nbsp;object&nbsp;identified&nbsp;by&nbsp;objid<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor<br>
+&nbsp;&nbsp;&nbsp;&nbsp;objid:&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;object&nbsp;to&nbsp;be&nbsp;dropped<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;False<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;True</tt></dd></dl>
+ <dl><dt><a name="-derezz"><strong>derezz</strong></a>(acid, objid)</dt><dd><tt>Delete&nbsp;or&nbsp;'de-rezz'&nbsp;object&nbsp;identified&nbsp;by&nbsp;objid&nbsp;from&nbsp;virtual&nbsp;world<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor<br>
+&nbsp;&nbsp;&nbsp;&nbsp;objid:&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;object&nbsp;to&nbsp;be&nbsp;de-rezzed<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;False<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;True</tt></dd></dl>
+ <dl><dt><a name="-deselect"><strong>deselect</strong></a>(acid, objid)</dt><dd><tt>Deselect&nbsp;object&nbsp;identified&nbsp;by&nbsp;objid<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor<br>
+&nbsp;&nbsp;&nbsp;&nbsp;objid:&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;object&nbsp;to&nbsp;be&nbsp;deselected<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;False<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;True</tt></dd></dl>
+ <dl><dt><a name="-export_xml"><strong>export_xml</strong></a>(acid, objid, objfile)</dt><dd><tt>Export&nbsp;a&nbsp;virtual&nbsp;world&nbsp;object&nbsp;to&nbsp;a&nbsp;XML&nbsp;file<br>
+&nbsp;<br>
+Args:&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor<br>
+&nbsp;&nbsp;&nbsp;&nbsp;objfile:&nbsp;&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;name&nbsp;of&nbsp;XML&nbsp;file&nbsp;that&nbsp;will&nbsp;store&nbsp;the&nbsp;object<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;False<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;returns&nbsp;True</tt></dd></dl>
+ <dl><dt><a name="-grab"><strong>grab</strong></a>(acid, objid)</dt><dd><tt>Grab&nbsp;object&nbsp;identified&nbsp;by&nbsp;objid<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor<br>
+&nbsp;&nbsp;&nbsp;&nbsp;objid:&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;object&nbsp;to&nbsp;be&nbsp;grabbed<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;False<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;True</tt></dd></dl>
+ <dl><dt><a name="-import_xml"><strong>import_xml</strong></a>(acid, objfile, x, y, z)</dt><dd><tt>Import&nbsp;a&nbsp;new&nbsp;object&nbsp;from&nbsp;a&nbsp;previously&nbsp;exported&nbsp;XML&nbsp;file&nbsp;and&nbsp;rezz&nbsp;it<br>
+&nbsp;&nbsp;&nbsp;&nbsp;in&nbsp;the&nbsp;virtual&nbsp;world&nbsp;<br>
+&nbsp;<br>
+Args:&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor<br>
+&nbsp;&nbsp;&nbsp;&nbsp;objfile:&nbsp;&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;name&nbsp;of&nbsp;previously&nbsp;exported&nbsp;XML&nbsp;file<br>
+&nbsp;&nbsp;&nbsp;&nbsp;x,y,z:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;float,&nbsp;int&nbsp;or&nbsp;numeric&nbsp;str&nbsp;numbers&nbsp;with&nbsp;X,Y,Z&nbsp;coordinates&nbsp;to&nbsp;rezz&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;new&nbsp;object<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;False<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;returns&nbsp;True</tt></dd></dl>
+ <dl><dt><a name="-move"><strong>move</strong></a>(acid, objid, x, y, z)</dt><dd><tt>Move&nbsp;objid&nbsp;object&nbsp;to&nbsp;x,y,z&nbsp;position<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor<br>
+&nbsp;&nbsp;&nbsp;&nbsp;objid:&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;object&nbsp;to&nbsp;be&nbsp;moved<br>
+&nbsp;&nbsp;&nbsp;&nbsp;x,y,z:&nbsp;&nbsp;float,&nbsp;int&nbsp;or&nbsp;numeric&nbsp;str&nbsp;numbers&nbsp;with&nbsp;X,Y,Z&nbsp;coordinates&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;to&nbsp;move&nbsp;object<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;False<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;True</tt></dd></dl>
+ <dl><dt><a name="-paint"><strong>paint</strong></a>(acid, objid, txtrid)</dt><dd><tt>Paint&nbsp;objid&nbsp;object&nbsp;with&nbsp;texture&nbsp;identified&nbsp;by&nbsp;txtrid<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Set&nbsp;the&nbsp;default&nbsp;texture&nbsp;of&nbsp;object&nbsp;to&nbsp;txtrid<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor<br>
+&nbsp;&nbsp;&nbsp;&nbsp;objid:&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;object&nbsp;to&nbsp;be&nbsp;painted<br>
+&nbsp;&nbsp;&nbsp;&nbsp;txtrid:&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;texture<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;False<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;True</tt></dd></dl>
+ <dl><dt><a name="-resize"><strong>resize</strong></a>(acid, objid, sx, sy, sz)</dt><dd><tt>Change&nbsp;size&nbsp;of&nbsp;objid&nbsp;object&nbsp;to&nbsp;sx,sy,sz&nbsp;scale<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor<br>
+&nbsp;&nbsp;&nbsp;&nbsp;objid:&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;object&nbsp;to&nbsp;be&nbsp;resized<br>
+&nbsp;&nbsp;&nbsp;&nbsp;sx:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;float,&nbsp;int&nbsp;or&nbsp;numeric&nbsp;str&nbsp;with&nbsp;size&nbsp;(or&nbsp;scale)&nbsp;of&nbsp;object&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;in&nbsp;X-axis&nbsp;direction<br>
+&nbsp;&nbsp;&nbsp;&nbsp;sy:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;float,&nbsp;int&nbsp;or&nbsp;numeric&nbsp;str&nbsp;with&nbsp;size&nbsp;(or&nbsp;scale)&nbsp;of&nbsp;object&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;in&nbsp;Y-axis&nbsp;direction<br>
+&nbsp;&nbsp;&nbsp;&nbsp;sz:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;float,&nbsp;int&nbsp;or&nbsp;numeric&nbsp;str&nbsp;with&nbsp;size&nbsp;(or&nbsp;scale)&nbsp;of&nbsp;object&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;in&nbsp;Z-axis&nbsp;direction<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;False<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;True</tt></dd></dl>
+ <dl><dt><a name="-rezz"><strong>rezz</strong></a>(acid, objname, objtyp, subtyp, x, y, z)</dt><dd><tt>Create&nbsp;or&nbsp;'rezz'&nbsp;a&nbsp;new&nbsp;object&nbsp;in&nbsp;virtual&nbsp;world<br>
+&nbsp;<br>
+Args:&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor<br>
+&nbsp;&nbsp;&nbsp;&nbsp;objname:&nbsp;str&nbsp;with&nbsp;name&nbsp;of&nbsp;new&nbsp;object<br>
+&nbsp;&nbsp;&nbsp;&nbsp;objtyp:&nbsp;type&nbsp;of&nbsp;new&nbsp;obj,&nbsp;can&nbsp;be:&nbsp;'prim','tree','grass','item'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;subtyp:&nbsp;subtype&nbsp;of&nbsp;object,&nbsp;if&nbsp;type&nbsp;is&nbsp;'prim',&nbsp;it&nbsp;can&nbsp;be:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'box','cylinder','prism','sphere','torus','tube','ring',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'sculpt','mesh'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;type&nbsp;is&nbsp;'tree',&nbsp;it&nbsp;can&nbsp;be:&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'pine1','oak','tropicalbush1','palm1','dogwood',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'tropicalbush2','palm2','cypress1','cypress2',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'pine2','plumeria','winterpine1','winteraspen',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'winterpine2','eucalyptus','fern','eelgrass','seasword',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'kelp1','beachgrass1','kelp2'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;type&nbsp;is&nbsp;'grass',&nbsp;it&nbsp;can&nbsp;be:&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'grass0','grass1','grass2','grass3','grass4','undergrowth1'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;type&nbsp;is&nbsp;'item',&nbsp;then&nbsp;subtyp&nbsp;is&nbsp;a&nbsp;str&nbsp;with&nbsp;the&nbsp;path&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;to&nbsp;an&nbsp;actor's&nbsp;inventory&nbsp;item,&nbsp;which&nbsp;will&nbsp;be&nbsp;copied&nbsp;and&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rezzed&nbsp;as&nbsp;a&nbsp;new&nbsp;object&nbsp;in&nbsp;virtual&nbsp;world<br>
+&nbsp;&nbsp;&nbsp;&nbsp;x,y,z:&nbsp;float,&nbsp;int&nbsp;or&nbsp;numeric&nbsp;str&nbsp;numbers&nbsp;with&nbsp;X,Y,Z&nbsp;coordinates&nbsp;to&nbsp;rezz&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;new&nbsp;object<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;None<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;returns&nbsp;the&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;new&nbsp;object</tt></dd></dl>
+ <dl><dt><a name="-rezz_with_rot"><strong>rezz_with_rot</strong></a>(acid, objname, objtyp, subtyp, x, y, z, unit, rol, pit, yaw)</dt><dd><tt>Create&nbsp;or&nbsp;'rezz'&nbsp;a&nbsp;new&nbsp;object&nbsp;in&nbsp;virtual&nbsp;world&nbsp;and&nbsp;rotates&nbsp;it&nbsp;<br>
+&nbsp;<br>
+Args:&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor<br>
+&nbsp;&nbsp;&nbsp;&nbsp;objname:&nbsp;str&nbsp;with&nbsp;name&nbsp;of&nbsp;new&nbsp;object<br>
+&nbsp;&nbsp;&nbsp;&nbsp;objtyp:&nbsp;see&nbsp;rezz_obj()&nbsp;action<br>
+&nbsp;&nbsp;&nbsp;&nbsp;subtyp:&nbsp;see&nbsp;rezz_obj()&nbsp;action<br>
+&nbsp;&nbsp;&nbsp;&nbsp;x,y,z:&nbsp;floats&nbsp;with&nbsp;X,Y,Z&nbsp;coordinates&nbsp;to&nbsp;rezz&nbsp;the&nbsp;new&nbsp;object<br>
+&nbsp;&nbsp;&nbsp;&nbsp;unit:&nbsp;angle&nbsp;rot&nbsp;units,&nbsp;can&nbsp;be&nbsp;'dg'&nbsp;for&nbsp;degrees&nbsp;or&nbsp;'rad'&nbsp;for&nbsp;radians<br>
+&nbsp;&nbsp;&nbsp;&nbsp;rol:&nbsp;float,&nbsp;int&nbsp;or&nbsp;numeric&nbsp;str&nbsp;with&nbsp;new&nbsp;X-axis&nbsp;euler&nbsp;angle&nbsp;of&nbsp;obj&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;in&nbsp;radians/degrees<br>
+&nbsp;&nbsp;&nbsp;&nbsp;pit:&nbsp;float,&nbsp;int&nbsp;or&nbsp;numeric&nbsp;str&nbsp;with&nbsp;new&nbsp;Y-axis&nbsp;euler&nbsp;angle&nbsp;of&nbsp;obj&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;in&nbsp;radians/degrees<br>
+&nbsp;&nbsp;&nbsp;&nbsp;yaw:&nbsp;float,&nbsp;int&nbsp;or&nbsp;numeric&nbsp;str&nbsp;with&nbsp;new&nbsp;Z-axis&nbsp;euler&nbsp;angle&nbsp;of&nbsp;obj&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;in&nbsp;radians/degrees<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;None<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;returns&nbsp;the&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;new&nbsp;object</tt></dd></dl>
+ <dl><dt><a name="-rezz_with_size"><strong>rezz_with_size</strong></a>(acid, objname, objtyp, subtyp, x, y, z, sx, sy, sz)</dt><dd><tt>Create&nbsp;or&nbsp;'rezz'&nbsp;a&nbsp;new&nbsp;object&nbsp;in&nbsp;virtual&nbsp;world&nbsp;and&nbsp;resizes&nbsp;it&nbsp;<br>
+&nbsp;<br>
+Args:&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor<br>
+&nbsp;&nbsp;&nbsp;&nbsp;objname:&nbsp;&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;name&nbsp;of&nbsp;new&nbsp;object<br>
+&nbsp;&nbsp;&nbsp;&nbsp;objtyp:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;see&nbsp;rezz_obj()&nbsp;action<br>
+&nbsp;&nbsp;&nbsp;&nbsp;subtyp:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;see&nbsp;rezz_obj()&nbsp;action<br>
+&nbsp;&nbsp;&nbsp;&nbsp;x,y,z:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;float,&nbsp;int&nbsp;or&nbsp;numeric&nbsp;str&nbsp;with&nbsp;X,Y,Z&nbsp;coordinates&nbsp;to&nbsp;rezz&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;new&nbsp;object<br>
+&nbsp;&nbsp;&nbsp;&nbsp;sx:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;float,&nbsp;int&nbsp;or&nbsp;numeric&nbsp;str&nbsp;with&nbsp;size&nbsp;(or&nbsp;scale)&nbsp;of&nbsp;new&nbsp;obj&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;in&nbsp;X-axis&nbsp;direction<br>
+&nbsp;&nbsp;&nbsp;&nbsp;sy:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;float,&nbsp;int&nbsp;or&nbsp;numeric&nbsp;str&nbsp;with&nbsp;size&nbsp;(or&nbsp;scale)&nbsp;of&nbsp;new&nbsp;obj&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;in&nbsp;Y-axis&nbsp;direction<br>
+&nbsp;&nbsp;&nbsp;&nbsp;sz:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;float,&nbsp;int&nbsp;or&nbsp;numeric&nbsp;str&nbsp;with&nbsp;size&nbsp;(or&nbsp;scale)&nbsp;of&nbsp;new&nbsp;obj&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;in&nbsp;Z-axis&nbsp;direction<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;None<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;returns&nbsp;the&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;new&nbsp;object</tt></dd></dl>
+ <dl><dt><a name="-rezz_with_size_rot"><strong>rezz_with_size_rot</strong></a>(acid, objname, objtyp, subtyp, x, y, z, sx, sy, sz, unit, rol, pit, yaw)</dt><dd><tt>Create&nbsp;or&nbsp;'rezz'&nbsp;a&nbsp;new&nbsp;object&nbsp;in&nbsp;virtual&nbsp;world&nbsp;and&nbsp;resizes&nbsp;&amp;&nbsp;rotates&nbsp;it&nbsp;<br>
+&nbsp;<br>
+Args:&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor<br>
+&nbsp;&nbsp;&nbsp;&nbsp;objname:&nbsp;str&nbsp;with&nbsp;name&nbsp;of&nbsp;new&nbsp;object<br>
+&nbsp;&nbsp;&nbsp;&nbsp;objtyp:&nbsp;see&nbsp;rezz_obj()&nbsp;action<br>
+&nbsp;&nbsp;&nbsp;&nbsp;subtyp:&nbsp;see&nbsp;rezz_obj()&nbsp;action<br>
+&nbsp;&nbsp;&nbsp;&nbsp;x,y,z:&nbsp;&nbsp;float,&nbsp;int&nbsp;or&nbsp;numeric&nbsp;str&nbsp;with&nbsp;X,Y,Z&nbsp;coordinates&nbsp;to&nbsp;rezz&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;new&nbsp;object<br>
+&nbsp;&nbsp;&nbsp;&nbsp;sx:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;float,&nbsp;int&nbsp;or&nbsp;numeric&nbsp;str&nbsp;with&nbsp;size&nbsp;(or&nbsp;scale)&nbsp;of&nbsp;new&nbsp;obj&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;in&nbsp;X-axis&nbsp;direction<br>
+&nbsp;&nbsp;&nbsp;&nbsp;sy:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;float,&nbsp;int&nbsp;or&nbsp;numeric&nbsp;str&nbsp;with&nbsp;size&nbsp;(or&nbsp;scale)&nbsp;of&nbsp;new&nbsp;obj&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;in&nbsp;Y-axis&nbsp;direction<br>
+&nbsp;&nbsp;&nbsp;&nbsp;sz:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;float,&nbsp;int&nbsp;or&nbsp;numeric&nbsp;str&nbsp;with&nbsp;size&nbsp;(or&nbsp;scale)&nbsp;of&nbsp;new&nbsp;obj&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;in&nbsp;Z-axis&nbsp;direction<br>
+&nbsp;&nbsp;&nbsp;&nbsp;unit:&nbsp;&nbsp;&nbsp;angle&nbsp;rot&nbsp;units,&nbsp;can&nbsp;be&nbsp;'dg'&nbsp;for&nbsp;degrees&nbsp;or&nbsp;'rad'&nbsp;for&nbsp;radians<br>
+&nbsp;&nbsp;&nbsp;&nbsp;rol:&nbsp;&nbsp;&nbsp;&nbsp;float,&nbsp;int&nbsp;or&nbsp;numeric&nbsp;str&nbsp;with&nbsp;new&nbsp;X-axis&nbsp;euler&nbsp;angle&nbsp;of&nbsp;new&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;obj&nbsp;in&nbsp;radians/degrees<br>
+&nbsp;&nbsp;&nbsp;&nbsp;pit:&nbsp;&nbsp;&nbsp;&nbsp;float,&nbsp;int&nbsp;or&nbsp;numeric&nbsp;str&nbsp;with&nbsp;new&nbsp;Y-axis&nbsp;euler&nbsp;angle&nbsp;of&nbsp;new&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;obj&nbsp;in&nbsp;radians/degrees<br>
+&nbsp;&nbsp;&nbsp;&nbsp;yaw:&nbsp;&nbsp;&nbsp;&nbsp;float,&nbsp;int&nbsp;or&nbsp;numeric&nbsp;str&nbsp;with&nbsp;new&nbsp;Z-axis&nbsp;euler&nbsp;angle&nbsp;of&nbsp;new&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;obj&nbsp;in&nbsp;radians/degrees<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;None<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;returns&nbsp;the&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;new&nbsp;object</tt></dd></dl>
+ <dl><dt><a name="-rotate"><strong>rotate</strong></a>(acid, objid, unit, rol, pit, yaw)</dt><dd><tt>Rotate&nbsp;an&nbsp;object&nbsp;in&nbsp;virtual&nbsp;world<br>
+&nbsp;<br>
+Args:&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor<br>
+&nbsp;&nbsp;&nbsp;&nbsp;objid:&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;object&nbsp;to&nbsp;be&nbsp;resized<br>
+&nbsp;&nbsp;&nbsp;&nbsp;unit:&nbsp;&nbsp;&nbsp;angle&nbsp;rot&nbsp;units,&nbsp;can&nbsp;be&nbsp;'dg'&nbsp;for&nbsp;degrees&nbsp;or&nbsp;'rad'&nbsp;for&nbsp;radians<br>
+&nbsp;&nbsp;&nbsp;&nbsp;rol:&nbsp;&nbsp;&nbsp;&nbsp;float,&nbsp;int&nbsp;or&nbsp;numeric&nbsp;str&nbsp;with&nbsp;new&nbsp;X-axis&nbsp;euler&nbsp;angle&nbsp;of&nbsp;obj&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;in&nbsp;radians/degrees<br>
+&nbsp;&nbsp;&nbsp;&nbsp;pit:&nbsp;&nbsp;&nbsp;&nbsp;float,&nbsp;int&nbsp;or&nbsp;numeric&nbsp;str&nbsp;with&nbsp;new&nbsp;Y-axis&nbsp;euler&nbsp;angle&nbsp;of&nbsp;obj&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;in&nbsp;radians/degrees<br>
+&nbsp;&nbsp;&nbsp;&nbsp;yaw:&nbsp;&nbsp;&nbsp;&nbsp;float,&nbsp;int&nbsp;or&nbsp;numeric&nbsp;str&nbsp;with&nbsp;new&nbsp;Z-axis&nbsp;euler&nbsp;angle&nbsp;of&nbsp;obj&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;in&nbsp;radians/degrees<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;False<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;True</tt></dd></dl>
+ <dl><dt><a name="-select"><strong>select</strong></a>(acid, objid)</dt><dd><tt>Select&nbsp;object&nbsp;identified&nbsp;by&nbsp;objid<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor<br>
+&nbsp;&nbsp;&nbsp;&nbsp;objid:&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;object&nbsp;to&nbsp;be&nbsp;selected<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;False<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;True</tt></dd></dl>
+ <dl><dt><a name="-set_descr"><strong>set_descr</strong></a>(acid, objid, descr)</dt><dd><tt>Set&nbsp;description&nbsp;property&nbsp;of&nbsp;object<br>
+&nbsp;<br>
+Args:&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor<br>
+&nbsp;&nbsp;&nbsp;&nbsp;objid:&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;object&nbsp;to&nbsp;be&nbsp;resized<br>
+&nbsp;&nbsp;&nbsp;&nbsp;descr:&nbsp;&nbsp;str&nbsp;with&nbsp;objects's&nbsp;new&nbsp;description&nbsp;(a&nbsp;text&nbsp;with&nbsp;at&nbsp;most&nbsp;127&nbsp;chars)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;False<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;True</tt></dd></dl>
+ <dl><dt><a name="-set_flags"><strong>set_flags</strong></a>(acid, objid, phys, temp, phant, shad)</dt><dd><tt>Set&nbsp;additional&nbsp;boolean&nbsp;control&nbsp;flags&nbsp;of&nbsp;object<br>
+&nbsp;<br>
+Args:&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor<br>
+&nbsp;&nbsp;&nbsp;&nbsp;objid:&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;object&nbsp;to&nbsp;be&nbsp;resized<br>
+&nbsp;&nbsp;&nbsp;&nbsp;phys:&nbsp;&nbsp;&nbsp;boolean,&nbsp;if&nbsp;true&nbsp;allows&nbsp;obj&nbsp;to&nbsp;be&nbsp;affected&nbsp;by&nbsp;simulator&nbsp;physics<br>
+&nbsp;&nbsp;&nbsp;&nbsp;temp:&nbsp;&nbsp;&nbsp;boolean,&nbsp;if&nbsp;true&nbsp;makes&nbsp;obj&nbsp;temporary,&nbsp;it&nbsp;will&nbsp;disappear&nbsp;1&nbsp;minute&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;after&nbsp;its&nbsp;initial&nbsp;rezz&nbsp;time<br>
+&nbsp;&nbsp;&nbsp;&nbsp;phant:&nbsp;&nbsp;boolean,&nbsp;if&nbsp;true&nbsp;makes&nbsp;obj&nbsp;a&nbsp;ghost&nbsp;that&nbsp;other&nbsp;objs&nbsp;or&nbsp;avatars&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;can&nbsp;pass&nbsp;through<br>
+&nbsp;&nbsp;&nbsp;&nbsp;shad:&nbsp;&nbsp;&nbsp;boolean,&nbsp;if&nbsp;true&nbsp;enable&nbsp;obj&nbsp;to&nbsp;cast&nbsp;shadows<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;False<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;True</tt></dd></dl>
+ <dl><dt><a name="-set_material"><strong>set_material</strong></a>(acid, objid, mat)</dt><dd><tt>Set&nbsp;material&nbsp;property&nbsp;of&nbsp;object<br>
+&nbsp;<br>
+Args:&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor<br>
+&nbsp;&nbsp;&nbsp;&nbsp;objid:&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;object&nbsp;to&nbsp;be&nbsp;resized<br>
+&nbsp;&nbsp;&nbsp;&nbsp;mat:&nbsp;&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;new&nbsp;material&nbsp;of&nbsp;obj,&nbsp;can&nbsp;be:&nbsp;'flesh','glass','light',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'metal','plastic','rubber','stone','wood'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;False<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;True</tt></dd></dl>
+ <dl><dt><a name="-set_name"><strong>set_name</strong></a>(acid, objid, name)</dt><dd><tt>Set&nbsp;name&nbsp;property&nbsp;of&nbsp;object<br>
+&nbsp;<br>
+Args:&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor<br>
+&nbsp;&nbsp;&nbsp;&nbsp;objid:&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;object&nbsp;to&nbsp;be&nbsp;resized<br>
+&nbsp;&nbsp;&nbsp;&nbsp;name:&nbsp;&nbsp;str&nbsp;with&nbsp;objects's&nbsp;new&nbsp;name&nbsp;(a&nbsp;text&nbsp;with&nbsp;at&nbsp;most&nbsp;63&nbsp;chars)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;False<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;True</tt></dd></dl>
+ <dl><dt><a name="-take"><strong>take</strong></a>(acid, objid, foldname)</dt><dd><tt>Take&nbsp;an&nbsp;object&nbsp;identified&nbsp;by&nbsp;objid&nbsp;from&nbsp;virtual&nbsp;world&nbsp;and&nbsp;store<br>
+&nbsp;&nbsp;&nbsp;&nbsp;it&nbsp;in&nbsp;inventory&nbsp;in&nbsp;the&nbsp;foldname&nbsp;folder.&nbsp;The&nbsp;object&nbsp;is&nbsp;de-rezzed<br>
+&nbsp;&nbsp;&nbsp;&nbsp;or&nbsp;deleted&nbsp;from&nbsp;virtual&nbsp;world.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor<br>
+&nbsp;&nbsp;&nbsp;&nbsp;objid:&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;object&nbsp;to&nbsp;be&nbsp;de-rezzed<br>
+&nbsp;&nbsp;&nbsp;&nbsp;foldname:&nbsp;str&nbsp;with&nbsp;name&nbsp;of&nbsp;inventory&nbsp;folder&nbsp;that&nbsp;will&nbsp;receive&nbsp;object<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;False<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;True</tt></dd></dl>
+ <dl><dt><a name="-touch"><strong>touch</strong></a>(acid, objid)</dt><dd><tt>Touch&nbsp;object&nbsp;identified&nbsp;by&nbsp;objid<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor<br>
+&nbsp;&nbsp;&nbsp;&nbsp;objid:&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;object&nbsp;to&nbsp;be&nbsp;touched<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;False<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;True</tt></dd></dl>
+</td></tr></table>
+</body></html>

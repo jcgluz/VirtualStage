@@ -1,0 +1,747 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module ObserveActions</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>ObserveActions</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href="index.html">index</a><br><a href="../observeactions.py">d:\virtualstage\observeactions.py</a></font></td></tr></table>
+    <p><tt>Module&nbsp;ObserveActions&nbsp;-&nbsp;Actions&nbsp;to&nbsp;observe&nbsp;objects,&nbsp;avatars&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;and&nbsp;other&nbsp;virtual&nbsp;world&nbsp;entities<br>
+Functions:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-look_avatar">look_avatar</a>(acid,&nbsp;avid)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-look_avatar_with_name">look_avatar_with_name</a>(acid,&nbsp;avname)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-look_obj">look_obj</a>(acid,&nbsp;objid)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-look_obj_extra_props">look_obj_extra_props</a>(acid,&nbsp;objid)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-look_obj_flex_props">look_obj_flex_props</a>(acid,&nbsp;objid)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-look_obj_light_props">look_obj_light_props</a>(acid,&nbsp;objid)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-look_obj_sculpt_props">look_obj_sculpt_props</a>(acid,&nbsp;objid)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-look_obj_constr_props">look_obj_constr_props</a>(acid,&nbsp;objid)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-look_obj_phys_props">look_obj_phys_props</a>(acid,&nbsp;objid)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-look_obj_inventory">look_obj_inventory</a>(acid,&nbsp;objid)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-look_height_at">look_height_at</a>(acid,&nbsp;x,&nbsp;y)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-look_wind_at">look_wind_at</a>(acid,&nbsp;x,&nbsp;y)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-look_region">look_region</a>(acid,&nbsp;rgname)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;seek_actors(acid)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-seek_avatars">seek_avatars</a>(acid)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-seek_obj_children">seek_obj_children</a>(acid,objid)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-seek_objs_by_radius">seek_objs_by_radius</a>(acid,rad)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-seek_objs_by_type">seek_objs_by_type</a>(acid,rad,typ,subtyp)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-seek_objs_by_name">seek_objs_by_name</a>(acid,rad,srchname,srchmode='in',srchcase='nocase')<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-seek_objs_by_descr">seek_objs_by_descr</a>(acid,rad,srchdescr,srchmode='in',srchcase='nocase')<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-seek_objs">seek_objs</a>(acid,rad,typ,subtyp,srchtxt='',srchin='name',srchmode='in',srchcase='nocase')<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-seek_all_objs">seek_all_objs</a>(acid)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-seek_regions">seek_regions</a>(acid)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-wait_event">wait_event</a>(acid,evntpatt,timeout)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-seek_event">seek_event</a>(acid,evntpatt=None)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-clear_events">clear_events</a>(acid)</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="ActorController.html">ActorController</a><br>
+</td><td width="25%" valign=top></td><td width="25%" valign=top></td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-clear_events"><strong>clear_events</strong></a>(acid)</dt><dd><tt>Clears&nbsp;the&nbsp;event&nbsp;reception&nbsp;queue.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor.<br>
+&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;False.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;clears&nbsp;the&nbsp;event&nbsp;reception&nbsp;queue&nbsp;and&nbsp;returns&nbsp;True.</tt></dd></dl>
+ <dl><dt><a name="-look_avatar"><strong>look_avatar</strong></a>(acid, avid)</dt><dd><tt>Get&nbsp;attributes&nbsp;and&nbsp;properties&nbsp;of&nbsp;avatar&nbsp;with&nbsp;avid&nbsp;unique&nbsp;id.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;avid:&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;avatar.<br>
+&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;None.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;returns&nbsp;an&nbsp;'avatar'&nbsp;perception&nbsp;record&nbsp;containing&nbsp;information<br>
+&nbsp;&nbsp;&nbsp;&nbsp;about&nbsp;the&nbsp;avatar&nbsp;identified&nbsp;by&nbsp;avid.&nbsp;Perception&nbsp;records&nbsp;are&nbsp;lists&nbsp;of&nbsp;strings.&nbsp;The&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;'avatar'&nbsp;record&nbsp;contains&nbsp;basic&nbsp;information&nbsp;about&nbsp;the&nbsp;avatar:&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['avatar',&nbsp;avid,&nbsp;name,&nbsp;dist,&nbsp;x,&nbsp;y,&nbsp;z]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;where:&nbsp;&nbsp;name&nbsp;is&nbsp;the&nbsp;name&nbsp;of&nbsp;avatar;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dist&nbsp;is&nbsp;the&nbsp;distance&nbsp;from&nbsp;actor;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x,y,z&nbsp;are&nbsp;X,Y,Z&nbsp;region&nbsp;coordinates&nbsp;of&nbsp;avatar.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;this&nbsp;action&nbsp;also&nbsp;adds&nbsp;to&nbsp;perception&nbsp;base&nbsp;a&nbsp;list&nbsp;of&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;perception&nbsp;records&nbsp;with&nbsp;remaining&nbsp;info&nbsp;about&nbsp;the&nbsp;avatar:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['avatar',&nbsp;avid,&nbsp;name,&nbsp;dist,&nbsp;x,&nbsp;y,&nbsp;z]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['name',&nbsp;avid,&nbsp;name]:&nbsp;name&nbsp;(first&nbsp;name&nbsp;+&nbsp;last&nbsp;name)&nbsp;of&nbsp;avatar<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['first_name',&nbsp;avid,&nbsp;firtname]:&nbsp;first&nbsp;name&nbsp;of&nbsp;avatar<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['last_name',&nbsp;avid,&nbsp;lastname]:&nbsp;last&nbsp;name&nbsp;of&nbsp;avatar<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['dist',&nbsp;avid,&nbsp;dist]:&nbsp;distance&nbsp;from&nbsp;actor<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['pos',&nbsp;avid,&nbsp;x,&nbsp;y,&nbsp;z]:&nbsp;position&nbsp;of&nbsp;avatar&nbsp;in&nbsp;X,Y,Z&nbsp;region&nbsp;coordinates<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['scale',&nbsp;avid,&nbsp;sx,&nbsp;sy,&nbsp;sz]:&nbsp;scale&nbsp;of&nbsp;avatar&nbsp;in&nbsp;X,Y,Z&nbsp;axis<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['rot',&nbsp;avid,&nbsp;roll,&nbsp;pitch,&nbsp;yaw]:&nbsp;rotation&nbsp;of&nbsp;avatar&nbsp;in&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;roll,pitch,yaw&nbsp;Euler&nbsp;radian&nbsp;angles<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['veloc',&nbsp;avid,&nbsp;vx,&nbsp;vy,&nbsp;vz]:&nbsp;speed&nbsp;of&nbsp;avatar&nbsp;in&nbsp;meters/sec&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;n&nbsp;X,Y,Z&nbsp;axis&nbsp;directions<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['ang_veloc',&nbsp;objid,&nbsp;angvx,&nbsp;angvy,&nbsp;anvz]:&nbsp;angular&nbsp;velocity<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;of&nbsp;avatar&nbsp;in&nbsp;X,Y,Z&nbsp;axis&nbsp;in&nbsp;radians/sec<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['accel',&nbsp;objid,&nbsp;accelx,&nbsp;accely,&nbsp;accelz&nbsp;]:&nbsp;acceleration&nbsp;of&nbsp;avatar<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;in&nbsp;meters2/sec&nbsp;in&nbsp;X,Y,Z&nbsp;axis&nbsp;directions<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['local_id',&nbsp;avid,&nbsp;localid]:&nbsp;local&nbsp;id&nbsp;of&nbsp;avatar&nbsp;(an&nbsp;integer)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['txtr',avid,txtrid]:&nbsp;global&nbsp;id&nbsp;of&nbsp;default&nbsp;texture&nbsp;of&nbsp;avatar<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['color',avid,r,g,b,a]:&nbsp;red,&nbsp;green,&nbsp;blue,&nbsp;alpha(transparency)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;components&nbsp;of&nbsp;default&nbsp;color&nbsp;of&nbsp;avatar<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['glow',avid,glow]:&nbsp;default&nbsp;glow&nbsp;of&nbsp;avatar,&nbsp;from&nbsp;0.0&nbsp;to&nbsp;1.0<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['nfaces',avid,n]:&nbsp;number&nbsp;of&nbsp;faces&nbsp;that&nbsp;have&nbsp;specific&nbsp;textures<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['txtr_&lt;faceidx&gt;',avid,txtrid]:&nbsp;texture&nbsp;of&nbsp;face&nbsp;with&nbsp;index<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;faceidx&nbsp;(only&nbsp;added&nbsp;if&nbsp;avatar&nbsp;has&nbsp;a&nbsp;texture&nbsp;in&nbsp;faceidx&nbsp;face)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['color_faceidx&gt;',avid,r,g,b,a]:&nbsp;color&nbsp;of&nbsp;texture&nbsp;of&nbsp;face&nbsp;with<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;index&nbsp;faceidx&nbsp;(only&nbsp;added&nbsp;if&nbsp;avatar&nbsp;has&nbsp;a&nbsp;texture&nbsp;in&nbsp;faceidx&nbsp;face)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['glow_&lt;faceidx&gt;',avid,glow]:&nbsp;glow&nbsp;of&nbsp;texture&nbsp;of&nbsp;face&nbsp;with<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;index&nbsp;faceidx&nbsp;(only&nbsp;added&nbsp;if&nbsp;avatar&nbsp;has&nbsp;a&nbsp;texture&nbsp;in&nbsp;faceidx&nbsp;face)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;All&nbsp;fields&nbsp;from&nbsp;perception&nbsp;records&nbsp;are&nbsp;strings.</tt></dd></dl>
+ <dl><dt><a name="-look_avatar_with_name"><strong>look_avatar_with_name</strong></a>(acid, avname)</dt><dd><tt>Search&nbsp;information&nbsp;about&nbsp;avatar&nbsp;with&nbsp;name&nbsp;avname<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;avname:&nbsp;str&nbsp;with&nbsp;name&nbsp;of&nbsp;avatar.<br>
+&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;None.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;returns&nbsp;an&nbsp;'avatar'&nbsp;perception&nbsp;record&nbsp;containing&nbsp;basic<br>
+&nbsp;&nbsp;&nbsp;&nbsp;information&nbsp;about&nbsp;the&nbsp;avatar&nbsp;with&nbsp;name&nbsp;avnameand&nbsp;adds&nbsp;to&nbsp;perception&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;base&nbsp;a&nbsp;list&nbsp;of&nbsp;perception&nbsp;records&nbsp;with&nbsp;remaining&nbsp;info&nbsp;about&nbsp;avatar.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;See&nbsp;<a href="#-look_avatar">look_avatar</a>()&nbsp;action&nbsp;for&nbsp;a&nbsp;description&nbsp;about&nbsp;types&nbsp;and&nbsp;formats&nbsp;of&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;perception&nbsp;records&nbsp;returned&nbsp;or&nbsp;added&nbsp;to&nbsp;perception&nbsp;base&nbsp;by&nbsp;this&nbsp;action.</tt></dd></dl>
+ <dl><dt><a name="-look_height_at"><strong>look_height_at</strong></a>(acid, x, y)</dt><dd><tt>Look&nbsp;terrain&nbsp;height&nbsp;at&nbsp;x,y&nbsp;position&nbsp;in&nbsp;current&nbsp;region<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor<br>
+&nbsp;&nbsp;&nbsp;&nbsp;x,y:&nbsp;&nbsp;&nbsp;&nbsp;float,&nbsp;int&nbsp;or&nbsp;numeric&nbsp;str&nbsp;numbers&nbsp;with&nbsp;X,Y&nbsp;region&nbsp;coordinates<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;None.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;returns&nbsp;a&nbsp;perception&nbsp;record&nbsp;with&nbsp;information&nbsp;about&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;height&nbsp;in&nbsp;X,Y&nbsp;coordinates:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['terrain_height_at',&nbsp;rid,&nbsp;x,&nbsp;y,&nbsp;height]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;where:&nbsp;&nbsp;rid&nbsp;is&nbsp;the&nbsp;unique&nbsp;global&nbsp;id&nbsp;of&nbsp;region;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x,y&nbsp;are&nbsp;the&nbsp;X,Y&nbsp;region&nbsp;coordinates;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;height&nbsp;is&nbsp;the&nbsp;terrain&nbsp;height&nbsp;in&nbsp;meters&nbsp;at&nbsp;X,Y&nbsp;position.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;All&nbsp;fields&nbsp;from&nbsp;perception&nbsp;records&nbsp;are&nbsp;strings.</tt></dd></dl>
+ <dl><dt><a name="-look_obj"><strong>look_obj</strong></a>(acid, objid)</dt><dd><tt>Look&nbsp;to&nbsp;objid&nbsp;object&nbsp;to&nbsp;get&nbsp;its&nbsp;basic&nbsp;info&nbsp;and&nbsp;additional&nbsp;properties.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;objid:&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;object.<br>
+&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;None.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;returns&nbsp;an&nbsp;'obj'&nbsp;perception&nbsp;record&nbsp;containing&nbsp;information<br>
+&nbsp;&nbsp;&nbsp;&nbsp;about&nbsp;the&nbsp;object&nbsp;identified&nbsp;by&nbsp;objid.&nbsp;Perception&nbsp;records&nbsp;are&nbsp;lists&nbsp;of&nbsp;strings.&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;'obj'&nbsp;record&nbsp;contains&nbsp;basic&nbsp;information&nbsp;about&nbsp;the&nbsp;object:&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['obj',&nbsp;objid,&nbsp;name,&nbsp;type,&nbsp;subtyp,&nbsp;dist,&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x,&nbsp;y,&nbsp;z,&nbsp;sx,&nbsp;sy,&nbsp;sz,&nbsp;descr&nbsp;]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;where:&nbsp;&nbsp;objid&nbsp;is&nbsp;the&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;object&nbsp;(an&nbsp;string)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;name&nbsp;is&nbsp;the&nbsp;name&nbsp;of&nbsp;object<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type&nbsp;can&nbsp;be&nbsp;'prim',&nbsp;'tree'&nbsp;or&nbsp;'grass'&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;subtyp&nbsp;is&nbsp;the&nbsp;type&nbsp;of&nbsp;primitive,&nbsp;tree&nbsp;or&nbsp;grass<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dist&nbsp;is&nbsp;the&nbsp;distance&nbsp;of&nbsp;object&nbsp;from&nbsp;actor's&nbsp;avatar<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x,y,z&nbsp;are&nbsp;X,Y,Z&nbsp;region&nbsp;coordinates&nbsp;of&nbsp;obj<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sx,sy,sz&nbsp;are&nbsp;the&nbsp;scale&nbsp;(size)&nbsp;of&nbsp;obj&nbsp;in&nbsp;X,Y,Z&nbsp;axis.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;descr&nbsp;is&nbsp;the&nbsp;description&nbsp;of&nbsp;object&nbsp;(max&nbsp;127&nbsp;chars)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;this&nbsp;action&nbsp;adds&nbsp;the&nbsp;'obj'&nbsp;record&nbsp;to&nbsp;perception&nbsp;base&nbsp;and&nbsp;also&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;adds&nbsp;to&nbsp;this&nbsp;base&nbsp;a&nbsp;list&nbsp;of&nbsp;perception&nbsp;records&nbsp;with&nbsp;the&nbsp;remaining&nbsp;basic<br>
+&nbsp;&nbsp;&nbsp;&nbsp;and&nbsp;additional&nbsp;properties&nbsp;of&nbsp;this&nbsp;object:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['name',&nbsp;objid,&nbsp;name]:&nbsp;name&nbsp;property&nbsp;of&nbsp;object<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['descr',&nbsp;objid,&nbsp;description]:&nbsp;description&nbsp;of&nbsp;object&nbsp;(max&nbsp;127&nbsp;chars)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['dist',&nbsp;objid,&nbsp;dist]:&nbsp;distance&nbsp;from&nbsp;actor<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['type',&nbsp;objid,&nbsp;obj_type]:&nbsp;type&nbsp;of&nbsp;object<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['subtype',&nbsp;objid,&nbsp;primtype]:&nbsp;subtype&nbsp;of&nbsp;obj,&nbsp;see&nbsp;'obj'&nbsp;record<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['local_id',&nbsp;objid,&nbsp;localid]:&nbsp;local&nbsp;id&nbsp;of&nbsp;object&nbsp;(an&nbsp;integer)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['parent_id',&nbsp;objid,&nbsp;parentid]:&nbsp;local&nbsp;id&nbsp;of&nbsp;parent&nbsp;obj,&nbsp;is&nbsp;obj&nbsp;is&nbsp;linked<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['is_flex',&nbsp;objid]:&nbsp;added&nbsp;if&nbsp;obj&nbsp;is&nbsp;flexible<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['is_light',&nbsp;objid]:&nbsp;added&nbsp;if&nbsp;obj&nbsp;is&nbsp;light<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['is_sculpt',&nbsp;objid]:&nbsp;added&nbsp;if&nbsp;obj&nbsp;is&nbsp;sculpt<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['is_flex',&nbsp;objid]:&nbsp;added&nbsp;if&nbsp;obj&nbsp;is&nbsp;flexible<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['has_children',&nbsp;objid]:&nbsp;added&nbsp;if&nbsp;is&nbsp;linked&nbsp;obj&nbsp;with&nbsp;children<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['is_linked',&nbsp;objid]:&nbsp;added&nbsp;if&nbsp;obj&nbsp;has&nbsp;children&nbsp;or&nbsp;has&nbsp;parent<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['has_phys',&nbsp;objid]:&nbsp;added&nbsp;if&nbsp;obj&nbsp;had&nbsp;physical&nbsp;parameters<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['has_shadows',&nbsp;objid]:&nbsp;added&nbsp;if&nbsp;obj&nbsp;cast&nbsp;shadows<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['is_temp',&nbsp;objid]:&nbsp;added&nbsp;if&nbsp;obj&nbsp;is&nbsp;temporary<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['is_phantom',&nbsp;objid]:&nbsp;added&nbsp;if&nbsp;obj&nbsp;is&nbsp;phantom,&nbsp;i.e.,&nbsp;cannot&nbsp;collides<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['pos',&nbsp;objid,&nbsp;x,&nbsp;y&nbsp;,&nbsp;z]:&nbsp;position&nbsp;of&nbsp;obj&nbsp;in&nbsp;X,Y,Z&nbsp;region&nbsp;coordinates<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['scale',&nbsp;objid,&nbsp;sx,&nbsp;sy,&nbsp;sz]:&nbsp;scale&nbsp;of&nbsp;obj&nbsp;in&nbsp;X,Y,Z&nbsp;axis<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['rot',&nbsp;objid,&nbsp;roll,&nbsp;pitch,&nbsp;yaw]:&nbsp;rotation&nbsp;of&nbsp;obj&nbsp;in&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;roll,pitch,yaw&nbsp;Euler&nbsp;radian&nbsp;angles<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['veloc',&nbsp;objid,&nbsp;vx,&nbsp;vy,&nbsp;vz]:&nbsp;speed&nbsp;of&nbsp;object&nbsp;in&nbsp;meters/sec&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;in&nbsp;X,Y,Z&nbsp;axis&nbsp;directions<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['ang_veloc',&nbsp;objid,&nbsp;angvx,&nbsp;angvy,&nbsp;anvz]:&nbsp;angular&nbsp;velocity<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;of&nbsp;object&nbsp;in&nbsp;X,Y,Z&nbsp;axis&nbsp;in&nbsp;radians/sec<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['accel',&nbsp;objid,&nbsp;accelx,&nbsp;accely,&nbsp;accelz&nbsp;]:&nbsp;acceleration&nbsp;of&nbsp;object<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;in&nbsp;meters2/sec&nbsp;in&nbsp;X,Y,Z&nbsp;axis&nbsp;directions<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['collis_plane',&nbsp;objid,&nbsp;x,&nbsp;y,&nbsp;z,&nbsp;w]:&nbsp;collision&nbsp;plane&nbsp;of&nbsp;object<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['hover_text',&nbsp;objid,&nbsp;text]:&nbsp;added&nbsp;if&nbsp;obj&nbsp;hover&nbsp;text&nbsp;is&nbsp;not&nbsp;empty<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['is_attach',&nbsp;objid]:&nbsp;added&nbsp;if&nbsp;obj&nbsp;is&nbsp;an&nbsp;attachment<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['txtr',objid,txtrid]:&nbsp;global&nbsp;id&nbsp;of&nbsp;default&nbsp;texture&nbsp;of&nbsp;obj<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['color',objid,r,g,b,a]:&nbsp;red,&nbsp;green,&nbsp;blue,&nbsp;alpha(transparency)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;components&nbsp;of&nbsp;default&nbsp;color&nbsp;of&nbsp;obj<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['glow',objid,glow]:&nbsp;default&nbsp;glow&nbsp;of&nbsp;obj,&nbsp;from&nbsp;0.0&nbsp;to&nbsp;1.0<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['nfaces',objid,n]:&nbsp;number&nbsp;of&nbsp;faces&nbsp;that&nbsp;have&nbsp;specific&nbsp;textures<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['txtr_&lt;faceidx&gt;',objid,txtrid]:&nbsp;texture&nbsp;of&nbsp;face&nbsp;with&nbsp;index<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;faceidx&nbsp;(only&nbsp;added&nbsp;if&nbsp;obj&nbsp;has&nbsp;a&nbsp;texture&nbsp;in&nbsp;faceidx&nbsp;face)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['color_faceidx&gt;',objid,r,g,b,a]:&nbsp;color&nbsp;of&nbsp;texture&nbsp;of&nbsp;face&nbsp;with<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;index&nbsp;faceidx&nbsp;(only&nbsp;added&nbsp;if&nbsp;obj&nbsp;has&nbsp;a&nbsp;texture&nbsp;in&nbsp;faceidx&nbsp;face)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['glow_&lt;faceidx&gt;',objid,glow]:&nbsp;glow&nbsp;of&nbsp;texture&nbsp;of&nbsp;face&nbsp;with<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;index&nbsp;faceidx&nbsp;(only&nbsp;added&nbsp;if&nbsp;obj&nbsp;has&nbsp;a&nbsp;texture&nbsp;in&nbsp;faceidx&nbsp;face)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['extra_props',&nbsp;objid,&nbsp;name,&nbsp;descr,&nbsp;creatid,&nbsp;ownerid,&nbsp;creatdate]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['creator_id',&nbsp;objid,&nbsp;creatid]:&nbsp;id&nbsp;of&nbsp;object's&nbsp;creator<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['owner_id',&nbsp;objid,&nbsp;ownerid]:&nbsp;id&nbsp;of&nbsp;object's&nbsp;owner<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['creat_date',&nbsp;objid,&nbsp;creatdate]:&nbsp;creation&nbsp;date&nbsp;of&nbsp;object<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['owner_perms',&nbsp;objid,&nbsp;perms]:&nbsp;permissions&nbsp;for&nbsp;object's&nbsp;owner<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['group_perms',&nbsp;objid,&nbsp;perms]:&nbsp;permissions&nbsp;for&nbsp;group<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['all_perms',&nbsp;objid,&nbsp;perms]:&nbsp;permissions&nbsp;for&nbsp;every&nbsp;one<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['base_perms',&nbsp;objid,&nbsp;perms]:&nbsp;base&nbsp;permissions<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['nextown_perms',&nbsp;objid,&nbsp;perms]:&nbsp;permissions&nbsp;for&nbsp;next&nbsp;owner&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;All&nbsp;fields&nbsp;from&nbsp;perception&nbsp;records&nbsp;are&nbsp;strings.</tt></dd></dl>
+ <dl><dt><a name="-look_obj_constr_props"><strong>look_obj_constr_props</strong></a>(acid, objid)</dt><dd><tt>Get&nbsp;construction&nbsp;properties&nbsp;of&nbsp;objid&nbsp;object.&nbsp;This&nbsp;information&nbsp;can&nbsp;be&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;used&nbsp;to&nbsp;construct&nbsp;the&nbsp;visual&nbsp;representation&nbsp;of&nbsp;a&nbsp;primitive&nbsp;object.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;objid:&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;object.<br>
+&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;None.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;returns&nbsp;an&nbsp;'constr_props'&nbsp;perception&nbsp;record&nbsp;containing&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;a&nbsp;resume&nbsp;of&nbsp;construction&nbsp;info&nbsp;about&nbsp;objid&nbsp;object.&nbsp;Perception&nbsp;records&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;are&nbsp;list&nbsp;of&nbsp;strings,&nbsp;'constr_props'&nbsp;records&nbsp;have&nbsp;the&nbsp;following&nbsp;format:&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['constr_data',&nbsp;objid,&nbsp;profshape,&nbsp;holetype,&nbsp;pathcurve]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;where:&nbsp;&nbsp;profshape&nbsp;can&nbsp;be:&nbsp;'circle',&nbsp;'square',&nbsp;'isotriangle',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'equaltriangle',&nbsp;'righttriangle',&nbsp;'halfcircle'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;holetype&nbsp;can&nbsp;be:&nbsp;'same',&nbsp;'circle',&nbsp;'square',&nbsp;'triangle'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pathcurve&nbsp;can&nbsp;be:&nbsp;'line',&nbsp;'circle',&nbsp;'circle2',&nbsp;'test',&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'flexible'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;this&nbsp;action&nbsp;adds&nbsp;'constr_props'&nbsp;record&nbsp;to&nbsp;perception&nbsp;base&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;and&nbsp;also&nbsp;adds&nbsp;to&nbsp;this&nbsp;base&nbsp;a&nbsp;list&nbsp;of&nbsp;perception&nbsp;records&nbsp;remaining<br>
+&nbsp;&nbsp;&nbsp;&nbsp;construction&nbsp;info&nbsp;about&nbsp;this&nbsp;object:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['attach_point',&nbsp;objid,&nbsp;attachpoint]&nbsp;added&nbsp;if&nbsp;it&nbsp;is&nbsp;attach&nbsp;point<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['prof_shape',&nbsp;objid,&nbsp;profshape]:&nbsp;shape&nbsp;of&nbsp;the&nbsp;profile<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['prof_hole',&nbsp;objid,&nbsp;holetype]:&nbsp;prof.&nbsp;hole&nbsp;type,&nbsp;if&nbsp;profhollow&nbsp;non-zero<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['prof_begin',&nbsp;objid,&nbsp;profbegin]:&nbsp;where&nbsp;profile&nbsp;cut&nbsp;(if&nbsp;any)&nbsp;begins<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['prof_end',&nbsp;objid,&nbsp;profend]:&nbsp;where&nbsp;profile&nbsp;cut&nbsp;(if&nbsp;any)&nbsp;ends<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['prof_hollow',&nbsp;objid,&nbsp;profhollow]:&nbsp;how&nbsp;much&nbsp;of&nbsp;the&nbsp;profile&nbsp;is&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;hollowed&nbsp;out,&nbsp;as&nbsp;a&nbsp;percent&nbsp;of&nbsp;original&nbsp;bounding&nbsp;box.&nbsp;If&nbsp;non-zero&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;creates&nbsp;a&nbsp;hole&nbsp;using&nbsp;the&nbsp;shape&nbsp;defined&nbsp;in&nbsp;profhole<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['path_curve',&nbsp;objid,&nbsp;pathcurve]:&nbsp;shape&nbsp;of&nbsp;extrusion&nbsp;path&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['path_begin',&nbsp;objid,&nbsp;pathbegin]:&nbsp;float&nbsp;construction&nbsp;parameter<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['path_end',&nbsp;objid,&nbsp;pathend]:&nbsp;float&nbsp;construction&nbsp;parameter<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['path_begin_scale'],&nbsp;objid,&nbsp;x,&nbsp;y]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['path_end_scale',&nbsp;objid,&nbsp;x,&nbsp;y]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['path_rad_offset',&nbsp;objid,&nbsp;pathradoffset]:&nbsp;float&nbsp;constr.&nbsp;parameter<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['path_skew',&nbsp;objid,&nbsp;pathskew]:&nbsp;float&nbsp;construction&nbsp;parameter<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['path_scale',&nbsp;objid,&nbsp;x,&nbsp;y&nbsp;]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['path_shear',&nbsp;objid,&nbsp;x,&nbsp;y]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['path_taper',&nbsp;objid,&nbsp;x,&nbsp;y]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['path_twist',&nbsp;objid,&nbsp;pathtwist]:&nbsp;float&nbsp;construction&nbsp;parameter<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['path_twist_begin',&nbsp;pathtwistbegin]:&nbsp;float&nbsp;construction&nbsp;parameter<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['path_revols',&nbsp;objid,&nbsp;profrevols]:&nbsp;float&nbsp;construction&nbsp;parameter<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['material',&nbsp;objid,&nbsp;material]:&nbsp;material&nbsp;can&nbsp;be:&nbsp;'stone',&nbsp;'metal',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'glass',&nbsp;'wood',&nbsp;'flesh',&nbsp;'plastic',&nbsp;'rubber',&nbsp;'light'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;All&nbsp;fields&nbsp;from&nbsp;perception&nbsp;records&nbsp;are&nbsp;strings.</tt></dd></dl>
+ <dl><dt><a name="-look_obj_extra_props"><strong>look_obj_extra_props</strong></a>(acid, objid)</dt><dd><tt>Get&nbsp;additional&nbsp;properties&nbsp;about&nbsp;objid&nbsp;object.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;objid:&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;object.<br>
+&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;None.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;returns&nbsp;an&nbsp;'extra_props'&nbsp;perception&nbsp;record&nbsp;containing&nbsp;a<br>
+&nbsp;&nbsp;&nbsp;&nbsp;a&nbsp;resume&nbsp;of&nbsp;the&nbsp;additional&nbsp;properties&nbsp;of&nbsp;objid&nbsp;object.&nbsp;Perception&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;records&nbsp;are&nbsp;lists&nbsp;of&nbsp;strings,&nbsp;the&nbsp;'props_data'&nbsp;record&nbsp;has&nbsp;the&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;following&nbsp;structure:&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['extra_props',&nbsp;objid,&nbsp;name,&nbsp;descr,&nbsp;creatid,&nbsp;ownerid,&nbsp;creatdate]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;where:&nbsp;&nbsp;name&nbsp;is&nbsp;the&nbsp;name&nbsp;of&nbsp;object&nbsp;(max&nbsp;63&nbsp;chars);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;descr&nbsp;is&nbsp;the&nbsp;description&nbsp;of&nbsp;object&nbsp;(max&nbsp;127&nbsp;chars);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;creatid&nbsp;is&nbsp;the&nbsp;unique&nbsp;global&nbsp;id&nbsp;of&nbsp;object'a&nbsp;creator;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ownerid&nbsp;is&nbsp;the&nbsp;unique&nbsp;global&nbsp;id&nbsp;of&nbsp;object'a&nbsp;owner;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;creatdate&nbsp;is&nbsp;the&nbsp;date&nbsp;of&nbsp;creation&nbsp;of&nbsp;object.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;this&nbsp;action&nbsp;adds&nbsp;'extra_props'&nbsp;record&nbsp;to&nbsp;perception&nbsp;base&nbsp;and<br>
+&nbsp;&nbsp;&nbsp;&nbsp;also&nbsp;adds&nbsp;list&nbsp;of&nbsp;perception&nbsp;records&nbsp;with&nbsp;remaining&nbsp;additional&nbsp;properties<br>
+&nbsp;&nbsp;&nbsp;&nbsp;of&nbsp;this&nbsp;object:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['name',&nbsp;objid,&nbsp;name]:&nbsp;name&nbsp;of&nbsp;object&nbsp;(max&nbsp;63&nbsp;chars)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['descr',&nbsp;objid,&nbsp;description]:&nbsp;description&nbsp;of&nbsp;object&nbsp;(max&nbsp;127&nbsp;chars)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['creator_id',&nbsp;objid,&nbsp;creatid]:&nbsp;id&nbsp;of&nbsp;object's&nbsp;creator<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['owner_id',&nbsp;objid,&nbsp;ownerid]:&nbsp;id&nbsp;of&nbsp;object's&nbsp;owner<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['creat_date',&nbsp;objid,&nbsp;creatdate]:&nbsp;creation&nbsp;date&nbsp;of&nbsp;object<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['owner_perms',&nbsp;objid,&nbsp;perms]:&nbsp;permissions&nbsp;for&nbsp;object's&nbsp;owner<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['group_perms',&nbsp;objid,&nbsp;perms]:&nbsp;permissions&nbsp;for&nbsp;group<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['all_perms',&nbsp;objid,&nbsp;perms]:&nbsp;permissions&nbsp;for&nbsp;every&nbsp;one<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['base_perms',&nbsp;objid,&nbsp;perms]:&nbsp;base&nbsp;permissions<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['nextown_perms',&nbsp;objid,&nbsp;perms]:&nbsp;permissions&nbsp;for&nbsp;next&nbsp;owner&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;All&nbsp;fields&nbsp;from&nbsp;perception&nbsp;records&nbsp;are&nbsp;strings.</tt></dd></dl>
+ <dl><dt><a name="-look_obj_flex_props"><strong>look_obj_flex_props</strong></a>(acid, objid)</dt><dd><tt>If&nbsp;objid&nbsp;is&nbsp;a&nbsp;flexible&nbsp;object,&nbsp;get&nbsp;its&nbsp;flexible&nbsp;properties.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;objid:&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;object.<br>
+&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;None.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;returns&nbsp;an&nbsp;'flex_props'&nbsp;perception&nbsp;record&nbsp;containing&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;a&nbsp;resume&nbsp;of&nbsp;the&nbsp;flexible&nbsp;properties&nbsp;of&nbsp;objid&nbsp;object.&nbsp;Perception<br>
+&nbsp;&nbsp;&nbsp;&nbsp;records&nbsp;are&nbsp;list&nbsp;of&nbsp;strings,&nbsp;'flex_obj'&nbsp;record&nbsp;have&nbsp;the&nbsp;following<br>
+&nbsp;&nbsp;&nbsp;&nbsp;format:&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['flex_props',&nbsp;objid,&nbsp;softness]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;where:&nbsp;&nbsp;softness&nbsp;contains&nbsp;an&nbsp;int&nbsp;value,&nbsp;which&nbsp;determines&nbsp;the&nbsp;number&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;of&nbsp;joints&nbsp;a&nbsp;flexible&nbsp;object&nbsp;will&nbsp;have.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;this&nbsp;action&nbsp;also&nbsp;adds&nbsp;'flex_props'&nbsp;record&nbsp;to&nbsp;perception&nbsp;base<br>
+&nbsp;&nbsp;&nbsp;&nbsp;and&nbsp;also&nbsp;adds&nbsp;to&nbsp;this&nbsp;base&nbsp;a&nbsp;list&nbsp;of&nbsp;perception&nbsp;records&nbsp;with&nbsp;remaining<br>
+&nbsp;&nbsp;&nbsp;&nbsp;flexible&nbsp;properties&nbsp;of&nbsp;this&nbsp;object:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['is_flex',&nbsp;objid]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['flex_soft',&nbsp;objid,&nbsp;softness]:&nbsp;number&nbsp;of&nbsp;joints&nbsp;of&nbsp;flex&nbsp;obj<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['flex_grav',&nbsp;objid,&nbsp;gravity]:&nbsp;the&nbsp;downward&nbsp;pull&nbsp;on&nbsp;the&nbsp;obj<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['flex_drag',&nbsp;objid,&nbsp;drag]:&nbsp;affects&nbsp;how&nbsp;fast&nbsp;obj&nbsp;snap&nbsp;back&nbsp;into&nbsp;place.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['flex_wind',&nbsp;objid,&nbsp;wind]:&nbsp;adjusts&nbsp;how&nbsp;wind&nbsp;will&nbsp;affect&nbsp;flex&nbsp;obj<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['flex_tension',&nbsp;objid,&nbsp;tension]:&nbsp;makes&nbsp;the&nbsp;flex&nbsp;obj&nbsp;stiff&nbsp;or&nbsp;loose<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['flex_force',&nbsp;objid,xforce,yforce,zforce]:&nbsp;x,y,z&nbsp;axis&nbsp;directions&nbsp;of&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pushing&nbsp;or&nbsp;pulling&nbsp;force&nbsp;on&nbsp;flex&nbsp;obj&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;All&nbsp;fields&nbsp;from&nbsp;perception&nbsp;records&nbsp;are&nbsp;strings.</tt></dd></dl>
+ <dl><dt><a name="-look_obj_inventory"><strong>look_obj_inventory</strong></a>(acid, objid)</dt><dd><tt>Retrieve&nbsp;inventory&nbsp;of&nbsp;items&nbsp;stored&nbsp;inside&nbsp;object&nbsp;objid.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;objid:&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;object.<br>
+&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;None.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;returns&nbsp;an&nbsp;list&nbsp;of&nbsp;inventory&nbsp;perception&nbsp;records&nbsp;containing&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;information&nbsp;about&nbsp;items/folders&nbsp;stored&nbsp;inside&nbsp;objid&nbsp;object.&nbsp;Inventory<br>
+&nbsp;&nbsp;&nbsp;&nbsp;perception&nbsp;records&nbsp;are&nbsp;lists&nbsp;of&nbsp;strings.&nbsp;Two&nbsp;kinds&nbsp;of&nbsp;inventory<br>
+&nbsp;&nbsp;&nbsp;&nbsp;records&nbsp;are&nbsp;retrieved&nbsp;by&nbsp;this&nbsp;action,&nbsp;'objfolder'&nbsp;records&nbsp;containing&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;information&nbsp;about&nbsp;folders:&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['objfolder',&nbsp;id,&nbsp;objid,&nbsp;name,&nbsp;objid]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;or&nbsp;'objitem'&nbsp;records&nbsp;containing&nbsp;information&nbsp;about&nbsp;items:&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['objitem',&nbsp;id,&nbsp;objid,&nbsp;name,&nbsp;descr,&nbsp;invtyp,&nbsp;assetyp]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;where:&nbsp;&nbsp;id&nbsp;is&nbsp;the&nbsp;unique&nbsp;global&nbsp;id&nbsp;of&nbsp;folder/item;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;objid&nbsp;is&nbsp;the&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;object&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;name&nbsp;is&nbsp;the&nbsp;name&nbsp;of&nbsp;folder/item;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;descr&nbsp;is&nbsp;the&nbsp;description&nbsp;of&nbsp;item;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;invtyp&nbsp;is&nbsp;the&nbsp;inventory&nbsp;type&nbsp;of&nbsp;item.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;assetyp&nbsp;is&nbsp;the&nbsp;asset&nbsp;type&nbsp;of&nbsp;item.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;this&nbsp;action&nbsp;also&nbsp;adds&nbsp;the&nbsp;'objfolder'&nbsp;and/or&nbsp;'objitem'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;retrieved&nbsp;records&nbsp;to&nbsp;the&nbsp;perception&nbsp;base.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;All&nbsp;perception&nbsp;records&nbsp;fields&nbsp;are&nbsp;strings.</tt></dd></dl>
+ <dl><dt><a name="-look_obj_light_props"><strong>look_obj_light_props</strong></a>(acid, objid)</dt><dd><tt>If&nbsp;objid&nbsp;is&nbsp;a&nbsp;light&nbsp;object,&nbsp;get&nbsp;its&nbsp;light&nbsp;properties.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;objid:&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;object.<br>
+&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;None.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;returns&nbsp;an&nbsp;'light_props'&nbsp;perception&nbsp;record&nbsp;containing&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;a&nbsp;resume&nbsp;of&nbsp;light&nbsp;properties&nbsp;of&nbsp;objid&nbsp;object.&nbsp;Perception&nbsp;records<br>
+&nbsp;&nbsp;&nbsp;&nbsp;are&nbsp;list&nbsp;of&nbsp;strings,&nbsp;'light_props'&nbsp;record&nbsp;have&nbsp;the&nbsp;following<br>
+&nbsp;&nbsp;&nbsp;&nbsp;format:&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['light_props',&nbsp;objid,&nbsp;r,&nbsp;g,&nbsp;b,&nbsp;alpha,&nbsp;intensity,&nbsp;radius]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;where:&nbsp;&nbsp;r,&nbsp;g,&nbsp;b&nbsp;are&nbsp;the&nbsp;red,&nbsp;green,&nbsp;blue&nbsp;components&nbsp;of&nbsp;light&nbsp;color<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;alpha&nbsp;is&nbsp;the&nbsp;intensity&nbsp;of&nbsp;light&nbsp;color&nbsp;(in&nbsp;object&nbsp;colors<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;is&nbsp;the&nbsp;alpha&nbsp;channel&nbsp;for&nbsp;transparency)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;intensity&nbsp;of&nbsp;color&nbsp;(equiv&nbsp;to&nbsp;alpha)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;radius&nbsp;of&nbsp;the&nbsp;light&nbsp;emitted&nbsp;by&nbsp;obj&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;this&nbsp;action&nbsp;also&nbsp;adds&nbsp;'light_props'&nbsp;to&nbsp;perception&nbsp;base&nbsp;and<br>
+&nbsp;&nbsp;&nbsp;&nbsp;also&nbsp;adds&nbsp;to&nbsp;this&nbsp;base&nbsp;a&nbsp;list&nbsp;of&nbsp;perception&nbsp;records&nbsp;with&nbsp;remaining&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;light&nbsp;properties&nbsp;of&nbsp;this&nbsp;object:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['is_light',&nbsp;objid]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['light_color',&nbsp;objid,&nbsp;red,&nbsp;green,&nbsp;blue,&nbsp;alpha]:&nbsp;see&nbsp;'light_obj'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['light_intens',&nbsp;objid,&nbsp;intensity]:&nbsp;intensity&nbsp;of&nbsp;color<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['light_radius',&nbsp;objid,&nbsp;radius]:&nbsp;radius&nbsp;of&nbsp;the&nbsp;light&nbsp;emitted&nbsp;by&nbsp;obj<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['light_cutoff',&nbsp;objid,&nbsp;cutoff]:&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['light_falloff',&nbsp;objid,&nbsp;falloff]:&nbsp;where&nbsp;light&nbsp;will&nbsp;cease&nbsp;to&nbsp;shine&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['lightmap_texture',&nbsp;objid,&nbsp;lighttextrid]:&nbsp;optional,&nbsp;light&nbsp;texture&nbsp;id<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['lightmap_params',&nbsp;objid,&nbsp;x,&nbsp;y,&nbsp;z]:&nbsp;optional&nbsp;params&nbsp;of&nbsp;light&nbsp;txtr.&nbsp;id&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;All&nbsp;fields&nbsp;from&nbsp;perception&nbsp;records&nbsp;are&nbsp;strings.</tt></dd></dl>
+ <dl><dt><a name="-look_obj_phys_props"><strong>look_obj_phys_props</strong></a>(acid, objid)</dt><dd><tt>Get&nbsp;physical&nbsp;properties&nbsp;of&nbsp;objid&nbsp;object,&nbsp;if&nbsp;this&nbsp;object&nbsp;has&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;physical&nbsp;properties.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;objid:&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;object.<br>
+&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;None.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;returns&nbsp;'phys_props'&nbsp;perception&nbsp;record&nbsp;containing&nbsp;a&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;resume&nbsp;of&nbsp;physical&nbsp;properties&nbsp;of&nbsp;objid&nbsp;object.&nbsp;Perception&nbsp;records&nbsp;are&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;lists&nbsp;of&nbsp;strings,&nbsp;'phys_props'&nbsp;record&nbsp;has&nbsp;the&nbsp;following&nbsp;structure:&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['phys_props',&nbsp;objid,&nbsp;dens,&nbsp;frict,&nbsp;grav]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;where:&nbsp;&nbsp;dens&nbsp;is&nbsp;object&nbsp;density&nbsp;in&nbsp;kg/m3&nbsp;(1000&nbsp;for&nbsp;normal&nbsp;density)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;frict&nbsp;is&nbsp;friction&nbsp;coefficient&nbsp;(0.6&nbsp;default&nbsp;value);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grav&nbsp;is&nbsp;the&nbsp;gravity&nbsp;multiplier&nbsp;(1.0&nbsp;for&nbsp;normal&nbsp;gravity).<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;this&nbsp;action&nbsp;also&nbsp;adds&nbsp;to&nbsp;perception&nbsp;base&nbsp;a&nbsp;list&nbsp;of&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;perception&nbsp;records&nbsp;with&nbsp;remaining&nbsp;physical&nbsp;properties&nbsp;of&nbsp;this&nbsp;object:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['phys_dens',&nbsp;objid,&nbsp;dens]:&nbsp;density&nbsp;in&nbsp;kg/m3&nbsp;(1000&nbsp;for&nbsp;normal&nbsp;density)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['phys_frict',&nbsp;objid,&nbsp;frict]:&nbsp;friction&nbsp;coefficient<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['phys_grav',&nbsp;objid,&nbsp;grav]:&nbsp;gravity&nbsp;multiplier<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['phys_bounce',&nbsp;objid,&nbsp;bounc]:&nbsp;bounciness&nbsp;factor&nbsp;(0.5&nbsp;default&nbsp;value)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['phys_shape',&nbsp;objid,&nbsp;shapetype]:&nbsp;can&nbsp;be:&nbsp;'prim',&nbsp;'none'&nbsp;or&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'convexhull'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;All&nbsp;fields&nbsp;from&nbsp;perception&nbsp;records&nbsp;are&nbsp;strings.</tt></dd></dl>
+ <dl><dt><a name="-look_obj_sculpt_props"><strong>look_obj_sculpt_props</strong></a>(acid, objid)</dt><dd><tt>If&nbsp;objid&nbsp;is&nbsp;a&nbsp;sculpt&nbsp;object,&nbsp;get&nbsp;its&nbsp;sculpt&nbsp;properties.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;objid:&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;object.<br>
+&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;None.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;returns&nbsp;an&nbsp;'sculpt_props'&nbsp;perception&nbsp;record&nbsp;containing&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;a&nbsp;resume&nbsp;of&nbsp;sculpt&nbsp;properties&nbsp;of&nbsp;objid&nbsp;object.&nbsp;Perception&nbsp;records<br>
+&nbsp;&nbsp;&nbsp;&nbsp;are&nbsp;list&nbsp;of&nbsp;strings,&nbsp;'sculpt_props'&nbsp;record&nbsp;have&nbsp;the&nbsp;following<br>
+&nbsp;&nbsp;&nbsp;&nbsp;format:&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['sculpt_obj',&nbsp;objid,sculptype,textrid]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;where:&nbsp;&nbsp;sculptype&nbsp;can&nbsp;be:&nbsp;'none',&nbsp;'sphere',&nbsp;'torus',&nbsp;'plane',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'cylinder',&nbsp;'mesh'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;this&nbsp;action&nbsp;also&nbsp;adds&nbsp;'sculpt_props'&nbsp;record&nbsp;to&nbsp;perception&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;base&nbsp;and&nbsp;also&nbsp;adds&nbsp;to&nbsp;this&nbsp;base&nbsp;a&nbsp;list&nbsp;of&nbsp;perception&nbsp;records&nbsp;remaining&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;sculpt&nbsp;properties&nbsp;of&nbsp;this&nbsp;object:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['is_sculpt',&nbsp;objid]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['sculpt_txtr',&nbsp;objid,&nbsp;txtrid]:&nbsp;texture&nbsp;of&nbsp;the&nbsp;sculpt<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['sculpt_type',&nbsp;objid,&nbsp;sculptype]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['sculpt_is_invert',&nbsp;objid]:&nbsp;added&nbsp;if&nbsp;sculpt&nbsp;obj&nbsp;is&nbsp;inverted&nbsp;(i.e.&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rendered&nbsp;inside&nbsp;out&nbsp;with&nbsp;normals&nbsp;inverted)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['sculpt_is_mirror',&nbsp;objid]:&nbsp;added&nbsp;if&nbsp;sculpt&nbsp;obj&nbsp;is&nbsp;mirrored&nbsp;(i.e.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;render&nbsp;an&nbsp;X&nbsp;axis&nbsp;mirror&nbsp;of&nbsp;sculpt)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;All&nbsp;fields&nbsp;from&nbsp;perception&nbsp;records&nbsp;are&nbsp;strings.</tt></dd></dl>
+ <dl><dt><a name="-look_region"><strong>look_region</strong></a>(acid, rgname)</dt><dd><tt>Get&nbsp;information&nbsp;about&nbsp;a&nbsp;simulator&nbsp;region&nbsp;with&nbsp;name&nbsp;rgname.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;rgname:&nbsp;&nbsp;str&nbsp;with&nbsp;name&nbsp;of&nbsp;region&nbsp;to&nbsp;get&nbsp;information.<br>
+&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;None.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;returns&nbsp;an&nbsp;'region'&nbsp;perception&nbsp;record&nbsp;containing&nbsp;information<br>
+&nbsp;&nbsp;&nbsp;&nbsp;about&nbsp;the&nbsp;rgname&nbsp;region.&nbsp;Perception&nbsp;records&nbsp;are&nbsp;lists&nbsp;of&nbsp;strings.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;'region'&nbsp;record&nbsp;contains&nbsp;basic&nbsp;information&nbsp;about&nbsp;regions:&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['region',&nbsp;rid,&nbsp;name]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Where:&nbsp;&nbsp;rid&nbsp;is&nbsp;the&nbsp;unique&nbsp;global&nbsp;id&nbsp;of&nbsp;region;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;name&nbsp;is&nbsp;the&nbsp;name&nbsp;of&nbsp;regions.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;this&nbsp;action&nbsp;also&nbsp;adds&nbsp;to&nbsp;perception&nbsp;base&nbsp;a&nbsp;list&nbsp;of&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;perception&nbsp;records&nbsp;with&nbsp;more&nbsp;info&nbsp;about&nbsp;this&nbsp;region:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['region',&nbsp;rid,&nbsp;name]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['world_coord',&nbsp;rid,&nbsp;x,&nbsp;y]:&nbsp;global&nbsp;coords&nbsp;X,Y&nbsp;of&nbsp;region&nbsp;in&nbsp;world&nbsp;grid<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['handle',&nbsp;rid,&nbsp;handle]:&nbsp;unique&nbsp;identifier/handler&nbsp;for&nbsp;region,&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a&nbsp;combination&nbsp;of&nbsp;X&nbsp;and&nbsp;Y&nbsp;global&nbsp;coords<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;All&nbsp;fields&nbsp;from&nbsp;perception&nbsp;records&nbsp;are&nbsp;strings.</tt></dd></dl>
+ <dl><dt><a name="-look_wind_at"><strong>look_wind_at</strong></a>(acid, x, y)</dt><dd><tt>Look&nbsp;wind&nbsp;speed&nbsp;in&nbsp;x,y&nbsp;position<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor<br>
+&nbsp;&nbsp;&nbsp;&nbsp;x,y:&nbsp;&nbsp;&nbsp;&nbsp;float,&nbsp;int&nbsp;or&nbsp;numeric&nbsp;str&nbsp;numbers&nbsp;with&nbsp;X,Y&nbsp;region&nbsp;coordinates&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;None.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;returns&nbsp;a&nbsp;perception&nbsp;record&nbsp;with&nbsp;information&nbsp;about&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;wind&nbsp;speed:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['wind_speed_at',&nbsp;rid,&nbsp;x,&nbsp;y,&nbsp;xspeed,&nbsp;yspeed]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;where:&nbsp;&nbsp;rid&nbsp;is&nbsp;the&nbsp;unique&nbsp;global&nbsp;id&nbsp;of&nbsp;region;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x,y&nbsp;are&nbsp;the&nbsp;X,Y&nbsp;coordinates&nbsp;of&nbsp;region;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;xspeed&nbsp;is&nbsp;the&nbsp;wind&nbsp;speed&nbsp;in&nbsp;X-axis;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;yspeed&nbsp;is&nbsp;the&nbsp;wind&nbsp;speed&nbsp;in&nbsp;Y-axis.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;All&nbsp;fields&nbsp;from&nbsp;perception&nbsp;records&nbsp;are&nbsp;strings.</tt></dd></dl>
+ <dl><dt><a name="-seek_all_objs"><strong>seek_all_objs</strong></a>(acid)</dt><dd><tt>Search&nbsp;(look)&nbsp;for&nbsp;all&nbsp;objects&nbsp;in&nbsp;region.&nbsp;Use&nbsp;with&nbsp;care!!&nbsp;Can&nbsp;be<br>
+&nbsp;&nbsp;&nbsp;&nbsp;very&nbsp;time&nbsp;consuming.<br>
+&nbsp;<br>
+Args<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor.<br>
+&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;None.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;returns&nbsp;a&nbsp;list&nbsp;of&nbsp;'obj'&nbsp;perception&nbsp;records&nbsp;for&nbsp;each&nbsp;object<br>
+&nbsp;&nbsp;&nbsp;&nbsp;in&nbsp;the&nbsp;region.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;this&nbsp;action&nbsp;also&nbsp;adds&nbsp;to&nbsp;perception&nbsp;base&nbsp;a&nbsp;list&nbsp;of&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;perception&nbsp;records,&nbsp;for&nbsp;each&nbsp;object&nbsp;that&nbsp;match&nbsp;search&nbsp;criteria.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;See&nbsp;<a href="#-look_obj">look_obj</a>()&nbsp;action&nbsp;for&nbsp;a&nbsp;description&nbsp;about&nbsp;types&nbsp;and&nbsp;formats&nbsp;of&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;perception&nbsp;records&nbsp;returned&nbsp;or&nbsp;added&nbsp;to&nbsp;perception&nbsp;base&nbsp;by&nbsp;this&nbsp;action.</tt></dd></dl>
+ <dl><dt><a name="-seek_avatars"><strong>seek_avatars</strong></a>(acid)</dt><dd><tt>Search&nbsp;(look)&nbsp;for&nbsp;avatars&nbsp;in&nbsp;virtual&nbsp;world.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor.<br>
+&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;None.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;returns&nbsp;a&nbsp;list&nbsp;of&nbsp;'avatar'&nbsp;perception&nbsp;records&nbsp;for&nbsp;each&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;avatar&nbsp;found&nbsp;in&nbsp;virtual&nbsp;world.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;this&nbsp;action&nbsp;also&nbsp;adds&nbsp;to&nbsp;perception&nbsp;base&nbsp;a&nbsp;list&nbsp;of&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;perception&nbsp;records,&nbsp;for&nbsp;each&nbsp;avatar&nbsp;found.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;See&nbsp;<a href="#-look_avatar">look_avatar</a>()&nbsp;action&nbsp;for&nbsp;a&nbsp;description&nbsp;about&nbsp;types&nbsp;and&nbsp;formats&nbsp;of&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;perception&nbsp;records&nbsp;returned&nbsp;or&nbsp;added&nbsp;to&nbsp;perception&nbsp;base&nbsp;by&nbsp;this&nbsp;action.</tt></dd></dl>
+ <dl><dt><a name="-seek_event"><strong>seek_event</strong></a>(acid, evntpatt=None)</dt><dd><tt>Search&nbsp;for&nbsp;the&nbsp;last&nbsp;event&nbsp;sent&nbsp;by&nbsp;VR&nbsp;simulator&nbsp;that&nbsp;match&nbsp;the&nbsp;evntpatt&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;pattern.&nbsp;Do&nbsp;not&nbsp;wait&nbsp;for&nbsp;an&nbsp;event,&nbsp;if&nbsp;there&nbsp;is&nbsp;no&nbsp;event&nbsp;in&nbsp;reception&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;queue,&nbsp;returns&nbsp;None.&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+VR&nbsp;events&nbsp;are&nbsp;string&nbsp;lists,&nbsp;where&nbsp;index&nbsp;0&nbsp;of&nbsp;list&nbsp;corresponds&nbsp;to&nbsp;field&nbsp;0&nbsp;<br>
+of&nbsp;event,&nbsp;and&nbsp;so&nbsp;on.&nbsp;For&nbsp;a&nbsp;descripion&nbsp;of&nbsp;types&nbsp;and&nbsp;fields&nbsp;of&nbsp;VR&nbsp;events<br>
+see&nbsp;the&nbsp;help&nbsp;of&nbsp;<a href="#-wait_event">wait_event</a>().<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;evntpatt:&nbsp;&nbsp;&nbsp;the&nbsp;event&nbsp;pattern:&nbsp;a&nbsp;list&nbsp;of&nbsp;fields,&nbsp;each&nbsp;field&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;containing&nbsp;an&nbsp;string&nbsp;or&nbsp;the&nbsp;None&nbsp;value.&nbsp;None&nbsp;fields&nbsp;in&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;event&nbsp;pattern&nbsp;are&nbsp;ignored&nbsp;in&nbsp;the&nbsp;search,&nbsp;pattern&nbsp;strings<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;defined&nbsp;in&nbsp;event&nbsp;pattern&nbsp;must&nbsp;match&nbsp;the&nbsp;corresponding<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;field&nbsp;in&nbsp;the&nbsp;event&nbsp;according&nbsp;to&nbsp;the&nbsp;following&nbsp;rules:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;If&nbsp;pattern&nbsp;string&nbsp;starts&nbsp;with&nbsp;'^'&nbsp;then&nbsp;corresponding&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;field&nbsp;must&nbsp;match&nbsp;the&nbsp;pattern&nbsp;from&nbsp;first&nbsp;character;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;If&nbsp;pattern&nbsp;string&nbsp;ends&nbsp;with&nbsp;'$'&nbsp;then&nbsp;corresponding&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;field&nbsp;must&nbsp;match&nbsp;the&nbsp;pattern&nbsp;until&nbsp;last&nbsp;character;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;If&nbsp;pattern&nbsp;string&nbsp;starts&nbsp;with&nbsp;'!'&nbsp;then&nbsp;corresponding<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;field&nbsp;cannot&nbsp;match&nbsp;the&nbsp;pattern;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;If&nbsp;pattern&nbsp;string&nbsp;is&nbsp;a&nbsp;list&nbsp;of&nbsp;strings&nbsp;separated&nbsp;by&nbsp;'|'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;then&nbsp;some&nbsp;of&nbsp;these&nbsp;strings&nbsp;must&nbsp;match&nbsp;corresponding&nbsp;field;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;Otherwise&nbsp;the&nbsp;pattern&nbsp;string&nbsp;must&nbsp;be&nbsp;a&nbsp;substring&nbsp;of&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;corresponding&nbsp;field.<br>
+&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;None.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;returns&nbsp;the&nbsp;event&nbsp;as&nbsp;a&nbsp;list&nbsp;of&nbsp;strings.</tt></dd></dl>
+ <dl><dt><a name="-seek_obj_children"><strong>seek_obj_children</strong></a>(acid, objid)</dt><dd><tt>Search&nbsp;(look)&nbsp;for&nbsp;children&nbsp;objects&nbsp;linked&nbsp;to&nbsp;objid&nbsp;object.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;objid:&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;target&nbsp;object<br>
+&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;None.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;returns&nbsp;a&nbsp;list&nbsp;of&nbsp;'obj'&nbsp;perception&nbsp;records&nbsp;for&nbsp;each&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;children&nbsp;object.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;this&nbsp;action&nbsp;also&nbsp;adds&nbsp;to&nbsp;perception&nbsp;base&nbsp;a&nbsp;list&nbsp;of&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;perception&nbsp;records,&nbsp;for&nbsp;each&nbsp;children&nbsp;object.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;See&nbsp;<a href="#-look_obj">look_obj</a>()&nbsp;action&nbsp;for&nbsp;a&nbsp;description&nbsp;about&nbsp;types&nbsp;and&nbsp;formats&nbsp;of&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;perception&nbsp;records&nbsp;returned&nbsp;or&nbsp;added&nbsp;to&nbsp;perception&nbsp;base&nbsp;by&nbsp;this&nbsp;action.</tt></dd></dl>
+ <dl><dt><a name="-seek_objs"><strong>seek_objs</strong></a>(acid, rad, typ, subtyp, srchtxt='', srchin='name', srchmode='in', srchcase='nocase')</dt><dd><tt>Search&nbsp;(look)&nbsp;for&nbsp;objects&nbsp;with&nbsp;particular&nbsp;type&nbsp;and&nbsp;subtype&nbsp;in&nbsp;a&nbsp;circle&nbsp;with&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;radius&nbsp;rad&nbsp;around&nbsp;actor&nbsp;(negative&nbsp;radius&nbsp;will&nbsp;search&nbsp;all&nbsp;region).<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Optionally,&nbsp;can&nbsp;search&nbsp;for&nbsp;objects&nbsp;with&nbsp;particular&nbsp;name&nbsp;or&nbsp;description.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;rad:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;float,&nbsp;int&nbsp;or&nbsp;numeric&nbsp;str&nbsp;with&nbsp;search&nbsp;radius&nbsp;in&nbsp;meters,&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;rad&nbsp;has&nbsp;a&nbsp;negative&nbsp;value&nbsp;will&nbsp;search&nbsp;all&nbsp;region.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;typ:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;type&nbsp;of&nbsp;object,&nbsp;it&nbsp;can&nbsp;be:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'prim'&nbsp;-&nbsp;primitive&nbsp;object<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'tree'&nbsp;-&nbsp;tree&nbsp;object<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'grass'&nbsp;-&nbsp;grass&nbsp;object<br>
+&nbsp;&nbsp;&nbsp;&nbsp;subtyp:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;subtype&nbsp;of&nbsp;object,&nbsp;the&nbsp;value&nbsp;of&nbsp;subtyp&nbsp;depends&nbsp;on&nbsp;the&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;value&nbsp;of&nbsp;typ,&nbsp;as&nbsp;follows:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If&nbsp;type&nbsp;is&nbsp;'prim'&nbsp;(primitive&nbsp;object),&nbsp;subtyp&nbsp;can&nbsp;be:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'unknown',&nbsp;&nbsp;'box',&nbsp;&nbsp;'cylinder',&nbsp;'prism',&nbsp;&nbsp;&nbsp;&nbsp;'sphere',&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'torus',&nbsp;&nbsp;&nbsp;&nbsp;'tube',&nbsp;'ring',&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'sculpt',&nbsp;&nbsp;&nbsp;'mesh'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If&nbsp;the&nbsp;type&nbsp;is&nbsp;'tree'&nbsp;(tree&nbsp;object),&nbsp;subtyp&nbsp;can&nbsp;be:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'pine1',&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'pine2',&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'oak',&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'palm1',&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'palm2',&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'dogwood',&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'cypress1',&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'cypress2',&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'plumeria',&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'fern',&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'eelgrass',&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'seasword',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'kelp1',&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'kelp2',&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'beachgrass1',&nbsp;&nbsp;'tropicalbush2',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'eucalyptus',&nbsp;&nbsp;&nbsp;'winterpine1',&nbsp;&nbsp;'winterpine2',&nbsp;&nbsp;'tropicalbush1',&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'winteraspen'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If&nbsp;the&nbsp;type&nbsp;is&nbsp;'grass'&nbsp;(grass&nbsp;object),&nbsp;subtyp&nbsp;can&nbsp;be:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'grass0',&nbsp;&nbsp;&nbsp;'grass1',&nbsp;&nbsp;&nbsp;'grass2',&nbsp;&nbsp;&nbsp;'grass3',&nbsp;&nbsp;&nbsp;'grass4',&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'undergrowth1'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;srchtxt:&nbsp;&nbsp;&nbsp;&nbsp;optional&nbsp;str&nbsp;arg,&nbsp;if&nbsp;not&nbsp;None,&nbsp;it&nbsp;specifies&nbsp;the&nbsp;text&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;to&nbsp;be&nbsp;used&nbsp;in&nbsp;the&nbsp;search.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;srchin:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;optional&nbsp;str&nbsp;arg,&nbsp;must&nbsp;be&nbsp;set&nbsp;if&nbsp;srchtxt&nbsp;is&nbsp;specified.&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;It&nbsp;defines&nbsp;where&nbsp;srchtxt&nbsp;must&nbsp;be&nbsp;searched:&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'name'&nbsp;-&nbsp;1&nbsp;search&nbsp;in&nbsp;the&nbsp;name&nbsp;of&nbsp;object&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'descr'&nbsp;-&nbsp;2&nbsp;search&nbsp;in&nbsp;the&nbsp;description&nbsp;of&nbsp;object<br>
+&nbsp;&nbsp;&nbsp;&nbsp;srchmode:&nbsp;&nbsp;&nbsp;optional&nbsp;str&nbsp;or&nbsp;numeric&nbsp;str&nbsp;arg,&nbsp;must&nbsp;be&nbsp;set&nbsp;if&nbsp;srchtxt&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;is&nbsp;specified.&nbsp;It&nbsp;defines&nbsp;the&nbsp;mode&nbsp;of&nbsp;the&nbsp;search:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'in'&nbsp;-&nbsp;for&nbsp;substring&nbsp;search&nbsp;in&nbsp;property&nbsp;text<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'start'&nbsp;-&nbsp;search&nbsp;if&nbsp;text&nbsp;starts&nbsp;with&nbsp;srchstr<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'end'&nbsp;-&nbsp;search&nbsp;if&nbsp;text&nbsp;ends&nbsp;with&nbsp;srchstr<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'eq'&nbsp;-&nbsp;check&nbsp;if&nbsp;srchstr&nbsp;and&nbsp;text&nbsp;are&nbsp;equal<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'diff'&nbsp;-&nbsp;check&nbsp;if&nbsp;srchstr&nbsp;and&nbsp;text&nbsp;are&nbsp;different<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'notin'&nbsp;-&nbsp;search&nbsp;if&nbsp;substring&nbsp;is&nbsp;not&nbsp;in&nbsp;text&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'notstart'&nbsp;-&nbsp;search&nbsp;if&nbsp;text&nbsp;not&nbsp;starts&nbsp;with&nbsp;srchstr<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'notend'&nbsp;-&nbsp;search&nbsp;if&nbsp;text&nbsp;not&nbsp;ends&nbsp;with&nbsp;srchstr<br>
+&nbsp;&nbsp;&nbsp;&nbsp;srchcase:&nbsp;&nbsp;&nbsp;optional&nbsp;str&nbsp;that&nbsp;defines&nbsp;if&nbsp;the&nbsp;search&nbsp;will&nbsp;be&nbsp;case&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sensitive&nbsp;or&nbsp;not,&nbsp;must&nbsp;be&nbsp;set&nbsp;if&nbsp;srchtxt&nbsp;is&nbsp;specified:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'nocase'&nbsp;-&nbsp;the&nbsp;search&nbsp;will&nbsp;be&nbsp;case&nbsp;insensitive<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'case'&nbsp;-&nbsp;the&nbsp;search&nbsp;will&nbsp;be&nbsp;case&nbsp;sensitive<br>
+&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;None.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;returns&nbsp;a&nbsp;list&nbsp;of&nbsp;'obj'&nbsp;perception&nbsp;records&nbsp;for&nbsp;each&nbsp;object<br>
+&nbsp;&nbsp;&nbsp;&nbsp;that&nbsp;match&nbsp;search&nbsp;criteria.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;this&nbsp;action&nbsp;also&nbsp;adds&nbsp;to&nbsp;perception&nbsp;base&nbsp;a&nbsp;list&nbsp;of&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;perception&nbsp;records,&nbsp;for&nbsp;each&nbsp;object&nbsp;that&nbsp;match&nbsp;search&nbsp;criteria.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;See&nbsp;<a href="#-look_obj">look_obj</a>()&nbsp;action&nbsp;for&nbsp;a&nbsp;description&nbsp;about&nbsp;types&nbsp;and&nbsp;formats&nbsp;of&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;perception&nbsp;records&nbsp;returned&nbsp;or&nbsp;added&nbsp;to&nbsp;perception&nbsp;base&nbsp;by&nbsp;this&nbsp;action.</tt></dd></dl>
+ <dl><dt><a name="-seek_objs_by_descr"><strong>seek_objs_by_descr</strong></a>(acid, rad, srchdescr, srchmode='in', srchcase='nocase')</dt><dd><tt>Search&nbsp;(look)&nbsp;for&nbsp;objects&nbsp;with&nbsp;particular&nbsp;description&nbsp;in&nbsp;a&nbsp;circle&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;with&nbsp;radius&nbsp;rad&nbsp;around&nbsp;actor&nbsp;(negative&nbsp;radius&nbsp;will&nbsp;search&nbsp;all&nbsp;region).<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;rad:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;float,&nbsp;int&nbsp;or&nbsp;numeric&nbsp;str&nbsp;with&nbsp;search&nbsp;radius&nbsp;in&nbsp;meters,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;rad&nbsp;has&nbsp;a&nbsp;negative&nbsp;value&nbsp;will&nbsp;search&nbsp;all&nbsp;region.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;srchdescr:&nbsp;&nbsp;str&nbsp;with&nbsp;description&nbsp;to&nbsp;be&nbsp;searched<br>
+&nbsp;&nbsp;&nbsp;&nbsp;srchmode:&nbsp;&nbsp;&nbsp;str&nbsp;that&nbsp;defines&nbsp;the&nbsp;mode&nbsp;of&nbsp;the&nbsp;search:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'in'&nbsp;-&nbsp;for&nbsp;substring&nbsp;search&nbsp;in&nbsp;property&nbsp;text<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'start'&nbsp;-&nbsp;search&nbsp;if&nbsp;text&nbsp;starts&nbsp;with&nbsp;srchstr<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'end'&nbsp;-&nbsp;search&nbsp;if&nbsp;text&nbsp;ends&nbsp;with&nbsp;srchstr<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'eq'&nbsp;-&nbsp;check&nbsp;if&nbsp;srchstr&nbsp;and&nbsp;text&nbsp;are&nbsp;equal<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'diff'&nbsp;-&nbsp;check&nbsp;if&nbsp;srchstr&nbsp;and&nbsp;text&nbsp;are&nbsp;different<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'notin'&nbsp;-&nbsp;search&nbsp;if&nbsp;substring&nbsp;is&nbsp;not&nbsp;in&nbsp;text&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'notstart'&nbsp;-&nbsp;search&nbsp;if&nbsp;text&nbsp;not&nbsp;starts&nbsp;with&nbsp;srchstr<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'notend'&nbsp;-&nbsp;search&nbsp;if&nbsp;text&nbsp;not&nbsp;ends&nbsp;with&nbsp;srchstr<br>
+&nbsp;&nbsp;&nbsp;&nbsp;srchcase:&nbsp;&nbsp;&nbsp;str&nbsp;that&nbsp;defines&nbsp;if&nbsp;the&nbsp;search&nbsp;will&nbsp;be&nbsp;case&nbsp;sensitive&nbsp;or&nbsp;not:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'nocase'&nbsp;-&nbsp;the&nbsp;search&nbsp;will&nbsp;be&nbsp;case&nbsp;insensitive<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'case'&nbsp;-&nbsp;the&nbsp;search&nbsp;will&nbsp;be&nbsp;case&nbsp;sensitive<br>
+&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;None.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;returns&nbsp;a&nbsp;list&nbsp;of&nbsp;'obj'&nbsp;perception&nbsp;records&nbsp;for&nbsp;each&nbsp;object<br>
+&nbsp;&nbsp;&nbsp;&nbsp;that&nbsp;match&nbsp;search&nbsp;criteria.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;this&nbsp;action&nbsp;also&nbsp;adds&nbsp;to&nbsp;perception&nbsp;base&nbsp;a&nbsp;list&nbsp;of&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;perception&nbsp;records,&nbsp;for&nbsp;each&nbsp;object&nbsp;that&nbsp;match&nbsp;search&nbsp;criteria.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;See&nbsp;<a href="#-look_obj">look_obj</a>()&nbsp;action&nbsp;for&nbsp;a&nbsp;description&nbsp;about&nbsp;types&nbsp;and&nbsp;formats&nbsp;of&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;perception&nbsp;records&nbsp;returned&nbsp;or&nbsp;added&nbsp;to&nbsp;perception&nbsp;base&nbsp;by&nbsp;this&nbsp;action.</tt></dd></dl>
+ <dl><dt><a name="-seek_objs_by_name"><strong>seek_objs_by_name</strong></a>(acid, rad, srchname, srchmode='in', srchcase='nocase')</dt><dd><tt>Search&nbsp;(look)&nbsp;for&nbsp;objects&nbsp;with&nbsp;particular&nbsp;name&nbsp;in&nbsp;a&nbsp;circle&nbsp;with&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;radius&nbsp;rad&nbsp;around&nbsp;actor&nbsp;(negative&nbsp;radius&nbsp;will&nbsp;search&nbsp;all&nbsp;region).<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;rad:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;float,&nbsp;int&nbsp;or&nbsp;numeric&nbsp;str&nbsp;with&nbsp;search&nbsp;radius&nbsp;in&nbsp;meters,&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;rad&nbsp;has&nbsp;a&nbsp;negative&nbsp;value&nbsp;will&nbsp;search&nbsp;all&nbsp;region.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;srchname:&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;name&nbsp;to&nbsp;be&nbsp;searched<br>
+&nbsp;&nbsp;&nbsp;&nbsp;srchmode:&nbsp;&nbsp;&nbsp;str&nbsp;that&nbsp;defines&nbsp;the&nbsp;mode&nbsp;of&nbsp;the&nbsp;search:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'in'&nbsp;-&nbsp;for&nbsp;substring&nbsp;search&nbsp;in&nbsp;property&nbsp;text<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'start'&nbsp;-&nbsp;search&nbsp;if&nbsp;text&nbsp;starts&nbsp;with&nbsp;srchstr<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'end'&nbsp;-&nbsp;search&nbsp;if&nbsp;text&nbsp;ends&nbsp;with&nbsp;srchstr<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'eq'&nbsp;-&nbsp;check&nbsp;if&nbsp;srchstr&nbsp;and&nbsp;text&nbsp;are&nbsp;equal<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'diff'&nbsp;-&nbsp;check&nbsp;if&nbsp;srchstr&nbsp;and&nbsp;text&nbsp;are&nbsp;different<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'notin'&nbsp;-&nbsp;search&nbsp;if&nbsp;substring&nbsp;is&nbsp;not&nbsp;in&nbsp;text&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'notstart'&nbsp;-&nbsp;search&nbsp;if&nbsp;text&nbsp;not&nbsp;starts&nbsp;with&nbsp;srchstr<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'notend'&nbsp;-&nbsp;search&nbsp;if&nbsp;text&nbsp;not&nbsp;ends&nbsp;with&nbsp;srchstr<br>
+&nbsp;&nbsp;&nbsp;&nbsp;srchcase:&nbsp;&nbsp;&nbsp;str&nbsp;that&nbsp;defines&nbsp;if&nbsp;the&nbsp;search&nbsp;will&nbsp;be&nbsp;case&nbsp;sensitive&nbsp;or&nbsp;not:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'nocase'&nbsp;-&nbsp;the&nbsp;search&nbsp;will&nbsp;be&nbsp;case&nbsp;insensitive<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'case'&nbsp;-&nbsp;the&nbsp;search&nbsp;will&nbsp;be&nbsp;case&nbsp;sensitive<br>
+&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;None.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;returns&nbsp;a&nbsp;list&nbsp;of&nbsp;'obj'&nbsp;perception&nbsp;records&nbsp;for&nbsp;each&nbsp;object<br>
+&nbsp;&nbsp;&nbsp;&nbsp;that&nbsp;match&nbsp;search&nbsp;criteria.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;this&nbsp;action&nbsp;also&nbsp;adds&nbsp;to&nbsp;perception&nbsp;base&nbsp;a&nbsp;list&nbsp;of&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;perception&nbsp;records,&nbsp;for&nbsp;each&nbsp;object&nbsp;that&nbsp;match&nbsp;search&nbsp;criteria.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;See&nbsp;<a href="#-look_obj">look_obj</a>()&nbsp;action&nbsp;for&nbsp;a&nbsp;description&nbsp;about&nbsp;types&nbsp;and&nbsp;formats&nbsp;of&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;perception&nbsp;records&nbsp;returned&nbsp;or&nbsp;added&nbsp;to&nbsp;perception&nbsp;base&nbsp;by&nbsp;this&nbsp;action.</tt></dd></dl>
+ <dl><dt><a name="-seek_objs_by_radius"><strong>seek_objs_by_radius</strong></a>(acid, rad)</dt><dd><tt>Search&nbsp;(look)&nbsp;for&nbsp;objects&nbsp;in&nbsp;a&nbsp;circle&nbsp;with&nbsp;radius&nbsp;rad&nbsp;around&nbsp;actor&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;(negative&nbsp;radius&nbsp;will&nbsp;search&nbsp;all&nbsp;region).<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;rad:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;float,&nbsp;int&nbsp;or&nbsp;numeric&nbsp;str&nbsp;with&nbsp;search&nbsp;radius&nbsp;in&nbsp;meters,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;rad&nbsp;has&nbsp;a&nbsp;negative&nbsp;value&nbsp;will&nbsp;search&nbsp;all&nbsp;region.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;None.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;returns&nbsp;a&nbsp;list&nbsp;of&nbsp;'obj'&nbsp;perception&nbsp;records&nbsp;for&nbsp;each&nbsp;object<br>
+&nbsp;&nbsp;&nbsp;&nbsp;that&nbsp;match&nbsp;search&nbsp;criteria.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;this&nbsp;action&nbsp;also&nbsp;adds&nbsp;to&nbsp;perception&nbsp;base&nbsp;a&nbsp;list&nbsp;of&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;perception&nbsp;records,&nbsp;for&nbsp;each&nbsp;object&nbsp;that&nbsp;match&nbsp;search&nbsp;criteria.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;See&nbsp;<a href="#-look_obj">look_obj</a>()&nbsp;action&nbsp;for&nbsp;a&nbsp;description&nbsp;about&nbsp;types&nbsp;and&nbsp;formats&nbsp;of&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;perception&nbsp;records&nbsp;returned&nbsp;or&nbsp;added&nbsp;to&nbsp;perception&nbsp;base&nbsp;by&nbsp;this&nbsp;action.</tt></dd></dl>
+ <dl><dt><a name="-seek_objs_by_type"><strong>seek_objs_by_type</strong></a>(acid, rad, typ, subtyp)</dt><dd><tt>Search&nbsp;(look)&nbsp;for&nbsp;objects&nbsp;with&nbsp;particular&nbsp;type&nbsp;and&nbsp;subtype&nbsp;in&nbsp;a&nbsp;circle&nbsp;with&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;radius&nbsp;rad&nbsp;around&nbsp;actor&nbsp;(negative&nbsp;radius&nbsp;will&nbsp;search&nbsp;all&nbsp;region).<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;rad:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;float,&nbsp;int&nbsp;or&nbsp;numeric&nbsp;str&nbsp;with&nbsp;search&nbsp;radius&nbsp;in&nbsp;meters,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;rad&nbsp;has&nbsp;a&nbsp;negative&nbsp;value&nbsp;will&nbsp;search&nbsp;all&nbsp;region.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;typ:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;type&nbsp;of&nbsp;object,&nbsp;it&nbsp;can&nbsp;be:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'prim'&nbsp;-&nbsp;primitive&nbsp;object<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'tree'&nbsp;-&nbsp;tree&nbsp;object<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'grass'&nbsp;-&nbsp;grass&nbsp;object<br>
+&nbsp;&nbsp;&nbsp;&nbsp;subtyp:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;subtype&nbsp;of&nbsp;object,&nbsp;the&nbsp;value&nbsp;of&nbsp;subtyp&nbsp;depends&nbsp;on&nbsp;the&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;value&nbsp;of&nbsp;typ,&nbsp;as&nbsp;follows:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If&nbsp;type&nbsp;is&nbsp;'prim'&nbsp;(primitive&nbsp;object),&nbsp;subtyp&nbsp;can&nbsp;be:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'unknown',&nbsp;&nbsp;'box',&nbsp;&nbsp;'cylinder',&nbsp;'prism',&nbsp;&nbsp;&nbsp;&nbsp;'sphere',&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'torus',&nbsp;&nbsp;&nbsp;&nbsp;'tube',&nbsp;'ring',&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'sculpt',&nbsp;&nbsp;&nbsp;'mesh'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If&nbsp;the&nbsp;type&nbsp;is&nbsp;'tree'&nbsp;(tree&nbsp;object),&nbsp;subtyp&nbsp;can&nbsp;be:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'pine1',&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'pine2',&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'oak',&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'palm1',&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'palm2',&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'dogwood',&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'cypress1',&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'cypress2',&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'plumeria',&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'fern',&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'eelgrass',&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'seasword',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'kelp1',&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'kelp2',&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'beachgrass1',&nbsp;&nbsp;'tropicalbush2',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'eucalyptus',&nbsp;&nbsp;&nbsp;'winterpine1',&nbsp;&nbsp;'winterpine2',&nbsp;&nbsp;'tropicalbush1',&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'winteraspen'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If&nbsp;the&nbsp;type&nbsp;is&nbsp;'grass'&nbsp;(grass&nbsp;object),&nbsp;subtyp&nbsp;can&nbsp;be:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'grass0',&nbsp;&nbsp;&nbsp;'grass1',&nbsp;&nbsp;&nbsp;'grass2',&nbsp;&nbsp;&nbsp;'grass3',&nbsp;&nbsp;&nbsp;'grass4',&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'undergrowth1'<br>
+&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;None.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;returns&nbsp;a&nbsp;list&nbsp;of&nbsp;'obj'&nbsp;perception&nbsp;records&nbsp;for&nbsp;each&nbsp;object<br>
+&nbsp;&nbsp;&nbsp;&nbsp;that&nbsp;match&nbsp;search&nbsp;criteria.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;this&nbsp;action&nbsp;also&nbsp;adds&nbsp;to&nbsp;perception&nbsp;base&nbsp;a&nbsp;list&nbsp;of&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;perception&nbsp;records,&nbsp;for&nbsp;each&nbsp;object&nbsp;that&nbsp;match&nbsp;search&nbsp;criteria.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;See&nbsp;<a href="#-look_obj">look_obj</a>()&nbsp;action&nbsp;for&nbsp;a&nbsp;description&nbsp;about&nbsp;types&nbsp;and&nbsp;formats&nbsp;of&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;perception&nbsp;records&nbsp;returned&nbsp;or&nbsp;added&nbsp;to&nbsp;perception&nbsp;base&nbsp;by&nbsp;this&nbsp;action.</tt></dd></dl>
+ <dl><dt><a name="-seek_regions"><strong>seek_regions</strong></a>(acid)</dt><dd><tt>Search&nbsp;(look)&nbsp;for&nbsp;regions&nbsp;in&nbsp;virtual&nbsp;world.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor.<br>
+&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;None.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;returns&nbsp;a&nbsp;list&nbsp;of&nbsp;'region'&nbsp;perception&nbsp;records&nbsp;for&nbsp;each&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;region&nbsp;found&nbsp;in&nbsp;virtual&nbsp;world.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;this&nbsp;action&nbsp;also&nbsp;adds&nbsp;to&nbsp;perception&nbsp;base&nbsp;a&nbsp;list&nbsp;of&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;perception&nbsp;records,&nbsp;for&nbsp;each&nbsp;region&nbsp;found.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;See&nbsp;<a href="#-look_region">look_region</a>()&nbsp;action&nbsp;for&nbsp;a&nbsp;description&nbsp;about&nbsp;types&nbsp;and&nbsp;formats&nbsp;of&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;perception&nbsp;records&nbsp;returned&nbsp;or&nbsp;added&nbsp;to&nbsp;perception&nbsp;base&nbsp;by&nbsp;this&nbsp;action.</tt></dd></dl>
+ <dl><dt><a name="-wait_event"><strong>wait_event</strong></a>(acid, evntpatt, timeout)</dt><dd><tt>Wait&nbsp;for&nbsp;event&nbsp;sent&nbsp;by&nbsp;VR&nbsp;simulator&nbsp;that&nbsp;match&nbsp;the&nbsp;evntpatt&nbsp;pattern.&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;If&nbsp;timeout&nbsp;is&nbsp;different&nbsp;than&nbsp;None,&nbsp;stop&nbsp;waiting&nbsp;after&nbsp;timeout&nbsp;seconds.&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+VR&nbsp;events&nbsp;are&nbsp;string&nbsp;lists,&nbsp;where&nbsp;index&nbsp;0&nbsp;of&nbsp;list&nbsp;corresponds&nbsp;to&nbsp;field&nbsp;0&nbsp;<br>
+of&nbsp;event,&nbsp;and&nbsp;so&nbsp;on.&nbsp;The&nbsp;following&nbsp;types&nbsp;of&nbsp;VR&nbsp;events&nbsp;are&nbsp;handled&nbsp;by&nbsp;Virtual<br>
+Stage:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+(Mean)&nbsp;collision&nbsp;event:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Field&nbsp;0&nbsp;(EventType):&nbsp;'collis'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Field&nbsp;1&nbsp;(Aggressor):&nbsp;the&nbsp;ID&nbsp;of&nbsp;the&nbsp;agent&nbsp;or&nbsp;object&nbsp;that&nbsp;collided&nbsp;with&nbsp;your&nbsp;agent<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Field&nbsp;2&nbsp;(Type):&nbsp;the&nbsp;type&nbsp;of&nbsp;collision,&nbsp;can&nbsp;be:&nbsp;&nbsp;'None',&nbsp;'Bump',&nbsp;'LPushObject',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'SelectedObjectCollide',&nbsp;'ScriptedObjectCollide',&nbsp;'PhysicalObjectCollide'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Field&nbsp;3&nbsp;(Magnitude):&nbsp;a&nbsp;value&nbsp;indicating&nbsp;the&nbsp;strength&nbsp;of&nbsp;the&nbsp;collision<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Field&nbsp;4&nbsp;(Victim):&nbsp;the&nbsp;ID&nbsp;of&nbsp;the&nbsp;agent&nbsp;that&nbsp;was&nbsp;attacked<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Field&nbsp;5&nbsp;(Time):&nbsp;the&nbsp;time&nbsp;the&nbsp;collision&nbsp;occurred&nbsp;in&nbsp;fmt&nbsp;YYYY-MM-ddTHH:MM:SS<br>
+&nbsp;<br>
+Region&nbsp;crossed&nbsp;event:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Field&nbsp;0&nbsp;(EventType):&nbsp;'crossrgn'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Field&nbsp;1&nbsp;(NewSimulator):&nbsp;the&nbsp;simulator&nbsp;(region)&nbsp;your&nbsp;agent&nbsp;is&nbsp;now&nbsp;in<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Field&nbsp;2&nbsp;(OldSimulator):&nbsp;the&nbsp;simulator&nbsp;(region)&nbsp;your&nbsp;agent&nbsp;just&nbsp;left<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;evntpatt:&nbsp;&nbsp;&nbsp;the&nbsp;event&nbsp;pattern:&nbsp;a&nbsp;list&nbsp;of&nbsp;fields,&nbsp;each&nbsp;field&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;containing&nbsp;an&nbsp;string&nbsp;or&nbsp;the&nbsp;None&nbsp;value.&nbsp;None&nbsp;fields&nbsp;in&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;event&nbsp;pattern&nbsp;are&nbsp;ignored&nbsp;in&nbsp;the&nbsp;search,&nbsp;string&nbsp;fields<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;defined&nbsp;in&nbsp;event&nbsp;pattern&nbsp;must&nbsp;be&nbsp;equal&nbsp;to&nbsp;corresponding<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;field&nbsp;in&nbsp;the&nbsp;event.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;timeout:&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;different&nbsp;than&nbsp;None,&nbsp;defines&nbsp;the&nbsp;maximum&nbsp;time&nbsp;in&nbsp;seconds<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;to&nbsp;wait&nbsp;for&nbsp;the&nbsp;message.<br>
+&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;None.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;returns&nbsp;the&nbsp;event&nbsp;as&nbsp;a&nbsp;list&nbsp;of&nbsp;strings.</tt></dd></dl>
+</td></tr></table>
+</body></html>

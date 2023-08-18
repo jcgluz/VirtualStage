@@ -1,0 +1,752 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module CommunicateActions</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>CommunicateActions</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href="index.html">index</a><br><a href="../communicateactions.py">d:\virtualstage\communicateactions.py</a></font></td></tr></table>
+    <p><tt>Module&nbsp;CommunicateActions&nbsp;-&nbsp;Actions&nbsp;for&nbsp;communication&nbsp;with&nbsp;<br>
+other&nbsp;avatars&nbsp;through&nbsp;VR&nbsp;simulator&nbsp;facilities.<br>
+&nbsp;<br>
+Functions:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-wait_msg">wait_msg</a>(acid,msgpatt,timeout)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-wait_inst_msg">wait_inst_msg</a>(acid,&nbsp;srcnam,&nbsp;cntntpatt,&nbsp;timeout)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-wait_chat_msg">wait_chat_msg</a>(acid,&nbsp;srcnam,&nbsp;cntntpatt,&nbsp;timeout)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-wait_chat_inst_msg">wait_chat_inst_msg</a>(acid,&nbsp;srcnam,&nbsp;chattyp,&nbsp;cntntpatt,&nbsp;timeout)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-wait_shout_msg">wait_shout_msg</a>(acid,&nbsp;srcnam,&nbsp;cntntpatt,&nbsp;timeout)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-wait_say_msg">wait_say_msg</a>(acid,&nbsp;srcnam,&nbsp;cntntpatt,&nbsp;timeout)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-wait_whisper_msg">wait_whisper_msg</a>(acid,&nbsp;srcnam,&nbsp;cntntpatt,&nbsp;timeout)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-wait_code_msg">wait_code_msg</a>(acid,&nbsp;srcnam,&nbsp;codetyp,&nbsp;cntntpatt,&nbsp;timeout)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-wait_group_msg">wait_group_msg</a>(acid,&nbsp;srcnam,&nbsp;cntntpatt,&nbsp;grpid,&nbsp;timeout)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-wait_session_msg">wait_session_msg</a>(acid,&nbsp;srcnam,&nbsp;cntntpatt,&nbsp;sessid,&nbsp;timeout)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-seek_msg">seek_msg</a>(acid,msgpatt)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-clear_msgs">clear_msgs</a>(acid)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-send_chat_msg">send_chat_msg</a>(acid,&nbsp;chann,&nbsp;chatyp,&nbsp;msgtxt)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-send_inst_msg">send_inst_msg</a>(acid,&nbsp;avname,&nbsp;msgtxt,&nbsp;sessid=None)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-send_code_msg">send_code_msg</a>(acid,&nbsp;code,&nbsp;avname,&nbsp;msgtxt,&nbsp;sessid)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-send_group_msg">send_group_msg</a>(acid,&nbsp;grpid,&nbsp;msgtxt)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-say">say</a>(acid,&nbsp;msgtxt,&nbsp;chann=None)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-shout">shout</a>(acid,&nbsp;msgtxt,&nbsp;chann=None)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-whisper">whisper</a>(acid,&nbsp;msgtxt,&nbsp;chann=None)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-show_menu_for_avatar">show_menu_for_avatar</a>(acid,&nbsp;avid,&nbsp;menu_msg,&nbsp;menu_opts,&nbsp;menu_chann=-98186)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-show_menu_for_avatar_with_name">show_menu_for_avatar_with_name</a>(acid,&nbsp;avname,&nbsp;menu_msg,&nbsp;menu_opts,&nbsp;menu_chann=-98186)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-input_text_from_avatar">input_text_from_avatar</a>(acid,&nbsp;avid,&nbsp;text_msg,&nbsp;menu_chann=-98186)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-input_text_from_avatar_with_name">input_text_from_avatar_with_name</a>(acid,&nbsp;avname,&nbsp;text_msg,&nbsp;menu_chann=-98186)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-wait_menu_selection">wait_menu_selection</a>(acid,&nbsp;timeout=None)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-wait_input_text">wait_input_text</a>(acid,&nbsp;timeout=None)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-play_sound">play_sound</a>(acid,&nbsp;soundid)</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="ActorController.html">ActorController</a><br>
+</td><td width="25%" valign=top></td><td width="25%" valign=top></td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-clear_msgs"><strong>clear_msgs</strong></a>(acid)</dt><dd><tt>Clears&nbsp;the&nbsp;message&nbsp;reception&nbsp;queue.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Args:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;False.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;clears&nbsp;the&nbsp;message&nbsp;reception&nbsp;queue&nbsp;and&nbsp;returns&nbsp;True.</tt></dd></dl>
+ <dl><dt><a name="-input_text_from_avatar"><strong>input_text_from_avatar</strong></a>(acid, avid, text_msg, menu_chann=-98186)</dt><dd><tt>Create&nbsp;and&nbsp;show&nbsp;a&nbsp;text&nbsp;input&nbsp;box&nbsp;for&nbsp;the&nbsp;avatar&nbsp;with&nbsp;id&nbsp;avid.&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;input&nbsp;will&nbsp;be&nbsp;presented&nbsp;as&nbsp;a&nbsp;blue&nbsp;rectangle,&nbsp;with&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;text_msg&nbsp;text&nbsp;displayed&nbsp;at&nbsp;the&nbsp;top&nbsp;of&nbsp;rectangle.&nbsp;It&nbsp;contains&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;a&nbsp;text&nbsp;box&nbsp;for&nbsp;input,&nbsp;any&nbsp;text&nbsp;that&nbsp;is&nbsp;entered&nbsp;in&nbsp;this&nbsp;box<br>
+&nbsp;&nbsp;&nbsp;&nbsp;will&nbsp;be&nbsp;returned&nbsp;to&nbsp;actor's&nbsp;avatar.<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;To&nbsp;work,&nbsp;this&nbsp;function&nbsp;needs&nbsp;that&nbsp;a&nbsp;prim&nbsp;object&nbsp;be&nbsp;rezzed&nbsp;on<br>
+&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;virtual&nbsp;world&nbsp;near&nbsp;do&nbsp;the&nbsp;actor's&nbsp;avatar&nbsp;and&nbsp;that&nbsp;the&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;MenuController&nbsp;script&nbsp;must&nbsp;be&nbsp;installed&nbsp;and&nbsp;running&nbsp;in&nbsp;it.&nbsp;<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;file&nbsp;"MenuController.lsl"&nbsp;located&nbsp;in&nbsp;the&nbsp;menu-controller<br>
+&nbsp;&nbsp;&nbsp;&nbsp;subdirectory&nbsp;of&nbsp;VisualStage&nbsp;implements&nbsp;this&nbsp;script.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;prim&nbsp;object&nbsp;that&nbsp;runs&nbsp;this&nbsp;script&nbsp;can&nbsp;be&nbsp;an&nbsp;invisible&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;attachment&nbsp;of&nbsp;the&nbsp;actor's&nbsp;avatar,&nbsp;so&nbsp;it&nbsp;will&nbsp;always&nbsp;be&nbsp;close&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;to&nbsp;the&nbsp;avatar.&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;following&nbsp;example&nbsp;shows&nbsp;how&nbsp;to&nbsp;create&nbsp;an&nbsp;input&nbsp;box&nbsp;and&nbsp;wait<br>
+&nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;the&nbsp;user&nbsp;input:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;...<br>
+&nbsp;&nbsp;&nbsp;&nbsp;import&nbsp;ActorController&nbsp;as&nbsp;ac<br>
+&nbsp;&nbsp;&nbsp;&nbsp;...<br>
+&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;Create&nbsp;an&nbsp;input&nbsp;box&nbsp;to&nbsp;enter&nbsp;the&nbsp;name&nbsp;of&nbsp;the&nbsp;user<br>
+&nbsp;&nbsp;&nbsp;&nbsp;ac.<a href="#-input_text_from_avatar">input_text_from_avatar</a>(acid,other_avatar,"Enter&nbsp;the&nbsp;name:")<br>
+&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;Wait&nbsp;60&nbsp;seconds&nbsp;for&nbsp;the&nbsp;response&nbsp;of&nbsp;other&nbsp;avatar<br>
+&nbsp;&nbsp;&nbsp;&nbsp;selection&nbsp;=&nbsp;ac.<a href="#-wait_input_text">wait_input_text</a>(acid,60)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;default&nbsp;chat&nbsp;channel&nbsp;used&nbsp;to&nbsp;interact&nbsp;with&nbsp;MenuController&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;script&nbsp;has&nbsp;the&nbsp;number&nbsp;-98186.&nbsp;Is&nbsp;a&nbsp;random&nbsp;number&nbsp;that&nbsp;probably<br>
+&nbsp;&nbsp;&nbsp;&nbsp;will&nbsp;work&nbsp;fine&nbsp;and&nbsp;not&nbsp;cause&nbsp;interference&nbsp;with&nbsp;other&nbsp;scripts&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;running&nbsp;in&nbsp;the&nbsp;virtual&nbsp;world.&nbsp;However,&nbsp;if&nbsp;other&nbsp;VirtualStage&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;actors&nbsp;&nbsp;are&nbsp;in&nbsp;the&nbsp;same&nbsp;virtual&nbsp;world&nbsp;and&nbsp;also&nbsp;use&nbsp;menus&nbsp;to&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;communicate&nbsp;with&nbsp;users,&nbsp;then&nbsp;the&nbsp;MenuController&nbsp;scripts&nbsp;running&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;on&nbsp;attached&nbsp;objects&nbsp;of&nbsp;these&nbsp;actor's&nbsp;will&nbsp;need&nbsp;to&nbsp;have&nbsp;different&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;chat&nbsp;channel&nbsp;numbers.&nbsp;Modify&nbsp;the&nbsp;MenuController&nbsp;script&nbsp;that&nbsp;is&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;loaded&nbsp;in&nbsp;the&nbsp;attached&nbsp;object&nbsp;changing&nbsp;the&nbsp;MenuChannel&nbsp;variable<br>
+&nbsp;&nbsp;&nbsp;&nbsp;to&nbsp;some&nbsp;appropriate&nbsp;new&nbsp;chat&nbsp;number,&nbsp;and&nbsp;call&nbsp;show_menu_to_avatar()&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;with&nbsp;the&nbsp;last&nbsp;parameter,&nbsp;menu_chann,&nbsp;with&nbsp;this&nbsp;new&nbsp;chat&nbsp;number.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;avid:&nbsp;str&nbsp;with&nbsp;unique&nbsp;identifier&nbsp;of&nbsp;avatar&nbsp;that&nbsp;will&nbsp;see&nbsp;the&nbsp;menu.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;text_msg:&nbsp;str&nbsp;with&nbsp;text&nbsp;message&nbsp;to&nbsp;be&nbsp;displayed&nbsp;on&nbsp;input&nbsp;box.<br>
+&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;False.&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;True.</tt></dd></dl>
+ <dl><dt><a name="-input_text_from_avatar_with_name"><strong>input_text_from_avatar_with_name</strong></a>(acid, avname, text_msg, menu_chann=-98186)</dt><dd><tt>Create&nbsp;an&nbsp;show&nbsp;a&nbsp;text&nbsp;input&nbsp;box&nbsp;for&nbsp;the&nbsp;avatar&nbsp;with&nbsp;name&nbsp;avname.&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;See&nbsp;the&nbsp;help&nbsp;of&nbsp;<a href="#-input_text_from_avatar">input_text_from_avatar</a>()&nbsp;for&nbsp;details.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;avname:&nbsp;str&nbsp;with&nbsp;name&nbsp;of&nbsp;avatar&nbsp;that&nbsp;will&nbsp;see&nbsp;the&nbsp;menu.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;text_msg:&nbsp;str&nbsp;with&nbsp;text&nbsp;message&nbsp;to&nbsp;be&nbsp;displayed&nbsp;on&nbsp;input&nbsp;box.<br>
+&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;False.&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;True.</tt></dd></dl>
+ <dl><dt><a name="-play_sound"><strong>play_sound</strong></a>(acid, soundid)</dt><dd><tt>Attempt&nbsp;to&nbsp;play&nbsp;a&nbsp;sound.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;soundid:&nbsp;&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;identifier&nbsp;of&nbsp;asset&nbsp;containing&nbsp;the&nbsp;sound.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;False.&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;True.</tt></dd></dl>
+ <dl><dt><a name="-say"><strong>say</strong></a>(acid, msgtxt, chann=None)</dt><dd><tt>Send&nbsp;a&nbsp;say&nbsp;chat&nbsp;message&nbsp;to&nbsp;channel&nbsp;chann.&nbsp;If&nbsp;chann&nbsp;is&nbsp;None,&nbsp;sent&nbsp;to<br>
+&nbsp;&nbsp;&nbsp;&nbsp;default&nbsp;public&nbsp;channel&nbsp;(channel&nbsp;0).&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Args:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;msgtxt:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;text&nbsp;of&nbsp;message<br>
+&nbsp;&nbsp;&nbsp;&nbsp;channel:&nbsp;&nbsp;&nbsp;&nbsp;number&nbsp;of&nbsp;channel&nbsp;to&nbsp;sent&nbsp;message,&nbsp;0&nbsp;is&nbsp;the&nbsp;default<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;channel<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;True.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;send&nbsp;the&nbsp;say&nbsp;message&nbsp;and&nbsp;returns&nbsp;true.</tt></dd></dl>
+ <dl><dt><a name="-seek_msg"><strong>seek_msg</strong></a>(acid, msgpatt=None)</dt><dd><tt>Seek&nbsp;for&nbsp;the&nbsp;last&nbsp;message&nbsp;sent&nbsp;by&nbsp;VR&nbsp;simulator&nbsp;that&nbsp;match&nbsp;the&nbsp;msgpatt<br>
+&nbsp;&nbsp;&nbsp;&nbsp;pattern.&nbsp;Do&nbsp;not&nbsp;wait&nbsp;for&nbsp;a&nbsp;message,&nbsp;if&nbsp;there&nbsp;is&nbsp;no&nbsp;message&nbsp;in&nbsp;reception&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;queue,&nbsp;returns&nbsp;None.&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+VR&nbsp;messages&nbsp;are&nbsp;string&nbsp;lists,&nbsp;where&nbsp;index&nbsp;0&nbsp;of&nbsp;list&nbsp;corresponds&nbsp;to&nbsp;field&nbsp;0&nbsp;<br>
+of&nbsp;message,&nbsp;and&nbsp;so&nbsp;on.&nbsp;For&nbsp;a&nbsp;descripion&nbsp;of&nbsp;types&nbsp;and&nbsp;fields&nbsp;of&nbsp;VR&nbsp;messages<br>
+see&nbsp;the&nbsp;help&nbsp;of&nbsp;wait_message().<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Args:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;msgpatt:&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;message&nbsp;search&nbsp;pattern:&nbsp;a&nbsp;list&nbsp;of&nbsp;fields,&nbsp;each&nbsp;field&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;containing&nbsp;an&nbsp;string&nbsp;or&nbsp;the&nbsp;None&nbsp;value.&nbsp;None&nbsp;fields&nbsp;in&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;message&nbsp;pattern&nbsp;are&nbsp;ignored&nbsp;in&nbsp;the&nbsp;search,&nbsp;pattern&nbsp;strings<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;defined&nbsp;in&nbsp;message&nbsp;pattern&nbsp;must&nbsp;match&nbsp;the&nbsp;corresponding<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;field&nbsp;in&nbsp;the&nbsp;message&nbsp;according&nbsp;to&nbsp;the&nbsp;following&nbsp;rules:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;If&nbsp;pattern&nbsp;string&nbsp;starts&nbsp;with&nbsp;'^'&nbsp;then&nbsp;corresponding&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;field&nbsp;must&nbsp;match&nbsp;the&nbsp;pattern&nbsp;from&nbsp;first&nbsp;character;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;If&nbsp;pattern&nbsp;string&nbsp;ends&nbsp;with&nbsp;'$'&nbsp;then&nbsp;corresponding&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;field&nbsp;must&nbsp;match&nbsp;the&nbsp;pattern&nbsp;until&nbsp;last&nbsp;character;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;If&nbsp;pattern&nbsp;string&nbsp;starts&nbsp;with&nbsp;'!'&nbsp;then&nbsp;corresponding<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;field&nbsp;cannot&nbsp;match&nbsp;the&nbsp;pattern;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;If&nbsp;pattern&nbsp;string&nbsp;is&nbsp;a&nbsp;list&nbsp;of&nbsp;strings&nbsp;separated&nbsp;by&nbsp;'|'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;then&nbsp;some&nbsp;of&nbsp;these&nbsp;strings&nbsp;must&nbsp;be&nbsp;a&nbsp;substring&nbsp;of&nbsp;the&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;corresponding&nbsp;field;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;Otherwise&nbsp;the&nbsp;pattern&nbsp;string&nbsp;must&nbsp;be&nbsp;a&nbsp;substring&nbsp;of&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;corresponding&nbsp;field.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;None.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;returns&nbsp;the&nbsp;message&nbsp;as&nbsp;a&nbsp;list&nbsp;of&nbsp;strings.</tt></dd></dl>
+ <dl><dt><a name="-send_chat_msg"><strong>send_chat_msg</strong></a>(acid, chann, chatyp, msgtxt)</dt><dd><tt>Send&nbsp;a&nbsp;chat&nbsp;message&nbsp;to&nbsp;channel&nbsp;chann.&nbsp;If&nbsp;chann&nbsp;is&nbsp;None,&nbsp;sent&nbsp;to<br>
+&nbsp;&nbsp;&nbsp;&nbsp;default&nbsp;public&nbsp;channel&nbsp;(channel&nbsp;0).&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Args:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;chatyp:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type&nbsp;of&nbsp;chat&nbsp;message,&nbsp;can&nbsp;be:&nbsp;'say','shout'&nbsp;or&nbsp;'whisper'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;chann:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;number&nbsp;of&nbsp;channel&nbsp;to&nbsp;sent&nbsp;message,&nbsp;0&nbsp;is&nbsp;the&nbsp;default<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;channel<br>
+&nbsp;&nbsp;&nbsp;&nbsp;msgtxt:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;text&nbsp;of&nbsp;message<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;True.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;send&nbsp;the&nbsp;chat&nbsp;message&nbsp;and&nbsp;returns&nbsp;true.</tt></dd></dl>
+ <dl><dt><a name="-send_code_msg"><strong>send_code_msg</strong></a>(acid, code, avname, msgtxt, sessid)</dt><dd><tt>Send&nbsp;a&nbsp;code&nbsp;message&nbsp;to&nbsp;VR&nbsp;agent/avatar&nbsp;avname&nbsp;using&nbsp;the&nbsp;Instant&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Message&nbsp;service.&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Args:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;code:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;the&nbsp;code&nbsp;of&nbsp;the&nbsp;message<br>
+&nbsp;&nbsp;&nbsp;&nbsp;avname:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;name&nbsp;of&nbsp;VR&nbsp;avatar/agent&nbsp;to&nbsp;receive&nbsp;the&nbsp;message<br>
+&nbsp;&nbsp;&nbsp;&nbsp;msgtxt:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;text&nbsp;of&nbsp;message<br>
+&nbsp;&nbsp;&nbsp;&nbsp;sessid:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;the&nbsp;message&nbsp;is&nbsp;a&nbsp;session&nbsp;message,&nbsp;contains<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;identifier&nbsp;of&nbsp;the&nbsp;session<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;False.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;send&nbsp;the&nbsp;text&nbsp;message&nbsp;and&nbsp;returns&nbsp;True.</tt></dd></dl>
+ <dl><dt><a name="-send_group_msg"><strong>send_group_msg</strong></a>(acid, grpid, msgtxt)</dt><dd><tt>Send&nbsp;a&nbsp;text&nbsp;message&nbsp;to&nbsp;the&nbsp;group&nbsp;of&nbsp;VR&nbsp;agents/avatars&nbsp;identified&nbsp;by<br>
+&nbsp;&nbsp;&nbsp;&nbsp;grpid&nbsp;using&nbsp;the&nbsp;Instant&nbsp;Message&nbsp;service.&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Args:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;grpid:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;identifier&nbsp;of&nbsp;the&nbsp;group&nbsp;of&nbsp;VR&nbsp;avatars/agents<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;that&nbsp;will&nbsp;receive&nbsp;the&nbsp;message<br>
+&nbsp;&nbsp;&nbsp;&nbsp;msgtxt:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;text&nbsp;of&nbsp;message<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;False.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;send&nbsp;the&nbsp;text&nbsp;message&nbsp;and&nbsp;returns&nbsp;True.</tt></dd></dl>
+ <dl><dt><a name="-send_inst_msg"><strong>send_inst_msg</strong></a>(acid, avname, msgtxt, sessid=None)</dt><dd><tt>Send&nbsp;a&nbsp;text&nbsp;message&nbsp;to&nbsp;VR&nbsp;agent/avatar&nbsp;avname&nbsp;using&nbsp;the&nbsp;Instant&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Message&nbsp;service.&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Args:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;avname:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;name&nbsp;of&nbsp;VR&nbsp;avatar/agent&nbsp;to&nbsp;receive&nbsp;the&nbsp;message<br>
+&nbsp;&nbsp;&nbsp;&nbsp;msgtxt:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;text&nbsp;of&nbsp;message<br>
+&nbsp;&nbsp;&nbsp;&nbsp;sessid:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;the&nbsp;message&nbsp;is&nbsp;a&nbsp;session&nbsp;message,&nbsp;contains<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;identifier&nbsp;of&nbsp;the&nbsp;session<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;False.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;send&nbsp;the&nbsp;text&nbsp;message&nbsp;and&nbsp;returns&nbsp;True.</tt></dd></dl>
+ <dl><dt><a name="-shout"><strong>shout</strong></a>(acid, msgtxt, chann=None)</dt><dd><tt>Send&nbsp;a&nbsp;shout&nbsp;chat&nbsp;message&nbsp;to&nbsp;channel&nbsp;chann.&nbsp;If&nbsp;chann&nbsp;is&nbsp;None,&nbsp;sent&nbsp;to<br>
+&nbsp;&nbsp;&nbsp;&nbsp;default&nbsp;public&nbsp;channel&nbsp;(channel&nbsp;0).&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Args:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;msgtxt:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;text&nbsp;of&nbsp;message<br>
+&nbsp;&nbsp;&nbsp;&nbsp;channel:&nbsp;&nbsp;&nbsp;&nbsp;number&nbsp;of&nbsp;channel&nbsp;to&nbsp;sent&nbsp;message,&nbsp;0&nbsp;is&nbsp;the&nbsp;default<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;channel<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;True.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;send&nbsp;the&nbsp;shout&nbsp;message&nbsp;and&nbsp;returns&nbsp;true.</tt></dd></dl>
+ <dl><dt><a name="-show_menu_for_avatar"><strong>show_menu_for_avatar</strong></a>(acid, avid, menu_msg, menu_opts, menu_chann=-98186)</dt><dd><tt>Create&nbsp;and&nbsp;show&nbsp;an&nbsp;user&nbsp;menu&nbsp;for&nbsp;the&nbsp;avatar&nbsp;with&nbsp;id&nbsp;avid.&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;menu&nbsp;will&nbsp;be&nbsp;presented&nbsp;as&nbsp;a&nbsp;blue&nbsp;rectangle,&nbsp;with&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;menu_msg&nbsp;text&nbsp;displayed&nbsp;at&nbsp;the&nbsp;top&nbsp;of&nbsp;rectangle,&nbsp;followed&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;below&nbsp;by&nbsp;option&nbsp;buttons,&nbsp;one&nbsp;for&nbsp;each&nbsp;option&nbsp;in&nbsp;menu_opt&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;list.&nbsp;Ignore&nbsp;and&nbsp;OK&nbsp;buttons&nbsp;are&nbsp;also&nbsp;displayed&nbsp;in&nbsp;the&nbsp;menu.<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;User&nbsp;menus&nbsp;are&nbsp;OpenSimulator&nbsp;dialog&nbsp;boxes&nbsp;created&nbsp;by&nbsp;LSL&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;scripts&nbsp;running&nbsp;on&nbsp;prim&nbsp;objects&nbsp;located&nbsp;in&nbsp;the&nbsp;virtual&nbsp;world.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;option&nbsp;buttons&nbsp;are&nbsp;displayed&nbsp;in&nbsp;the&nbsp;same&nbsp;order&nbsp;of&nbsp;these<br>
+&nbsp;&nbsp;&nbsp;&nbsp;dialog&nbsp;boxes,&nbsp;thus&nbsp;options&nbsp;0,&nbsp;1,&nbsp;2,&nbsp;...&nbsp;in&nbsp;menu_opt&nbsp;list<br>
+&nbsp;&nbsp;&nbsp;&nbsp;will&nbsp;be&nbsp;displayed&nbsp;as&nbsp;buttons&nbsp;in&nbsp;the&nbsp;following&nbsp;order&nbsp;on&nbsp;the<br>
+&nbsp;&nbsp;&nbsp;&nbsp;dialog&nbsp;box:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;9&nbsp;&nbsp;&nbsp;&nbsp;10&nbsp;&nbsp;&nbsp;&nbsp;11<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6&nbsp;&nbsp;&nbsp;&nbsp;7&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3&nbsp;&nbsp;&nbsp;&nbsp;4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;To&nbsp;work,&nbsp;this&nbsp;function&nbsp;needs&nbsp;that&nbsp;a&nbsp;prim&nbsp;object&nbsp;be&nbsp;rezzed&nbsp;on<br>
+&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;virtual&nbsp;world&nbsp;near&nbsp;do&nbsp;the&nbsp;actor's&nbsp;avatar&nbsp;and&nbsp;that&nbsp;the&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;MenuController&nbsp;script&nbsp;must&nbsp;be&nbsp;installed&nbsp;and&nbsp;running&nbsp;in&nbsp;it.&nbsp;<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;file&nbsp;"MenuController.lsl"&nbsp;located&nbsp;in&nbsp;the&nbsp;menu-controller<br>
+&nbsp;&nbsp;&nbsp;&nbsp;subdirectory&nbsp;of&nbsp;VisualStage&nbsp;implements&nbsp;this&nbsp;script.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;prim&nbsp;object&nbsp;that&nbsp;runs&nbsp;this&nbsp;script&nbsp;can&nbsp;be&nbsp;an&nbsp;invisible&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;attachment&nbsp;of&nbsp;the&nbsp;actor's&nbsp;avatar,&nbsp;so&nbsp;it&nbsp;will&nbsp;always&nbsp;be&nbsp;close&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;to&nbsp;the&nbsp;avatar.&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;following&nbsp;example&nbsp;shows&nbsp;how&nbsp;to&nbsp;create&nbsp;the&nbsp;menu&nbsp;and&nbsp;wait<br>
+&nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;the&nbsp;selection:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;...<br>
+&nbsp;&nbsp;&nbsp;&nbsp;import&nbsp;ActorController&nbsp;as&nbsp;ac<br>
+&nbsp;&nbsp;&nbsp;&nbsp;...<br>
+&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;Create&nbsp;a&nbsp;menu&nbsp;to&nbsp;select&nbsp;the&nbsp;direction:&nbsp;north&nbsp;or&nbsp;south<br>
+&nbsp;&nbsp;&nbsp;&nbsp;ac.<a href="#-show_menu_for_avatar">show_menu_for_avatar</a>(acid,other_avatar,"Direction?",["North","South"])<br>
+&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;Wait&nbsp;60&nbsp;seconds&nbsp;for&nbsp;the&nbsp;response&nbsp;of&nbsp;other&nbsp;avatar<br>
+&nbsp;&nbsp;&nbsp;&nbsp;selection&nbsp;=&nbsp;ac.<a href="#-wait_menu_selection">wait_menu_selection</a>(acid,60)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;default&nbsp;chat&nbsp;channel&nbsp;used&nbsp;to&nbsp;interact&nbsp;with&nbsp;MenuController&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;script&nbsp;has&nbsp;the&nbsp;number&nbsp;-98186.&nbsp;Is&nbsp;a&nbsp;random&nbsp;number&nbsp;that&nbsp;probably<br>
+&nbsp;&nbsp;&nbsp;&nbsp;will&nbsp;work&nbsp;fine&nbsp;and&nbsp;not&nbsp;cause&nbsp;interference&nbsp;with&nbsp;other&nbsp;scripts&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;running&nbsp;in&nbsp;the&nbsp;virtual&nbsp;world.&nbsp;However,&nbsp;if&nbsp;other&nbsp;VirtualStage&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;actors&nbsp;&nbsp;are&nbsp;in&nbsp;the&nbsp;same&nbsp;virtual&nbsp;world&nbsp;and&nbsp;also&nbsp;use&nbsp;menus&nbsp;to&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;communicate&nbsp;with&nbsp;users,&nbsp;then&nbsp;the&nbsp;MenuController&nbsp;scripts&nbsp;running&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;on&nbsp;attached&nbsp;objects&nbsp;of&nbsp;these&nbsp;actor's&nbsp;will&nbsp;need&nbsp;to&nbsp;have&nbsp;different&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;chat&nbsp;channel&nbsp;numbers.&nbsp;Modify&nbsp;the&nbsp;MenuController&nbsp;script&nbsp;that&nbsp;is&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;loaded&nbsp;in&nbsp;the&nbsp;attached&nbsp;object&nbsp;changing&nbsp;the&nbsp;MenuChannel&nbsp;variable<br>
+&nbsp;&nbsp;&nbsp;&nbsp;to&nbsp;some&nbsp;appropriate&nbsp;new&nbsp;chat&nbsp;number,&nbsp;and&nbsp;call&nbsp;show_menu_to_avatar()&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;with&nbsp;the&nbsp;last&nbsp;parameter,&nbsp;menu_chann,&nbsp;with&nbsp;this&nbsp;new&nbsp;chat&nbsp;number.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;avid:&nbsp;str&nbsp;with&nbsp;unique&nbsp;identifier&nbsp;of&nbsp;avatar&nbsp;that&nbsp;will&nbsp;see&nbsp;the&nbsp;menu.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;menu_msg:&nbsp;str&nbsp;with&nbsp;menu&nbsp;message&nbsp;to&nbsp;be&nbsp;displayed&nbsp;above&nbsp;menu&nbsp;options.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;menu_opts:&nbsp;list&nbsp;of&nbsp;str&nbsp;with&nbsp;menu&nbsp;options.<br>
+&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;False.&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;True.</tt></dd></dl>
+ <dl><dt><a name="-show_menu_for_avatar_with_name"><strong>show_menu_for_avatar_with_name</strong></a>(acid, avname, menu_msg, menu_opts, menu_chann=-98186)</dt><dd><tt>Create&nbsp;an&nbsp;show&nbsp;an&nbsp;user&nbsp;menu&nbsp;for&nbsp;the&nbsp;avatar&nbsp;with&nbsp;name&nbsp;avname.&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;See&nbsp;the&nbsp;help&nbsp;of&nbsp;<a href="#-show_menu_for_avatar">show_menu_for_avatar</a>()&nbsp;for&nbsp;details.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;avname:&nbsp;str&nbsp;with&nbsp;name&nbsp;of&nbsp;avatar&nbsp;that&nbsp;will&nbsp;see&nbsp;the&nbsp;menu.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;menu_msg:&nbsp;str&nbsp;with&nbsp;menu&nbsp;message&nbsp;to&nbsp;be&nbsp;displayed&nbsp;above&nbsp;menu&nbsp;options.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;menu_opts:&nbsp;list&nbsp;of&nbsp;str&nbsp;with&nbsp;menu&nbsp;options.<br>
+&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;False.&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;True.</tt></dd></dl>
+ <dl><dt><a name="-wait_chat_inst_msg"><strong>wait_chat_inst_msg</strong></a>(acid, srcnam, cntntpatt, timeout)</dt><dd><tt>Wait&nbsp;for&nbsp;an&nbsp;instant&nbsp;or&nbsp;chat&nbsp;message&nbsp;sent&nbsp;by&nbsp;some&nbsp;avatar/agent<br>
+&nbsp;&nbsp;&nbsp;&nbsp;with&nbsp;name&nbsp;srcnam&nbsp;and&nbsp;with&nbsp;content&nbsp;that&nbsp;match&nbsp;cntntpatt.&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;If&nbsp;timeout&nbsp;is&nbsp;different&nbsp;than&nbsp;None,&nbsp;stop&nbsp;waiting&nbsp;after&nbsp;timeout&nbsp;seconds.&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+VR&nbsp;messages&nbsp;are&nbsp;string&nbsp;lists,&nbsp;where&nbsp;index&nbsp;0&nbsp;of&nbsp;list&nbsp;corresponds&nbsp;to&nbsp;field&nbsp;0&nbsp;<br>
+of&nbsp;message,&nbsp;and&nbsp;so&nbsp;on.&nbsp;For&nbsp;a&nbsp;descripion&nbsp;of&nbsp;types&nbsp;and&nbsp;fields&nbsp;of&nbsp;VR&nbsp;messages<br>
+see&nbsp;the&nbsp;help&nbsp;of&nbsp;wait_message().<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;srcnam:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;different&nbsp;than&nbsp;None,&nbsp;is&nbsp;a&nbsp;string&nbsp;that&nbsp;defines&nbsp;the&nbsp;name&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;of&nbsp;avatar/agent&nbsp;that&nbsp;sent&nbsp;the&nbsp;message.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;cntntpatt:&nbsp;&nbsp;if&nbsp;different&nbsp;than&nbsp;None,&nbsp;is&nbsp;a&nbsp;pattern&nbsp;string&nbsp;that&nbsp;must&nbsp;match<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;content&nbsp;of&nbsp;the&nbsp;message:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;If&nbsp;pattern&nbsp;starts&nbsp;with&nbsp;'^'&nbsp;then&nbsp;content&nbsp;must&nbsp;match&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pattern&nbsp;from&nbsp;first&nbsp;character;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;If&nbsp;pattern&nbsp;ends&nbsp;with&nbsp;'$'&nbsp;then&nbsp;content&nbsp;must&nbsp;match&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pattern&nbsp;until&nbsp;last&nbsp;character;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;If&nbsp;pattern&nbsp;starts&nbsp;with&nbsp;'!'&nbsp;then&nbsp;pattern&nbsp;cannot&nbsp;be&nbsp;a&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;substring&nbsp;of&nbsp;content;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;If&nbsp;pattern&nbsp;is&nbsp;a&nbsp;list&nbsp;of&nbsp;strings&nbsp;separated&nbsp;by&nbsp;'|'&nbsp;then<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;some&nbsp;of&nbsp;these&nbsp;strings&nbsp;must&nbsp;be&nbsp;a&nbsp;substring&nbsp;of&nbsp;content;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;Otherwise,&nbsp;the&nbsp;pattern&nbsp;must&nbsp;be&nbsp;a&nbsp;substring&nbsp;of&nbsp;content.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;timeout:&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;different&nbsp;than&nbsp;None,&nbsp;defines&nbsp;the&nbsp;maximum&nbsp;time&nbsp;in&nbsp;seconds<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;to&nbsp;wait&nbsp;for&nbsp;the&nbsp;message.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;None.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;returns&nbsp;the&nbsp;message&nbsp;as&nbsp;a&nbsp;list&nbsp;of&nbsp;strings.</tt></dd></dl>
+ <dl><dt><a name="-wait_chat_msg"><strong>wait_chat_msg</strong></a>(acid, srcnam, cntntpatt, timeout)</dt><dd><tt>Wait&nbsp;for&nbsp;a&nbsp;chat&nbsp;message&nbsp;sent&nbsp;by&nbsp;some&nbsp;avatar/agent&nbsp;with&nbsp;name&nbsp;srcnam<br>
+&nbsp;&nbsp;&nbsp;&nbsp;and&nbsp;with&nbsp;content&nbsp;that&nbsp;match&nbsp;cntntpatt.&nbsp;If&nbsp;timeout&nbsp;is&nbsp;different&nbsp;than&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;None,&nbsp;stop&nbsp;waiting&nbsp;after&nbsp;timeout&nbsp;seconds.&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+VR&nbsp;messages&nbsp;are&nbsp;string&nbsp;lists,&nbsp;where&nbsp;index&nbsp;0&nbsp;of&nbsp;list&nbsp;corresponds&nbsp;to&nbsp;field&nbsp;0&nbsp;<br>
+of&nbsp;message,&nbsp;and&nbsp;so&nbsp;on.&nbsp;For&nbsp;a&nbsp;descripion&nbsp;of&nbsp;types&nbsp;and&nbsp;fields&nbsp;of&nbsp;VR&nbsp;messages<br>
+see&nbsp;the&nbsp;help&nbsp;of&nbsp;wait_message().<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;srcnam:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;different&nbsp;than&nbsp;None,&nbsp;is&nbsp;a&nbsp;string&nbsp;that&nbsp;defines&nbsp;the&nbsp;name&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;of&nbsp;avatar/agent&nbsp;that&nbsp;sent&nbsp;the&nbsp;message.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;cntntpatt:&nbsp;&nbsp;if&nbsp;different&nbsp;than&nbsp;None,&nbsp;is&nbsp;a&nbsp;pattern&nbsp;string&nbsp;that&nbsp;must&nbsp;match<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;content&nbsp;of&nbsp;the&nbsp;message:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;If&nbsp;pattern&nbsp;starts&nbsp;with&nbsp;'^'&nbsp;then&nbsp;content&nbsp;must&nbsp;match&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pattern&nbsp;from&nbsp;first&nbsp;character;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;If&nbsp;pattern&nbsp;ends&nbsp;with&nbsp;'$'&nbsp;then&nbsp;content&nbsp;must&nbsp;match&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pattern&nbsp;until&nbsp;last&nbsp;character;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;If&nbsp;pattern&nbsp;starts&nbsp;with&nbsp;'!'&nbsp;then&nbsp;pattern&nbsp;cannot&nbsp;be&nbsp;a&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;substring&nbsp;of&nbsp;content;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;If&nbsp;pattern&nbsp;is&nbsp;a&nbsp;list&nbsp;of&nbsp;strings&nbsp;separated&nbsp;by&nbsp;'|'&nbsp;then<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;some&nbsp;of&nbsp;these&nbsp;strings&nbsp;must&nbsp;be&nbsp;a&nbsp;substring&nbsp;of&nbsp;content;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;Otherwise,&nbsp;the&nbsp;pattern&nbsp;must&nbsp;be&nbsp;a&nbsp;substring&nbsp;of&nbsp;content.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;timeout:&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;different&nbsp;than&nbsp;None,&nbsp;defines&nbsp;the&nbsp;maximum&nbsp;time&nbsp;in&nbsp;seconds<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;to&nbsp;wait&nbsp;for&nbsp;the&nbsp;message.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;None.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;returns&nbsp;the&nbsp;message&nbsp;as&nbsp;a&nbsp;list&nbsp;of&nbsp;strings.</tt></dd></dl>
+ <dl><dt><a name="-wait_code_msg"><strong>wait_code_msg</strong></a>(acid, srcnam, codetyp, cntntpatt, timeout)</dt><dd><tt>Wait&nbsp;for&nbsp;a&nbsp;code&nbsp;instant&nbsp;message&nbsp;sent&nbsp;by&nbsp;some&nbsp;avatar/agent&nbsp;with&nbsp;name&nbsp;srcnam,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;with&nbsp;content&nbsp;that&nbsp;match&nbsp;cntntpatt&nbsp;and&nbsp;code&nbsp;type&nbsp;that&nbsp;match&nbsp;codetyp.&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;If&nbsp;timeout&nbsp;is&nbsp;different&nbsp;than&nbsp;None,&nbsp;stop&nbsp;waiting&nbsp;after&nbsp;timeout&nbsp;seconds.&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+VR&nbsp;messages&nbsp;are&nbsp;string&nbsp;lists,&nbsp;where&nbsp;index&nbsp;0&nbsp;of&nbsp;list&nbsp;corresponds&nbsp;to&nbsp;field&nbsp;0&nbsp;<br>
+of&nbsp;message,&nbsp;and&nbsp;so&nbsp;on.&nbsp;For&nbsp;a&nbsp;descripion&nbsp;of&nbsp;types&nbsp;and&nbsp;fields&nbsp;of&nbsp;VR&nbsp;messages<br>
+see&nbsp;the&nbsp;help&nbsp;of&nbsp;wait_message().<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;srcnam:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;different&nbsp;than&nbsp;None,&nbsp;is&nbsp;a&nbsp;string&nbsp;that&nbsp;defines&nbsp;the&nbsp;name&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;of&nbsp;avatar/agent&nbsp;that&nbsp;sent&nbsp;the&nbsp;message.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;cntntpatt:&nbsp;&nbsp;if&nbsp;different&nbsp;than&nbsp;None,&nbsp;is&nbsp;a&nbsp;pattern&nbsp;string&nbsp;that&nbsp;must&nbsp;match<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;content&nbsp;of&nbsp;the&nbsp;message:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;If&nbsp;pattern&nbsp;starts&nbsp;with&nbsp;'^'&nbsp;then&nbsp;content&nbsp;must&nbsp;match&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pattern&nbsp;from&nbsp;first&nbsp;character;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;If&nbsp;pattern&nbsp;ends&nbsp;with&nbsp;'$'&nbsp;then&nbsp;content&nbsp;must&nbsp;match&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pattern&nbsp;until&nbsp;last&nbsp;character;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;If&nbsp;pattern&nbsp;starts&nbsp;with&nbsp;'!'&nbsp;then&nbsp;pattern&nbsp;cannot&nbsp;be&nbsp;a&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;substring&nbsp;of&nbsp;content;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;If&nbsp;pattern&nbsp;is&nbsp;a&nbsp;list&nbsp;of&nbsp;strings&nbsp;separated&nbsp;by&nbsp;'|'&nbsp;then<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;some&nbsp;of&nbsp;these&nbsp;strings&nbsp;must&nbsp;be&nbsp;a&nbsp;substring&nbsp;of&nbsp;content;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;Otherwise,&nbsp;the&nbsp;pattern&nbsp;must&nbsp;be&nbsp;a&nbsp;substring&nbsp;of&nbsp;content.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;codetyp:&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;different&nbsp;than&nbsp;None,&nbsp;defines&nbsp;the&nbsp;code&nbsp;type&nbsp;of&nbsp;message.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;timeout:&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;different&nbsp;than&nbsp;None,&nbsp;defines&nbsp;the&nbsp;maximum&nbsp;time&nbsp;in&nbsp;seconds<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;to&nbsp;wait&nbsp;for&nbsp;the&nbsp;message.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;None.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;returns&nbsp;the&nbsp;message&nbsp;as&nbsp;a&nbsp;list&nbsp;of&nbsp;strings.</tt></dd></dl>
+ <dl><dt><a name="-wait_group_msg"><strong>wait_group_msg</strong></a>(acid, srcnam, cntntpatt, grpid, timeout)</dt><dd><tt>Wait&nbsp;for&nbsp;a&nbsp;group&nbsp;instant&nbsp;message&nbsp;sent&nbsp;by&nbsp;some&nbsp;avatar/agent&nbsp;with&nbsp;name&nbsp;srcnam,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;with&nbsp;content&nbsp;that&nbsp;match&nbsp;cntntpatt&nbsp;and&nbsp;session&nbsp;id&nbsp;that&nbsp;match&nbsp;sessid.&nbsp;If&nbsp;timeout&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;is&nbsp;different&nbsp;than&nbsp;None,&nbsp;stop&nbsp;waiting&nbsp;after&nbsp;timeout&nbsp;seconds.&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+VR&nbsp;messages&nbsp;are&nbsp;string&nbsp;lists,&nbsp;where&nbsp;index&nbsp;0&nbsp;of&nbsp;list&nbsp;corresponds&nbsp;to&nbsp;field&nbsp;0&nbsp;<br>
+of&nbsp;message,&nbsp;and&nbsp;so&nbsp;on.&nbsp;For&nbsp;a&nbsp;descripion&nbsp;of&nbsp;types&nbsp;and&nbsp;fields&nbsp;of&nbsp;VR&nbsp;messages<br>
+see&nbsp;the&nbsp;help&nbsp;of&nbsp;wait_message().<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;srcnam:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;different&nbsp;than&nbsp;None,&nbsp;is&nbsp;a&nbsp;string&nbsp;that&nbsp;defines&nbsp;the&nbsp;name&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;of&nbsp;avatar/agent&nbsp;that&nbsp;sent&nbsp;the&nbsp;message.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;cntntpatt:&nbsp;&nbsp;if&nbsp;different&nbsp;than&nbsp;None,&nbsp;is&nbsp;a&nbsp;pattern&nbsp;string&nbsp;that&nbsp;must&nbsp;match<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;content&nbsp;of&nbsp;the&nbsp;message:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;If&nbsp;pattern&nbsp;starts&nbsp;with&nbsp;'^'&nbsp;then&nbsp;content&nbsp;must&nbsp;match&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pattern&nbsp;from&nbsp;first&nbsp;character;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;If&nbsp;pattern&nbsp;ends&nbsp;with&nbsp;'$'&nbsp;then&nbsp;content&nbsp;must&nbsp;match&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pattern&nbsp;until&nbsp;last&nbsp;character;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;If&nbsp;pattern&nbsp;starts&nbsp;with&nbsp;'!'&nbsp;then&nbsp;pattern&nbsp;cannot&nbsp;be&nbsp;a&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;substring&nbsp;of&nbsp;content;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;If&nbsp;pattern&nbsp;is&nbsp;a&nbsp;list&nbsp;of&nbsp;strings&nbsp;separated&nbsp;by&nbsp;'|'&nbsp;then<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;some&nbsp;of&nbsp;these&nbsp;strings&nbsp;must&nbsp;be&nbsp;a&nbsp;substring&nbsp;of&nbsp;content;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;Otherwise,&nbsp;the&nbsp;pattern&nbsp;must&nbsp;be&nbsp;a&nbsp;substring&nbsp;of&nbsp;content.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;grpid:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;different&nbsp;than&nbsp;None,&nbsp;defines&nbsp;the&nbsp;group&nbsp;id&nbsp;of&nbsp;message.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;timeout:&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;different&nbsp;than&nbsp;None,&nbsp;defines&nbsp;the&nbsp;maximum&nbsp;time&nbsp;in&nbsp;seconds<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;to&nbsp;wait&nbsp;for&nbsp;the&nbsp;message.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;None.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;returns&nbsp;the&nbsp;message&nbsp;as&nbsp;a&nbsp;list&nbsp;of&nbsp;strings.</tt></dd></dl>
+ <dl><dt><a name="-wait_input_text"><strong>wait_input_text</strong></a>(acid, timeout=None)</dt><dd><tt>Wait&nbsp;for&nbsp;the&nbsp;user&nbsp;to&nbsp;input&nbsp;some&nbsp;text&nbsp;on&nbsp;the&nbsp;input&nbsp;box&nbsp;and&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;returns&nbsp;this&nbsp;text&nbsp;to&nbsp;the&nbsp;caller.&nbsp;If&nbsp;timeout&nbsp;is&nbsp;None,&nbsp;then&nbsp;it&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;wait&nbsp;indefinitely&nbsp;for&nbsp;the&nbsp;response,&nbsp;otherwise&nbsp;timeout&nbsp;defines&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;max&nbsp;time,&nbsp;in&nbsp;seconds,&nbsp;to&nbsp;wait&nbsp;for&nbsp;the&nbsp;response.&nbsp;See<br>
+&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;help&nbsp;of&nbsp;<a href="#-wait_menu_selection">wait_menu_selection</a>()&nbsp;for&nbsp;details.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;timeout:&nbsp;max&nbsp;time&nbsp;in&nbsp;seconds&nbsp;to&nbsp;wait&nbsp;for&nbsp;the&nbsp;response,&nbsp;if&nbsp;None<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;will&nbsp;wait&nbsp;indefinitely.<br>
+&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;None.&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;returns&nbsp;a&nbsp;string&nbsp;with&nbsp;the&nbsp;selection&nbsp;of&nbsp;the&nbsp;user.</tt></dd></dl>
+ <dl><dt><a name="-wait_inst_msg"><strong>wait_inst_msg</strong></a>(acid, srcnam, cntntpatt, timeout)</dt><dd><tt>Wait&nbsp;for&nbsp;instant&nbsp;text&nbsp;message&nbsp;sent&nbsp;by&nbsp;some&nbsp;avatar/agent&nbsp;with&nbsp;name&nbsp;srcname<br>
+&nbsp;&nbsp;&nbsp;&nbsp;and&nbsp;with&nbsp;content&nbsp;that&nbsp;match&nbsp;cntntpatt.&nbsp;If&nbsp;timeout&nbsp;is&nbsp;different&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;than&nbsp;None,&nbsp;stop&nbsp;waiting&nbsp;after&nbsp;timeout&nbsp;seconds.&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+VR&nbsp;messages&nbsp;are&nbsp;string&nbsp;lists,&nbsp;where&nbsp;index&nbsp;0&nbsp;of&nbsp;list&nbsp;corresponds&nbsp;to&nbsp;field&nbsp;0&nbsp;<br>
+of&nbsp;message,&nbsp;and&nbsp;so&nbsp;on.&nbsp;For&nbsp;a&nbsp;descripion&nbsp;of&nbsp;types&nbsp;and&nbsp;fields&nbsp;of&nbsp;VR&nbsp;messages<br>
+see&nbsp;the&nbsp;help&nbsp;of&nbsp;wait_message().<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;srcnam:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;different&nbsp;than&nbsp;None,&nbsp;is&nbsp;a&nbsp;string&nbsp;that&nbsp;defines&nbsp;the&nbsp;name&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;of&nbsp;avatar/agent&nbsp;that&nbsp;sent&nbsp;the&nbsp;message.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;cntntpatt:&nbsp;&nbsp;if&nbsp;different&nbsp;than&nbsp;None,&nbsp;is&nbsp;a&nbsp;pattern&nbsp;string&nbsp;that&nbsp;must&nbsp;match<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;content&nbsp;of&nbsp;the&nbsp;message:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;If&nbsp;pattern&nbsp;starts&nbsp;with&nbsp;'^'&nbsp;then&nbsp;content&nbsp;must&nbsp;match&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pattern&nbsp;from&nbsp;first&nbsp;character;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;If&nbsp;pattern&nbsp;ends&nbsp;with&nbsp;'$'&nbsp;then&nbsp;content&nbsp;must&nbsp;match&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pattern&nbsp;until&nbsp;last&nbsp;character;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;If&nbsp;pattern&nbsp;starts&nbsp;with&nbsp;'!'&nbsp;then&nbsp;pattern&nbsp;cannot&nbsp;be&nbsp;a&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;match&nbsp;the&nbsp;content;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;If&nbsp;pattern&nbsp;is&nbsp;a&nbsp;list&nbsp;of&nbsp;strings&nbsp;separated&nbsp;by&nbsp;'|'&nbsp;then<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;some&nbsp;of&nbsp;these&nbsp;strings&nbsp;must&nbsp;be&nbsp;a&nbsp;substring&nbsp;of&nbsp;content;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;Otherwise,&nbsp;the&nbsp;pattern&nbsp;must&nbsp;be&nbsp;a&nbsp;substring&nbsp;of&nbsp;content.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;timeout:&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;different&nbsp;than&nbsp;None,&nbsp;defines&nbsp;the&nbsp;maximum&nbsp;time&nbsp;in&nbsp;seconds<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;to&nbsp;wait&nbsp;for&nbsp;the&nbsp;message.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;None.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;returns&nbsp;the&nbsp;message&nbsp;as&nbsp;a&nbsp;list&nbsp;of&nbsp;strings.</tt></dd></dl>
+ <dl><dt><a name="-wait_menu_selection"><strong>wait_menu_selection</strong></a>(acid, timeout=None)</dt><dd><tt>Wait&nbsp;for&nbsp;the&nbsp;user&nbsp;to&nbsp;select&nbsp;some&nbsp;menu&nbsp;option&nbsp;and&nbsp;return&nbsp;this<br>
+&nbsp;&nbsp;&nbsp;&nbsp;selection&nbsp;to&nbsp;the&nbsp;caller.&nbsp;If&nbsp;timeout&nbsp;is&nbsp;None,&nbsp;then&nbsp;it&nbsp;wait&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;indefinitely&nbsp;for&nbsp;the&nbsp;response,&nbsp;otherwise&nbsp;timeout&nbsp;defines&nbsp;the&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;max&nbsp;time,&nbsp;in&nbsp;seconds,&nbsp;to&nbsp;wait&nbsp;for&nbsp;the&nbsp;response.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;When&nbsp;the&nbsp;user&nbsp;select&nbsp;some&nbsp;option&nbsp;from&nbsp;the&nbsp;user&nbsp;menu,&nbsp;then&nbsp;a<br>
+&nbsp;&nbsp;&nbsp;&nbsp;codemsg&nbsp;is&nbsp;sent&nbsp;to&nbsp;the&nbsp;avatar&nbsp;controlled&nbsp;by&nbsp;the&nbsp;actor.&nbsp;For&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;instance,&nbsp;if&nbsp;the&nbsp;user&nbsp;selected&nbsp;selected&nbsp;"South"&nbsp;then&nbsp;the&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;received&nbsp;codemsg&nbsp;will&nbsp;look&nbsp;like:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;["codemsg",&nbsp;"MenuController",&nbsp;"South",&nbsp;&lt;UUID&gt;,&nbsp;&lt;time&gt;,&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;X&gt;,&nbsp;&lt;Y&gt;,&nbsp;&lt;Z&gt;,&nbsp;"message_from_object",&nbsp;...]<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;where:&nbsp;"codemsg"&nbsp;field&nbsp;identifies&nbsp;the&nbsp;type&nbsp;of&nbsp;message,&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"MenuController"&nbsp;field&nbsp;identifies&nbsp;the&nbsp;script/object&nbsp;that&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sent&nbsp;the&nbsp;message,&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"South"&nbsp;field&nbsp;contains&nbsp;the&nbsp;content&nbsp;of&nbsp;the&nbsp;message,&nbsp;in&nbsp;this&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;case,&nbsp;contains&nbsp;the&nbsp;option&nbsp;that&nbsp;was&nbsp;selected,&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;UUID&gt;&nbsp;field&nbsp;contains&nbsp;the&nbsp;id&nbsp;of&nbsp;actor's&nbsp;avatar,&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;time&gt;&nbsp;is&nbsp;the&nbsp;time&nbsp;when&nbsp;menu&nbsp;was&nbsp;selected,&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;X&gt;,&nbsp;&lt;Y&gt;&nbsp;and&nbsp;&lt;Z&gt;&nbsp;is&nbsp;the&nbsp;position&nbsp;of&nbsp;the&nbsp;object/script&nbsp;that&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sent&nbsp;the&nbsp;message&nbsp;and&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"message_from_object"&nbsp;is&nbsp;the&nbsp;subtype&nbsp;of&nbsp;message,&nbsp;indicating<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;it&nbsp;was&nbsp;a&nbsp;codemsg&nbsp;sent&nbsp;by&nbsp;a&nbsp;prim&nbsp;object.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;timeout:&nbsp;max&nbsp;time&nbsp;in&nbsp;seconds&nbsp;to&nbsp;wait&nbsp;for&nbsp;the&nbsp;response,&nbsp;if&nbsp;None<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;will&nbsp;wait&nbsp;indefinitely.<br>
+&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;None.&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;returns&nbsp;a&nbsp;string&nbsp;with&nbsp;the&nbsp;selection&nbsp;of&nbsp;the&nbsp;user.</tt></dd></dl>
+ <dl><dt><a name="-wait_msg"><strong>wait_msg</strong></a>(acid, msgpatt, timeout)</dt><dd><tt>Wait&nbsp;for&nbsp;message&nbsp;sent&nbsp;by&nbsp;VR&nbsp;simulator&nbsp;from&nbsp;other&nbsp;avatars/agents,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;that&nbsp;match&nbsp;the&nbsp;msgpatt&nbsp;search&nbsp;pattern.&nbsp;If&nbsp;timeout&nbsp;is&nbsp;different&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;than&nbsp;None,&nbsp;stop&nbsp;waiting&nbsp;after&nbsp;timeout&nbsp;seconds.&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+VR&nbsp;messages&nbsp;are&nbsp;string&nbsp;lists,&nbsp;where&nbsp;index&nbsp;0&nbsp;of&nbsp;list&nbsp;corresponds&nbsp;to&nbsp;field&nbsp;0&nbsp;<br>
+of&nbsp;message,&nbsp;and&nbsp;so&nbsp;on.&nbsp;The&nbsp;following&nbsp;types&nbsp;of&nbsp;VR&nbsp;events&nbsp;are&nbsp;handled&nbsp;by&nbsp;Virtual<br>
+Stage:<br>
+&nbsp;<br>
+'instmsg'&nbsp;messages&nbsp;from&nbsp;other&nbsp;avatars/agents&nbsp;sent&nbsp;by&nbsp;Instant&nbsp;Message&nbsp;service:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Field&nbsp;0&nbsp;(MsgType):&nbsp;'instmsg'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Field&nbsp;1&nbsp;(FromAvatarName):&nbsp;name&nbsp;of&nbsp;source&nbsp;agent/avatar<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Field&nbsp;2&nbsp;(Content):&nbsp;message&nbsp;content<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Field&nbsp;3&nbsp;(FromAvatarId):&nbsp;ID&nbsp;of&nbsp;source&nbsp;agent/avatar<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Field&nbsp;4&nbsp;(TimeStamp):&nbsp;time&nbsp;of&nbsp;recvd&nbsp;msg&nbsp;in&nbsp;fmt&nbsp;YYYY-MM-ddTHH:MM:SS<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Fields&nbsp;5,6,7&nbsp;(PosX,PosY,PosZ):&nbsp;X,Y,Z&nbsp;coords&nbsp;of&nbsp;source&nbsp;agent/avatar<br>
+&nbsp;<br>
+'chatmsg'&nbsp;messages&nbsp;from&nbsp;other&nbsp;avatars/agents&nbsp;sent&nbsp;by&nbsp;chat&nbsp;channel:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Field&nbsp;0&nbsp;(MsgType):&nbsp;'chatmsg'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Field&nbsp;1&nbsp;(FromAvatarName):&nbsp;name&nbsp;of&nbsp;source&nbsp;agent/avatar<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Field&nbsp;2&nbsp;(Content):&nbsp;message&nbsp;content<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Field&nbsp;3&nbsp;(FromAvatarId):&nbsp;ID&nbsp;of&nbsp;source&nbsp;agent/avatar<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Field&nbsp;4&nbsp;(TimeStamp):&nbsp;time&nbsp;of&nbsp;recvd&nbsp;msg&nbsp;in&nbsp;fmt&nbsp;YYYY-MM-ddTHH:MM:SS<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Fields&nbsp;5,6,7&nbsp;(PosX,PosY,PosZ):&nbsp;X,Y,Z&nbsp;coords&nbsp;of&nbsp;source&nbsp;agent/avatar<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Field&nbsp;8&nbsp;(ChatType):&nbsp;type&nbsp;of&nbsp;chat&nbsp;msg&nbsp;=&nbsp;'whisper'|'normal'|'shout'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Field&nbsp;9&nbsp;(AudioLevel):&nbsp;audible&nbsp;level&nbsp;of&nbsp;chat&nbsp;msg&nbsp;=&nbsp;'not'|'barely'|'fully'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Field&nbsp;10&nbsp;(SrcType):&nbsp;source&nbsp;type&nbsp;of&nbsp;chat&nbsp;msg&nbsp;=&nbsp;'system'|'actor'|'object'<br>
+&nbsp;<br>
+'codemsg'&nbsp;messages&nbsp;from&nbsp;other&nbsp;avatars/agents&nbsp;also&nbsp;sent&nbsp;by&nbsp;Instant&nbsp;Message&nbsp;service:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Field&nbsp;0&nbsp;(MsgType):&nbsp;'codemsg'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Field&nbsp;1&nbsp;(FromAvatarName):&nbsp;name&nbsp;of&nbsp;source&nbsp;agent/avatar<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Field&nbsp;2&nbsp;(Content):&nbsp;message&nbsp;content<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Field&nbsp;3&nbsp;(FromAvatarId):&nbsp;ID&nbsp;of&nbsp;source&nbsp;agent/avatar<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Field&nbsp;4&nbsp;(TimeStamp):&nbsp;time&nbsp;of&nbsp;recvd&nbsp;msg&nbsp;in&nbsp;fmt&nbsp;YYYY-MM-ddTHH:MM:SS<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Fields&nbsp;5,6,7&nbsp;(PosX,PosY,PosZ):&nbsp;X,Y,Z&nbsp;coords&nbsp;of&nbsp;source&nbsp;agent/avatar<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Field&nbsp;8&nbsp;(CodeTyp):&nbsp;type&nbsp;of&nbsp;code&nbsp;msg<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Field&nbsp;9&nbsp;(GroupSession):&nbsp;indicates&nbsp;if&nbsp;is&nbsp;'group'&nbsp;or&nbsp;'session'&nbsp;code&nbsp;msg<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Field&nbsp;10&nbsp;(GrpSesId):&nbsp;group&nbsp;ID,&nbsp;for&nbsp;'group'&nbsp;code&nbsp;msg&nbsp;or&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;session&nbsp;ID,&nbsp;for&nbsp;'session'&nbsp;code&nbsp;msg&nbsp;&nbsp;&nbsp;<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;msgpatt:&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;message&nbsp;search&nbsp;pattern:&nbsp;a&nbsp;list&nbsp;of&nbsp;fields,&nbsp;each&nbsp;field&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;containing&nbsp;a&nbsp;pattern&nbsp;string&nbsp;or&nbsp;the&nbsp;None&nbsp;value.&nbsp;None&nbsp;fields&nbsp;in&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;message&nbsp;pattern&nbsp;are&nbsp;ignored&nbsp;in&nbsp;the&nbsp;search,&nbsp;pattern&nbsp;strings<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;defined&nbsp;in&nbsp;message&nbsp;pattern&nbsp;must&nbsp;match&nbsp;the&nbsp;corresponding<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;field&nbsp;in&nbsp;the&nbsp;message&nbsp;according&nbsp;to&nbsp;the&nbsp;following&nbsp;rules:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;If&nbsp;pattern&nbsp;string&nbsp;starts&nbsp;with&nbsp;'^'&nbsp;then&nbsp;corresponding&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;field&nbsp;must&nbsp;match&nbsp;the&nbsp;pattern&nbsp;from&nbsp;first&nbsp;character;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;If&nbsp;pattern&nbsp;string&nbsp;ends&nbsp;with&nbsp;'$'&nbsp;then&nbsp;corresponding&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;field&nbsp;must&nbsp;match&nbsp;the&nbsp;pattern&nbsp;until&nbsp;last&nbsp;character;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;If&nbsp;pattern&nbsp;string&nbsp;starts&nbsp;with&nbsp;'!'&nbsp;then&nbsp;corresponding<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;field&nbsp;cannot&nbsp;match&nbsp;the&nbsp;pattern;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;If&nbsp;pattern&nbsp;string&nbsp;is&nbsp;a&nbsp;list&nbsp;of&nbsp;strings&nbsp;separated&nbsp;by&nbsp;'|'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;then&nbsp;some&nbsp;of&nbsp;these&nbsp;strings&nbsp;must&nbsp;be&nbsp;a&nbsp;substring&nbsp;of&nbsp;the<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;corresponding&nbsp;field;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;Otherwise&nbsp;the&nbsp;pattern&nbsp;string&nbsp;must&nbsp;be&nbsp;a&nbsp;substring&nbsp;of&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;corresponding&nbsp;field.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;timeout:&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;different&nbsp;than&nbsp;None,&nbsp;defines&nbsp;the&nbsp;maximum&nbsp;time&nbsp;in&nbsp;seconds<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;to&nbsp;wait&nbsp;for&nbsp;the&nbsp;message.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;None.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;returns&nbsp;the&nbsp;message&nbsp;as&nbsp;a&nbsp;list&nbsp;of&nbsp;strings.</tt></dd></dl>
+ <dl><dt><a name="-wait_say_msg"><strong>wait_say_msg</strong></a>(acid, srcnam, cntntpatt, timeout)</dt><dd><tt>Wait&nbsp;for&nbsp;a&nbsp;chat&nbsp;message&nbsp;of&nbsp;type&nbsp;'say',&nbsp;i.e.,&nbsp;a&nbsp;message&nbsp;'said'&nbsp;in<br>
+&nbsp;&nbsp;&nbsp;&nbsp;chat&nbsp;channel&nbsp;by&nbsp;some&nbsp;avatar/agent&nbsp;with&nbsp;name&nbsp;srcnam&nbsp;&nbsp;and&nbsp;with&nbsp;content&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;that&nbsp;match&nbsp;cntntpatt.&nbsp;If&nbsp;timeout&nbsp;is&nbsp;different&nbsp;than&nbsp;None,&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;stop&nbsp;waiting&nbsp;after&nbsp;timeout&nbsp;seconds.&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+VR&nbsp;messages&nbsp;are&nbsp;string&nbsp;lists,&nbsp;where&nbsp;index&nbsp;0&nbsp;of&nbsp;list&nbsp;corresponds&nbsp;to&nbsp;field&nbsp;0&nbsp;<br>
+of&nbsp;message,&nbsp;and&nbsp;so&nbsp;on.&nbsp;For&nbsp;a&nbsp;descripion&nbsp;of&nbsp;types&nbsp;and&nbsp;fields&nbsp;of&nbsp;VR&nbsp;messages<br>
+see&nbsp;the&nbsp;help&nbsp;of&nbsp;wait_message().<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;srcnam:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;different&nbsp;than&nbsp;None,&nbsp;is&nbsp;a&nbsp;string&nbsp;that&nbsp;defines&nbsp;the&nbsp;name&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;of&nbsp;avatar/agent&nbsp;that&nbsp;sent&nbsp;the&nbsp;message.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;cntntpatt:&nbsp;&nbsp;if&nbsp;different&nbsp;than&nbsp;None,&nbsp;is&nbsp;a&nbsp;pattern&nbsp;string&nbsp;that&nbsp;must&nbsp;match<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;content&nbsp;of&nbsp;the&nbsp;message:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;If&nbsp;pattern&nbsp;starts&nbsp;with&nbsp;'^'&nbsp;then&nbsp;content&nbsp;must&nbsp;match&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pattern&nbsp;from&nbsp;first&nbsp;character;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;If&nbsp;pattern&nbsp;ends&nbsp;with&nbsp;'$'&nbsp;then&nbsp;content&nbsp;must&nbsp;match&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pattern&nbsp;until&nbsp;last&nbsp;character;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;If&nbsp;pattern&nbsp;starts&nbsp;with&nbsp;'!'&nbsp;then&nbsp;pattern&nbsp;cannot&nbsp;be&nbsp;a&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;substring&nbsp;of&nbsp;content;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;If&nbsp;pattern&nbsp;is&nbsp;a&nbsp;list&nbsp;of&nbsp;strings&nbsp;separated&nbsp;by&nbsp;'|'&nbsp;then<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;some&nbsp;of&nbsp;these&nbsp;strings&nbsp;must&nbsp;be&nbsp;a&nbsp;substring&nbsp;of&nbsp;content;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;Otherwise,&nbsp;the&nbsp;pattern&nbsp;must&nbsp;be&nbsp;a&nbsp;substring&nbsp;of&nbsp;content.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;timeout:&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;different&nbsp;than&nbsp;None,&nbsp;defines&nbsp;the&nbsp;maximum&nbsp;time&nbsp;in&nbsp;seconds<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;to&nbsp;wait&nbsp;for&nbsp;the&nbsp;message.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;None.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;returns&nbsp;the&nbsp;message&nbsp;as&nbsp;a&nbsp;list&nbsp;of&nbsp;strings.</tt></dd></dl>
+ <dl><dt><a name="-wait_session_msg"><strong>wait_session_msg</strong></a>(acid, srcnam, cntntpatt, sessid, timeout)</dt><dd><tt>Wait&nbsp;for&nbsp;a&nbsp;session&nbsp;instant&nbsp;message&nbsp;sent&nbsp;by&nbsp;some&nbsp;avatar/agent&nbsp;with&nbsp;name&nbsp;srcnam,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;with&nbsp;content&nbsp;that&nbsp;match&nbsp;cntntpatt&nbsp;and&nbsp;session&nbsp;id&nbsp;that&nbsp;match&nbsp;sessid.&nbsp;If&nbsp;timeout&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;is&nbsp;different&nbsp;than&nbsp;None,&nbsp;stop&nbsp;waiting&nbsp;after&nbsp;timeout&nbsp;seconds.&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+VR&nbsp;messages&nbsp;are&nbsp;string&nbsp;lists,&nbsp;where&nbsp;index&nbsp;0&nbsp;of&nbsp;list&nbsp;corresponds&nbsp;to&nbsp;field&nbsp;0&nbsp;<br>
+of&nbsp;message,&nbsp;and&nbsp;so&nbsp;on.&nbsp;For&nbsp;a&nbsp;descripion&nbsp;of&nbsp;types&nbsp;and&nbsp;fields&nbsp;of&nbsp;VR&nbsp;messages<br>
+see&nbsp;the&nbsp;help&nbsp;of&nbsp;wait_message().<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;srcnam:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;different&nbsp;than&nbsp;None,&nbsp;is&nbsp;a&nbsp;string&nbsp;that&nbsp;defines&nbsp;the&nbsp;name&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;of&nbsp;avatar/agent&nbsp;that&nbsp;sent&nbsp;the&nbsp;message.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;cntntpatt:&nbsp;&nbsp;if&nbsp;different&nbsp;than&nbsp;None,&nbsp;is&nbsp;a&nbsp;pattern&nbsp;string&nbsp;that&nbsp;must&nbsp;match<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;content&nbsp;of&nbsp;the&nbsp;message:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;If&nbsp;pattern&nbsp;starts&nbsp;with&nbsp;'^'&nbsp;then&nbsp;content&nbsp;must&nbsp;match&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pattern&nbsp;from&nbsp;first&nbsp;character;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;If&nbsp;pattern&nbsp;ends&nbsp;with&nbsp;'$'&nbsp;then&nbsp;content&nbsp;must&nbsp;match&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pattern&nbsp;until&nbsp;last&nbsp;character;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;If&nbsp;pattern&nbsp;starts&nbsp;with&nbsp;'!'&nbsp;then&nbsp;pattern&nbsp;cannot&nbsp;be&nbsp;a&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;substring&nbsp;of&nbsp;content;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;If&nbsp;pattern&nbsp;is&nbsp;a&nbsp;list&nbsp;of&nbsp;strings&nbsp;separated&nbsp;by&nbsp;'|'&nbsp;then<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;some&nbsp;of&nbsp;these&nbsp;strings&nbsp;must&nbsp;be&nbsp;a&nbsp;substring&nbsp;of&nbsp;content;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;Otherwise,&nbsp;the&nbsp;pattern&nbsp;must&nbsp;be&nbsp;a&nbsp;substring&nbsp;of&nbsp;content.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;sessid:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;different&nbsp;than&nbsp;None,&nbsp;defines&nbsp;the&nbsp;session&nbsp;id&nbsp;of&nbsp;message.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;timeout:&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;different&nbsp;than&nbsp;None,&nbsp;defines&nbsp;the&nbsp;maximum&nbsp;time&nbsp;in&nbsp;seconds<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;to&nbsp;wait&nbsp;for&nbsp;the&nbsp;message.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;None.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;returns&nbsp;the&nbsp;message&nbsp;as&nbsp;a&nbsp;list&nbsp;of&nbsp;strings.</tt></dd></dl>
+ <dl><dt><a name="-wait_shout_msg"><strong>wait_shout_msg</strong></a>(acid, srcnam, cntntpatt, timeout)</dt><dd><tt>Wait&nbsp;for&nbsp;a&nbsp;chat&nbsp;message&nbsp;of&nbsp;type&nbsp;'shout',&nbsp;i.e.,&nbsp;a&nbsp;message&nbsp;'shouted'&nbsp;in<br>
+&nbsp;&nbsp;&nbsp;&nbsp;chat&nbsp;channel&nbsp;by&nbsp;some&nbsp;avatar/agent&nbsp;with&nbsp;name&nbsp;srcnam&nbsp;&nbsp;and&nbsp;with&nbsp;content&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;that&nbsp;match&nbsp;cntntpatt.&nbsp;If&nbsp;timeout&nbsp;is&nbsp;different&nbsp;than&nbsp;None,&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;stop&nbsp;waiting&nbsp;after&nbsp;timeout&nbsp;seconds.&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+VR&nbsp;messages&nbsp;are&nbsp;string&nbsp;lists,&nbsp;where&nbsp;index&nbsp;0&nbsp;of&nbsp;list&nbsp;corresponds&nbsp;to&nbsp;field&nbsp;0&nbsp;<br>
+of&nbsp;message,&nbsp;and&nbsp;so&nbsp;on.&nbsp;For&nbsp;a&nbsp;descripion&nbsp;of&nbsp;types&nbsp;and&nbsp;fields&nbsp;of&nbsp;VR&nbsp;messages<br>
+see&nbsp;the&nbsp;help&nbsp;of&nbsp;wait_message().<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;srcnam:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;different&nbsp;than&nbsp;None,&nbsp;is&nbsp;a&nbsp;string&nbsp;that&nbsp;defines&nbsp;the&nbsp;name&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;of&nbsp;avatar/agent&nbsp;that&nbsp;sent&nbsp;the&nbsp;message.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;cntntpatt:&nbsp;&nbsp;if&nbsp;different&nbsp;than&nbsp;None,&nbsp;is&nbsp;a&nbsp;pattern&nbsp;string&nbsp;that&nbsp;must&nbsp;match<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;content&nbsp;of&nbsp;the&nbsp;message:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;If&nbsp;pattern&nbsp;starts&nbsp;with&nbsp;'^'&nbsp;then&nbsp;content&nbsp;must&nbsp;match&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pattern&nbsp;from&nbsp;first&nbsp;character;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;If&nbsp;pattern&nbsp;ends&nbsp;with&nbsp;'$'&nbsp;then&nbsp;content&nbsp;must&nbsp;match&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pattern&nbsp;until&nbsp;last&nbsp;character;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;If&nbsp;pattern&nbsp;starts&nbsp;with&nbsp;'!'&nbsp;then&nbsp;pattern&nbsp;cannot&nbsp;be&nbsp;a&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;substring&nbsp;of&nbsp;content;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;If&nbsp;pattern&nbsp;is&nbsp;a&nbsp;list&nbsp;of&nbsp;strings&nbsp;separated&nbsp;by&nbsp;'|'&nbsp;then<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;some&nbsp;of&nbsp;these&nbsp;strings&nbsp;must&nbsp;be&nbsp;a&nbsp;substring&nbsp;of&nbsp;content;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;Otherwise,&nbsp;the&nbsp;pattern&nbsp;must&nbsp;be&nbsp;a&nbsp;substring&nbsp;of&nbsp;content.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;timeout:&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;different&nbsp;than&nbsp;None,&nbsp;defines&nbsp;the&nbsp;maximum&nbsp;time&nbsp;in&nbsp;seconds<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;to&nbsp;wait&nbsp;for&nbsp;the&nbsp;message.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;None.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;returns&nbsp;the&nbsp;message&nbsp;as&nbsp;a&nbsp;list&nbsp;of&nbsp;strings.</tt></dd></dl>
+ <dl><dt><a name="-wait_whisper_msg"><strong>wait_whisper_msg</strong></a>(acid, srcnam, cntntpatt, timeout)</dt><dd><tt>Wait&nbsp;for&nbsp;a&nbsp;chat&nbsp;message&nbsp;of&nbsp;type&nbsp;'whisper',&nbsp;i.e.,&nbsp;a&nbsp;message&nbsp;'whispered'&nbsp;in<br>
+&nbsp;&nbsp;&nbsp;&nbsp;chat&nbsp;channel&nbsp;by&nbsp;some&nbsp;avatar/agent&nbsp;with&nbsp;name&nbsp;srcnam&nbsp;&nbsp;and&nbsp;with&nbsp;content&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;that&nbsp;match&nbsp;cntntpatt.&nbsp;If&nbsp;timeout&nbsp;is&nbsp;different&nbsp;than&nbsp;None,&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;stop&nbsp;waiting&nbsp;after&nbsp;timeout&nbsp;seconds.&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+VR&nbsp;messages&nbsp;are&nbsp;string&nbsp;lists,&nbsp;where&nbsp;index&nbsp;0&nbsp;of&nbsp;list&nbsp;corresponds&nbsp;to&nbsp;field&nbsp;0&nbsp;<br>
+of&nbsp;message,&nbsp;and&nbsp;so&nbsp;on.&nbsp;For&nbsp;a&nbsp;descripion&nbsp;of&nbsp;types&nbsp;and&nbsp;fields&nbsp;of&nbsp;VR&nbsp;messages<br>
+see&nbsp;the&nbsp;help&nbsp;of&nbsp;wait_message().<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;srcnam:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;different&nbsp;than&nbsp;None,&nbsp;is&nbsp;a&nbsp;string&nbsp;that&nbsp;defines&nbsp;the&nbsp;name&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;of&nbsp;avatar/agent&nbsp;that&nbsp;sent&nbsp;the&nbsp;message.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;cntntpatt:&nbsp;&nbsp;if&nbsp;different&nbsp;than&nbsp;None,&nbsp;is&nbsp;a&nbsp;pattern&nbsp;string&nbsp;that&nbsp;must&nbsp;match<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;content&nbsp;of&nbsp;the&nbsp;message:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;If&nbsp;pattern&nbsp;starts&nbsp;with&nbsp;'^'&nbsp;then&nbsp;content&nbsp;must&nbsp;match&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pattern&nbsp;from&nbsp;first&nbsp;character;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;If&nbsp;pattern&nbsp;ends&nbsp;with&nbsp;'$'&nbsp;then&nbsp;content&nbsp;must&nbsp;match&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pattern&nbsp;until&nbsp;last&nbsp;character;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;If&nbsp;pattern&nbsp;starts&nbsp;with&nbsp;'!'&nbsp;then&nbsp;pattern&nbsp;cannot&nbsp;be&nbsp;a&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;substring&nbsp;of&nbsp;content;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;If&nbsp;pattern&nbsp;is&nbsp;a&nbsp;list&nbsp;of&nbsp;strings&nbsp;separated&nbsp;by&nbsp;'|'&nbsp;then<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;some&nbsp;of&nbsp;these&nbsp;strings&nbsp;must&nbsp;be&nbsp;a&nbsp;substring&nbsp;of&nbsp;content;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;Otherwise,&nbsp;the&nbsp;pattern&nbsp;must&nbsp;be&nbsp;a&nbsp;substring&nbsp;of&nbsp;content.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;timeout:&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;different&nbsp;than&nbsp;None,&nbsp;defines&nbsp;the&nbsp;maximum&nbsp;time&nbsp;in&nbsp;seconds<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;to&nbsp;wait&nbsp;for&nbsp;the&nbsp;message.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;None.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;returns&nbsp;the&nbsp;message&nbsp;as&nbsp;a&nbsp;list&nbsp;of&nbsp;strings.</tt></dd></dl>
+ <dl><dt><a name="-whisper"><strong>whisper</strong></a>(acid, msgtxt, chann=None)</dt><dd><tt>Send&nbsp;a&nbsp;whisper&nbsp;chat&nbsp;message&nbsp;to&nbsp;channel&nbsp;chann.&nbsp;If&nbsp;chann&nbsp;is&nbsp;None,&nbsp;sent&nbsp;to<br>
+&nbsp;&nbsp;&nbsp;&nbsp;default&nbsp;public&nbsp;channel&nbsp;(channel&nbsp;0).&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Args:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;msgtxt:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;text&nbsp;of&nbsp;message<br>
+&nbsp;&nbsp;&nbsp;&nbsp;channel:&nbsp;&nbsp;&nbsp;&nbsp;number&nbsp;of&nbsp;channel&nbsp;to&nbsp;sent&nbsp;message,&nbsp;0&nbsp;is&nbsp;the&nbsp;default<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;channel<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;True.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;send&nbsp;the&nbsp;whisper&nbsp;message&nbsp;and&nbsp;returns&nbsp;true.</tt></dd></dl>
+</td></tr></table>
+</body></html>

@@ -1,0 +1,706 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module ActorController</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>ActorController</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href="index.html">index</a><br><a href="../actorcontroller.py">d:\virtualstage\actorcontroller.py</a></font></td></tr></table>
+    <p><tt>ActorController&nbsp;Module&nbsp;-&nbsp;Controller&nbsp;of&nbsp;VirtualStage&nbsp;Actors<br>
+&nbsp;<br>
+VirtualStage&nbsp;is&nbsp;a&nbsp;platform&nbsp;for&nbsp;the&nbsp;design&nbsp;and&nbsp;development&nbsp;of&nbsp;<br>
+intelligent&nbsp;virtual&nbsp;actors,&nbsp;capable&nbsp;of&nbsp;controlling&nbsp;digital&nbsp;<br>
+characters&nbsp;(or&nbsp;"Non-Player"&nbsp;Characters&nbsp;-&nbsp;NPCs)&nbsp;that&nbsp;operate&nbsp;in&nbsp;<br>
+Virtual&nbsp;Reality&nbsp;(VR)&nbsp;worlds&nbsp;or&nbsp;environments.<br>
+&nbsp;<br>
+VirtualStage&nbsp;offers&nbsp;a&nbsp;complete&nbsp;interface&nbsp;to&nbsp;program&nbsp;and&nbsp;control&nbsp;these&nbsp;<br>
+digital&nbsp;characters&nbsp;in&nbsp;Python.&nbsp;Using&nbsp;VirtualStage&nbsp;programming&nbsp;interface<br>
+(its&nbsp;API)&nbsp;it&nbsp;is&nbsp;possible&nbsp;to&nbsp;quickly&nbsp;and&nbsp;easily&nbsp;create&nbsp;VirtualStage&nbsp;<br>
+"actors"&nbsp;able&nbsp;to&nbsp;play&nbsp;and&nbsp;interpret&nbsp;the&nbsp;most&nbsp;diverse&nbsp;types&nbsp;of&nbsp;digital&nbsp;<br>
+characters&nbsp;in&nbsp;a&nbsp;VR&nbsp;world.&nbsp;<br>
+&nbsp;<br>
+In&nbsp;a&nbsp;sense,&nbsp;VirtualStage&nbsp;API&nbsp;creates&nbsp;a&nbsp;true&nbsp;"virtual&nbsp;stage"&nbsp;for&nbsp;<br>
+"virtual&nbsp;actors".&nbsp;Analogously&nbsp;to&nbsp;real&nbsp;actors,&nbsp;a&nbsp;VirtualStage&nbsp;actor&nbsp;<br>
+must&nbsp;also&nbsp;follow&nbsp;a&nbsp;script&nbsp;to&nbsp;act&nbsp;on&nbsp;the&nbsp;virtual&nbsp;stage&nbsp;and&nbsp;play&nbsp;a&nbsp;<br>
+digital&nbsp;character.&nbsp;But,&nbsp;in&nbsp;the&nbsp;case&nbsp;of&nbsp;VirtualStage,&nbsp;the&nbsp;scripts<br>
+that&nbsp;guide&nbsp;the&nbsp;actor's&nbsp;performance&nbsp;are&nbsp;scripts&nbsp;in&nbsp;Python.&nbsp;Using&nbsp;the&nbsp;<br>
+VirtualStage&nbsp;API&nbsp;a&nbsp;Python&nbsp;program&nbsp;can&nbsp;implement&nbsp;several&nbsp;actors&nbsp;that&nbsp;<br>
+play&nbsp;different&nbsp;digital&nbsp;characters&nbsp;on&nbsp;the&nbsp;virtual&nbsp;stage,&nbsp;each&nbsp;of&nbsp;<br>
+these&nbsp;actors&nbsp;being&nbsp;executed&nbsp;by&nbsp;a&nbsp;separate&nbsp;thread.<br>
+&nbsp;<br>
+The&nbsp;VirtualStage&nbsp;API&nbsp;is&nbsp;implemented&nbsp;by&nbsp;an&nbsp;extensive&nbsp;library&nbsp;of&nbsp;Python&nbsp;<br>
+functions&nbsp;that&nbsp;allow&nbsp;the&nbsp;actor&nbsp;to&nbsp;precisely&nbsp;control&nbsp;the&nbsp;performance&nbsp;of&nbsp;<br>
+its&nbsp;digital&nbsp;character&nbsp;on&nbsp;the&nbsp;stage&nbsp;or&nbsp;virtual&nbsp;world.&nbsp;This&nbsp;API&nbsp;also&nbsp;makes&nbsp;<br>
+it&nbsp;possible&nbsp;for&nbsp;actors&nbsp;to&nbsp;perform&nbsp;a&nbsp;wide&nbsp;variety&nbsp;of&nbsp;actions&nbsp;on&nbsp;the&nbsp;<br>
+virtual&nbsp;stage,&nbsp;interact&nbsp;with&nbsp;other&nbsp;characters&nbsp;or&nbsp;avatars,&nbsp;and&nbsp;observe&nbsp;<br>
+what&nbsp;objects&nbsp;exist&nbsp;and&nbsp;what&nbsp;situations&nbsp;are&nbsp;occurring&nbsp;on&nbsp;the&nbsp;virtual&nbsp;<br>
+stage.&nbsp;VirtualStage&nbsp;provides&nbsp;a&nbsp;memory&nbsp;to&nbsp;store&nbsp;and&nbsp;recall&nbsp;information&nbsp;<br>
+that&nbsp;the&nbsp;actor&nbsp;collected&nbsp;during&nbsp;its&nbsp;performance.&nbsp;VirtualStage&nbsp;also<br>
+implements&nbsp;support&nbsp;for&nbsp;Near&nbsp;Natural&nbsp;Language&nbsp;(NNL)&nbsp;conversations&nbsp;and&nbsp;<br>
+chats&nbsp;between&nbsp;VirtualStage&nbsp;actors&nbsp;and&nbsp;other&nbsp;avatars&nbsp;or&nbsp;characters.<br>
+&nbsp;<br>
+The&nbsp;ActorController&nbsp;module&nbsp;provides&nbsp;functions&nbsp;to&nbsp;manage&nbsp;and&nbsp;control&nbsp;<br>
+the&nbsp;operation&nbsp;of&nbsp;actors&nbsp;and&nbsp;its&nbsp;scripts.&nbsp;It&nbsp;also&nbsp;provides&nbsp;functions&nbsp;<br>
+for&nbsp;non&nbsp;VR&nbsp;inter-actor&nbsp;communication,&nbsp;which&nbsp;allow&nbsp;VirtualStage&nbsp;actors&nbsp;<br>
+intercommunication&nbsp;that&nbsp;do&nbsp;not&nbsp;depends&nbsp;on&nbsp;VR&nbsp;world&nbsp;simulator.<br>
+&nbsp;<br>
+1)&nbsp;&nbsp;The&nbsp;operation&nbsp;(performance)&nbsp;of&nbsp;some&nbsp;actor&nbsp;is&nbsp;started&nbsp;by&nbsp;calling&nbsp;the<br>
+&nbsp;&nbsp;&nbsp;&nbsp;function:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-start_actor">start_actor</a>(first_name,&nbsp;last_name,&nbsp;password,&nbsp;vr_server_url,&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;start_loc=None,&nbsp;init_script=None,&nbsp;extra_args=None)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;This&nbsp;function&nbsp;tries&nbsp;to&nbsp;connect&nbsp;with&nbsp;an&nbsp;OpenSimulator&nbsp;VR&nbsp;simulator&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;located&nbsp;in&nbsp;vr_server_url&nbsp;web&nbsp;address,&nbsp;logging&nbsp;in&nbsp;the&nbsp;avatar&nbsp;with&nbsp;name&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;and&nbsp;password&nbsp;defined&nbsp;by&nbsp;first_name,&nbsp;last_name&nbsp;and&nbsp;password&nbsp;args.&nbsp;If&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;login&nbsp;is&nbsp;successful,&nbsp;this&nbsp;avatar&nbsp;will&nbsp;be&nbsp;the&nbsp;digital&nbsp;character&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;or&nbsp;NPC&nbsp;controlled&nbsp;by&nbsp;the&nbsp;VirtualStage&nbsp;actor&nbsp;in&nbsp;the&nbsp;VR&nbsp;world.&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;After&nbsp;a&nbsp;successful&nbsp;login,&nbsp;the&nbsp;<a href="#-start_actor">start_actor</a>()&nbsp;function&nbsp;begins&nbsp;actor's&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;performance&nbsp;by&nbsp;running&nbsp;the&nbsp;initial&nbsp;script&nbsp;of&nbsp;actor&nbsp;(as&nbsp;defined&nbsp;by&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;init_script&nbsp;argument)&nbsp;in&nbsp;a&nbsp;new&nbsp;Python&nbsp;thread.&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;If&nbsp;everything&nbsp;goes&nbsp;well,&nbsp;then&nbsp;<a href="#-start_actor">start_actor</a>()&nbsp;returns&nbsp;the&nbsp;actor's&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"acid"&nbsp;to&nbsp;the&nbsp;calling&nbsp;function,&nbsp;which&nbsp;is&nbsp;a&nbsp;string&nbsp;with&nbsp;the&nbsp;actor's&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;unique&nbsp;universal&nbsp;ID&nbsp;(UUID)&nbsp;that&nbsp;must&nbsp;be&nbsp;used&nbsp;when&nbsp;calling&nbsp;other&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;functions&nbsp;of&nbsp;VirtualStage&nbsp;API.&nbsp;However,&nbsp;if&nbsp;some&nbsp;problem&nbsp;occur,&nbsp;this&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;function&nbsp;returns&nbsp;None.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;All&nbsp;VirtualStage&nbsp;actors&nbsp;begin&nbsp;their&nbsp;performances&nbsp;by&nbsp;running&nbsp;an&nbsp;initial&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;script,&nbsp;which&nbsp;is&nbsp;implemented&nbsp;by&nbsp;the&nbsp;Python&nbsp;function&nbsp;passed&nbsp;to&nbsp;<a href="#-start_actor">start_actor</a>()&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;as&nbsp;the&nbsp;init_script&nbsp;argument.&nbsp;This&nbsp;argument&nbsp;is&nbsp;a&nbsp;reference&nbsp;a&nbsp;callable&nbsp;Python&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;function&nbsp;with&nbsp;the&nbsp;following&nbsp;arguments:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;a&nbsp;string&nbsp;with&nbsp;the&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;new&nbsp;actor.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;acname:&nbsp;the&nbsp;name&nbsp;of&nbsp;new&nbsp;actor.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;extra_args:&nbsp;tuple&nbsp;with&nbsp;additional&nbsp;arguments.<br>
+&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;For&nbsp;debugging&nbsp;and&nbsp;testing&nbsp;purposes,&nbsp;the&nbsp;init_script&nbsp;argument&nbsp;can&nbsp;be&nbsp;None.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;In&nbsp;this&nbsp;case,&nbsp;the&nbsp;function&nbsp;and&nbsp;the&nbsp;Python&nbsp;thread&nbsp;were&nbsp;this&nbsp;function&nbsp;is<br>
+&nbsp;&nbsp;&nbsp;&nbsp;running&nbsp;will&nbsp;be&nbsp;the&nbsp;initial&nbsp;script&nbsp;and&nbsp;thread&nbsp;of&nbsp;the&nbsp;actor.&nbsp;This&nbsp;tipically&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;is&nbsp;the&nbsp;Python&nbsp;console&nbsp;and&nbsp;by&nbsp;doing&nbsp;this&nbsp;is&nbsp;possible&nbsp;to&nbsp;call&nbsp;VirtualStage&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;API&nbsp;functions&nbsp;directly&nbsp;from&nbsp;the&nbsp;console.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;When&nbsp;the&nbsp;initial&nbsp;script&nbsp;function&nbsp;terminates&nbsp;and&nbsp;return,&nbsp;this&nbsp;only&nbsp;finish&nbsp;the<br>
+&nbsp;&nbsp;&nbsp;&nbsp;corresponding&nbsp;Python&nbsp;thread.&nbsp;To&nbsp;logout&nbsp;the&nbsp;avatar&nbsp;controlled&nbsp;by&nbsp;this&nbsp;actor<br>
+&nbsp;&nbsp;&nbsp;&nbsp;from&nbsp;VR&nbsp;world&nbsp;and&nbsp;end&nbsp;actor's&nbsp;operation&nbsp;in&nbsp;this&nbsp;world&nbsp;is&nbsp;necessary&nbsp;to<br>
+&nbsp;&nbsp;&nbsp;&nbsp;call&nbsp;the&nbsp;function:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-stop_actor">stop_actor</a>(acid)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Additional&nbsp;information&nbsp;about&nbsp;VirtualStage&nbsp;actor&nbsp;can&nbsp;be&nbsp;obtained&nbsp;with&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;functions:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-print_version">print_version</a>()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-get_version">get_version</a>()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-get_actor_id">get_actor_id</a>(acname)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-curr_actor_id">curr_actor_id</a>()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-get_agctl">get_agctl</a>(acid)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-get_actor_name">get_actor_name</a>(acid)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+2)&nbsp;&nbsp;In&nbsp;addition&nbsp;to&nbsp;the&nbsp;initial&nbsp;thread&nbsp;that&nbsp;runs&nbsp;the&nbsp;initial&nbsp;script,&nbsp;a&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;VirtualStage&nbsp;actor&nbsp;can&nbsp;also&nbsp;execute&nbsp;other&nbsp;concurrent&nbsp;scripts&nbsp;in&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;separate&nbsp;threads.&nbsp;To&nbsp;do&nbsp;so,&nbsp;the&nbsp;initial&nbsp;script&nbsp;of&nbsp;the&nbsp;actor&nbsp;can&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;call&nbsp;the&nbsp;following&nbsp;function:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-start_script">start_script</a>(acid,&nbsp;script,&nbsp;scriptargs)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;This&nbsp;function&nbsp;will&nbsp;start&nbsp;a&nbsp;new&nbsp;actor&nbsp;script&nbsp;running&nbsp;on&nbsp;a&nbsp;new&nbsp;Python&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;thread&nbsp;and&nbsp;return&nbsp;the&nbsp;unique&nbsp;identifier&nbsp;of&nbsp;the&nbsp;script.&nbsp;The&nbsp;script&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;argument&nbsp;references&nbsp;a&nbsp;callable&nbsp;Python&nbsp;function,&nbsp;which&nbsp;implements&nbsp;the&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;script.&nbsp;This&nbsp;function&nbsp;has&nbsp;the&nbsp;following&nbsp;arguments:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;a&nbsp;string&nbsp;with&nbsp;the&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;new&nbsp;actor.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;acname:&nbsp;the&nbsp;name&nbsp;of&nbsp;new&nbsp;actor.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;scriptargs:&nbsp;tuple&nbsp;with&nbsp;additional&nbsp;args&nbsp;passed&nbsp;to&nbsp;script&nbsp;function.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;To&nbsp;wait&nbsp;for&nbsp;the&nbsp;script&nbsp;identified&nbsp;by&nbsp;scriptid&nbsp;to&nbsp;finish&nbsp;is&nbsp;necessary<br>
+&nbsp;&nbsp;&nbsp;&nbsp;to&nbsp;call&nbsp;the&nbsp;function:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-wait_script_finish">wait_script_finish</a>(acid,&nbsp;scriptid,&nbsp;timeout=None)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;This&nbsp;function&nbsp;uses&nbsp;join()&nbsp;to&nbsp;wait&nbsp;for&nbsp;corresponding&nbsp;thread&nbsp;to&nbsp;terminates.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+3)&nbsp;&nbsp;The&nbsp;ActorController&nbsp;module&nbsp;also&nbsp;implements&nbsp;the&nbsp;inter-actor&nbsp;(non&nbsp;VR)&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;communication&nbsp;functions:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-wait_comm">wait_comm</a>(acid,&nbsp;srcacids,&nbsp;commpatt,&nbsp;timeout)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-send_comm">send_comm</a>(acid,&nbsp;dstacids,&nbsp;type,&nbsp;content,&nbsp;slots)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-seek_comms">seek_comms</a>(acid,&nbsp;srcacids,&nbsp;commpatt)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-clear_comms">clear_comms</a>(acid)<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;These&nbsp;functions&nbsp;can&nbsp;be&nbsp;used&nbsp;to&nbsp;send&nbsp;and&nbsp;receive&nbsp;communications&nbsp;between&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;actors&nbsp;running&nbsp;in&nbsp;the&nbsp;same&nbsp;instance&nbsp;of&nbsp;VirtualStage.&nbsp;Communications<br>
+&nbsp;&nbsp;&nbsp;&nbsp;are&nbsp;messages&nbsp;exchanged&nbsp;between&nbsp;actors&nbsp;that&nbsp;do&nbsp;not&nbsp;pass&nbsp;trough&nbsp;the&nbsp;VR&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;simulator.&nbsp;They&nbsp;are&nbsp;composed&nbsp;by&nbsp;lists&nbsp;of&nbsp;strings&nbsp;with&nbsp;the&nbsp;format:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[comtype,&nbsp;acid,&nbsp;content,&nbsp;acname,&nbsp;slots]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;where&nbsp;comtype&nbsp;identifies&nbsp;the&nbsp;type&nbsp;(or&nbsp;code)&nbsp;of&nbsp;the&nbsp;comm.&nbsp;message,&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid&nbsp;and&nbsp;acname&nbsp;are,&nbsp;respectivelly,&nbsp;the&nbsp;unique&nbsp;ID&nbsp;and&nbsp;the&nbsp;name&nbsp;of&nbsp;the<br>
+&nbsp;&nbsp;&nbsp;&nbsp;actor&nbsp;that&nbsp;sent&nbsp;this&nbsp;message,&nbsp;content&nbsp;is&nbsp;the&nbsp;text&nbsp;of&nbsp;the&nbsp;comm.&nbsp;message&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;and&nbsp;slots&nbsp;is&nbsp;a&nbsp;list&nbsp;of&nbsp;strings&nbsp;with&nbsp;additional&nbsp;comm.&nbsp;message&nbsp;fields<br>
+&nbsp;&nbsp;&nbsp;&nbsp;(slots&nbsp;can&nbsp;be&nbsp;None).<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+4)&nbsp;&nbsp;The&nbsp;DialogController&nbsp;Module&nbsp;implements&nbsp;the&nbsp;Near&nbsp;Natural&nbsp;Language&nbsp;(NNL)&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;dialog&nbsp;system,&nbsp;which&nbsp;supports&nbsp;several&nbsp;forms&nbsp;of&nbsp;conversations&nbsp;and&nbsp;chats&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;between&nbsp;VirtualStage&nbsp;actors&nbsp;and&nbsp;its&nbsp;users&nbsp;(i.e.,&nbsp;other&nbsp;avatars&nbsp;and&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;characters).<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+5)&nbsp;&nbsp;The&nbsp;remaining&nbsp;functions&nbsp;of&nbsp;the&nbsp;VirtualStage&nbsp;API&nbsp;are&nbsp;implemented&nbsp;by&nbsp;the<br>
+&nbsp;&nbsp;&nbsp;&nbsp;VirtualStage&nbsp;Actions&nbsp;Library,&nbsp;which&nbsp;is&nbsp;a&nbsp;library&nbsp;of&nbsp;Python&nbsp;modules&nbsp;that&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;implement&nbsp;actions&nbsp;that&nbsp;the&nbsp;actor&nbsp;can&nbsp;be&nbsp;perform&nbsp;on&nbsp;VR&nbsp;world.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;VirtualStage&nbsp;Actions&nbsp;Library&nbsp;is&nbsp;composed&nbsp;by&nbsp;the&nbsp;following&nbsp;modules:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;Module&nbsp;AppearanceActions:&nbsp;implement&nbsp;actions&nbsp;to&nbsp;view&nbsp;and/or&nbsp;change&nbsp;avatar's&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;appearance<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;Module&nbsp;CommunicateActions:&nbsp;implement&nbsp;actions&nbsp;to&nbsp;communicate&nbsp;with&nbsp;other&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;avatars<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;Module&nbsp;MemoryActions:&nbsp;implement&nbsp;actions&nbsp;to&nbsp;manage&nbsp;actor's&nbsp;memory<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;Module&nbsp;ModifyActions:&nbsp;implement&nbsp;actions&nbsp;to&nbsp;modify&nbsp;objects&nbsp;of&nbsp;VR&nbsp;world<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;Module&nbsp;MoveActions:&nbsp;implement&nbsp;actions&nbsp;to&nbsp;move&nbsp;the&nbsp;avatar&nbsp;on&nbsp;VR<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;Module&nbsp;ObserveActions:&nbsp;implement&nbsp;actions&nbsp;to&nbsp;observe&nbsp;VR&nbsp;world/environment<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;Module&nbsp;PerceptActions:&nbsp;implement&nbsp;actions&nbsp;to&nbsp;manage&nbsp;actor's&nbsp;perceptions<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;Module&nbsp;PositionActions:&nbsp;implement&nbsp;actions&nbsp;to&nbsp;view&nbsp;and/or&nbsp;change&nbsp;avatar's<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;positioning/orientation<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;Module&nbsp;PostureActions:&nbsp;implement&nbsp;actions&nbsp;to&nbsp;view&nbsp;and/or&nbsp;change&nbsp;avatar's&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;posture&nbsp;and&nbsp;gestures<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;Module&nbsp;ResourcesActions:&nbsp;implement&nbsp;actions&nbsp;to&nbsp;view&nbsp;and/or&nbsp;modify&nbsp;resources&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;stored&nbsp;in&nbsp;the&nbsp;avatar's&nbsp;inventory<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;Module&nbsp;SocialActions:&nbsp;implement&nbsp;actions&nbsp;for&nbsp;social&nbsp;interaction&nbsp;with&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;other&nbsp;avatars<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;Module&nbsp;SystemActions:&nbsp;execute&nbsp;system&nbsp;actions</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="ActorController.html">ActorController</a><br>
+<a href="aiml.html">aiml</a><br>
+<a href="clr.html">clr</a><br>
+<a href="importlib.html">importlib</a><br>
+</td><td width="25%" valign=top><a href="itertools.html">itertools</a><br>
+<a href="json.html">json</a><br>
+<a href="math.html">math</a><br>
+<a href="nltk.html">nltk</a><br>
+</td><td width="25%" valign=top><a href="os.html">os</a><br>
+<a href="queue.html">queue</a><br>
+<a href="random.html">random</a><br>
+<a href="re.html">re</a><br>
+</td><td width="25%" valign=top><a href="sys.html">sys</a><br>
+<a href="threading.html">threading</a><br>
+<a href="time.html">time</a><br>
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="builtins.html#object">builtins.object</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="ActorController.html#ActorDescriptor">ActorDescriptor</a>
+</font></dt><dt><font face="helvetica, arial"><a href="ActorController.html#WaiterDescr">WaiterDescr</a>
+</font></dt></dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="ActorDescriptor">class <strong>ActorDescriptor</strong></a>(<a href="builtins.html#object">builtins.object</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#ActorDescriptor">ActorDescriptor</a>(active,&nbsp;id,&nbsp;name,&nbsp;avfstname,&nbsp;avlstname,&nbsp;simurl,&nbsp;agctl,&nbsp;mainthr,&nbsp;evthr)<br>
+&nbsp;<br>
+<a href="#ActorDescriptor-__init__">__init__</a>()&nbsp;class&nbsp;constructor<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="ActorDescriptor-__init__"><strong>__init__</strong></a>(self, active, id, name, avfstname, avlstname, simurl, agctl, mainthr, evthr)</dt><dd><tt>Initialize&nbsp;self.&nbsp;&nbsp;See&nbsp;help(type(self))&nbsp;for&nbsp;accurate&nbsp;signature.</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="WaiterDescr">class <strong>WaiterDescr</strong></a>(<a href="builtins.html#object">builtins.object</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#WaiterDescr-__init__">__init__</a>()&nbsp;class&nbsp;constructor<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="WaiterDescr-__init__"><strong>__init__</strong></a>(self)</dt><dd><tt>Initialize&nbsp;self.&nbsp;&nbsp;See&nbsp;help(type(self))&nbsp;for&nbsp;accurate&nbsp;signature.</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-clear_comms"><strong>clear_comms</strong></a>(acid)</dt><dd><tt>Clears&nbsp;the&nbsp;communications&nbsp;reception&nbsp;queue.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor.<br>
+&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;False.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;clears&nbsp;the&nbsp;communications&nbsp;reception&nbsp;queue&nbsp;and&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;returns&nbsp;True.</tt></dd></dl>
+ <dl><dt><a name="-clear_vrevnts"><strong>clear_vrevnts</strong></a>(acid)</dt><dd><tt>Clears&nbsp;the&nbsp;event&nbsp;reception&nbsp;queue.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor.<br>
+&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;False.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;clears&nbsp;the&nbsp;event&nbsp;reception&nbsp;queue&nbsp;and&nbsp;returns&nbsp;True.</tt></dd></dl>
+ <dl><dt><a name="-clear_vrmsgs"><strong>clear_vrmsgs</strong></a>(acid)</dt><dd><tt>Clears&nbsp;the&nbsp;message&nbsp;reception&nbsp;queue.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor.<br>
+&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;False.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;clears&nbsp;the&nbsp;message&nbsp;reception&nbsp;queue&nbsp;and&nbsp;returns&nbsp;True.</tt></dd></dl>
+ <dl><dt><a name="-curr_actor_id"><strong>curr_actor_id</strong></a>()</dt><dd><tt>Returns&nbsp;the&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;the&nbsp;actor&nbsp;running&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;current&nbsp;script.&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;None.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;returns&nbsp;a&nbsp;string&nbsp;with&nbsp;the&nbsp;id&nbsp;of&nbsp;the&nbsp;actor.</tt></dd></dl>
+ <dl><dt><a name="-disable_print_dbg"><strong>disable_print_dbg</strong></a>()</dt></dl>
+ <dl><dt><a name="-enable_print_dbg"><strong>enable_print_dbg</strong></a>()</dt></dl>
+ <dl><dt><a name="-get_actor_id"><strong>get_actor_id</strong></a>(acname)</dt><dd><tt>Get&nbsp;the&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;the&nbsp;actor&nbsp;with&nbsp;name&nbsp;acname.&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acname:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;name&nbsp;of&nbsp;actor,&nbsp;names&nbsp;of&nbsp;actors&nbsp;are&nbsp;formed&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;by&nbsp;the&nbsp;first&nbsp;and&nbsp;last&nbsp;name&nbsp;of&nbsp;VR&nbsp;avatar/agent&nbsp;controlled<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;by&nbsp;the&nbsp;actor.<br>
+&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;None.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;returns&nbsp;a&nbsp;string&nbsp;with&nbsp;the&nbsp;id&nbsp;of&nbsp;the&nbsp;actor.</tt></dd></dl>
+ <dl><dt><a name="-get_actor_name"><strong>get_actor_name</strong></a>(acid)</dt><dd><tt>Get&nbsp;the&nbsp;name&nbsp;of&nbsp;the&nbsp;actor&nbsp;with&nbsp;acid&nbsp;identifier,&nbsp;names&nbsp;of&nbsp;actors&nbsp;are&nbsp;formed&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;by&nbsp;the&nbsp;first&nbsp;and&nbsp;last&nbsp;name&nbsp;of&nbsp;VR&nbsp;avatar/agent&nbsp;controlled&nbsp;by&nbsp;the&nbsp;actor.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor.<br>
+&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;None.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;returns&nbsp;the&nbsp;name&nbsp;of&nbsp;the&nbsp;actor.</tt></dd></dl>
+ <dl><dt><a name="-get_agctl"><strong>get_agctl</strong></a>(acid)</dt><dd><tt>Get&nbsp;the&nbsp;C#&nbsp;module&nbsp;that&nbsp;controls&nbsp;the&nbsp;VR&nbsp;agent/avatar.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor.<br>
+&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;None.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;returns&nbsp;the&nbsp;C#&nbsp;module&nbsp;that&nbsp;controls&nbsp;the&nbsp;VR&nbsp;agent/avatar.</tt></dd></dl>
+ <dl><dt><a name="-get_version"><strong>get_version</strong></a>()</dt><dd><tt>Get&nbsp;the&nbsp;current&nbsp;version&nbsp;of&nbsp;VirtualStage.&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;A&nbsp;string&nbsp;with&nbsp;the&nbsp;current&nbsp;version&nbsp;of&nbsp;VirtualStage.</tt></dd></dl>
+ <dl><dt><a name="-get_vrevnt"><strong>get_vrevnt</strong></a>(acid, evntpatt=None)</dt><dd><tt>Get&nbsp;the&nbsp;last&nbsp;event&nbsp;sent&nbsp;by&nbsp;VR&nbsp;simulator&nbsp;that&nbsp;match&nbsp;the&nbsp;evntpatt&nbsp;search&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;pattern.&nbsp;Do&nbsp;not&nbsp;wait&nbsp;for&nbsp;an&nbsp;event,&nbsp;if&nbsp;there&nbsp;is&nbsp;no&nbsp;event&nbsp;in&nbsp;reception&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;queue,&nbsp;returns&nbsp;None.&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+VR&nbsp;events&nbsp;are&nbsp;string&nbsp;lists,&nbsp;where&nbsp;index&nbsp;0&nbsp;of&nbsp;list&nbsp;corresponds&nbsp;to&nbsp;field&nbsp;0&nbsp;<br>
+of&nbsp;event,&nbsp;and&nbsp;so&nbsp;on.&nbsp;For&nbsp;a&nbsp;descripion&nbsp;of&nbsp;types&nbsp;and&nbsp;fields&nbsp;of&nbsp;VR&nbsp;events<br>
+see&nbsp;the&nbsp;help&nbsp;of&nbsp;wait_event().<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;evntpatt:&nbsp;&nbsp;&nbsp;the&nbsp;event&nbsp;pattern:&nbsp;a&nbsp;list&nbsp;of&nbsp;fields,&nbsp;each&nbsp;field&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;containing&nbsp;an&nbsp;string&nbsp;or&nbsp;the&nbsp;None&nbsp;value.&nbsp;None&nbsp;fields&nbsp;in&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;event&nbsp;pattern&nbsp;are&nbsp;ignored&nbsp;in&nbsp;the&nbsp;search,&nbsp;string&nbsp;fields<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;defined&nbsp;in&nbsp;event&nbsp;pattern&nbsp;must&nbsp;be&nbsp;equal&nbsp;to&nbsp;corresponding<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;field&nbsp;in&nbsp;the&nbsp;event.<br>
+&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;None.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;returns&nbsp;the&nbsp;event&nbsp;as&nbsp;a&nbsp;list&nbsp;of&nbsp;strings.</tt></dd></dl>
+ <dl><dt><a name="-get_vrmsg"><strong>get_vrmsg</strong></a>(acid, msgpatt=None)</dt><dd><tt>Get&nbsp;the&nbsp;last&nbsp;message&nbsp;sent&nbsp;by&nbsp;VR&nbsp;simulator&nbsp;that&nbsp;match&nbsp;the&nbsp;msgpatt&nbsp;search&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;pattern.&nbsp;Do&nbsp;not&nbsp;wait&nbsp;for&nbsp;a&nbsp;message,&nbsp;if&nbsp;there&nbsp;is&nbsp;no&nbsp;message&nbsp;in&nbsp;reception&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;queue,&nbsp;returns&nbsp;None.&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+VR&nbsp;messages&nbsp;are&nbsp;string&nbsp;lists,&nbsp;where&nbsp;index&nbsp;0&nbsp;of&nbsp;list&nbsp;corresponds&nbsp;to&nbsp;field&nbsp;0&nbsp;<br>
+of&nbsp;message,&nbsp;and&nbsp;so&nbsp;on.&nbsp;For&nbsp;a&nbsp;descripion&nbsp;of&nbsp;types&nbsp;and&nbsp;fields&nbsp;of&nbsp;VR&nbsp;messages<br>
+see&nbsp;the&nbsp;help&nbsp;of&nbsp;wait_message().<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;msgpatt:&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;message&nbsp;search&nbsp;pattern:&nbsp;a&nbsp;list&nbsp;of&nbsp;fields,&nbsp;each&nbsp;field&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;containing&nbsp;an&nbsp;string&nbsp;or&nbsp;the&nbsp;None&nbsp;value.&nbsp;None&nbsp;fields&nbsp;in&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;message&nbsp;pattern&nbsp;are&nbsp;ignored&nbsp;in&nbsp;the&nbsp;search,&nbsp;string&nbsp;fields<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;defined&nbsp;in&nbsp;message&nbsp;pattern&nbsp;must&nbsp;be&nbsp;equal&nbsp;to&nbsp;corresponding<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;field&nbsp;in&nbsp;the&nbsp;VR&nbsp;message.<br>
+&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;None.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;returns&nbsp;the&nbsp;message&nbsp;as&nbsp;a&nbsp;list&nbsp;of&nbsp;strings.</tt></dd></dl>
+ <dl><dt><a name="-print_dbg"><strong>print_dbg</strong></a>(arg1, *args)</dt></dl>
+ <dl><dt><a name="-print_list_dbg"><strong>print_list_dbg</strong></a>(arg1, arglist)</dt></dl>
+ <dl><dt><a name="-print_version"><strong>print_version</strong></a>()</dt><dd><tt>Print&nbsp;current&nbsp;version&nbsp;of&nbsp;VirtualStage&nbsp;on&nbsp;console.</tt></dd></dl>
+ <dl><dt><a name="-seek_comms"><strong>seek_comms</strong></a>(acid, srcacids, commpatt)</dt><dd><tt>Seek&nbsp;for&nbsp;the&nbsp;list&nbsp;of&nbsp;last&nbsp;communications&nbsp;received&nbsp;by&nbsp;this&nbsp;actor<br>
+&nbsp;&nbsp;&nbsp;&nbsp;from&nbsp;some&nbsp;actor&nbsp;in&nbsp;srcacids&nbsp;list&nbsp;and&nbsp;that&nbsp;match&nbsp;the&nbsp;commpatt&nbsp;search&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;pattern.&nbsp;Do&nbsp;not&nbsp;wait&nbsp;for&nbsp;communications,&nbsp;if&nbsp;there&nbsp;is&nbsp;no&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;communications&nbsp;in&nbsp;communication&nbsp;reception&nbsp;queue,&nbsp;returns&nbsp;None.&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Communications&nbsp;are&nbsp;messages&nbsp;that&nbsp;can&nbsp;be&nbsp;exchanged&nbsp;between&nbsp;VirtualStage&nbsp;<br>
+actors&nbsp;but&nbsp;do&nbsp;not&nbsp;pass&nbsp;trough&nbsp;the&nbsp;VR&nbsp;simulator.&nbsp;See&nbsp;the&nbsp;help&nbsp;of<br>
+wait_communication&nbsp;for&nbsp;a&nbsp;description&nbsp;of&nbsp;the&nbsp;format&nbsp;of&nbsp;communictions.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;srcacids:&nbsp;&nbsp;&nbsp;list&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifiers&nbsp;of&nbsp;actors&nbsp;that&nbsp;could&nbsp;have<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sent&nbsp;the&nbsp;communication,&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;srcacids&nbsp;is&nbsp;None&nbsp;accept&nbsp;communications&nbsp;from&nbsp;any&nbsp;actors.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;commpatt:&nbsp;&nbsp;&nbsp;the&nbsp;communication&nbsp;search&nbsp;pattern:&nbsp;a&nbsp;list&nbsp;of&nbsp;fields,&nbsp;each&nbsp;field&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;containing&nbsp;an&nbsp;string&nbsp;or&nbsp;the&nbsp;None&nbsp;value.&nbsp;None&nbsp;fields&nbsp;in&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;communication&nbsp;pattern&nbsp;are&nbsp;ignored&nbsp;in&nbsp;the&nbsp;search,&nbsp;string&nbsp;fields<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;defined&nbsp;in&nbsp;communication&nbsp;pattern&nbsp;must&nbsp;be&nbsp;equal&nbsp;to&nbsp;corresponding<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;field&nbsp;in&nbsp;the&nbsp;communication,&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;commpatt&nbsp;is&nbsp;None&nbsp;accept&nbsp;communication&nbsp;with&nbsp;any&nbsp;content.&nbsp;<br>
+&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;None.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;returns&nbsp;the&nbsp;event&nbsp;as&nbsp;a&nbsp;list&nbsp;of&nbsp;strings.</tt></dd></dl>
+ <dl><dt><a name="-send_comm"><strong>send_comm</strong></a>(acid, dstacids, comtype, content, slots)</dt><dd><tt>Send&nbsp;a&nbsp;communication&nbsp;to&nbsp;other&nbsp;actors&nbsp;running&nbsp;in&nbsp;the&nbsp;same<br>
+&nbsp;&nbsp;&nbsp;&nbsp;instance&nbsp;of&nbsp;VirtualStage.&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Communications&nbsp;are&nbsp;messages&nbsp;that&nbsp;can&nbsp;be&nbsp;exchanged&nbsp;between&nbsp;VirtualStage&nbsp;<br>
+actors&nbsp;but&nbsp;do&nbsp;not&nbsp;pass&nbsp;trough&nbsp;the&nbsp;VR&nbsp;simulator.&nbsp;These&nbsp;communications&nbsp;<br>
+are&nbsp;formed&nbsp;by&nbsp;lists&nbsp;with&nbsp;the&nbsp;following&nbsp;format:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;[comtype,&nbsp;acid,&nbsp;content,&nbsp;acname,&nbsp;slots]<br>
+where:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;comtype&nbsp;is&nbsp;a&nbsp;string,&nbsp;which&nbsp;defines&nbsp;the&nbsp;type&nbsp;of&nbsp;the&nbsp;communication;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid&nbsp;is&nbsp;a&nbsp;string&nbsp;with&nbsp;the&nbsp;unique&nbsp;identifier&nbsp;of&nbsp;source&nbsp;actor&nbsp;that&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sent&nbsp;the&nbsp;communication<br>
+&nbsp;&nbsp;&nbsp;&nbsp;content&nbsp;is&nbsp;the&nbsp;text&nbsp;of&nbsp;the&nbsp;communication<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acname&nbsp;is&nbsp;a&nbsp;string&nbsp;with&nbsp;the&nbsp;name&nbsp;of&nbsp;source&nbsp;actor&nbsp;that&nbsp;sent&nbsp;the&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;communications<br>
+&nbsp;&nbsp;&nbsp;&nbsp;slots&nbsp;is&nbsp;a&nbsp;list&nbsp;of&nbsp;additional&nbsp;fields,&nbsp;can&nbsp;be&nbsp;None&nbsp;of&nbsp;the&nbsp;empty<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;list&nbsp;[]<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;dstacids:&nbsp;&nbsp;&nbsp;list&nbsp;of&nbsp;strings&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifiers&nbsp;of&nbsp;actor&nbsp;that<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;will&nbsp;receive&nbsp;the&nbsp;communication.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;comtype&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;str&nbsp;that&nbsp;defines&nbsp;the&nbsp;type&nbsp;of&nbsp;the&nbsp;communication;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;content&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;the&nbsp;text&nbsp;of&nbsp;the&nbsp;communication<br>
+&nbsp;&nbsp;&nbsp;&nbsp;slots&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;list&nbsp;of&nbsp;strings&nbsp;with&nbsp;an&nbsp;additional&nbsp;list&nbsp;of&nbsp;slots<br>
+&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;False.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;returns&nbsp;True.</tt></dd></dl>
+ <dl><dt><a name="-set_print_dbg_filter"><strong>set_print_dbg_filter</strong></a>(typ)</dt></dl>
+ <dl><dt><a name="-start_actor"><strong>start_actor</strong></a>(first_name, last_name, password, vr_server_url, start_loc=None, init_script=None, extra_args=None)</dt><dd><tt>Start&nbsp;a&nbsp;new&nbsp;actor:&nbsp;first&nbsp;connect&nbsp;the&nbsp;actor&nbsp;with&nbsp;the&nbsp;OpenSim&nbsp;VR&nbsp;simulator&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;and&nbsp;tries&nbsp;to&nbsp;log&nbsp;in&nbsp;the&nbsp;VR&nbsp;avatar&nbsp;controlled&nbsp;by&nbsp;this&nbsp;actor&nbsp;into&nbsp;the&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;simulator,&nbsp;then&nbsp;starts&nbsp;main&nbsp;script&nbsp;of&nbsp;actor&nbsp;in&nbsp;a&nbsp;new&nbsp;thread.&nbsp;If&nbsp;successful&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;this&nbsp;functions&nbsp;returns&nbsp;a&nbsp;string&nbsp;with&nbsp;the&nbsp;unique&nbsp;universal&nbsp;ID&nbsp;(UUID)&nbsp;of<br>
+&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;new&nbsp;actor&nbsp;(is&nbsp;the&nbsp;same&nbsp;UUID&nbsp;of&nbsp;VR&nbsp;avatar,&nbsp;which&nbsp;is&nbsp;returned&nbsp;by&nbsp;the&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;login&nbsp;process).&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;first_name:&nbsp;first&nbsp;name&nbsp;of&nbsp;VR&nbsp;avatar&nbsp;controlled&nbsp;by&nbsp;the&nbsp;new&nbsp;actor<br>
+&nbsp;&nbsp;&nbsp;&nbsp;last_name:&nbsp;last&nbsp;name&nbsp;of&nbsp;VR&nbsp;avatar&nbsp;controlled&nbsp;by&nbsp;the&nbsp;new&nbsp;actor<br>
+&nbsp;&nbsp;&nbsp;&nbsp;password:&nbsp;login&nbsp;password&nbsp;of&nbsp;VR&nbsp;avatar&nbsp;controlled&nbsp;by&nbsp;the&nbsp;new&nbsp;actor<br>
+&nbsp;&nbsp;&nbsp;&nbsp;vr_server_url:&nbsp;the&nbsp;URL&nbsp;(web&nbsp;address)&nbsp;of&nbsp;OpenSim&nbsp;VR&nbsp;simulator<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;start_loc:&nbsp;optional&nbsp;arg,&nbsp;if&nbsp;different&nbsp;than&nbsp;None,&nbsp;defines&nbsp;the&nbsp;starting&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;location&nbsp;of&nbsp;avatar/NPC&nbsp;using&nbsp;format:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[region_name,&nbsp;x_pos,&nbsp;y_pos,&nbsp;z_pos]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;init_script:&nbsp;callable&nbsp;Python&nbsp;function&nbsp;which&nbsp;implements&nbsp;the&nbsp;initial&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;script&nbsp;of&nbsp;actor.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;extra_args:&nbsp;optional&nbsp;tuple&nbsp;with&nbsp;additional&nbsp;args&nbsp;to&nbsp;be&nbsp;passed&nbsp;to&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;init_script&nbsp;function.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;init_script&nbsp;argument&nbsp;can&nbsp;be&nbsp;None,&nbsp;in&nbsp;this&nbsp;case&nbsp;the&nbsp;current&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;thread&nbsp;(tipically&nbsp;the&nbsp;Python&nbsp;console)&nbsp;will&nbsp;be&nbsp;the&nbsp;main&nbsp;thread&nbsp;of&nbsp;actor.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Otherwise,&nbsp;init_script&nbsp;must&nbsp;be&nbsp;a&nbsp;reference&nbsp;to&nbsp;a&nbsp;callable&nbsp;Python&nbsp;function&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;that&nbsp;will&nbsp;be&nbsp;called&nbsp;with&nbsp;the&nbsp;following&nbsp;arguments:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;a&nbsp;string&nbsp;with&nbsp;the&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;new&nbsp;actor.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;acname:&nbsp;the&nbsp;name&nbsp;of&nbsp;new&nbsp;actor.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;extra_args:&nbsp;tuple&nbsp;with&nbsp;additional&nbsp;arguments.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;In&nbsp;OpenSim&nbsp;VR&nbsp;Simulators,&nbsp;VR&nbsp;avatars&nbsp;are&nbsp;identified&nbsp;by&nbsp;a&nbsp;first&nbsp;and&nbsp;a&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;last&nbsp;name&nbsp;(first_name&nbsp;and&nbsp;last_name&nbsp;arguments).&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;name&nbsp;of&nbsp;the&nbsp;new&nbsp;actor&nbsp;in&nbsp;VirtualStage&nbsp;will&nbsp;be&nbsp;a&nbsp;full&nbsp;name&nbsp;formed&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;by&nbsp;the&nbsp;concatenation&nbsp;of&nbsp;first&nbsp;and&nbsp;last&nbsp;names,&nbsp;with&nbsp;a&nbsp;blank&nbsp;space&nbsp;in&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;middle:&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;acname&nbsp;=&nbsp;first_name+'&nbsp;'+last_name.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;None.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;returns&nbsp;a&nbsp;string&nbsp;with&nbsp;unique&nbsp;global&nbsp;ID&nbsp;(an&nbsp;UUID)&nbsp;of&nbsp;new&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;actor.&nbsp;This&nbsp;UUID&nbsp;is&nbsp;the&nbsp;same&nbsp;UUID&nbsp;of&nbsp;VR&nbsp;avatar&nbsp;returned&nbsp;by&nbsp;the&nbsp;login<br>
+&nbsp;&nbsp;&nbsp;&nbsp;process.</tt></dd></dl>
+ <dl><dt><a name="-start_script"><strong>start_script</strong></a>(acid, script, scriptargs)</dt><dd><tt>Start&nbsp;a&nbsp;new&nbsp;actor&nbsp;script&nbsp;running&nbsp;on&nbsp;a&nbsp;new&nbsp;Python&nbsp;thread.&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;script:&nbsp;callable&nbsp;Python&nbsp;function&nbsp;which&nbsp;implements&nbsp;the&nbsp;script.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;scriptargs:&nbsp;tuple&nbsp;with&nbsp;additional&nbsp;args&nbsp;to&nbsp;be&nbsp;passed&nbsp;to&nbsp;script&nbsp;function.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;script&nbsp;argument&nbsp;is&nbsp;a&nbsp;callable&nbsp;Python&nbsp;which&nbsp;will&nbsp;be&nbsp;called&nbsp;with&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;following&nbsp;arguments:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;a&nbsp;string&nbsp;with&nbsp;the&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;new&nbsp;actor.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;acname:&nbsp;the&nbsp;name&nbsp;of&nbsp;new&nbsp;actor.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;scriptargs:&nbsp;additional&nbsp;arguments.&nbsp;<br>
+&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;None.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;starts&nbsp;the&nbsp;script&nbsp;as&nbsp;a&nbsp;new&nbsp;thread&nbsp;and&nbsp;returns&nbsp;the<br>
+&nbsp;&nbsp;&nbsp;&nbsp;identifier&nbsp;of&nbsp;the&nbsp;script.</tt></dd></dl>
+ <dl><dt><a name="-stop_actor"><strong>stop_actor</strong></a>(acid)</dt><dd><tt>Stop&nbsp;the&nbsp;execution&nbsp;of&nbsp;this&nbsp;actor:&nbsp;log&nbsp;out&nbsp;the&nbsp;VR&nbsp;avatar/agent&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;controlled&nbsp;by&nbsp;this&nbsp;actor&nbsp;from&nbsp;VR&nbsp;simulator,&nbsp;disconnect<br>
+&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;actor&nbsp;from&nbsp;VR&nbsp;simulator&nbsp;and&nbsp;stop&nbsp;main&nbsp;script&nbsp;of&nbsp;actor.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor.<br>
+&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;False.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;returns&nbsp;True.</tt></dd></dl>
+ <dl><dt><a name="-wait_comm"><strong>wait_comm</strong></a>(acid, srcacids, commpatt, timeout)</dt><dd><tt>Wait&nbsp;for&nbsp;communication&nbsp;sent&nbsp;by&nbsp;other&nbsp;actors&nbsp;that&nbsp;match&nbsp;the&nbsp;commpatt&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;search&nbsp;pattern.&nbsp;&nbsp;These&nbsp;other&nbsp;actor&nbsp;must&nbsp;be&nbsp;running&nbsp;in&nbsp;the&nbsp;same<br>
+&nbsp;&nbsp;&nbsp;&nbsp;instance&nbsp;of&nbsp;VirtualStage.&nbsp;If&nbsp;timeout&nbsp;is&nbsp;different&nbsp;than&nbsp;None,&nbsp;stop&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;waiting&nbsp;after&nbsp;timeout&nbsp;seconds.&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Communications&nbsp;are&nbsp;messages&nbsp;that&nbsp;can&nbsp;be&nbsp;exchanged&nbsp;between&nbsp;VirtualStage&nbsp;<br>
+actors&nbsp;but&nbsp;do&nbsp;not&nbsp;pass&nbsp;trough&nbsp;the&nbsp;VR&nbsp;simulator.&nbsp;These&nbsp;communications&nbsp;<br>
+are&nbsp;formed&nbsp;by&nbsp;lists&nbsp;with&nbsp;the&nbsp;following&nbsp;format:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;[comtype,&nbsp;acid,&nbsp;content,&nbsp;acname,&nbsp;slots]<br>
+where:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;comtype&nbsp;is&nbsp;a&nbsp;string,&nbsp;which&nbsp;defines&nbsp;the&nbsp;type&nbsp;of&nbsp;the&nbsp;communication;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid&nbsp;is&nbsp;a&nbsp;string&nbsp;with&nbsp;the&nbsp;unique&nbsp;identifier&nbsp;of&nbsp;source&nbsp;actor&nbsp;that&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sent&nbsp;the&nbsp;communication<br>
+&nbsp;&nbsp;&nbsp;&nbsp;content&nbsp;is&nbsp;the&nbsp;text&nbsp;of&nbsp;the&nbsp;communication<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acname&nbsp;is&nbsp;a&nbsp;string&nbsp;with&nbsp;the&nbsp;name&nbsp;of&nbsp;source&nbsp;actor&nbsp;that&nbsp;sent&nbsp;the&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;communications<br>
+&nbsp;&nbsp;&nbsp;&nbsp;slots&nbsp;is&nbsp;a&nbsp;list&nbsp;of&nbsp;additional&nbsp;fields,&nbsp;can&nbsp;be&nbsp;None&nbsp;of&nbsp;the&nbsp;empty<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;list&nbsp;[]<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;srcacids:&nbsp;&nbsp;&nbsp;list&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifiers&nbsp;of&nbsp;actors&nbsp;that&nbsp;could&nbsp;have<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sent&nbsp;the&nbsp;communication,&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;srcacids&nbsp;is&nbsp;None&nbsp;accept&nbsp;communications&nbsp;from&nbsp;any&nbsp;actors.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;commpatt:&nbsp;&nbsp;&nbsp;the&nbsp;communication&nbsp;search&nbsp;pattern:&nbsp;a&nbsp;list&nbsp;of&nbsp;fields,&nbsp;each&nbsp;field&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;containing&nbsp;an&nbsp;string&nbsp;or&nbsp;the&nbsp;None&nbsp;value.&nbsp;None&nbsp;fields&nbsp;in&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;communication&nbsp;pattern&nbsp;are&nbsp;ignored&nbsp;in&nbsp;the&nbsp;search,&nbsp;string&nbsp;fields<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;defined&nbsp;in&nbsp;communication&nbsp;pattern&nbsp;must&nbsp;be&nbsp;equal&nbsp;to&nbsp;corresponding<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;field&nbsp;in&nbsp;the&nbsp;communication,&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;commpatt&nbsp;is&nbsp;None&nbsp;accept&nbsp;communication&nbsp;with&nbsp;any&nbsp;content.&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;timeout:&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;different&nbsp;than&nbsp;None,&nbsp;defines&nbsp;the&nbsp;maximum&nbsp;time&nbsp;in&nbsp;seconds<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;to&nbsp;wait&nbsp;for&nbsp;the&nbsp;communication.<br>
+&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;None.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;returns&nbsp;the&nbsp;communication&nbsp;as&nbsp;a&nbsp;list&nbsp;of&nbsp;strings.</tt></dd></dl>
+ <dl><dt><a name="-wait_script_finish"><strong>wait_script_finish</strong></a>(acid, scriptid, timeout=None)</dt><dd><tt>Wait&nbsp;the&nbsp;script&nbsp;to&nbsp;finish,&nbsp;uses&nbsp;join()&nbsp;to&nbsp;wait&nbsp;for&nbsp;the&nbsp;corresponding<br>
+&nbsp;&nbsp;&nbsp;&nbsp;thread&nbsp;to&nbsp;terminates.&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;scriptid:&nbsp;identifier&nbsp;of&nbsp;the&nbsp;script.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;timeout:&nbsp;if&nbsp;different&nbsp;than&nbsp;None,&nbsp;defines&nbsp;the&nbsp;maximum&nbsp;time&nbsp;in&nbsp;seconds<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;to&nbsp;wait&nbsp;for&nbsp;the&nbsp;script&nbsp;to&nbsp;finish.<br>
+&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;False.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;returns&nbsp;True.</tt></dd></dl>
+ <dl><dt><a name="-wait_vrevnt"><strong>wait_vrevnt</strong></a>(acid, evntpatt, timeout)</dt><dd><tt>Wait&nbsp;for&nbsp;event&nbsp;sent&nbsp;by&nbsp;VR&nbsp;simulator&nbsp;that&nbsp;match&nbsp;the&nbsp;evntpatt&nbsp;pattern.&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;If&nbsp;timeout&nbsp;is&nbsp;different&nbsp;than&nbsp;None,&nbsp;stop&nbsp;waiting&nbsp;after&nbsp;timeout&nbsp;seconds.&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+VR&nbsp;events&nbsp;are&nbsp;string&nbsp;lists,&nbsp;where&nbsp;index&nbsp;0&nbsp;of&nbsp;list&nbsp;corresponds&nbsp;to&nbsp;field&nbsp;0&nbsp;<br>
+of&nbsp;event,&nbsp;and&nbsp;so&nbsp;on.&nbsp;The&nbsp;following&nbsp;types&nbsp;of&nbsp;VR&nbsp;events&nbsp;are&nbsp;handled&nbsp;by&nbsp;Virtual<br>
+Stage:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+(Mean)&nbsp;collision&nbsp;event:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Field&nbsp;0&nbsp;(EventType):&nbsp;'collis'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Field&nbsp;1&nbsp;(Aggressor):&nbsp;the&nbsp;ID&nbsp;of&nbsp;the&nbsp;agent&nbsp;or&nbsp;<a href="builtins.html#object">object</a>&nbsp;that&nbsp;collided&nbsp;with&nbsp;your&nbsp;agent<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Field&nbsp;2&nbsp;(Type):&nbsp;the&nbsp;type&nbsp;of&nbsp;collision,&nbsp;can&nbsp;be:&nbsp;&nbsp;'None',&nbsp;'Bump',&nbsp;'LPushObject',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;'SelectedObjectCollide',&nbsp;'ScriptedObjectCollide',&nbsp;'PhysicalObjectCollide'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Field&nbsp;3&nbsp;(Magnitude):&nbsp;a&nbsp;value&nbsp;indicating&nbsp;the&nbsp;strength&nbsp;of&nbsp;the&nbsp;collision<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Field&nbsp;4&nbsp;(Victim):&nbsp;the&nbsp;ID&nbsp;of&nbsp;the&nbsp;agent&nbsp;that&nbsp;was&nbsp;attacked<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Field&nbsp;5&nbsp;(Time):&nbsp;the&nbsp;time&nbsp;the&nbsp;collision&nbsp;occurred&nbsp;in&nbsp;fmt&nbsp;YYYY-MM-ddTHH:MM:SS<br>
+&nbsp;<br>
+Region&nbsp;crossed&nbsp;event:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Field&nbsp;0&nbsp;(EventType):&nbsp;'crossrgn'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Field&nbsp;1&nbsp;(NewSimulator):&nbsp;the&nbsp;simulator&nbsp;(region)&nbsp;your&nbsp;agent&nbsp;is&nbsp;now&nbsp;in<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Field&nbsp;2&nbsp;(OldSimulator):&nbsp;the&nbsp;simulator&nbsp;(region)&nbsp;your&nbsp;agent&nbsp;just&nbsp;left<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;evntpatt:&nbsp;&nbsp;&nbsp;the&nbsp;event&nbsp;pattern:&nbsp;a&nbsp;list&nbsp;of&nbsp;fields,&nbsp;each&nbsp;field&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;containing&nbsp;an&nbsp;string&nbsp;or&nbsp;the&nbsp;None&nbsp;value.&nbsp;None&nbsp;fields&nbsp;in&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;event&nbsp;pattern&nbsp;are&nbsp;ignored&nbsp;in&nbsp;the&nbsp;search,&nbsp;string&nbsp;fields<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;defined&nbsp;in&nbsp;event&nbsp;pattern&nbsp;must&nbsp;be&nbsp;equal&nbsp;to&nbsp;corresponding<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;field&nbsp;in&nbsp;the&nbsp;event.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;timeout:&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;different&nbsp;than&nbsp;None,&nbsp;defines&nbsp;the&nbsp;maximum&nbsp;time&nbsp;in&nbsp;seconds<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;to&nbsp;wait&nbsp;for&nbsp;the&nbsp;message.<br>
+&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;None.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;returns&nbsp;the&nbsp;event&nbsp;as&nbsp;a&nbsp;list&nbsp;of&nbsp;strings.</tt></dd></dl>
+ <dl><dt><a name="-wait_vrmsg"><strong>wait_vrmsg</strong></a>(acid, msgpatt, timeout)</dt><dd><tt>Wait&nbsp;for&nbsp;message&nbsp;sent&nbsp;by&nbsp;VR&nbsp;simulator&nbsp;from&nbsp;other&nbsp;avatars/agents,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;that&nbsp;match&nbsp;the&nbsp;msgpatt&nbsp;search&nbsp;pattern.&nbsp;If&nbsp;timeout&nbsp;is&nbsp;different&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;than&nbsp;None,&nbsp;stop&nbsp;waiting&nbsp;after&nbsp;timeout&nbsp;seconds.&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+VR&nbsp;messages&nbsp;are&nbsp;string&nbsp;lists,&nbsp;where&nbsp;index&nbsp;0&nbsp;of&nbsp;list&nbsp;corresponds&nbsp;to&nbsp;field&nbsp;0&nbsp;<br>
+of&nbsp;message,&nbsp;and&nbsp;so&nbsp;on.&nbsp;The&nbsp;following&nbsp;types&nbsp;of&nbsp;VR&nbsp;events&nbsp;are&nbsp;handled&nbsp;by&nbsp;Virtual<br>
+Stage:<br>
+&nbsp;<br>
+'instmsg'&nbsp;messages&nbsp;from&nbsp;other&nbsp;avatars/agents&nbsp;sent&nbsp;by&nbsp;Instant&nbsp;Message&nbsp;service:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Field&nbsp;0&nbsp;(MsgType):&nbsp;'instmsg'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Field&nbsp;1&nbsp;(FromAvatarName):&nbsp;name&nbsp;of&nbsp;source&nbsp;agent/avatar<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Field&nbsp;2&nbsp;(Content):&nbsp;message&nbsp;content<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Field&nbsp;3&nbsp;(FromAvatarId):&nbsp;ID&nbsp;of&nbsp;source&nbsp;agent/avatar<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Field&nbsp;4&nbsp;(TimeStamp):&nbsp;time&nbsp;of&nbsp;recvd&nbsp;msg&nbsp;in&nbsp;fmt&nbsp;YYYY-MM-ddTHH:MM:SS<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Fields&nbsp;5,6,7&nbsp;(PosX,PosY,PosZ):&nbsp;X,Y,Z&nbsp;coords&nbsp;of&nbsp;source&nbsp;agent/avatar<br>
+&nbsp;<br>
+'chatmsg'&nbsp;messages&nbsp;from&nbsp;other&nbsp;avatars/agents&nbsp;sent&nbsp;by&nbsp;chat&nbsp;channel:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Field&nbsp;0&nbsp;(MsgType):&nbsp;'chatmsg'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Field&nbsp;1&nbsp;(FromAvatarName):&nbsp;name&nbsp;of&nbsp;source&nbsp;agent/avatar<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Field&nbsp;2&nbsp;(Content):&nbsp;message&nbsp;content<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Field&nbsp;3&nbsp;(FromAvatarId):&nbsp;ID&nbsp;of&nbsp;source&nbsp;agent/avatar<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Field&nbsp;4&nbsp;(TimeStamp):&nbsp;time&nbsp;of&nbsp;recvd&nbsp;msg&nbsp;in&nbsp;fmt&nbsp;YYYY-MM-ddTHH:MM:SS<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Fields&nbsp;5,6,7&nbsp;(PosX,PosY,PosZ):&nbsp;X,Y,Z&nbsp;coords&nbsp;of&nbsp;source&nbsp;agent/avatar<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Field&nbsp;8&nbsp;(ChatType):&nbsp;type&nbsp;of&nbsp;chat&nbsp;msg&nbsp;=&nbsp;'whisper'|'normal'|'shout'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Field&nbsp;9&nbsp;(AudioLevel):&nbsp;audible&nbsp;level&nbsp;of&nbsp;chat&nbsp;msg&nbsp;=&nbsp;'not'|'barely'|'fully'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Field&nbsp;10&nbsp;(SrcType):&nbsp;source&nbsp;type&nbsp;of&nbsp;chat&nbsp;msg&nbsp;=&nbsp;'system'|'actor'|'<a href="builtins.html#object">object</a>'<br>
+&nbsp;<br>
+'codemsg'&nbsp;messages&nbsp;from&nbsp;other&nbsp;avatars/agents&nbsp;also&nbsp;sent&nbsp;by&nbsp;Instant&nbsp;Message&nbsp;service:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Field&nbsp;0&nbsp;(MsgType):&nbsp;'codemsg'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Field&nbsp;1&nbsp;(FromAvatarName):&nbsp;name&nbsp;of&nbsp;source&nbsp;agent/avatar<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Field&nbsp;2&nbsp;(Content):&nbsp;message&nbsp;content<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Field&nbsp;3&nbsp;(FromAvatarId):&nbsp;ID&nbsp;of&nbsp;source&nbsp;agent/avatar<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Field&nbsp;4&nbsp;(TimeStamp):&nbsp;time&nbsp;of&nbsp;recvd&nbsp;msg&nbsp;in&nbsp;fmt&nbsp;YYYY-MM-ddTHH:MM:SS<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Fields&nbsp;5,6,7&nbsp;(PosX,PosY,PosZ):&nbsp;X,Y,Z&nbsp;coords&nbsp;of&nbsp;source&nbsp;agent/avatar<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Field&nbsp;8&nbsp;(CodeTyp):&nbsp;type&nbsp;of&nbsp;code&nbsp;msg<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Field&nbsp;9&nbsp;(GroupSession):&nbsp;indicates&nbsp;if&nbsp;is&nbsp;'group'&nbsp;or&nbsp;'session'&nbsp;code&nbsp;msg<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Field&nbsp;10&nbsp;(GrpSesId):&nbsp;group&nbsp;ID,&nbsp;for&nbsp;'group'&nbsp;code&nbsp;msg&nbsp;or&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;session&nbsp;ID,&nbsp;for&nbsp;'session'&nbsp;code&nbsp;msg&nbsp;&nbsp;&nbsp;<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;msgpatt:&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;message&nbsp;search&nbsp;pattern:&nbsp;a&nbsp;list&nbsp;of&nbsp;fields,&nbsp;each&nbsp;field&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;containing&nbsp;a&nbsp;pattern&nbsp;string&nbsp;or&nbsp;the&nbsp;None&nbsp;value.&nbsp;None&nbsp;fields&nbsp;in&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;message&nbsp;pattern&nbsp;are&nbsp;ignored&nbsp;in&nbsp;the&nbsp;search,&nbsp;pattern&nbsp;strings<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;defined&nbsp;in&nbsp;message&nbsp;pattern&nbsp;must&nbsp;match&nbsp;the&nbsp;corresponding<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;field&nbsp;in&nbsp;the&nbsp;message&nbsp;according&nbsp;to&nbsp;the&nbsp;following&nbsp;rules:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;If&nbsp;pattern&nbsp;string&nbsp;starts&nbsp;with&nbsp;'^'&nbsp;then&nbsp;corresponding&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;field&nbsp;must&nbsp;match&nbsp;the&nbsp;pattern&nbsp;from&nbsp;first&nbsp;character;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;If&nbsp;pattern&nbsp;string&nbsp;ends&nbsp;with&nbsp;'$'&nbsp;then&nbsp;corresponding&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;field&nbsp;must&nbsp;match&nbsp;the&nbsp;pattern&nbsp;until&nbsp;last&nbsp;character;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;If&nbsp;pattern&nbsp;string&nbsp;starts&nbsp;with&nbsp;'!'&nbsp;then&nbsp;corresponding<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;field&nbsp;cannot&nbsp;match&nbsp;the&nbsp;pattern;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;If&nbsp;pattern&nbsp;string&nbsp;is&nbsp;a&nbsp;list&nbsp;of&nbsp;strings&nbsp;separated&nbsp;by&nbsp;'|'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;then&nbsp;some&nbsp;of&nbsp;these&nbsp;strings&nbsp;must&nbsp;match&nbsp;corresponding&nbsp;field;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;Otherwise&nbsp;the&nbsp;pattern&nbsp;string&nbsp;must&nbsp;be&nbsp;a&nbsp;substring&nbsp;of&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;corresponding&nbsp;field.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;timeout:&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;different&nbsp;than&nbsp;None,&nbsp;defines&nbsp;the&nbsp;maximum&nbsp;time&nbsp;in&nbsp;seconds<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;to&nbsp;wait&nbsp;for&nbsp;the&nbsp;message.<br>
+&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;None.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;returns&nbsp;the&nbsp;message&nbsp;as&nbsp;a&nbsp;list&nbsp;of&nbsp;strings.</tt></dd></dl>
+</td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>AIMLFiles</strong> = {}<br>
+<strong>AIMLKrnlTbl</strong> = {}<br>
+<strong>ActorsTbl</strong> = {}<br>
+<strong>ActorsTblLock</strong> = &lt;unlocked _thread.lock object&gt;<br>
+<strong>Body_lying_id</strong> = None<br>
+<strong>Body_pose</strong> = None<br>
+<strong>Body_poses_ids_loaded</strong> = False<br>
+<strong>CurrDiscussTopic</strong> = {}<br>
+<strong>CurrInputMode</strong> = {}<br>
+<strong>Head_look_ahead_id</strong> = None<br>
+<strong>Head_look_down_id</strong> = None<br>
+<strong>Head_look_left_id</strong> = None<br>
+<strong>Head_look_right_id</strong> = None<br>
+<strong>Head_look_up_id</strong> = None<br>
+<strong>Head_pose</strong> = None<br>
+<strong>IntentsFunctionsFile</strong> = {}<br>
+<strong>IntentsFunctionsTbl</strong> = {}<br>
+<strong>IntentsPatternsFile</strong> = {}<br>
+<strong>IntentsPatternsTbl</strong> = {}<br>
+<strong>LastDlgProc</strong> = {}<br>
+<strong>Left_arm_bent_id</strong> = None<br>
+<strong>Left_arm_down_id</strong> = None<br>
+<strong>Left_arm_forward_id</strong> = None<br>
+<strong>Left_arm_inward_id</strong> = None<br>
+<strong>Left_arm_pose</strong> = None<br>
+<strong>Left_arm_side_id</strong> = None<br>
+<strong>Left_arm_up_id</strong> = None<br>
+<strong>Left_leg_bent_id</strong> = None<br>
+<strong>Left_leg_down_id</strong> = None<br>
+<strong>Left_leg_half_lift_id</strong> = None<br>
+<strong>Left_leg_half_side_id</strong> = None<br>
+<strong>Left_leg_lift_up_id</strong> = None<br>
+<strong>Left_leg_pose</strong> = None<br>
+<strong>Left_leg_side_lift_id</strong> = None<br>
+<strong>PrDbgEnabled</strong> = False<br>
+<strong>PrDbgFilter</strong> = None<br>
+<strong>ProdRulesFile</strong> = {}<br>
+<strong>ProdRulesTbl</strong> = {}<br>
+<strong>RecIntents</strong> = {}<br>
+<strong>ReplaceRecIntent</strong> = {}<br>
+<strong>Right_arm_bent_id</strong> = None<br>
+<strong>Right_arm_down_id</strong> = None<br>
+<strong>Right_arm_forward_id</strong> = None<br>
+<strong>Right_arm_inward_id</strong> = None<br>
+<strong>Right_arm_pose</strong> = None<br>
+<strong>Right_arm_side_id</strong> = None<br>
+<strong>Right_arm_up_id</strong> = None<br>
+<strong>Right_leg_bent_id</strong> = None<br>
+<strong>Right_leg_down_id</strong> = None<br>
+<strong>Right_leg_half_lift_id</strong> = None<br>
+<strong>Right_leg_half_side_id</strong> = None<br>
+<strong>Right_leg_lift_up_id</strong> = None<br>
+<strong>Right_leg_pose</strong> = None<br>
+<strong>Right_leg_side_lift_id</strong> = None<br>
+<strong>SpeechesFile</strong> = {}<br>
+<strong>SpeechesTbl</strong> = {}<br>
+<strong>VirtualStage_Version</strong> = '0.7.0'</td></tr></table>
+</body></html>

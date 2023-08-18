@@ -1,0 +1,175 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module AppearanceActions</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>AppearanceActions</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href="index.html">index</a><br><a href="../appearanceactions.py">d:\virtualstage\appearanceactions.py</a></font></td></tr></table>
+    <p><tt>Module&nbsp;AppearanceActions&nbsp;-&nbsp;Actions&nbsp;to&nbsp;view&nbsp;and/or&nbsp;modify&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;appearance&nbsp;of&nbsp;the&nbsp;avatar&nbsp;controlled&nbsp;by&nbsp;the&nbsp;actor<br>
+Functions:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-look_my_info">look_my_info</a>(acid)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-look_my_attachments">look_my_attachments</a>(acid)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-look_my_wearables">look_my_wearables</a>(acid)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-attach">attach</a>(acid,&nbsp;attpoint,&nbsp;item)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-detach">detach</a>(acid,&nbsp;item)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-set_appearance">set_appearance</a>(acid,&nbsp;rebake)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-take_off">take_off</a>(acid,&nbsp;item)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-wear">wear</a>(acid,&nbsp;opt,&nbsp;itemfold)</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="ActorController.html">ActorController</a><br>
+</td><td width="25%" valign=top></td><td width="25%" valign=top></td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-attach"><strong>attach</strong></a>(acid, attpoint, itempath)</dt><dd><tt>Attach&nbsp;the&nbsp;item&nbsp;identified&nbsp;by&nbsp;itempath&nbsp;arg&nbsp;to&nbsp;the&nbsp;point<br>
+&nbsp;&nbsp;&nbsp;&nbsp;of&nbsp;avatar's&nbsp;body&nbsp;identified&nbsp;by&nbsp;attpoint&nbsp;arg.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;attpoint:&nbsp;&nbsp;&nbsp;point&nbsp;of&nbsp;avatar's&nbsp;body&nbsp;where&nbsp;attach&nbsp;item,&nbsp;can&nbsp;be:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'default',&nbsp;'chest',&nbsp;'head',&nbsp;'left_shoulder',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'right_shoulder',&nbsp;'left_hand',&nbsp;'right_hand',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'left_foot',&nbsp;'right_foot',&nbsp;'back',&nbsp;'pelvis',&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'mouth',&nbsp;'chin',&nbsp;'left_ear',&nbsp;'right_ear',&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'left_eye',&nbsp;'right_eye',&nbsp;'nose',&nbsp;'right_upper_arm',&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'right_lower_arm',&nbsp;'left_upper_arm',&nbsp;'left_lower_arm',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'right_hip',&nbsp;'right_upper_leg',&nbsp;'right_lower_leg',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'left_hip',&nbsp;'left_upper_leg',&nbsp;'left_lower_leg',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'belly',&nbsp;'left_pec',&nbsp;'right_pec',&nbsp;'neck',&nbsp;'center',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;itempath:&nbsp;&nbsp;&nbsp;path&nbsp;(in&nbsp;avatar's&nbsp;inventory)&nbsp;of&nbsp;item&nbsp;to&nbsp;be&nbsp;attached.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;false.&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;true.</tt></dd></dl>
+ <dl><dt><a name="-detach"><strong>detach</strong></a>(acid, itempath)</dt><dd><tt>Detach&nbsp;the&nbsp;item&nbsp;identified&nbsp;by&nbsp;itempath&nbsp;arg&nbsp;from&nbsp;avatar's&nbsp;body.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;itempath:&nbsp;&nbsp;&nbsp;path&nbsp;(in&nbsp;avatar's&nbsp;inventory)&nbsp;of&nbsp;item&nbsp;to&nbsp;be&nbsp;detached.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;false.&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;true.</tt></dd></dl>
+ <dl><dt><a name="-look_my_attachments"><strong>look_my_attachments</strong></a>(acid)</dt><dd><tt>Retrieve&nbsp;information&nbsp;about&nbsp;the&nbsp;attachments&nbsp;of&nbsp;the&nbsp;avatart<br>
+&nbsp;&nbsp;&nbsp;&nbsp;controlled&nbsp;by&nbsp;the&nbsp;actor.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor.<br>
+&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;None.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;returns&nbsp;an&nbsp;list&nbsp;of&nbsp;'myattach'&nbsp;perception&nbsp;records&nbsp;containing&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;information&nbsp;about&nbsp;the&nbsp;avatar&nbsp;attachments.&nbsp;Inventory&nbsp;perception&nbsp;records&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;are&nbsp;lists&nbsp;of&nbsp;strings,&nbsp;'myattach'&nbsp;records&nbsp;have&nbsp;the&nbsp;following&nbsp;format:&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['myattach',&nbsp;id,&nbsp;type,&nbsp;subtype,&nbsp;localid,&nbsp;point,&nbsp;X,&nbsp;Y,&nbsp;Z,&nbsp;SX,&nbsp;SY,&nbsp;SZ]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;where:&nbsp;&nbsp;id&nbsp;is&nbsp;the&nbsp;unique&nbsp;global&nbsp;id&nbsp;of&nbsp;folder/item;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type&nbsp;can&nbsp;be&nbsp;'prim',&nbsp;'tree'&nbsp;or&nbsp;'grass';&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;subtype&nbsp;is&nbsp;the&nbsp;type&nbsp;of&nbsp;primitive,&nbsp;tree&nbsp;or&nbsp;grass;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;point&nbsp;is&nbsp;where&nbsp;the&nbsp;attachment&nbsp;is&nbsp;connected&nbsp;to&nbsp;avatar's&nbsp;body;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;localid&nbsp;is&nbsp;the&nbsp;local&nbsp;id&nbsp;of&nbsp;attachment;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x,y,z&nbsp;are&nbsp;X,Y,Z&nbsp;coordinates&nbsp;of&nbsp;attachment;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sx,sy,sz&nbsp;are&nbsp;the&nbsp;scale&nbsp;(size)&nbsp;of&nbsp;attachment&nbsp;in&nbsp;X,Y,Z&nbsp;axis.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;this&nbsp;action&nbsp;also&nbsp;adds&nbsp;'myattach'&nbsp;retrieved&nbsp;records&nbsp;to&nbsp;the&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;perception&nbsp;base.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;All&nbsp;perception&nbsp;records&nbsp;fields&nbsp;are&nbsp;strings.</tt></dd></dl>
+ <dl><dt><a name="-look_my_info"><strong>look_my_info</strong></a>(acid)</dt><dd><tt>Return&nbsp;information&nbsp;about&nbsp;the&nbsp;avatar&nbsp;controlled&nbsp;by&nbsp;the&nbsp;actor.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor.<br>
+&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;None.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;returns&nbsp;an&nbsp;'myinfo'&nbsp;perception&nbsp;record&nbsp;containing&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;information&nbsp;about&nbsp;my&nbsp;avatar.&nbsp;Perception&nbsp;records&nbsp;are&nbsp;list&nbsp;of&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;strings,&nbsp;'myinfo'&nbsp;record&nbsp;have&nbsp;the&nbsp;following<br>
+&nbsp;&nbsp;&nbsp;&nbsp;format:&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['myinfo',&nbsp;acid,&nbsp;name,&nbsp;fstnam,&nbsp;lstnam,&nbsp;locid,&nbsp;access,&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;health,&nbsp;balanc,&nbsp;siton,&nbsp;actgrp,&nbsp;grppow]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;where:&nbsp;name&nbsp;is&nbsp;the&nbsp;full&nbsp;name&nbsp;of&nbsp;this&nbsp;avatar<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fstnam&nbsp;is&nbsp;the&nbsp;first&nbsp;name&nbsp;of&nbsp;this&nbsp;avatar<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lstnam&nbsp;is&nbsp;the&nbsp;last&nbsp;name&nbsp;of&nbsp;this&nbsp;avatar<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;locid&nbsp;is&nbsp;the&nbsp;avatar&nbsp;ID,&nbsp;local&nbsp;to&nbsp;the&nbsp;current&nbsp;region<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;access&nbsp;is&nbsp;the&nbsp;access&nbsp;level&nbsp;of&nbsp;this&nbsp;avatar,&nbsp;usually&nbsp;M,&nbsp;PG&nbsp;or&nbsp;A<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;health&nbsp;is&nbsp;the&nbsp;health&nbsp;level&nbsp;of&nbsp;this&nbsp;avatar&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;balanc&nbsp;is&nbsp;the&nbsp;current&nbsp;monetary&nbsp;balance&nbsp;of&nbsp;this&nbsp;avatar<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;siton&nbsp;is&nbsp;the&nbsp;local&nbsp;ID&nbsp;of&nbsp;the&nbsp;prim&nbsp;this&nbsp;avatar&nbsp;is&nbsp;sitting&nbsp;on<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;actgrp&nbsp;the&nbsp;UUID&nbsp;of&nbsp;the&nbsp;avatar&nbsp;active&nbsp;group<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grppow&nbsp;the&nbsp;avatar&nbsp;powers&nbsp;in&nbsp;the&nbsp;currently&nbsp;active&nbsp;group<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;this&nbsp;action&nbsp;also&nbsp;adds&nbsp;the&nbsp;'myinfo'&nbsp;record&nbsp;to&nbsp;the<br>
+&nbsp;&nbsp;&nbsp;&nbsp;perception&nbsp;base.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;All&nbsp;perception&nbsp;records&nbsp;fields&nbsp;are&nbsp;strings.</tt></dd></dl>
+ <dl><dt><a name="-look_my_wearables"><strong>look_my_wearables</strong></a>(acid)</dt><dd><tt>Retrieve&nbsp;information&nbsp;about&nbsp;the&nbsp;wearables&nbsp;(clothes&nbsp;and&nbsp;similar<br>
+&nbsp;&nbsp;&nbsp;&nbsp;items)&nbsp;of&nbsp;the&nbsp;avatar&nbsp;controlled&nbsp;by&nbsp;the&nbsp;actor.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor.<br>
+&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;None.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;returns&nbsp;an&nbsp;list&nbsp;of&nbsp;'mywearable'&nbsp;perception&nbsp;records&nbsp;containing&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;information&nbsp;about&nbsp;the&nbsp;avatar&nbsp;wearables.&nbsp;Inventory&nbsp;perception&nbsp;records&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;are&nbsp;lists&nbsp;of&nbsp;strings,&nbsp;'mywearable'&nbsp;records&nbsp;have&nbsp;the&nbsp;following&nbsp;format:&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['mywearable',&nbsp;id,&nbsp;weartype,&nbsp;assetype,&nbsp;assetname,&nbsp;assetid]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;where:&nbsp;&nbsp;id&nbsp;is&nbsp;the&nbsp;unique&nbsp;global&nbsp;id&nbsp;of&nbsp;wearable;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;weartype&nbsp;is&nbsp;the&nbsp;type&nbsp;of&nbsp;the&nbsp;wearable&nbsp;item;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;assetype&nbsp;is&nbsp;the&nbsp;type&nbsp;of&nbsp;the&nbsp;asset;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;assetname&nbsp;is&nbsp;the&nbsp;name&nbsp;of&nbsp;asset&nbsp;in&nbsp;the&nbsp;inventory;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;assetid&nbsp;is&nbsp;the&nbsp;unique&nbsp;id&nbsp;of&nbsp;asset&nbsp;in&nbsp;inventory.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;this&nbsp;action&nbsp;also&nbsp;adds&nbsp;'mywearable'&nbsp;retrieved&nbsp;records&nbsp;to&nbsp;the&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;perception&nbsp;base.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;All&nbsp;perception&nbsp;records&nbsp;fields&nbsp;are&nbsp;strings.</tt></dd></dl>
+ <dl><dt><a name="-set_appearance"><strong>set_appearance</strong></a>(acid, rebake)</dt><dd><tt>Set&nbsp;avatar&nbsp;current&nbsp;appearance&nbsp;to&nbsp;appearance&nbsp;last&nbsp;stored&nbsp;on&nbsp;simulator.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;rebake:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;boolean,&nbsp;if&nbsp;true&nbsp;force&nbsp;texture&nbsp;rebaking.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;false.&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;true.</tt></dd></dl>
+ <dl><dt><a name="-take_off"><strong>take_off</strong></a>(acid, itempath)</dt><dd><tt>Take&nbsp;off&nbsp;an&nbsp;item&nbsp;being&nbsp;weared.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;itempath:&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;path&nbsp;to&nbsp;item&nbsp;to&nbsp;be&nbsp;taken&nbsp;off.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;false.&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;true.</tt></dd></dl>
+ <dl><dt><a name="-wear"><strong>wear</strong></a>(acid, opt, path)</dt><dd><tt>Wear&nbsp;outfits&nbsp;from&nbsp;an&nbsp;inventory&nbsp;folder&nbsp;or&nbsp;an&nbsp;outfit&nbsp;from&nbsp;inventory&nbsp;item.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;opt:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;str&nbsp;that&nbsp;identifies&nbsp;if&nbsp;to&nbsp;wear&nbsp;outfits&nbsp;from&nbsp;folder&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;or&nbsp;item,&nbsp;can&nbsp;be:&nbsp;'item'&nbsp;or&nbsp;'folder'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;path:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;path&nbsp;to&nbsp;item&nbsp;or&nbsp;folder&nbsp;with&nbsp;outfit&nbsp;to&nbsp;be&nbsp;worn.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;False.&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;True.</tt></dd></dl>
+</td></tr></table>
+</body></html>

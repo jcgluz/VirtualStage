@@ -1,0 +1,304 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module PostureActions</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>PostureActions</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href="index.html">index</a><br><a href="../postureactions.py">d:\virtualstage\postureactions.py</a></font></td></tr></table>
+    <p><tt>Module&nbsp;PostureActions&nbsp;-&nbsp;Actions&nbsp;to&nbsp;view&nbsp;and/or&nbsp;change&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;posture&nbsp;and&nbsp;gestures&nbsp;of&nbsp;avatar&nbsp;controlled&nbsp;by&nbsp;the&nbsp;actor<br>
+Functions:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-look_my_anims_playing">look_my_anims_playing</a>(acid)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-crouch">crouch</a>(acid,&nbsp;startstop)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-sit">sit</a>(acid)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-sit_on">sit_on</a>(acid,target)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-stand">stand</a>(acid)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-point_at_obj">point_at_obj</a>(acid,&nbsp;objid,&nbsp;nbeams=None)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-stop_pointing">stop_pointing</a>(acid)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-start_play">start_play</a>(acid,&nbsp;opt,&nbsp;anim)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-stop_play">stop_play</a>(acid,&nbsp;opt,&nbsp;anim)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-play_gesture">play_gesture</a>(acid,&nbsp;assetgestid)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-activate_gesture">activate_gesture</a>(acid,&nbsp;itemgestid,&nbsp;assetgestid)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-deactivate_gesture">deactivate_gesture</a>(acid,&nbsp;itemgestid)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-start_posing">start_posing</a>(acid,&nbsp;bodypart,&nbsp;pose)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-stop_posing">stop_posing</a>(acid,&nbsp;bodypart)</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="ActorController.html">ActorController</a><br>
+</td><td width="25%" valign=top></td><td width="25%" valign=top></td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-activate_gesture"><strong>activate_gesture</strong></a>(acid, itemgestid, assetgestid)</dt><dd><tt>Activate&nbsp;a&nbsp;gesture.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;itemgestid:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;identifier&nbsp;of&nbsp;inventory&nbsp;item&nbsp;linked&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;to&nbsp;asset&nbsp;gesture.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;assetgestid:&nbsp;&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;identifier&nbsp;of&nbsp;asset&nbsp;containing&nbsp;gesture.<br>
+&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;False.&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;True.</tt></dd></dl>
+ <dl><dt><a name="-crouch"><strong>crouch</strong></a>(acid, startstop)</dt><dd><tt>Start/stop&nbsp;crouching<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor<br>
+&nbsp;&nbsp;&nbsp;&nbsp;startstop:&nbsp;&nbsp;can&nbsp;be&nbsp;'start'&nbsp;or&nbsp;'stop'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;False<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;True</tt></dd></dl>
+ <dl><dt><a name="-deactivate_gesture"><strong>deactivate_gesture</strong></a>(acid, itemgestid)</dt><dd><tt>Deactivate&nbsp;a&nbsp;gesture.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;itemgestid:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;identifier&nbsp;of&nbsp;inventory&nbsp;item&nbsp;linked&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;to&nbsp;asset&nbsp;gesture.<br>
+&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;False.&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;True.</tt></dd></dl>
+ <dl><dt><a name="-load_poses"><strong>load_poses</strong></a>(acid)</dt></dl>
+ <dl><dt><a name="-look_my_anims_playing"><strong>look_my_anims_playing</strong></a>(acid)</dt><dd><tt>Retrieve&nbsp;information&nbsp;about&nbsp;current&nbsp;animations&nbsp;playing&nbsp;on&nbsp;the&nbsp;avatar&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;controlled&nbsp;by&nbsp;the&nbsp;actor.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor.<br>
+&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;None.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;returns&nbsp;an&nbsp;list&nbsp;of&nbsp;'myanim_playing'&nbsp;perception&nbsp;records&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;containing&nbsp;information&nbsp;about&nbsp;what&nbsp;animations&nbsp;the&nbsp;avatar&nbsp;is&nbsp;currently<br>
+&nbsp;&nbsp;&nbsp;&nbsp;playing.&nbsp;Inventory&nbsp;perception&nbsp;records&nbsp;are&nbsp;lists&nbsp;of&nbsp;strings,&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;'myanim_playing'&nbsp;records&nbsp;have&nbsp;the&nbsp;following&nbsp;format:&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['myanim_playing',&nbsp;assetid,&nbsp;seq,&nbsp;animtype,&nbsp;animname]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;where:&nbsp;&nbsp;assetid&nbsp;is&nbsp;the&nbsp;unique&nbsp;id&nbsp;of&nbsp;the&nbsp;animation&nbsp;asset;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;seq&nbsp;is&nbsp;a&nbsp;number&nbsp;to&nbsp;indicate&nbsp;start&nbsp;order&nbsp;of&nbsp;currently&nbsp;playing&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;animations,&nbsp;on&nbsp;Linden&nbsp;grids&nbsp;this&nbsp;number&nbsp;is&nbsp;unique&nbsp;per&nbsp;region,&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;on&nbsp;OpenSimulator&nbsp;grids&nbsp;it&nbsp;is&nbsp;per&nbsp;client<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;animtype&nbsp;can&nbsp;be&nbsp;'std_anim',&nbsp;'item'&nbsp;or&nbsp;'asset_id';<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;animname&nbsp;if&nbsp;animtype&nbsp;is&nbsp;'std_anim',&nbsp;this&nbsp;is&nbsp;the&nbsp;name&nbsp;of&nbsp;the<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;standard&nbsp;animation&nbsp;(see&nbsp;<a href="#-start_play">start_play</a>()&nbsp;help&nbsp;for&nbsp;details),<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;animtype&nbsp;is&nbsp;'item',&nbsp;this&nbsp;is&nbsp;the&nbsp;full&nbsp;inventory&nbsp;path&nbsp;of<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this&nbsp;animation,&nbsp;if&nbsp;animtype&nbsp;is&nbsp;'asset_id'&nbsp;then&nbsp;animname<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;is&nbsp;the&nbsp;same&nbsp;as&nbsp;assetid.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;this&nbsp;action&nbsp;also&nbsp;adds&nbsp;'myanim_playing'&nbsp;retrieved&nbsp;records&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;to&nbsp;the&nbsp;perception&nbsp;base.&nbsp;All&nbsp;perception&nbsp;records&nbsp;fields&nbsp;are&nbsp;strings.</tt></dd></dl>
+ <dl><dt><a name="-play_gesture"><strong>play_gesture</strong></a>(acid, assetgestid)</dt><dd><tt>Attempts&nbsp;to&nbsp;play&nbsp;a&nbsp;gesture.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;assetgestid:&nbsp;&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;identifier&nbsp;of&nbsp;asset&nbsp;containing&nbsp;gesture.<br>
+&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;False.&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;True.</tt></dd></dl>
+ <dl><dt><a name="-point_at_obj"><strong>point_at_obj</strong></a>(acid, objid, nbeams=None)</dt><dd><tt>Rotates&nbsp;the&nbsp;avatar&nbsp;body&nbsp;and&nbsp;points&nbsp;at&nbsp;the&nbsp;position&nbsp;of&nbsp;objid&nbsp;object<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor<br>
+&nbsp;&nbsp;&nbsp;&nbsp;objid:&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;object&nbsp;to&nbsp;point&nbsp;at<br>
+&nbsp;&nbsp;&nbsp;&nbsp;nbeams:&nbsp;optional&nbsp;int&nbsp;arg,&nbsp;defines&nbsp;number&nbsp;of&nbsp;pointing&nbsp;beams&nbsp;or&nbsp;rays<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;False<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;True</tt></dd></dl>
+ <dl><dt><a name="-sit"><strong>sit</strong></a>(acid)</dt><dd><tt>Attempts&nbsp;to&nbsp;sit&nbsp;the&nbsp;avatar&nbsp;on&nbsp;the&nbsp;top&nbsp;of&nbsp;the&nbsp;closest&nbsp;object<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;False<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;True</tt></dd></dl>
+ <dl><dt><a name="-sit_on"><strong>sit_on</strong></a>(acid, objid)</dt><dd><tt>Attempts&nbsp;to&nbsp;sit&nbsp;the&nbsp;avatar&nbsp;on&nbsp;top&nbsp;of&nbsp;objid&nbsp;object<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor<br>
+&nbsp;&nbsp;&nbsp;&nbsp;objid:&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;target&nbsp;object<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;False<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;True</tt></dd></dl>
+ <dl><dt><a name="-stand"><strong>stand</strong></a>(acid)</dt><dd><tt>Stands&nbsp;up&nbsp;from&nbsp;sitting<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Returns:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;False<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;True</tt></dd></dl>
+ <dl><dt><a name="-start_play"><strong>start_play</strong></a>(acid, opt, anim)</dt><dd><tt>Attempts&nbsp;to&nbsp;start&nbsp;to&nbsp;play&nbsp;an&nbsp;animation.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;opt:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;str&nbsp;that&nbsp;identifies&nbsp;where&nbsp;to&nbsp;locate&nbsp;animation,&nbsp;can&nbsp;be:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'item',&nbsp;'asset_id'&nbsp;or&nbsp;'std_anim'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;anim:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;str&nbsp;which&nbsp;defines&nbsp;the&nbsp;animation&nbsp;to&nbsp;be&nbsp;played,&nbsp;format&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;depends&nbsp;on&nbsp;opt&nbsp;-&nbsp;if&nbsp;opt&nbsp;is&nbsp;'item',&nbsp;anim&nbsp;is&nbsp;the&nbsp;path&nbsp;of&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;animation&nbsp;in&nbsp;avatar's&nbsp;inventory,&nbsp;if&nbsp;opt&nbsp;is&nbsp;'asset_id',&nbsp;anim<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;is&nbsp;the&nbsp;unique&nbsp;identifier&nbsp;of&nbsp;asset&nbsp;containing&nbsp;animation,&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;opt&nbsp;is&nbsp;'std_anim',&nbsp;anim&nbsp;can&nbsp;be:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'afraid','aim_bazooka_r','aim_bow_l','aim_handgun_r',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'aim_rifle_r','angry','away','backflip','belly_laugh',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'blow_kiss','bored','bow','brush','busy','clap','courtbow',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'crouch','crouchwalk','cry','customize','customize_done',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'dance1','dance2','dance3','dance4','dance5','dance6',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'dance7','dance8','dead','drink','embarrassed',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'express_afraid','express_anger','express_bored',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'express_cry','express_disdain','express_embarrassed',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'express_frown','express_kiss','express_laugh',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'express_open_mouth','express_repulsed','express_sad',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'express_shrug','express_smile','express_surprise',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'express_tongue_out','express_toothsmile','express_wink',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'express_worry','falldown','female_walk','finger_wag',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'fist_pump','fly','flyslow','hello','hold_bazooka_r',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'hold_bow_l','hold_handgun_r','hold_rifle_r','hold_throw_r',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'hover','hover_down','hover_up','impatient','jump',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'jump_for_joy','kiss_my_butt','land','laugh_short',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'medium_land','motorcycle_sit','muscle_beach','no',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'no_unhappy','nyah_nyah','onetwo_punch','peace','point_me',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'point_you','pre_jump','punch_left','punch_right',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'repulsed','roundhouse_kick','rps_countdown','rps_paper',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'rps_rock','rps_scissors','run','sad','salute',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'shoot_bow_l','shout','shrug','sit','sit_female',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'sit_generic','sit_ground','sit_ground_staticrained',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'sit_to_stand','sleep','smoke_idle','smoke_inhale',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'smoke_throw_down','snapshot','stand','standup','stand_1',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'stand_2','stand_3','stand_4','stretch','stride','surf',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'surprise','sword_strike','talk','tantrum','throw_r',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'tryon_shirt','turnleft','turnright','type','walk','whisper',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'whistle','wink','wink_hollywood','worry','yes','yes_happy',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'yoga_float'<br>
+&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;false.&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;true.</tt></dd></dl>
+ <dl><dt><a name="-start_posing"><strong>start_posing</strong></a>(acid, bodypart, pose)</dt><dd><tt>Starts&nbsp;a&nbsp;pose&nbsp;in&nbsp;some&nbsp;part&nbsp;of&nbsp;the&nbsp;body&nbsp;&nbsp;<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor<br>
+&nbsp;&nbsp;&nbsp;&nbsp;bodypart:&nbsp;&nbsp;&nbsp;str&nbsp;that&nbsp;identifies&nbsp;body&nbsp;part,&nbsp;it&nbsp;can&nbsp;be:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'left-arm',&nbsp;'right-arm,&nbsp;'arms',&nbsp;'left-leg',&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'right-leg',&nbsp;'legs',&nbsp;'head',&nbsp;'left-hand',&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'right-hand',&nbsp;'hands',&nbsp;'hip',&nbsp;'abdomen',&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'chest',&nbsp;'neck',&nbsp;'body':&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;pose:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;str&nbsp;that&nbsp;identifies&nbsp;the&nbsp;pose&nbsp;of&nbsp;body&nbsp;part&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+The&nbsp;following&nbsp;table&nbsp;shows&nbsp;which&nbsp;poses&nbsp;are&nbsp;currently&nbsp;implemented&nbsp;<br>
+Body&nbsp;part&nbsp;&nbsp;&nbsp;Poses&nbsp;implemented<br>
+-------------------------------<br>
+left-arm&nbsp;&nbsp;&nbsp;&nbsp;up,&nbsp;down,&nbsp;forward,&nbsp;side,&nbsp;inward,&nbsp;bent<br>
+right-arm&nbsp;&nbsp;&nbsp;up,&nbsp;down,&nbsp;forward,&nbsp;side,&nbsp;inward,&nbsp;bent<br>
+left-leg&nbsp;&nbsp;&nbsp;&nbsp;lift-up,&nbsp;half-lift,&nbsp;side-lift,&nbsp;half-side,&nbsp;down,&nbsp;bent<br>
+right-leg&nbsp;&nbsp;&nbsp;lift-up,&nbsp;half-lift,&nbsp;side-lift,&nbsp;half-side,&nbsp;down,&nbsp;bent<br>
+head&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;look-ahead,&nbsp;look-up,&nbsp;look-down,&nbsp;look-left,&nbsp;look-right<br>
+body&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lying&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;<br>
+IMPORTANT:&nbsp;this&nbsp;action&nbsp;only&nbsp;works&nbsp;if&nbsp;the&nbsp;body-poses-lib.iar&nbsp;file&nbsp;is<br>
+loaded&nbsp;in&nbsp;the&nbsp;avatar's&nbsp;inventory&nbsp;in&nbsp;the&nbsp;/body-poses-lib&nbsp;folder&nbsp;using<br>
+OpenSimulator&nbsp;"load&nbsp;iar"&nbsp;command.&nbsp;Alternatively,&nbsp;animations&nbsp;stored&nbsp;<br>
+in&nbsp;body-poses-lib.zip&nbsp;file&nbsp;can&nbsp;be&nbsp;uploaded&nbsp;to&nbsp;the&nbsp;avatar's&nbsp;inventory&nbsp;<br>
+using&nbsp;a&nbsp;viewer&nbsp;like&nbsp;Firestorm&nbsp;Viewer,&nbsp;then&nbsp;/body-poses-lib&nbsp;directory&nbsp;<br>
+must&nbsp;be&nbsp;created&nbsp;in&nbsp;the&nbsp;inventory&nbsp;and&nbsp;animations&nbsp;previously&nbsp;uploaded&nbsp;<br>
+must&nbsp;be&nbsp;moved&nbsp;to&nbsp;this&nbsp;directory.<br>
+&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;False<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;True</tt></dd></dl>
+ <dl><dt><a name="-stop_play"><strong>stop_play</strong></a>(acid, opt, anim)</dt><dd><tt>Attempts&nbsp;to&nbsp;stop&nbsp;an&nbsp;animation&nbsp;being&nbsp;played.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;opt:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;str&nbsp;that&nbsp;identifies&nbsp;where&nbsp;to&nbsp;locate&nbsp;animation,&nbsp;can&nbsp;be:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'item',&nbsp;'asset_id'&nbsp;or&nbsp;'std_anim'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;anim:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;str&nbsp;which&nbsp;defines&nbsp;the&nbsp;animation&nbsp;to&nbsp;be&nbsp;played,&nbsp;format&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;depends&nbsp;on&nbsp;opt&nbsp;-&nbsp;if&nbsp;opt&nbsp;is&nbsp;'item',&nbsp;anim&nbsp;is&nbsp;the&nbsp;path&nbsp;of&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;animation&nbsp;in&nbsp;avatar's&nbsp;inventory,&nbsp;if&nbsp;opt&nbsp;is&nbsp;'asset_id',&nbsp;anim<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;is&nbsp;the&nbsp;unique&nbsp;identifier&nbsp;of&nbsp;asset&nbsp;containing&nbsp;animation,&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;opt&nbsp;is&nbsp;'std_anim',&nbsp;see&nbsp;standard&nbsp;animation&nbsp;identifiers<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;in&nbsp;<a href="#-start_play">start_play</a>()&nbsp;action.<br>
+&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;false.&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;true.</tt></dd></dl>
+ <dl><dt><a name="-stop_pointing"><strong>stop_pointing</strong></a>(acid)</dt><dd><tt>Stop&nbsp;pointing&nbsp;at&nbsp;some&nbsp;object<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;False<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;True</tt></dd></dl>
+ <dl><dt><a name="-stop_posing"><strong>stop_posing</strong></a>(acid, bodypart)</dt><dd><tt>Stops&nbsp;a&nbsp;pose&nbsp;in&nbsp;some&nbsp;part&nbsp;of&nbsp;the&nbsp;body&nbsp;(or&nbsp;all&nbsp;parts)&nbsp;<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor<br>
+&nbsp;&nbsp;&nbsp;&nbsp;bodypart:&nbsp;&nbsp;&nbsp;str&nbsp;that&nbsp;identifies&nbsp;body&nbsp;part,&nbsp;it&nbsp;can&nbsp;be:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'all',&nbsp;'left-arm',&nbsp;'right-arm,&nbsp;'arms',&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'left-leg',&nbsp;'right-leg',&nbsp;'legs',&nbsp;'head',&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'left-hand',&nbsp;'right-hand',&nbsp;'hands',&nbsp;'hip',&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'abdomen',&nbsp;'chest',&nbsp;'neck':&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;False<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;True</tt></dd></dl>
+</td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>Body_lying_id</strong> = None<br>
+<strong>Body_pose</strong> = None<br>
+<strong>Body_poses_ids_loaded</strong> = False<br>
+<strong>Head_look_ahead_id</strong> = None<br>
+<strong>Head_look_down_id</strong> = None<br>
+<strong>Head_look_left_id</strong> = None<br>
+<strong>Head_look_right_id</strong> = None<br>
+<strong>Head_look_up_id</strong> = None<br>
+<strong>Head_pose</strong> = None<br>
+<strong>Left_arm_bent_id</strong> = None<br>
+<strong>Left_arm_down_id</strong> = None<br>
+<strong>Left_arm_forward_id</strong> = None<br>
+<strong>Left_arm_inward_id</strong> = None<br>
+<strong>Left_arm_pose</strong> = None<br>
+<strong>Left_arm_side_id</strong> = None<br>
+<strong>Left_arm_up_id</strong> = None<br>
+<strong>Left_leg_bent_id</strong> = None<br>
+<strong>Left_leg_down_id</strong> = None<br>
+<strong>Left_leg_half_lift_id</strong> = None<br>
+<strong>Left_leg_half_side_id</strong> = None<br>
+<strong>Left_leg_lift_up_id</strong> = None<br>
+<strong>Left_leg_pose</strong> = None<br>
+<strong>Left_leg_side_lift_id</strong> = None<br>
+<strong>Right_arm_bent_id</strong> = None<br>
+<strong>Right_arm_down_id</strong> = None<br>
+<strong>Right_arm_forward_id</strong> = None<br>
+<strong>Right_arm_inward_id</strong> = None<br>
+<strong>Right_arm_pose</strong> = None<br>
+<strong>Right_arm_side_id</strong> = None<br>
+<strong>Right_arm_up_id</strong> = None<br>
+<strong>Right_leg_bent_id</strong> = None<br>
+<strong>Right_leg_down_id</strong> = None<br>
+<strong>Right_leg_half_lift_id</strong> = None<br>
+<strong>Right_leg_half_side_id</strong> = None<br>
+<strong>Right_leg_lift_up_id</strong> = None<br>
+<strong>Right_leg_pose</strong> = None<br>
+<strong>Right_leg_side_lift_id</strong> = None</td></tr></table>
+</body></html>

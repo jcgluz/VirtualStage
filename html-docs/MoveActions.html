@@ -1,0 +1,258 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module MoveActions</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>MoveActions</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href="index.html">index</a><br><a href="../moveactions.py">d:\virtualstage\moveactions.py</a></font></td></tr></table>
+    <p><tt>Module&nbsp;MoveActions&nbsp;-&nbsp;Actions&nbsp;to&nbsp;move&nbsp;the&nbsp;avatar&nbsp;controlled&nbsp;by&nbsp;the&nbsp;actor<br>
+Functions:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-backward">backward</a>(acid,&nbsp;val=None,&nbsp;unit=None)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-forward">forward</a>(acid,&nbsp;val=None,&nbsp;unit=None)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-leftward">leftward</a>(acid,&nbsp;val=None,&nbsp;unit=None)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-rightward">rightward</a>(acid,&nbsp;val=None,&nbsp;unit=None)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-upward">upward</a>(acid)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-downward">downward</a>(acid)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-go_home">go_home</a>(acid)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-set_home">set_home</a>(acid)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-stop_follow">stop_follow</a>(acid)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-stop_walk_to">stop_walk_to</a>(acid)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-fly">fly</a>(acid,&nbsp;startstop)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-run">run</a>(acid,&nbsp;startstop)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-jump">jump</a>(acid,startstop)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-do_motion">do_motion</a>(acid,&nbsp;motion)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-follow">follow</a>(acid,&nbsp;targetid)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-fly_to">fly_to</a>(acid,&nbsp;x,&nbsp;y,&nbsp;z,&nbsp;maxtoim,&nbsp;unit)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-tele_to">tele_to</a>(acid,&nbsp;x,&nbsp;y,&nbsp;z=None)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-tele_to_landmark">tele_to_landmark</a>(acid,&nbsp;landmark)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-tele_to_rgn">tele_to_rgn</a>(acid,&nbsp;rgn,&nbsp;x,&nbsp;y,&nbsp;z=None)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-walk_to">walk_to</a>(acid,&nbsp;x,&nbsp;y,&nbsp;z=None)</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="ActorController.html">ActorController</a><br>
+</td><td width="25%" valign=top></td><td width="25%" valign=top></td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-backward"><strong>backward</strong></a>(acid, val=None, unit=None)</dt><dd><tt>Move&nbsp;the&nbsp;avatar&nbsp;backwards<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Optional:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;val:&nbsp;&nbsp;&nbsp;&nbsp;int&nbsp;with&nbsp;seconds/meters&nbsp;to&nbsp;move&nbsp;backward<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;unit:&nbsp;&nbsp;&nbsp;can&nbsp;be&nbsp;'sec'&nbsp;or&nbsp;'mt'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;False<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;True</tt></dd></dl>
+ <dl><dt><a name="-do_motion"><strong>do_motion</strong></a>(acid, motion)</dt><dd><tt>Execute&nbsp;low&nbsp;level&nbsp;motion&nbsp;actions<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor<br>
+&nbsp;&nbsp;&nbsp;&nbsp;motion:&nbsp;can&nbsp;be&nbsp;'forward','back','right,'left','up','down','turn_left,'turn_right',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'nudge_forward','nudge_back','nudge_right','nudge_left','finish_anim',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'pitch_pos','pitch_neg','yaw_pos','yaw_neg','stop','sit','stand',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'stop_on','stop_off','sit_on','sit_off','stand_on','stand_off',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'fly_on','fly_off','turn_left_on','turn_left_off','turn_right_on',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'turn_right_off','run_on','run_off','fast_at_on','fast_at_off',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'fast_left_on','fast_left_off','fast_up_on','fast_up_off','away_on'&nbsp;or<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'away_off'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Returns:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;False<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;True</tt></dd></dl>
+ <dl><dt><a name="-downward"><strong>downward</strong></a>(acid)</dt><dd><tt>Move&nbsp;the&nbsp;avatar&nbsp;down<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;False<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;True</tt></dd></dl>
+ <dl><dt><a name="-fly"><strong>fly</strong></a>(acid, startstop)</dt><dd><tt>Start/stop&nbsp;fly&nbsp;mode<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor<br>
+&nbsp;&nbsp;&nbsp;&nbsp;startstop:&nbsp;&nbsp;can&nbsp;be&nbsp;'start'&nbsp;or&nbsp;'stop'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;False<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;True</tt></dd></dl>
+ <dl><dt><a name="-fly_to"><strong>fly_to</strong></a>(acid, x, y, z, maxtim, unit)</dt><dd><tt>Fly&nbsp;avatar&nbsp;towards&nbsp;position&nbsp;x,y,z&nbsp;for&nbsp;a&nbsp;maximum&nbsp;maxtim&nbsp;sec/ms<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor<br>
+&nbsp;&nbsp;&nbsp;&nbsp;x,y,z:&nbsp;&nbsp;float&nbsp;with&nbsp;X,Y,Z&nbsp;coordinates&nbsp;to&nbsp;fly&nbsp;to<br>
+&nbsp;&nbsp;&nbsp;&nbsp;maxtim:&nbsp;float&nbsp;with&nbsp;max&nbsp;flying&nbsp;time&nbsp;(in&nbsp;seconds/ms)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;unit:&nbsp;&nbsp;&nbsp;can&nbsp;be&nbsp;'sec'&nbsp;or&nbsp;'ms'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Returns:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;False<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;True</tt></dd></dl>
+ <dl><dt><a name="-follow"><strong>follow</strong></a>(acid, avname)</dt><dd><tt>Start&nbsp;following&nbsp;avatar&nbsp;with&nbsp;name&nbsp;avid<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor<br>
+&nbsp;&nbsp;&nbsp;&nbsp;avid:&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;the&nbsp;name&nbsp;of&nbsp;avatar&nbsp;to&nbsp;be&nbsp;followed<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Returns:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;False<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;True</tt></dd></dl>
+ <dl><dt><a name="-forward"><strong>forward</strong></a>(acid, val=None, unit=None)</dt><dd><tt>Move&nbsp;the&nbsp;avatar&nbsp;forward<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Optional&nbsp;args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;val:&nbsp;&nbsp;&nbsp;&nbsp;int&nbsp;with&nbsp;seconds/meters&nbsp;to&nbsp;move&nbsp;forward<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;unit:&nbsp;&nbsp;&nbsp;can&nbsp;be&nbsp;'sec'&nbsp;or&nbsp;'mt'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;False<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;True</tt></dd></dl>
+ <dl><dt><a name="-go_home"><strong>go_home</strong></a>(acid)</dt><dd><tt>Teleport/move&nbsp;the&nbsp;avatar&nbsp;to&nbsp;home&nbsp;location,&nbsp;if&nbsp;defined<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;False<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;True</tt></dd></dl>
+ <dl><dt><a name="-jump"><strong>jump</strong></a>(acid, startstop)</dt><dd><tt>Start/stop&nbsp;jumping<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor<br>
+&nbsp;&nbsp;&nbsp;&nbsp;startstop:&nbsp;&nbsp;can&nbsp;be&nbsp;'start'&nbsp;or&nbsp;'stop'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;False<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;True</tt></dd></dl>
+ <dl><dt><a name="-leftward"><strong>leftward</strong></a>(acid, val=None, unit=None)</dt><dd><tt>Move&nbsp;the&nbsp;avatar&nbsp;to&nbsp;the&nbsp;left<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Optional&nbsp;args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;val:&nbsp;&nbsp;&nbsp;&nbsp;int&nbsp;with&nbsp;seconds/meters&nbsp;to&nbsp;move&nbsp;left<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;unit:&nbsp;&nbsp;&nbsp;can&nbsp;be&nbsp;'sec'&nbsp;or&nbsp;'mt'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;False<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;True</tt></dd></dl>
+ <dl><dt><a name="-rightward"><strong>rightward</strong></a>(acid, val=None, unit=None)</dt><dd><tt>Move&nbsp;the&nbsp;avatar&nbsp;to&nbsp;the&nbsp;right<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Optional&nbsp;args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;val:&nbsp;&nbsp;&nbsp;&nbsp;int&nbsp;with&nbsp;seconds/meters&nbsp;to&nbsp;move&nbsp;right<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;unit:&nbsp;&nbsp;&nbsp;can&nbsp;be&nbsp;'sec'&nbsp;or&nbsp;'mt'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;False<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;True</tt></dd></dl>
+ <dl><dt><a name="-run"><strong>run</strong></a>(acid, startstop)</dt><dd><tt>Start/stop&nbsp;run&nbsp;mode<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor<br>
+&nbsp;&nbsp;&nbsp;&nbsp;startstop:&nbsp;&nbsp;can&nbsp;be&nbsp;'start'&nbsp;or&nbsp;'stop'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;False<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;True</tt></dd></dl>
+ <dl><dt><a name="-set_home"><strong>set_home</strong></a>(acid)</dt><dd><tt>Set&nbsp;current&nbsp;position&nbsp;as&nbsp;avatar&nbsp;home&nbsp;location's<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;False<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;True</tt></dd></dl>
+ <dl><dt><a name="-stop_follow"><strong>stop_follow</strong></a>(acid)</dt><dd><tt>Stop&nbsp;following&nbsp;another&nbsp;avatar<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;False<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;True</tt></dd></dl>
+ <dl><dt><a name="-stop_walk_to"><strong>stop_walk_to</strong></a>(acid)</dt><dd><tt>Stop&nbsp;walking&nbsp;to&nbsp;a&nbsp;place<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;False<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;True</tt></dd></dl>
+ <dl><dt><a name="-tele_to"><strong>tele_to</strong></a>(acid, x, y, z=None)</dt><dd><tt>Teleport&nbsp;the&nbsp;avatar&nbsp;toward&nbsp;the&nbsp;specified&nbsp;position&nbsp;x,y&nbsp;(z&nbsp;is&nbsp;optional)<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor<br>
+&nbsp;&nbsp;&nbsp;&nbsp;x,y,z:&nbsp;&nbsp;floats&nbsp;with&nbsp;X,Y,Z&nbsp;coordinates&nbsp;to&nbsp;teleport&nbsp;to<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Returns:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;False<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;True</tt></dd></dl>
+ <dl><dt><a name="-tele_to_landmark"><strong>tele_to_landmark</strong></a>(acid, landmarkid)</dt><dd><tt>Teleport&nbsp;the&nbsp;avatar&nbsp;a&nbsp;previously&nbsp;specified&nbsp;landmark<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor<br>
+&nbsp;&nbsp;&nbsp;&nbsp;landmarkid:&nbsp;str&nbsp;with&nbsp;global&nbsp;identifier&nbsp;of&nbsp;landmark<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Returns:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;False<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;True</tt></dd></dl>
+ <dl><dt><a name="-tele_to_rgn"><strong>tele_to_rgn</strong></a>(acid, rgn, x, y, z=None)</dt><dd><tt>Teleport&nbsp;the&nbsp;avatar&nbsp;to&nbsp;x,y&nbsp;(z&nbsp;optional)&nbsp;position&nbsp;in&nbsp;region&nbsp;rgn<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor<br>
+&nbsp;&nbsp;&nbsp;&nbsp;rgn:&nbsp;&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;name&nbsp;of&nbsp;region&nbsp;to&nbsp;teleport&nbsp;to<br>
+&nbsp;&nbsp;&nbsp;&nbsp;x,y,z:&nbsp;&nbsp;floats&nbsp;with&nbsp;X,Y,Z&nbsp;coordinates&nbsp;to&nbsp;teleport&nbsp;to<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Returns:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;False<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;True</tt></dd></dl>
+ <dl><dt><a name="-upward"><strong>upward</strong></a>(acid)</dt><dd><tt>Move&nbsp;avatar&nbsp;to&nbsp;up<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;False<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;True</tt></dd></dl>
+ <dl><dt><a name="-walk_to"><strong>walk_to</strong></a>(acid, x, y, z=None)</dt><dd><tt>Use&nbsp;the&nbsp;autopilot&nbsp;sim&nbsp;function&nbsp;to&nbsp;move&nbsp;the&nbsp;avatar&nbsp;to&nbsp;a&nbsp;new&nbsp;position<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor<br>
+&nbsp;&nbsp;&nbsp;&nbsp;x,y:&nbsp;&nbsp;&nbsp;&nbsp;floats&nbsp;with&nbsp;X,Y&nbsp;coordinates&nbsp;to&nbsp;walk&nbsp;to<br>
+&nbsp;&nbsp;&nbsp;&nbsp;z:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;optional&nbsp;float&nbsp;arg&nbsp;with&nbsp;Z&nbsp;coordinate&nbsp;to&nbsp;walk&nbsp;to<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Returns:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;False<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;True</tt></dd></dl>
+</td></tr></table>
+</body></html>

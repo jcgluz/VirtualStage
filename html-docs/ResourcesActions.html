@@ -1,0 +1,410 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module ResourcesActions</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>ResourcesActions</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href="index.html">index</a><br><a href="../resourcesactions.py">d:\virtualstage\resourcesactions.py</a></font></td></tr></table>
+    <p><tt>Module&nbsp;ResourcesActions&nbsp;-&nbsp;Actions&nbsp;to&nbsp;view&nbsp;and/or&nbsp;modify&nbsp;the&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;resources&nbsp;(including&nbsp;folders,&nbsp;items&nbsp;and&nbsp;assets)&nbsp;stored&nbsp;in&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;avatar's&nbsp;inventory<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Functions:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-look_my_inventory">look_my_inventory</a>(acid)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-look_my_folder">look_my_folder</a>(acid,&nbsp;path)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-look_my_item">look_my_item</a>(acid,&nbsp;path)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-upload_texture">upload_texture</a>(acid,&nbsp;textrfile,&nbsp;textrname,&nbsp;textrdescr)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-upload_animation">upload_animation</a>(acid,&nbsp;animfile,&nbsp;animname,&nbsp;animdescr)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-upload_notecard">upload_notecard</a>(acid,&nbsp;notefile,&nbsp;notename,&nbsp;notedescr)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-upload_script">upload_script</a>(acid,&nbsp;scriptfile,&nbsp;scriptname,&nbsp;scriptdescr)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-upload_item_asset">upload_item_asset</a>(acid,&nbsp;itemtype,&nbsp;itemfile,&nbsp;itemname,&nbsp;itemdescr,&nbsp;itempath)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-delete_folder">delete_folder</a>(acid,&nbsp;folderpath)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-delete_item">delete_item</a>(acid,&nbsp;itempath)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-move_item">move_item</a>(acid,&nbsp;srcitempath,&nbsp;destfoldpath)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-give_item">give_item</a>(acid,&nbsp;avname,&nbsp;itempath)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-download_asset">download_asset</a>(acid,&nbsp;assetid,&nbsp;assetyp,&nbsp;assetfile)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-download_item_asset">download_item_asset</a>(acid,&nbsp;itempath,&nbsp;assetfile)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-upload_asset">upload_asset</a>(acid,&nbsp;assetyp,&nbsp;assetfile)</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="ActorController.html">ActorController</a><br>
+</td><td width="25%" valign=top></td><td width="25%" valign=top></td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-delete_folder"><strong>delete_folder</strong></a>(acid, folderpath)</dt><dd><tt>Delete&nbsp;a&nbsp;folder&nbsp;from&nbsp;avatar's&nbsp;inventory.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;folderpath:&nbsp;str&nbsp;with&nbsp;the&nbsp;path&nbsp;of&nbsp;folder&nbsp;to&nbsp;be&nbsp;deleted.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;False.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;returns&nbsp;True.</tt></dd></dl>
+ <dl><dt><a name="-delete_item"><strong>delete_item</strong></a>(acid, itempath)</dt><dd><tt>Delete&nbsp;an&nbsp;item&nbsp;from&nbsp;avatar's&nbsp;inventory.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;itemrpath:&nbsp;&nbsp;str&nbsp;with&nbsp;the&nbsp;path&nbsp;of&nbsp;item&nbsp;to&nbsp;be&nbsp;deleted.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;False.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;returns&nbsp;True.</tt></dd></dl>
+ <dl><dt><a name="-download_asset"><strong>download_asset</strong></a>(acid, assetid, assetyp, assetfile)</dt><dd><tt>Download&nbsp;an&nbsp;asset&nbsp;from&nbsp;simulator's&nbsp;assets&nbsp;database.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;assetid:&nbsp;&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;asset;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;assetyp:&nbsp;&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;asset&nbsp;type,&nbsp;can&nbsp;be:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'unknown'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;Unknown&nbsp;asset&nbsp;type,&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'texture'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;Texture&nbsp;asset,&nbsp;stores&nbsp;in&nbsp;JPEG2000&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;J2C&nbsp;stream&nbsp;format,&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'sound'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;Sound&nbsp;asset,&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'callingcard'&nbsp;&nbsp;&nbsp;-&nbsp;Calling&nbsp;card&nbsp;for&nbsp;another&nbsp;avatar,&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'landmark'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;Link&nbsp;to&nbsp;a&nbsp;location&nbsp;in&nbsp;world,&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'clothing'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;Collection&nbsp;of&nbsp;textures&nbsp;and&nbsp;parameters&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;that&nbsp;can&nbsp;be&nbsp;worn&nbsp;by&nbsp;an&nbsp;avatar,&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'object'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;Primitive&nbsp;that&nbsp;can&nbsp;contain&nbsp;textures,&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sounds,&nbsp;scripts&nbsp;and&nbsp;more,&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'notecard'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;Notecard&nbsp;asset,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'lsltext'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;Linden&nbsp;scripting&nbsp;language&nbsp;script,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'texturetga'&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;Uncompressed&nbsp;TGA&nbsp;texture,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'bodypart'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;Collection&nbsp;of&nbsp;textures&nbsp;and&nbsp;shape&nbsp;parameters&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;that&nbsp;can&nbsp;be&nbsp;worn,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'soundwav'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;Uncompressed&nbsp;sound,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'imagetga'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;Uncompressed&nbsp;TGA&nbsp;non-square&nbsp;image,&nbsp;not&nbsp;to&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;be&nbsp;used&nbsp;as&nbsp;a&nbsp;texture,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'imagejpeg&nbsp;'&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;Compressed&nbsp;JPEG&nbsp;non-square&nbsp;image,&nbsp;not&nbsp;to&nbsp;be&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;used&nbsp;as&nbsp;a&nbsp;texture,&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'animation'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;Animation,&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'gesture'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;Sequence&nbsp;of&nbsp;animations,&nbsp;sounds,&nbsp;chat,&nbsp;and&nbsp;pauses,&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'link'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;Asset&nbsp;is&nbsp;a&nbsp;link&nbsp;to&nbsp;another&nbsp;inventory&nbsp;item,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'linkfolder'&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;Asset&nbsp;is&nbsp;a&nbsp;link&nbsp;to&nbsp;another&nbsp;inventory&nbsp;folder,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'mesh'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;Linden&nbsp;mesh&nbsp;format<br>
+&nbsp;&nbsp;&nbsp;&nbsp;assetfile:&nbsp;&nbsp;name&nbsp;and&nbsp;path&nbsp;of&nbsp;local&nbsp;file&nbsp;that&nbsp;will&nbsp;store&nbsp;the&nbsp;downloaded&nbsp;asset.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;None.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;returns&nbsp;an&nbsp;'asset'&nbsp;perception&nbsp;record&nbsp;containing&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;information&nbsp;about&nbsp;the&nbsp;downloaded&nbsp;asset.&nbsp;Asset&nbsp;perception&nbsp;records&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;are&nbsp;lists&nbsp;of&nbsp;strings,&nbsp;'asset'&nbsp;records&nbsp;have&nbsp;the&nbsp;following&nbsp;format:&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['asset',&nbsp;id,&nbsp;assetyp]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;where:&nbsp;&nbsp;id&nbsp;is&nbsp;the&nbsp;unique&nbsp;global&nbsp;id&nbsp;of&nbsp;asset;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;assetyp&nbsp;is&nbsp;the&nbsp;type&nbsp;of&nbsp;downloaded&nbsp;asset.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;this&nbsp;action&nbsp;also&nbsp;adds&nbsp;the&nbsp;'asset'&nbsp;record&nbsp;to&nbsp;the&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;perception&nbsp;base.</tt></dd></dl>
+ <dl><dt><a name="-download_item_asset"><strong>download_item_asset</strong></a>(acid, itempath, assetfile)</dt><dd><tt>Download&nbsp;the&nbsp;asset&nbsp;associated&nbsp;to&nbsp;some&nbsp;item&nbsp;from&nbsp;avatar's&nbsp;inventory.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;itempath:&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;path&nbsp;of&nbsp;item;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;assetfile:&nbsp;&nbsp;name&nbsp;and&nbsp;path&nbsp;of&nbsp;local&nbsp;file&nbsp;that&nbsp;will&nbsp;store&nbsp;the&nbsp;downloaded&nbsp;asset.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;None.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;returns&nbsp;an&nbsp;'asset'&nbsp;perception&nbsp;record&nbsp;containing&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;information&nbsp;about&nbsp;the&nbsp;downloaded&nbsp;asset.&nbsp;Asset&nbsp;perception&nbsp;records&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;are&nbsp;lists&nbsp;of&nbsp;strings,&nbsp;'asset'&nbsp;records&nbsp;have&nbsp;the&nbsp;following&nbsp;format:&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['asset',&nbsp;id,&nbsp;assetyp]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;where:&nbsp;&nbsp;id&nbsp;is&nbsp;the&nbsp;unique&nbsp;global&nbsp;id&nbsp;of&nbsp;asset;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;assetyp&nbsp;is&nbsp;the&nbsp;type&nbsp;of&nbsp;downloaded&nbsp;asset&nbsp;(see&nbsp;<a href="#-download_asset">download_asset</a>()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;help&nbsp;for&nbsp;more&nbsp;information).<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;this&nbsp;action&nbsp;also&nbsp;adds&nbsp;the&nbsp;'asset'&nbsp;record&nbsp;to&nbsp;the&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;perception&nbsp;base.</tt></dd></dl>
+ <dl><dt><a name="-give_item"><strong>give_item</strong></a>(acid, avname, itempath)</dt><dd><tt>Give&nbsp;an&nbsp;item&nbsp;from&nbsp;avatar's&nbsp;inventory&nbsp;to&nbsp;other&nbsp;avatar.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;avname:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;name&nbsp;of&nbsp;avatar&nbsp;that&nbsp;will&nbsp;receive&nbsp;the&nbsp;item;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;itempath:&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;path&nbsp;of&nbsp;item&nbsp;to&nbsp;be&nbsp;given.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;False.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;returns&nbsp;True.</tt></dd></dl>
+ <dl><dt><a name="-look_my_folder"><strong>look_my_folder</strong></a>(acid, foldpath)</dt><dd><tt>Retrieve&nbsp;information&nbsp;about&nbsp;some&nbsp;folder&nbsp;in&nbsp;avatar's&nbsp;inventory.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;See&nbsp;<a href="#-look_my_inventory">look_my_inventory</a>()&nbsp;help&nbsp;for&nbsp;more&nbsp;information.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;foldpath:&nbsp;&nbsp;&nbsp;path&nbsp;of&nbsp;folder&nbsp;in&nbsp;avatar's&nbsp;inventory.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;None.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;returns&nbsp;an&nbsp;list&nbsp;of&nbsp;inventory&nbsp;perception&nbsp;records&nbsp;about&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;items/folders&nbsp;stored&nbsp;in&nbsp;folder&nbsp;defined&nbsp;by&nbsp;foldpath&nbsp;arg.&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Inventory&nbsp;perception&nbsp;records&nbsp;are&nbsp;lists&nbsp;of&nbsp;strings.&nbsp;Two&nbsp;kinds&nbsp;of&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;inventory&nbsp;records&nbsp;are&nbsp;retrieved&nbsp;by&nbsp;this&nbsp;action,&nbsp;'myfolder'&nbsp;records&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;containing&nbsp;information&nbsp;about&nbsp;inventory's&nbsp;folders:&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['myfolder',&nbsp;id,&nbsp;name,&nbsp;path]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;or&nbsp;'myitem'&nbsp;records&nbsp;containing&nbsp;information&nbsp;about&nbsp;inventory's&nbsp;items:&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['myitem',&nbsp;id,&nbsp;name,&nbsp;path,&nbsp;descr,&nbsp;invtyp,&nbsp;assetyp,&nbsp;assetid]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;where:&nbsp;&nbsp;id&nbsp;is&nbsp;the&nbsp;unique&nbsp;global&nbsp;id&nbsp;of&nbsp;folder/item;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;name&nbsp;is&nbsp;the&nbsp;name&nbsp;of&nbsp;folder/item;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;path&nbsp;is&nbsp;the&nbsp;path&nbsp;of&nbsp;the&nbsp;folder/item&nbsp;on&nbsp;inventory;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;descr&nbsp;is&nbsp;the&nbsp;description&nbsp;of&nbsp;item;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;invtyp&nbsp;is&nbsp;the&nbsp;inventory&nbsp;type&nbsp;of&nbsp;item;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;assetyp&nbsp;is&nbsp;the&nbsp;type&nbsp;of&nbsp;asset&nbsp;associated&nbsp;to&nbsp;item;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;assetid&nbsp;is&nbsp;the&nbsp;unique&nbsp;global&nbsp;id&nbsp;of&nbsp;asset&nbsp;associated&nbsp;to&nbsp;item.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;this&nbsp;action&nbsp;also&nbsp;adds&nbsp;the&nbsp;'myfolder'&nbsp;and/or&nbsp;'myitem'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;retrieved&nbsp;records&nbsp;to&nbsp;the&nbsp;perception&nbsp;base.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;All&nbsp;perception&nbsp;records&nbsp;fields&nbsp;are&nbsp;strings.</tt></dd></dl>
+ <dl><dt><a name="-look_my_inventory"><strong>look_my_inventory</strong></a>(acid)</dt><dd><tt>Retrieve&nbsp;information&nbsp;about&nbsp;all&nbsp;itens&nbsp;and&nbsp;folders&nbsp;stored&nbsp;in<br>
+&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;inventory&nbsp;of&nbsp;the&nbsp;avatar&nbsp;controller&nbsp;by&nbsp;the&nbsp;actor.<br>
+&nbsp;<br>
+The&nbsp;inventory&nbsp;collects&nbsp;resources&nbsp;(items&nbsp;or&nbsp;assets)&nbsp;that&nbsp;the&nbsp;avatar&nbsp;<br>
+can&nbsp;access&nbsp;and&nbsp;use,&nbsp;not&nbsp;including&nbsp;objects&nbsp;rezzed&nbsp;the&nbsp;3D&nbsp;world,&nbsp;<br>
+but&nbsp;including&nbsp;things&nbsp;attached&nbsp;to&nbsp;the&nbsp;avatar.&nbsp;The&nbsp;inventory&nbsp;is&nbsp;<br>
+organized&nbsp;into&nbsp;folders&nbsp;and&nbsp;items,&nbsp;similar&nbsp;to&nbsp;folders&nbsp;and&nbsp;files&nbsp;<br>
+on&nbsp;computers.<br>
+&nbsp;<br>
+A&nbsp;particular&nbsp;inventory&nbsp;item&nbsp;refers&nbsp;to&nbsp;some&nbsp;resource&nbsp;(or&nbsp;asset)&nbsp;<br>
+that&nbsp;the&nbsp;avatar&nbsp;can&nbsp;access&nbsp;and&nbsp;use&nbsp;through&nbsp;a&nbsp;global&nbsp;unique&nbsp;IDs,&nbsp;<br>
+however&nbsp;these&nbsp;resources/assets&nbsp;are&nbsp;not&nbsp;stored&nbsp;in&nbsp;the&nbsp;inventory,&nbsp;<br>
+but&nbsp;in&nbsp;the&nbsp;system&nbsp;asset&nbsp;database&nbsp;maintained&nbsp;by&nbsp;the&nbsp;VR&nbsp;simulator.&nbsp;<br>
+&nbsp;<br>
+The&nbsp;root&nbsp;or&nbsp;starting&nbsp;folder&nbsp;of&nbsp;inventory&nbsp;is&nbsp;named&nbsp;"/".<br>
+The&nbsp;inventory&nbsp;also&nbsp;has&nbsp;a&nbsp;series&nbsp;of&nbsp;system&nbsp;folders,&nbsp;which<br>
+cannot&nbsp;be&nbsp;renamed&nbsp;or&nbsp;deleted,&nbsp;and&nbsp;are&nbsp;the&nbsp;default&nbsp;location&nbsp;<br>
+for&nbsp;storing&nbsp;items:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Animations:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Default&nbsp;folder&nbsp;to&nbsp;store&nbsp;animations<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Body&nbsp;Parts:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Default&nbsp;folder&nbsp;to&nbsp;store&nbsp;bodyparts&nbsp;(skin,&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;hair,&nbsp;eyes...)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Calling&nbsp;Cards:&nbsp;&nbsp;Default&nbsp;folder&nbsp;to&nbsp;store&nbsp;calling&nbsp;cards<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Clothing:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Default&nbsp;folder&nbsp;to&nbsp;store&nbsp;clothing&nbsp;(pants,&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;skirts,&nbsp;shirts,&nbsp;...)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Gestures:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Default&nbsp;folder&nbsp;to&nbsp;store&nbsp;gestures&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Landmarks:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Default&nbsp;folder&nbsp;to&nbsp;store&nbsp;landmarks<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Lost&nbsp;and&nbsp;Found:&nbsp;Folder&nbsp;to&nbsp;store&nbsp;returned&nbsp;items<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Notecards:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Default&nbsp;folder&nbsp;to&nbsp;store&nbsp;notecards<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Objects:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Default&nbsp;folder&nbsp;to&nbsp;store&nbsp;objects<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Snapshots:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Default&nbsp;folder&nbsp;to&nbsp;store&nbsp;snapshots<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Scripts:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Default&nbsp;folder&nbsp;to&nbsp;store&nbsp;scripts<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Sounds:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Default&nbsp;folder&nbsp;to&nbsp;store&nbsp;sounds<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Textures:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Default&nbsp;folder&nbsp;to&nbsp;store&nbsp;textures<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Trash:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Folder&nbsp;that&nbsp;stores&nbsp;deleted&nbsp;items&nbsp;until&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;it&nbsp;is&nbsp;emptied.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+In&nbsp;addition&nbsp;to&nbsp;system&nbsp;folders,&nbsp;other&nbsp;folders,&nbsp;called&nbsp;user&nbsp;<br>
+folders,&nbsp;can&nbsp;also&nbsp;be&nbsp;created&nbsp;in&nbsp;the&nbsp;inventory.&nbsp;Items&nbsp;do&nbsp;not&nbsp;<br>
+always&nbsp;have&nbsp;to&nbsp;stay&nbsp;in&nbsp;the&nbsp;system&nbsp;folders,&nbsp;but&nbsp;can&nbsp;be&nbsp;freely&nbsp;<br>
+moved&nbsp;to&nbsp;other&nbsp;folders.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;None.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;returns&nbsp;an&nbsp;list&nbsp;of&nbsp;inventory&nbsp;perception&nbsp;records&nbsp;containing&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;information&nbsp;about&nbsp;items/folders&nbsp;stored&nbsp;in&nbsp;avatar's&nbsp;inventory.&nbsp;Inventory<br>
+&nbsp;&nbsp;&nbsp;&nbsp;perception&nbsp;records&nbsp;are&nbsp;lists&nbsp;of&nbsp;strings.&nbsp;Two&nbsp;kinds&nbsp;of&nbsp;inventory<br>
+&nbsp;&nbsp;&nbsp;&nbsp;records&nbsp;are&nbsp;retrieved&nbsp;by&nbsp;this&nbsp;action,&nbsp;'myfolder'&nbsp;records&nbsp;containing&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;information&nbsp;about&nbsp;inventory's&nbsp;folders:&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['myfolder',&nbsp;id,&nbsp;name,&nbsp;path]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;or&nbsp;'myitem'&nbsp;records&nbsp;containing&nbsp;information&nbsp;about&nbsp;inventory's&nbsp;items:&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['myitem',&nbsp;id,&nbsp;name,&nbsp;path,&nbsp;descr,&nbsp;invtyp,&nbsp;assetyp,&nbsp;assetid]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;where:&nbsp;&nbsp;id&nbsp;is&nbsp;the&nbsp;unique&nbsp;global&nbsp;id&nbsp;of&nbsp;folder/item;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;name&nbsp;is&nbsp;the&nbsp;name&nbsp;of&nbsp;folder/item;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;path&nbsp;is&nbsp;the&nbsp;path&nbsp;of&nbsp;the&nbsp;folder/item&nbsp;on&nbsp;inventory;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;descr&nbsp;is&nbsp;the&nbsp;description&nbsp;of&nbsp;item;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;invtyp&nbsp;is&nbsp;the&nbsp;inventory&nbsp;type&nbsp;of&nbsp;item;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;assetyp&nbsp;is&nbsp;the&nbsp;type&nbsp;of&nbsp;asset&nbsp;associated&nbsp;to&nbsp;item;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;assetid&nbsp;is&nbsp;the&nbsp;unique&nbsp;global&nbsp;id&nbsp;of&nbsp;asset&nbsp;associated&nbsp;to&nbsp;item.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;this&nbsp;action&nbsp;also&nbsp;adds&nbsp;the&nbsp;'myfolder'&nbsp;and/or&nbsp;'myitem'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;retrieved&nbsp;records&nbsp;to&nbsp;the&nbsp;perception&nbsp;base.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;All&nbsp;perception&nbsp;records&nbsp;fields&nbsp;are&nbsp;strings.</tt></dd></dl>
+ <dl><dt><a name="-look_my_item"><strong>look_my_item</strong></a>(acid, itempath)</dt><dd><tt>Retrieve&nbsp;information&nbsp;about&nbsp;some&nbsp;resource&nbsp;(asset&nbsp;or&nbsp;item)&nbsp;stored&nbsp;in<br>
+&nbsp;&nbsp;&nbsp;&nbsp;avatar's&nbsp;inventory.&nbsp;See&nbsp;<a href="#-look_my_inventory">look_my_inventory</a>()&nbsp;help&nbsp;for&nbsp;more&nbsp;information.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;itempath:&nbsp;&nbsp;&nbsp;path&nbsp;of&nbsp;item&nbsp;in&nbsp;avatar's&nbsp;inventory.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;None.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;returns&nbsp;an&nbsp;'myitem'&nbsp;perception&nbsp;record&nbsp;containing&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;information&nbsp;about&nbsp;the&nbsp;item&nbsp;defined&nbsp;by&nbsp;itempath&nbsp;arg.&nbsp;Inventory&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;perception&nbsp;records&nbsp;are&nbsp;lists&nbsp;of&nbsp;strings,&nbsp;'myitem'&nbsp;records&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;have&nbsp;the&nbsp;following&nbsp;format:&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['myitem',&nbsp;id,&nbsp;name,&nbsp;path,&nbsp;descr,&nbsp;invtyp,&nbsp;assetyp,&nbsp;assetid]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;where:&nbsp;&nbsp;id&nbsp;is&nbsp;the&nbsp;unique&nbsp;global&nbsp;id&nbsp;of&nbsp;item;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;name&nbsp;is&nbsp;the&nbsp;name&nbsp;of&nbsp;item;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;path&nbsp;is&nbsp;the&nbsp;path&nbsp;of&nbsp;the&nbsp;item&nbsp;on&nbsp;inventory;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;descr&nbsp;is&nbsp;the&nbsp;description&nbsp;of&nbsp;item;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;invtyp&nbsp;is&nbsp;the&nbsp;inventory&nbsp;type&nbsp;of&nbsp;item;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;assetyp&nbsp;is&nbsp;the&nbsp;type&nbsp;of&nbsp;asset&nbsp;associated&nbsp;to&nbsp;item;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;assetid&nbsp;is&nbsp;the&nbsp;unique&nbsp;global&nbsp;id&nbsp;of&nbsp;asset&nbsp;associated&nbsp;to&nbsp;item.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;this&nbsp;action&nbsp;also&nbsp;adds&nbsp;to&nbsp;perception&nbsp;base&nbsp;a&nbsp;list&nbsp;of&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;perception&nbsp;records&nbsp;with&nbsp;more&nbsp;info&nbsp;about&nbsp;the&nbsp;item:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['creat_id',&nbsp;id,&nbsp;creatid]:&nbsp;id&nbsp;of&nbsp;item's&nbsp;creator<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['creat_date',&nbsp;id,&nbsp;creatdate]:&nbsp;creation&nbsp;date&nbsp;of&nbsp;item<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['owner_id',&nbsp;id,&nbsp;ownerid]:&nbsp;id&nbsp;of&nbsp;item's&nbsp;owner<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['owner_perms',&nbsp;id,&nbsp;perms]:&nbsp;permissions&nbsp;for&nbsp;item's&nbsp;owner<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['group_perms',&nbsp;id,&nbsp;perms]:&nbsp;permissions&nbsp;for&nbsp;group<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['all_perms',&nbsp;id,&nbsp;perms]:&nbsp;permissions&nbsp;for&nbsp;every&nbsp;one<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['base_perms',&nbsp;id,&nbsp;perms]:&nbsp;base&nbsp;permissions<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['nextown_perms',&nbsp;id,&nbsp;perms]:&nbsp;permissions&nbsp;for&nbsp;next&nbsp;owner<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['asset_id',&nbsp;id,&nbsp;assetid]:&nbsp;id&nbsp;of&nbsp;item's&nbsp;asset<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['sale_price',&nbsp;id,&nbsp;price]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['sale_type',&nbsp;id,&nbsp;saletyp]:&nbsp;saletyp&nbsp;can&nbsp;be&nbsp;'not'&nbsp;(for&nbsp;sale),&nbsp;'original',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'copy'&nbsp;or&nbsp;'contents'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['flags',&nbsp;id,&nbsp;list_of_flags]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['transact_id',&nbsp;id,&nbsp;transactid&nbsp;]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['lastown_id',&nbsp;id,&nbsp;last_owner_id]<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;All&nbsp;perception&nbsp;records&nbsp;fields&nbsp;are&nbsp;strings.</tt></dd></dl>
+ <dl><dt><a name="-move_item"><strong>move_item</strong></a>(acid, srcitempath, destfoldpath)</dt><dd><tt>Move&nbsp;an&nbsp;item&nbsp;to&nbsp;other&nbsp;folder&nbsp;of&nbsp;avatar's&nbsp;inventory.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;srcitempath:&nbsp;&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;the&nbsp;path&nbsp;of&nbsp;item&nbsp;to&nbsp;be&nbsp;moved;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;destfoldpath:&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;path&nbsp;of&nbsp;folder&nbsp;to&nbsp;receive&nbsp;the&nbsp;item.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;False.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;returns&nbsp;True.</tt></dd></dl>
+ <dl><dt><a name="-upload_animation"><strong>upload_animation</strong></a>(acid, animfile, animname, animdescr)</dt><dd><tt>Upload&nbsp;an&nbsp;animation&nbsp;to&nbsp;avatar's&nbsp;inventory.&nbsp;Creates&nbsp;a&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;new&nbsp;item&nbsp;in&nbsp;the&nbsp;default&nbsp;system&nbsp;folder&nbsp;for&nbsp;animations,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;and&nbsp;uploads&nbsp;a&nbsp;new&nbsp;asset&nbsp;containing&nbsp;the&nbsp;animation.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;See&nbsp;get_inventory_info()&nbsp;help&nbsp;for&nbsp;more&nbsp;information.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;animfile:&nbsp;&nbsp;&nbsp;the&nbsp;path&nbsp;to&nbsp;the&nbsp;file&nbsp;with&nbsp;the&nbsp;animation;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;animname:&nbsp;&nbsp;&nbsp;the&nbsp;name&nbsp;of&nbsp;the&nbsp;new&nbsp;animation&nbsp;item&nbsp;in&nbsp;inventory;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;animdescr:&nbsp;&nbsp;the&nbsp;description&nbsp;of&nbsp;this&nbsp;item.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;None.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;returns&nbsp;a&nbsp;string&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;new&nbsp;inventory&nbsp;item&nbsp;containing&nbsp;the&nbsp;animation.</tt></dd></dl>
+ <dl><dt><a name="-upload_asset"><strong>upload_asset</strong></a>(acid, assetyp, assetfile)</dt><dd><tt>Uploads&nbsp;a&nbsp;new&nbsp;asset&nbsp;to&nbsp;the&nbsp;simulator's&nbsp;assets&nbsp;database.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;See&nbsp;<a href="#-download_asset">download_asset</a>()&nbsp;help&nbsp;for&nbsp;more&nbsp;information.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;assetyp:&nbsp;&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;asset&nbsp;type,&nbsp;see&nbsp;<a href="#-download_asset">download_asset</a>()&nbsp;help&nbsp;for&nbsp;more&nbsp;information<br>
+&nbsp;&nbsp;&nbsp;&nbsp;assetfile:&nbsp;&nbsp;name&nbsp;and&nbsp;path&nbsp;of&nbsp;local&nbsp;file&nbsp;with&nbsp;the&nbsp;data&nbsp;of&nbsp;uploaded&nbsp;asset.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;None.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;returns&nbsp;a&nbsp;string&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;new&nbsp;asset.</tt></dd></dl>
+ <dl><dt><a name="-upload_item_asset"><strong>upload_item_asset</strong></a>(acid, itemtype, itemfile, itemname, itemdescr, itempath)</dt><dd><tt>Creates&nbsp;a&nbsp;new&nbsp;item&nbsp;into&nbsp;avatar's&nbsp;inventory,&nbsp;and&nbsp;uploads<br>
+&nbsp;&nbsp;&nbsp;&nbsp;a&nbsp;new&nbsp;asset&nbsp;file&nbsp;associated&nbsp;to&nbsp;this&nbsp;item.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;See&nbsp;get_inventory_info()&nbsp;help&nbsp;for&nbsp;more&nbsp;information.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;itemtype:&nbsp;&nbsp;&nbsp;str,&nbsp;can&nbsp;be:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;clothing,&nbsp;bodypart,&nbsp;animation,&nbsp;sound,&nbsp;texture<br>
+&nbsp;&nbsp;&nbsp;&nbsp;itemfile:&nbsp;&nbsp;&nbsp;the&nbsp;path&nbsp;to&nbsp;the&nbsp;file&nbsp;with&nbsp;the&nbsp;item&nbsp;asset;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;itemname:&nbsp;&nbsp;&nbsp;the&nbsp;name&nbsp;of&nbsp;the&nbsp;new&nbsp;item&nbsp;in&nbsp;inventory;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;itemdescr:&nbsp;&nbsp;the&nbsp;description&nbsp;of&nbsp;this&nbsp;item;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;itempath:&nbsp;&nbsp;&nbsp;path&nbsp;of&nbsp;folder&nbsp;where&nbsp;the&nbsp;new&nbsp;item&nbsp;will&nbsp;be&nbsp;stored,&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;it&nbsp;is&nbsp;None,&nbsp;will&nbsp;try&nbsp;to&nbsp;use&nbsp;some&nbsp;system&nbsp;folder.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;None.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;returns&nbsp;a&nbsp;string&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;new&nbsp;inventory&nbsp;item.</tt></dd></dl>
+ <dl><dt><a name="-upload_notecard"><strong>upload_notecard</strong></a>(acid, notefile, notename, notedescr)</dt><dd><tt>Upload&nbsp;an&nbsp;notecard&nbsp;to&nbsp;avatar's&nbsp;inventory.&nbsp;Creates&nbsp;a&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;new&nbsp;item&nbsp;in&nbsp;the&nbsp;default&nbsp;system&nbsp;folder&nbsp;for&nbsp;notecards,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;and&nbsp;uploads&nbsp;a&nbsp;new&nbsp;asset&nbsp;containing&nbsp;the&nbsp;notecard.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;See&nbsp;get_inventory_info()&nbsp;help&nbsp;for&nbsp;more&nbsp;information.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;notefile:&nbsp;&nbsp;&nbsp;the&nbsp;path&nbsp;to&nbsp;the&nbsp;text&nbsp;file&nbsp;with&nbsp;the&nbsp;notecard;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;notename:&nbsp;&nbsp;&nbsp;the&nbsp;name&nbsp;of&nbsp;the&nbsp;new&nbsp;notecard&nbsp;item&nbsp;in&nbsp;inventory;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;notedescr:&nbsp;&nbsp;the&nbsp;description&nbsp;of&nbsp;this&nbsp;item.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;None.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;returns&nbsp;a&nbsp;string&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;new&nbsp;inventory&nbsp;item&nbsp;containing&nbsp;the&nbsp;notecard.</tt></dd></dl>
+ <dl><dt><a name="-upload_script"><strong>upload_script</strong></a>(acid, scriptfile, scriptname, scriptdescr)</dt><dd><tt>Upload&nbsp;a&nbsp;LSL&nbsp;script&nbsp;to&nbsp;avatar's&nbsp;inventory.&nbsp;Creates&nbsp;a&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;new&nbsp;item&nbsp;in&nbsp;the&nbsp;default&nbsp;system&nbsp;folder&nbsp;for&nbsp;scripts,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;and&nbsp;uploads&nbsp;a&nbsp;new&nbsp;asset&nbsp;containing&nbsp;the&nbsp;LSL&nbsp;script.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;See&nbsp;get_inventory_info()&nbsp;help&nbsp;for&nbsp;more&nbsp;information.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;animfile:&nbsp;&nbsp;&nbsp;the&nbsp;path&nbsp;to&nbsp;the&nbsp;text&nbsp;file&nbsp;with&nbsp;the&nbsp;LSL&nbsp;script;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;animname:&nbsp;&nbsp;&nbsp;the&nbsp;name&nbsp;of&nbsp;the&nbsp;new&nbsp;script&nbsp;item&nbsp;in&nbsp;inventory;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;animdescr:&nbsp;&nbsp;the&nbsp;description&nbsp;of&nbsp;this&nbsp;item.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;None.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;returns&nbsp;a&nbsp;string&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;new&nbsp;inventory&nbsp;item&nbsp;containing&nbsp;the&nbsp;LSL&nbsp;script.</tt></dd></dl>
+ <dl><dt><a name="-upload_texture"><strong>upload_texture</strong></a>(acid, textrfile, textrname, textrdescr)</dt><dd><tt>Upload&nbsp;a&nbsp;texture&nbsp;image&nbsp;to&nbsp;avatar's&nbsp;inventory.&nbsp;Creates&nbsp;a&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;new&nbsp;item&nbsp;in&nbsp;the&nbsp;default&nbsp;system&nbsp;folder&nbsp;for&nbsp;textures,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;and&nbsp;uploads&nbsp;a&nbsp;new&nbsp;asset&nbsp;containing&nbsp;the&nbsp;texture.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;See&nbsp;get_inventory_info()&nbsp;help&nbsp;for&nbsp;more&nbsp;information.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;textrfile:&nbsp;&nbsp;the&nbsp;path&nbsp;to&nbsp;the&nbsp;file&nbsp;with&nbsp;the&nbsp;texture&nbsp;image;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;textrname:&nbsp;&nbsp;the&nbsp;name&nbsp;of&nbsp;the&nbsp;new&nbsp;texture&nbsp;item&nbsp;in&nbsp;inventory;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;textrdescr:&nbsp;the&nbsp;description&nbsp;of&nbsp;this&nbsp;item.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;None.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;returns&nbsp;a&nbsp;string&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;new&nbsp;inventory&nbsp;item&nbsp;containing&nbsp;the&nbsp;texture.</tt></dd></dl>
+</td></tr></table>
+</body></html>

@@ -1,0 +1,1235 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module DialogController</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>DialogController</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href="index.html">index</a><br><a href="../dialogcontroller.py">d:\virtualstage\dialogcontroller.py</a></font></td></tr></table>
+    <p><tt>DialogController&nbsp;Module&nbsp;-&nbsp;Controller&nbsp;of&nbsp;VirtualStage&nbsp;Near&nbsp;<br>
+Natural&nbsp;Language&nbsp;(NNL)&nbsp;dialog&nbsp;system.<br>
+&nbsp;<br>
+The&nbsp;NNL&nbsp;dialog&nbsp;system&nbsp;provides&nbsp;several&nbsp;dialog&nbsp;processors&nbsp;to&nbsp;<br>
+handle&nbsp;the&nbsp;interactions&nbsp;or&nbsp;conversations&nbsp;between&nbsp;the&nbsp;actor&nbsp;<br>
+and&nbsp;the&nbsp;users&nbsp;(the&nbsp;other&nbsp;avatars&nbsp;or&nbsp;characters):<br>
+&nbsp;<br>
+a)&nbsp;&nbsp;NNL&nbsp;main&nbsp;intent&nbsp;processor:&nbsp;this&nbsp;processor&nbsp;is&nbsp;oriented&nbsp;to&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;find&nbsp;user&nbsp;intents.&nbsp;It&nbsp;is&nbsp;formed&nbsp;by&nbsp;a&nbsp;token&nbsp;pattern&nbsp;matcher&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;that&nbsp;tries&nbsp;to&nbsp;identify&nbsp;an&nbsp;intention&nbsp;on&nbsp;the&nbsp;input&nbsp;string,&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;and&nbsp;execute&nbsp;its&nbsp;corresponding&nbsp;intent&nbsp;function,&nbsp;which&nbsp;is&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;a&nbsp;Python&nbsp;function&nbsp;that&nbsp;implements&nbsp;the&nbsp;actor's&nbsp;handling<br>
+&nbsp;&nbsp;&nbsp;&nbsp;of&nbsp;this&nbsp;user&nbsp;intention.&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+b)&nbsp;&nbsp;Hear-talk&nbsp;rules&nbsp;processor:&nbsp;the&nbsp;NNL&nbsp;dialog&nbsp;system&nbsp;also&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;handle&nbsp;"hear&nbsp;and&nbsp;talk"&nbsp;production&nbsp;rules&nbsp;that&nbsp;map&nbsp;token&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;patterns&nbsp;found&nbsp;on&nbsp;input&nbsp;text&nbsp;into&nbsp;output&nbsp;text&nbsp;messages.&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;When&nbsp;no&nbsp;intent&nbsp;is&nbsp;found&nbsp;on&nbsp;the&nbsp;user&nbsp;input&nbsp;and&nbsp;hear-talk&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;rules&nbsp;are&nbsp;configured,&nbsp;then&nbsp;these&nbsp;rules&nbsp;are&nbsp;searched&nbsp;and,&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;the&nbsp;'hear'&nbsp;part&nbsp;of&nbsp;some&nbsp;rule&nbsp;match&nbsp;the&nbsp;input&nbsp;text,&nbsp;then&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;output&nbsp;of&nbsp;this&nbsp;rule&nbsp;(the&nbsp;'talk'&nbsp;part)&nbsp;is&nbsp;sent&nbsp;to&nbsp;user.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+c)&nbsp;&nbsp;AIML&nbsp;rules&nbsp;interpreter:&nbsp;NNL&nbsp;dialog&nbsp;system&nbsp;can&nbsp;also&nbsp;work&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;with&nbsp;AIML&nbsp;rules&nbsp;to&nbsp;process&nbsp;user&nbsp;input.&nbsp;An&nbsp;AIML&nbsp;interpreter&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;can&nbsp;be&nbsp;configured&nbsp;to&nbsp;work&nbsp;integrated&nbsp;with&nbsp;this&nbsp;system.&nbsp;If&nbsp;the&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;AIML&nbsp;interpreter&nbsp;is&nbsp;configured&nbsp;and&nbsp;and&nbsp;no&nbsp;intention&nbsp;is&nbsp;found&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;on&nbsp;user&nbsp;input&nbsp;neither&nbsp;an&nbsp;hear-talk&nbsp;rule&nbsp;can&nbsp;be&nbsp;applied&nbsp;to&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;this&nbsp;input,&nbsp;then&nbsp;the&nbsp;AIML&nbsp;intepreter&nbsp;will&nbsp;process&nbsp;the&nbsp;input&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;text.&nbsp;Any&nbsp;response&nbsp;provided&nbsp;by&nbsp;it&nbsp;is&nbsp;returned&nbsp;to&nbsp;user.<br>
+&nbsp;<br>
+The&nbsp;NNL&nbsp;dialog&nbsp;system&nbsp;also&nbsp;provides&nbsp;several&nbsp;additional&nbsp;services<br>
+to&nbsp;help&nbsp;handling&nbsp;of&nbsp;dialog&nbsp;interactions:<br>
+&nbsp;<br>
+1)&nbsp;&nbsp;Discussion&nbsp;topic&nbsp;service:&nbsp;this&nbsp;service&nbsp;can&nbsp;be&nbsp;used&nbsp;by&nbsp;intent&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;functions&nbsp;to&nbsp;keep&nbsp;track&nbsp;of&nbsp;the&nbsp;topic&nbsp;being&nbsp;discussed&nbsp;in&nbsp;dialogs&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;with&nbsp;user.&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+2)&nbsp;&nbsp;Input&nbsp;mode&nbsp;service:&nbsp;this&nbsp;service&nbsp;is&nbsp;used&nbsp;to&nbsp;select&nbsp;particular&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;intentions&nbsp;depending&nbsp;on&nbsp;the&nbsp;current&nbsp;input&nbsp;mode.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+3)&nbsp;&nbsp;Intent&nbsp;recording&nbsp;service:&nbsp;this&nbsp;service&nbsp;can&nbsp;be&nbsp;used&nbsp;to&nbsp;record&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;intent&nbsp;functions&nbsp;executed&nbsp;by&nbsp;the&nbsp;actor&nbsp;during&nbsp;the&nbsp;processing&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;of&nbsp;user&nbsp;inputs.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+4)&nbsp;&nbsp;Standard&nbsp;speeches&nbsp;service:&nbsp;the&nbsp;NNL&nbsp;dialog&nbsp;system&nbsp;provides&nbsp;a&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;service&nbsp;that&nbsp;can&nbsp;be&nbsp;used&nbsp;by&nbsp;intent&nbsp;function&nbsp;to&nbsp;generate&nbsp;standard&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;speeches&nbsp;in&nbsp;some&nbsp;particular&nbsp;language.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+5)&nbsp;&nbsp;Hear-talk&nbsp;manager&nbsp;service:&nbsp;the&nbsp;NNL&nbsp;dialog&nbsp;system&nbsp;provides&nbsp;a&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;service&nbsp;to&nbsp;dynamically&nbsp;manage&nbsp;hear-talk&nbsp;rules.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+6)&nbsp;&nbsp;AIML&nbsp;interface&nbsp;service:&nbsp;the&nbsp;NNL&nbsp;dialog&nbsp;system&nbsp;provides&nbsp;an&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;interface&nbsp;service&nbsp;that&nbsp;allows&nbsp;the&nbsp;actor&nbsp;to&nbsp;get&nbsp;and&nbsp;set&nbsp;the<br>
+&nbsp;&nbsp;&nbsp;&nbsp;values&nbsp;of&nbsp;AIML&nbsp;global&nbsp;bot&nbsp;properties&nbsp;and&nbsp;global&nbsp;predicates.<br>
+&nbsp;<br>
+7)&nbsp;&nbsp;Configuration&nbsp;and&nbsp;initialization&nbsp;of&nbsp;NNL&nbsp;dialog&nbsp;system:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;To&nbsp;start&nbsp;using&nbsp;NNL&nbsp;dialog&nbsp;system,&nbsp;first&nbsp;its&nbsp;processors&nbsp;must&nbsp;be&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;confiugured&nbsp;by&nbsp;functions:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-set_dialog_patterns_file">set_dialog_patterns_file</a>(acid,&nbsp;pattsfile)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-set_dialog_intents_file">set_dialog_intents_file</a>(acid,&nbsp;intentsfile)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-set_dialog_speeches_file">set_dialog_speeches_file</a>(acid,&nbsp;speechesfile)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-set_dialog_hear_talk_rules_file">set_dialog_hear_talk_rules_file</a>(acid,&nbsp;prodrulesfile)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-set_dialog_aiml_files">set_dialog_aiml_files</a>(acid,&nbsp;aimlfiles)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Then&nbsp;the&nbsp;dialog&nbsp;system&nbsp;must&nbsp;be&nbsp;initialized&nbsp;calling&nbsp;the&nbsp;function:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-init_dialog_system">init_dialog_system</a>(acid)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+8)&nbsp;&nbsp;Input&nbsp;processing:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;user&nbsp;input&nbsp;is&nbsp;processed&nbsp;by&nbsp;NNL&nbsp;dialog&nbsp;system&nbsp;by&nbsp;calling&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;function:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-process_dialog_input">process_dialog_input</a>(acid,&nbsp;username,&nbsp;userinput)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;where&nbsp;acid&nbsp;arg.&nbsp;is&nbsp;the&nbsp;unique&nbsp;ID&nbsp;of&nbsp;the&nbsp;VirtualStage&nbsp;actor,&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;username&nbsp;arg.&nbsp;is&nbsp;the&nbsp;name&nbsp;of&nbsp;the&nbsp;user&nbsp;that&nbsp;sent&nbsp;the&nbsp;input&nbsp;and&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;userinput&nbsp;arg.&nbsp;is&nbsp;a&nbsp;string&nbsp;with&nbsp;the&nbsp;text&nbsp;entered&nbsp;by&nbsp;the&nbsp;user.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;user&nbsp;is&nbsp;some&nbsp;other&nbsp;avatar&nbsp;in&nbsp;the&nbsp;VR&nbsp;world,&nbsp;thus&nbsp;username&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;is&nbsp;the&nbsp;full&nbsp;name&nbsp;of&nbsp;this&nbsp;avatar&nbsp;in&nbsp;the&nbsp;VR.&nbsp;The&nbsp;userinput&nbsp;text&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;usually&nbsp;is&nbsp;a&nbsp;chat&nbsp;or&nbsp;instant&nbsp;message&nbsp;sent&nbsp;to&nbsp;the&nbsp;actor's&nbsp;avatar&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;by&nbsp;user's&nbsp;avatar.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;If&nbsp;some&nbsp;NNL&nbsp;dialog&nbsp;processor&nbsp;was&nbsp;succesful&nbsp;in&nbsp;handling&nbsp;the<br>
+&nbsp;&nbsp;&nbsp;&nbsp;input,&nbsp;then&nbsp;this&nbsp;function&nbsp;returns&nbsp;an&nbsp;string&nbsp;of&nbsp;text&nbsp;that<br>
+&nbsp;&nbsp;&nbsp;&nbsp;can&nbsp;be&nbsp;sent&nbsp;back&nbsp;to&nbsp;user.&nbsp;Otherwise,&nbsp;this&nbsp;function&nbsp;returns&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;None.<br>
+&nbsp;<br>
+List&nbsp;of&nbsp;NNL&nbsp;dialog&nbsp;system&nbsp;functions&nbsp;organized&nbsp;by&nbsp;service:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Dialog&nbsp;system&nbsp;configuration&nbsp;and&nbsp;initialization:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-set_dialog_patterns_file">set_dialog_patterns_file</a>(acid,&nbsp;pattsfile)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-set_dialog_intents_file">set_dialog_intents_file</a>(acid,&nbsp;intentsfile)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-set_dialog_speeches_file">set_dialog_speeches_file</a>(acid,&nbsp;speechesfile)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-set_dialog_hear_talk_rules_file">set_dialog_hear_talk_rules_file</a>(acid,&nbsp;prodrulesfile)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-set_dialog_aiml_files">set_dialog_aiml_files</a>(acid,&nbsp;aimlfiles)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-init_dialog_system">init_dialog_system</a>(acid)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Input&nbsp;processing:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-process_dialog_input">process_dialog_input</a>(acid,username,userinput)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Discussion&nbsp;topic&nbsp;service:&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-get_topic_name">get_topic_name</a>(acid)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-get_topic_content">get_topic_content</a>(acid)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-set_topic">set_topic</a>(acid,name,content=None)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-set_next_topic">set_next_topic</a>(acid,name,content=None)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-keep_topic">keep_topic</a>(acid)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Input&nbsp;mode&nbsp;service:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-get_mode">get_mode</a>(acid)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-set_mode">set_mode</a>(acid,mode)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-keep_mode">keep_mode</a>(acid)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Intent&nbsp;recording&nbsp;service:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-start_recording_intents">start_recording_intents</a>(acid)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-restart_recording_intents">restart_recording_intents</a>(acid,index)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-stop_recording_intents">stop_recording_intents</a>(acid)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-is_recording_intents">is_recording_intents</a>(acid)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Hear-talk&nbsp;rules&nbsp;management&nbsp;service:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-save_hear_talk_rules">save_hear_talk_rules</a>(acid,prodsfile)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-add_hear_talk_rule">add_hear_talk_rule</a>(acid,hear,talk)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Standard&nbsp;speeches&nbsp;service:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-gen_speak">gen_speak</a>(acid,speechid,paramlist=[],defaultphrase="")<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-get_speaks">get_speaks</a>(acid,speechid)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;NNL&nbsp;dialog&nbsp;system&nbsp;information:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-get_last_dlg_proc">get_last_dlg_proc</a>(acid)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-get_intent_list">get_intent_list</a>(acid,searchstr=None)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-get_patterns_intent_list">get_patterns_intent_list</a>(acid,intention)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;AIML&nbsp;interface&nbsp;service:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-aiml_set_bot_prop">aiml_set_bot_prop</a>(acid,&nbsp;name,&nbsp;value)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-aiml_set_pred">aiml_set_pred</a>(acid,&nbsp;name,&nbsp;value)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-aiml_get_bot_prop">aiml_get_bot_prop</a>(acid,&nbsp;name)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-aiml_get_pred">aiml_get_pred</a>(acid,&nbsp;name)</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="ActorController.html">ActorController</a><br>
+<a href="aiml.html">aiml</a><br>
+<a href="importlib.html">importlib</a><br>
+</td><td width="25%" valign=top><a href="itertools.html">itertools</a><br>
+<a href="json.html">json</a><br>
+<a href="nltk.html">nltk</a><br>
+</td><td width="25%" valign=top><a href="random.html">random</a><br>
+<a href="re.html">re</a><br>
+<a href="sys.html">sys</a><br>
+</td><td width="25%" valign=top><a href="threading.html">threading</a><br>
+<a href="time.html">time</a><br>
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="builtins.html#object">builtins.object</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="DialogController.html#DiscussTopic">DiscussTopic</a>
+</font></dt><dt><font face="helvetica, arial"><a href="DialogController.html#InputMode">InputMode</a>
+</font></dt><dt><font face="helvetica, arial"><a href="DialogController.html#IntentPatterns">IntentPatterns</a>
+</font></dt><dt><font face="helvetica, arial"><a href="DialogController.html#ReplacementIntent">ReplacementIntent</a>
+</font></dt></dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="DiscussTopic">class <strong>DiscussTopic</strong></a>(<a href="builtins.html#object">builtins.object</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#DiscussTopic-__init__">__init__</a>()&nbsp;class&nbsp;constructor<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="DiscussTopic-__init__"><strong>__init__</strong></a>(self)</dt><dd><tt>Initialize&nbsp;self.&nbsp;&nbsp;See&nbsp;help(type(self))&nbsp;for&nbsp;accurate&nbsp;signature.</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="InputMode">class <strong>InputMode</strong></a>(<a href="builtins.html#object">builtins.object</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#InputMode-__init__">__init__</a>()&nbsp;class&nbsp;constructor<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="InputMode-__init__"><strong>__init__</strong></a>(self)</dt><dd><tt>Initialize&nbsp;self.&nbsp;&nbsp;See&nbsp;help(type(self))&nbsp;for&nbsp;accurate&nbsp;signature.</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="IntentPatterns">class <strong>IntentPatterns</strong></a>(<a href="builtins.html#object">builtins.object</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#IntentPatterns">IntentPatterns</a>(origintent,&nbsp;intentfun,&nbsp;users,&nbsp;modes,&nbsp;patterns,&nbsp;origpatterns)<br>
+&nbsp;<br>
+<a href="#IntentPatterns-__init__">__init__</a>()&nbsp;class&nbsp;constructor<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="IntentPatterns-__init__"><strong>__init__</strong></a>(self, origintent, intentfun, users, modes, patterns, origpatterns)</dt><dd><tt>Initialize&nbsp;self.&nbsp;&nbsp;See&nbsp;help(type(self))&nbsp;for&nbsp;accurate&nbsp;signature.</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="ReplacementIntent">class <strong>ReplacementIntent</strong></a>(<a href="builtins.html#object">builtins.object</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#ReplacementIntent">ReplacementIntent</a>(username,&nbsp;userinput,&nbsp;intentname,&nbsp;matches)<br>
+&nbsp;<br>
+<a href="#ReplacementIntent-__init__">__init__</a>()&nbsp;class&nbsp;constructor<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="ReplacementIntent-__init__"><strong>__init__</strong></a>(self, username, userinput, intentname, matches)</dt><dd><tt>Initialize&nbsp;self.&nbsp;&nbsp;See&nbsp;help(type(self))&nbsp;for&nbsp;accurate&nbsp;signature.</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-add_hear_talk_rule"><strong>add_hear_talk_rule</strong></a>(acid, hear, talk)</dt><dd><tt>The&nbsp;NNL&nbsp;dialog&nbsp;system&nbsp;provides&nbsp;a&nbsp;service&nbsp;dynamically&nbsp;manage&nbsp;<br>
+hear-talk&nbsp;rules.&nbsp;This&nbsp;function&nbsp;adds&nbsp;a&nbsp;new&nbsp;hear-talk&nbsp;rule&nbsp;<br>
+to&nbsp;NNL&nbsp;processor.<br>
+&nbsp;<br>
+&nbsp;Args:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;hear:&nbsp;&nbsp;&nbsp;list&nbsp;of&nbsp;str&nbsp;with&nbsp;hear&nbsp;side&nbsp;patterns&nbsp;(see&nbsp;init_dialog()&nbsp;function).<br>
+&nbsp;&nbsp;&nbsp;&nbsp;talk:&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;talk&nbsp;side&nbsp;output&nbsp;string&nbsp;(see&nbsp;init_dialog()&nbsp;function).<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;False.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;returns&nbsp;True</tt></dd></dl>
+ <dl><dt><a name="-aiml_get_bot_prop"><strong>aiml_get_bot_prop</strong></a>(acid, name)</dt><dd><tt>Get&nbsp;the&nbsp;value&nbsp;of&nbsp;a&nbsp;global&nbsp;bot&nbsp;property&nbsp;set&nbsp;in&nbsp;AIML&nbsp;processor.<br>
+&nbsp;<br>
+&nbsp;Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;name:&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;the&nbsp;name&nbsp;of&nbsp;bot&nbsp;property.&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;None.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;returns&nbsp;the&nbsp;value&nbsp;of&nbsp;bot&nbsp;property.</tt></dd></dl>
+ <dl><dt><a name="-aiml_get_pred"><strong>aiml_get_pred</strong></a>(acid, name)</dt><dd><tt>Get&nbsp;the&nbsp;value&nbsp;of&nbsp;a&nbsp;global&nbsp;predicate&nbsp;set&nbsp;in&nbsp;AIML&nbsp;processor.<br>
+&nbsp;<br>
+Global&nbsp;predicates&nbsp;are&nbsp;variables&nbsp;that&nbsp;can&nbsp;be&nbsp;modified&nbsp;by&nbsp;AIML&nbsp;rules&nbsp;<br>
+with&nbsp;&lt;set&nbsp;name=...&gt;...&lt;/set&gt;&nbsp;tags&nbsp;or&nbsp;read&nbsp;by&nbsp;these&nbsp;rules&nbsp;with&nbsp;<br>
+&lt;get&nbsp;name=.../&gt;&nbsp;tag.<br>
+&nbsp;<br>
+For&nbsp;instante,&nbsp;if&nbsp;the&nbsp;predicate&nbsp;"friend"&nbsp;is&nbsp;set&nbsp;to&nbsp;"Elisa&nbsp;Clone"&nbsp;by&nbsp;a<br>
+tag&nbsp;like:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;set&nbsp;name="friend"&gt;Elisa&nbsp;Clone&lt;/set&gt;&nbsp;<br>
+in&nbsp;some&nbsp;AIML&nbsp;rule,&nbsp;then&nbsp;this&nbsp;predicate&nbsp;can&nbsp;be&nbsp;read&nbsp;in&nbsp;Python&nbsp;code&nbsp;<br>
+calling&nbsp;the&nbsp;function:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;aiml_get_prep(acid,"friend")<br>
+In&nbsp;this&nbsp;case&nbsp;this&nbsp;function&nbsp;will&nbsp;return&nbsp;"Elisa&nbsp;Clone".<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;name:&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;the&nbsp;name&nbsp;of&nbsp;predicate.&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;None.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;returns&nbsp;the&nbsp;value&nbsp;of&nbsp;predicate.</tt></dd></dl>
+ <dl><dt><a name="-aiml_set_bot_prop"><strong>aiml_set_bot_prop</strong></a>(acid, name, value)</dt><dd><tt>Set&nbsp;a&nbsp;global&nbsp;bot&nbsp;property&nbsp;for&nbsp;AIML&nbsp;processor.<br>
+&nbsp;<br>
+A&nbsp;global&nbsp;bot&nbsp;property&nbsp;set&nbsp;by&nbsp;this&nbsp;function&nbsp;is&nbsp;a&nbsp;constant,&nbsp;which&nbsp;can<br>
+be&nbsp;posteriously&nbsp;accessed&nbsp;by&nbsp;AIML&nbsp;rules&nbsp;with&nbsp;&lt;bot&nbsp;name=.../&gt;&nbsp;tags.<br>
+&nbsp;<br>
+For&nbsp;instante,&nbsp;if&nbsp;the&nbsp;bot&nbsp;property&nbsp;"name"&nbsp;is&nbsp;set&nbsp;to&nbsp;"Alice&nbsp;Clone"&nbsp;with:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-aiml_set_bot_prop">aiml_set_bot_prop</a>(acid,"name","Alice&nbsp;Clone")<br>
+then&nbsp;the&nbsp;AIML&nbsp;tag:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;bot&nbsp;name="name"/&gt;<br>
+will&nbsp;return&nbsp;"Alice&nbsp;Clone"&nbsp;when&nbsp;used&nbsp;in&nbsp;an&nbsp;AIML&nbsp;rule.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;bot&nbsp;name="birthplace"/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;bot&nbsp;name="gender"/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;name:&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;the&nbsp;name&nbsp;of&nbsp;bot&nbsp;property.&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;value:&nbsp;&nbsp;str&nbsp;with&nbsp;the&nbsp;value&nbsp;of&nbsp;bot&nbsp;property<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;False.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;returns&nbsp;True.</tt></dd></dl>
+ <dl><dt><a name="-aiml_set_pred"><strong>aiml_set_pred</strong></a>(acid, name, value)</dt><dd><tt>Set&nbsp;a&nbsp;global&nbsp;predicate&nbsp;for&nbsp;AIML&nbsp;processor.<br>
+&nbsp;<br>
+A&nbsp;global&nbsp;predicate&nbsp;set&nbsp;by&nbsp;this&nbsp;function&nbsp;is&nbsp;a&nbsp;variable,&nbsp;which&nbsp;can<br>
+be&nbsp;posteriously&nbsp;accessed&nbsp;by&nbsp;AIML&nbsp;rules&nbsp;with&nbsp;&lt;get&nbsp;name=.../&gt;&nbsp;tags.<br>
+&nbsp;<br>
+For&nbsp;instante,&nbsp;if&nbsp;the&nbsp;predicate&nbsp;"age"&nbsp;is&nbsp;set&nbsp;to&nbsp;"10&nbsp;years"&nbsp;with:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;aiml_set_prep(acid,"age","10&nbsp;years")<br>
+then&nbsp;the&nbsp;AIML&nbsp;tag:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;get&nbsp;name="name"/&gt;<br>
+will&nbsp;return&nbsp;"10&nbsp;years"&nbsp;when&nbsp;used&nbsp;in&nbsp;an&nbsp;AIML&nbsp;rule.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;name:&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;the&nbsp;name&nbsp;of&nbsp;predicate.&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;value:&nbsp;&nbsp;str&nbsp;with&nbsp;the&nbsp;value&nbsp;of&nbsp;predicate<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;False.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;returns&nbsp;True.</tt></dd></dl>
+ <dl><dt><a name="-do_not_record_intent"><strong>do_not_record_intent</strong></a>(acid)</dt><dd><tt>Do&nbsp;not&nbsp;record&nbsp;current&nbsp;intent.&nbsp;See&nbsp;the&nbsp;help&nbsp;of&nbsp;<a href="#-start_recording_intents">start_recording_intents</a>()&nbsp;<br>
+function&nbsp;for&nbsp;details.<br>
+&nbsp;<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor.<br>
+&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;False.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;returns&nbsp;True.</tt></dd></dl>
+ <dl><dt><a name="-gen_speak"><strong>gen_speak</strong></a>(acid, speechid, paramlist=[], defaultphrase='')</dt><dd><tt>The&nbsp;NNL&nbsp;dialog&nbsp;system&nbsp;provides&nbsp;a&nbsp;service&nbsp;that&nbsp;can&nbsp;be&nbsp;used&nbsp;by&nbsp;<br>
+intent&nbsp;function&nbsp;to&nbsp;generate&nbsp;standard&nbsp;speeches.&nbsp;The&nbsp;function&nbsp;<a href="#-gen_speak">gen_speak</a>()<br>
+can&nbsp;be&nbsp;used&nbsp;by&nbsp;some&nbsp;intent&nbsp;function&nbsp;to&nbsp;generate&nbsp;a&nbsp;particular&nbsp;standard<br>
+speech.&nbsp;This&nbsp;will&nbsp;try&nbsp;to&nbsp;find&nbsp;the&nbsp;list&nbsp;of&nbsp;strings/phrases&nbsp;associated&nbsp;to<br>
+speech&nbsp;identified&nbsp;by&nbsp;speechid&nbsp;and&nbsp;return&nbsp;a&nbsp;random&nbsp;selected&nbsp;string/phrase&nbsp;<br>
+from&nbsp;this&nbsp;list&nbsp;(if&nbsp;nothing&nbsp;is&nbsp;found,&nbsp;this&nbsp;function&nbsp;returns&nbsp;defaultphrase).<br>
+Parametric&nbsp;phrases,&nbsp;with&nbsp;parameters&nbsp;{0},&nbsp;{1},&nbsp;...&nbsp;are&nbsp;possible.&nbsp;If&nbsp;they&nbsp;<br>
+are&nbsp;used&nbsp;the&nbsp;paramlist&nbsp;argument&nbsp;contains&nbsp;the&nbsp;list&nbsp;of&nbsp;values&nbsp;to&nbsp;replace&nbsp;<br>
+parameters&nbsp;{0},&nbsp;{1},&nbsp;...<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;speechid:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;identification&nbsp;of&nbsp;the&nbsp;speech.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;defaultphrase:&nbsp;&nbsp;optional&nbsp;param,&nbsp;str&nbsp;with&nbsp;default&nbsp;phrase&nbsp;to&nbsp;be<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;returned&nbsp;in&nbsp;case&nbsp;of&nbsp;error<br>
+&nbsp;&nbsp;&nbsp;&nbsp;paramlist:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;optional&nbsp;param,&nbsp;list&nbsp;of&nbsp;values&nbsp;to&nbsp;replace&nbsp;the<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;parameters&nbsp;{0},&nbsp;{1},&nbsp;...&nbsp;in&nbsp;parametric&nbsp;phrases<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;defaultphrase.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;returns&nbsp;a&nbsp;random&nbsp;selected&nbsp;string&nbsp;from&nbsp;list&nbsp;of&nbsp;strings&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;(or&nbsp;phrases)&nbsp;associated&nbsp;to&nbsp;speech&nbsp;identified&nbsp;by&nbsp;speechid.</tt></dd></dl>
+ <dl><dt><a name="-get_intent_list"><strong>get_intent_list</strong></a>(acid, searchstr=None)</dt><dd><tt>Returns&nbsp;the&nbsp;list&nbsp;of&nbsp;intentions&nbsp;configured&nbsp;in&nbsp;NNL&nbsp;dialog&nbsp;processor.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;searchstr:&nbsp;str&nbsp;with&nbsp;an&nbsp;optional&nbsp;search&nbsp;string&nbsp;for&nbsp;intentions.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;None.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;if&nbsp;searchstr&nbsp;is&nbsp;None,&nbsp;returns&nbsp;the&nbsp;entire&nbsp;list&nbsp;of<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;of&nbsp;intentions,&nbsp;otherwise,&nbsp;return&nbsp;the&nbsp;list&nbsp;of&nbsp;intentions<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;with&nbsp;names&nbsp;that&nbsp;start&nbsp;with&nbsp;searchstr&nbsp;parameter.</tt></dd></dl>
+ <dl><dt><a name="-get_last_dlg_proc"><strong>get_last_dlg_proc</strong></a>(acid)</dt><dd><tt>Returns&nbsp;what&nbsp;processor&nbsp;whas&nbsp;used&nbsp;to&nbsp;process&nbsp;last&nbsp;input.<br>
+&nbsp;<br>
+&nbsp;Args:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;None.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;returns&nbsp;a&nbsp;string&nbsp;indicating&nbsp;what&nbsp;processor&nbsp;whas&nbsp;used&nbsp;to<br>
+&nbsp;&nbsp;&nbsp;&nbsp;process&nbsp;last&nbsp;input.&nbsp;NNL&nbsp;can&nbsp;use&nbsp;the&nbsp;following&nbsp;processors:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NNL-MIP:&nbsp;main&nbsp;intent&nbsp;processor<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NNL-HTP:&nbsp;hear-talk&nbsp;rules&nbsp;processor<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NNL-AIML:&nbsp;AIML&nbsp;interpreter</tt></dd></dl>
+ <dl><dt><a name="-get_mode"><strong>get_mode</strong></a>(acid)</dt><dd><tt>Get&nbsp;the&nbsp;identifier&nbsp;of&nbsp;the&nbsp;current&nbsp;input&nbsp;mode.&nbsp;Input&nbsp;modes&nbsp;can&nbsp;be&nbsp;<br>
+used&nbsp;to&nbsp;select&nbsp;particular&nbsp;intentions&nbsp;from&nbsp;the&nbsp;JSON&nbsp;dialog&nbsp;pattern&nbsp;files.&nbsp;<br>
+An&nbsp;input&nbsp;mode&nbsp;is&nbsp;definde&nbsp;by&nbsp;an&nbsp;identifier&nbsp;(a&nbsp;single&nbsp;word)&nbsp;that&nbsp;can&nbsp;be&nbsp;<br>
+associated&nbsp;to&nbsp;some&nbsp;intention&nbsp;in&nbsp;the&nbsp;dialog&nbsp;pattern&nbsp;file&nbsp;using&nbsp;an&nbsp;'@'&nbsp;<br>
+character.&nbsp;See&nbsp;<a href="#-set_mode">set_mode</a>()&nbsp;function&nbsp;for&nbsp;details.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor.<br>
+&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;If&nbsp;no&nbsp;input&nbsp;mode&nbsp;was&nbsp;set,&nbsp;returns&nbsp;None.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Otherwise,&nbsp;returns&nbsp;a&nbsp;string&nbsp;with&nbsp;current&nbsp;input&nbsp;mode&nbsp;identifier.</tt></dd></dl>
+ <dl><dt><a name="-get_next_topic_name"><strong>get_next_topic_name</strong></a>(acid)</dt></dl>
+ <dl><dt><a name="-get_patterns_intent_list"><strong>get_patterns_intent_list</strong></a>(acid, intent)</dt><dd><tt>Returns&nbsp;the&nbsp;list&nbsp;of&nbsp;patterns&nbsp;for&nbsp;some&nbsp;intent&nbsp;in&nbsp;NNL&nbsp;dialog&nbsp;<br>
+processor.<br>
+&nbsp;<br>
+&nbsp;Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;intent:&nbsp;str&nbsp;the&nbsp;name&nbsp;of&nbsp;intention.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;None.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;returns&nbsp;the&nbsp;list&nbsp;of&nbsp;patterns&nbsp;for&nbsp;intention&nbsp;intent.</tt></dd></dl>
+ <dl><dt><a name="-get_prod_rules"><strong>get_prod_rules</strong></a>(acid)</dt><dd><tt>Returns&nbsp;the&nbsp;list&nbsp;of&nbsp;hear-talk&nbsp;rules&nbsp;configured&nbsp;in&nbsp;NNL&nbsp;dialog&nbsp;<br>
+processor.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;None.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;returns&nbsp;the&nbsp;entire&nbsp;list&nbsp;of&nbsp;hear-talk&nbsp;rules.</tt></dd></dl>
+ <dl><dt><a name="-get_speaks"><strong>get_speaks</strong></a>(acid, speechid)</dt><dd><tt>This&nbsp;function&nbsp;will&nbsp;return&nbsp;the&nbsp;list&nbsp;of&nbsp;strings&nbsp;or&nbsp;phrases&nbsp;associated&nbsp;<br>
+to&nbsp;a&nbsp;speechid.&nbsp;See&nbsp;the&nbsp;help&nbsp;of&nbsp;<a href="#-gen_speak">gen_speak</a>()&nbsp;for&nbsp;details.&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;speechid:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;identification&nbsp;of&nbsp;the&nbsp;speech.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;None.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;returns&nbsp;the&nbsp;list&nbsp;of&nbsp;strings&nbsp;(or&nbsp;phrases)&nbsp;associated<br>
+&nbsp;&nbsp;&nbsp;&nbsp;to&nbsp;speech&nbsp;identified&nbsp;by&nbsp;speechid.</tt></dd></dl>
+ <dl><dt><a name="-get_topic_content"><strong>get_topic_content</strong></a>(acid)</dt><dd><tt>Get&nbsp;the&nbsp;content&nbsp;of&nbsp;the&nbsp;current&nbsp;discussion&nbsp;topic.&nbsp;The&nbsp;content&nbsp;of&nbsp;the<br>
+discussion&nbsp;topic,&nbsp;if&nbsp;defined,&nbsp;can&nbsp;be&nbsp;any&nbsp;Python&nbsp;literal&nbsp;value.&nbsp;For&nbsp;more&nbsp;<br>
+details&nbsp;on&nbsp;discussion&nbsp;topics&nbsp;see&nbsp;the&nbsp;help&nbsp;of&nbsp;<a href="#-set_topic">set_topic</a>()&nbsp;function.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor.<br>
+&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;If&nbsp;no&nbsp;topic&nbsp;was&nbsp;set&nbsp;or&nbsp;no&nbsp;content&nbsp;was&nbsp;set&nbsp;for&nbsp;current&nbsp;topic,&nbsp;returns&nbsp;None.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Otherwise,&nbsp;returns&nbsp;the&nbsp;content&nbsp;set&nbsp;for&nbsp;current&nbsp;topic.</tt></dd></dl>
+ <dl><dt><a name="-get_topic_name"><strong>get_topic_name</strong></a>(acid)</dt><dd><tt>Get&nbsp;the&nbsp;name&nbsp;of&nbsp;the&nbsp;current&nbsp;discussion&nbsp;topic.&nbsp;For&nbsp;more&nbsp;details&nbsp;on<br>
+discussion&nbsp;topics&nbsp;see&nbsp;the&nbsp;help&nbsp;of&nbsp;<a href="#-set_topic">set_topic</a>()&nbsp;function.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor.<br>
+&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;If&nbsp;no&nbsp;topic&nbsp;was&nbsp;set,&nbsp;returns&nbsp;None.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Otherwise,&nbsp;returns&nbsp;a&nbsp;string&nbsp;with&nbsp;current&nbsp;topic&nbsp;name.</tt></dd></dl>
+ <dl><dt><a name="-init_dialog_system"><strong>init_dialog_system</strong></a>(acid)</dt><dd><tt>Initialize&nbsp;the&nbsp;VirtualStage&nbsp;Near&nbsp;Natural&nbsp;Language&nbsp;(NNL)&nbsp;dialog&nbsp;system.&nbsp;<br>
+&nbsp;<br>
+The&nbsp;NNL&nbsp;dialog&nbsp;system&nbsp;main&nbsp;processor&nbsp;is&nbsp;formed&nbsp;by&nbsp;a&nbsp;token&nbsp;pattern&nbsp;matcher&nbsp;<br>
+that&nbsp;try&nbsp;to&nbsp;identify&nbsp;some&nbsp;intention&nbsp;on&nbsp;the&nbsp;input&nbsp;string,&nbsp;and&nbsp;execute&nbsp;the&nbsp;<br>
+intent&nbsp;function&nbsp;corresponding&nbsp;to&nbsp;this&nbsp;intention.<br>
+&nbsp;<br>
+The&nbsp;token&nbsp;pattern&nbsp;matcher&nbsp;is&nbsp;configured&nbsp;by&nbsp;a&nbsp;patterns&nbsp;to&nbsp;intents&nbsp;JSON&nbsp;<br>
+file&nbsp;and&nbsp;must&nbsp;be&nbsp;previously&nbsp;defined&nbsp;by:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-set_dialog_patterns_file">set_dialog_patterns_file</a>()&nbsp;<br>
+function&nbsp;(see&nbsp;the&nbsp;help&nbsp;of&nbsp;<a href="#-set_dialog_patterns_file">set_dialog_patterns_file</a>()&nbsp;function&nbsp;for&nbsp;details&nbsp;<br>
+about&nbsp;the&nbsp;format&nbsp;of&nbsp;this&nbsp;JSON&nbsp;file).<br>
+&nbsp;<br>
+Intent&nbsp;functions&nbsp;are&nbsp;Python&nbsp;functions&nbsp;that&nbsp;implement&nbsp;the&nbsp;intentions&nbsp;<br>
+defined&nbsp;in&nbsp;the&nbsp;patterns&nbsp;to&nbsp;intents&nbsp;file.&nbsp;The&nbsp;name&nbsp;of&nbsp;the&nbsp;Python&nbsp;module&nbsp;<br>
+that&nbsp;contains&nbsp;all&nbsp;intent&nbsp;functions&nbsp;used&nbsp;in&nbsp;pattern&nbsp;to&nbsp;intents&nbsp;file&nbsp;must&nbsp;<br>
+be&nbsp;previously&nbsp;defined&nbsp;by:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-set_dialog_intents_file">set_dialog_intents_file</a>()&nbsp;<br>
+function&nbsp;(see&nbsp;the&nbsp;help&nbsp;of&nbsp;<a href="#-set_dialog_intents_file">set_dialog_intents_file</a>()&nbsp;function&nbsp;for&nbsp;details&nbsp;<br>
+about&nbsp;intent&nbsp;functions&nbsp;syntax&nbsp;and&nbsp;semantics).<br>
+&nbsp;<br>
+Besides&nbsp;the&nbsp;intent&nbsp;oriented&nbsp;dialog&nbsp;processing,&nbsp;the&nbsp;NNL&nbsp;dialog&nbsp;processor&nbsp;can<br>
+handle&nbsp;simple&nbsp;hear-talk&nbsp;rules,&nbsp;that&nbsp;map&nbsp;some&nbsp;token&nbsp;pattern&nbsp;into&nbsp;an&nbsp;output&nbsp;text&nbsp;<br>
+message.&nbsp;To&nbsp;use&nbsp;hear-talk&nbsp;rules&nbsp;is&nbsp;necessary&nbsp;to&nbsp;define&nbsp;the&nbsp;JSON&nbsp;file&nbsp;that&nbsp;<br>
+contain&nbsp;these&nbsp;rules&nbsp;calling&nbsp;the:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-set_dialog_hear_talk_rules_file">set_dialog_hear_talk_rules_file</a>()&nbsp;<br>
+function&nbsp;before&nbsp;calling&nbsp;<a href="#-init_dialog_system">init_dialog_system</a>(),&nbsp;otherwise&nbsp;the&nbsp;NNL&nbsp;dialog&nbsp;system&nbsp;<br>
+will&nbsp;not&nbsp;process&nbsp;any&nbsp;hear-talk&nbsp;rule&nbsp;(see&nbsp;the&nbsp;help&nbsp;of&nbsp;<a href="#-set_dialog_hear_talk_rules_file">set_dialog_hear_talk_rules_file</a>()&nbsp;<br>
+function&nbsp;for&nbsp;details&nbsp;about&nbsp;hear-talk&nbsp;rules).<br>
+&nbsp;<br>
+An&nbsp;additional&nbsp;AIML&nbsp;interpreter&nbsp;can&nbsp;also&nbsp;be&nbsp;configured&nbsp;to&nbsp;work&nbsp;with&nbsp;dialog&nbsp;system<br>
+calling:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-set_dialog_aiml_files">set_dialog_aiml_files</a>()<br>
+function&nbsp;before&nbsp;calling&nbsp;<a href="#-init_dialog_system">init_dialog_system</a>(),&nbsp;otherwise&nbsp;the&nbsp;NNL&nbsp;dialog&nbsp;system&nbsp;<br>
+will&nbsp;not&nbsp;process&nbsp;any&nbsp;AIML&nbsp;rule&nbsp;(see&nbsp;the&nbsp;help&nbsp;of&nbsp;<a href="#-set_dialog_aiml_files">set_dialog_aiml_files</a>()&nbsp;<br>
+function&nbsp;for&nbsp;details&nbsp;about&nbsp;AIML&nbsp;processing).<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+An&nbsp;optional&nbsp;set&nbsp;of&nbsp;standard&nbsp;speeches&nbsp;or&nbsp;locutions,&nbsp;specified&nbsp;by&nbsp;a&nbsp;JSON&nbsp;file,&nbsp;<br>
+can&nbsp;also&nbsp;be&nbsp;passed&nbsp;to&nbsp;the&nbsp;NNL&nbsp;standard&nbsp;speeches&nbsp;service&nbsp;calling:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-set_dialog_speeches_file">set_dialog_speeches_file</a>()&nbsp;<br>
+function.&nbsp;Each&nbsp;speech&nbsp;has&nbsp;an&nbsp;unique&nbsp;speechid&nbsp;identifier&nbsp;associated&nbsp;to&nbsp;a&nbsp;list&nbsp;<br>
+of&nbsp;strings.&nbsp;The&nbsp;function:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-gen_speak">gen_speak</a>(acid,speechid,paramlist=[],defaultphrase="")<br>
+handles&nbsp;speechid&nbsp;identifier&nbsp;and&nbsp;can&nbsp;be&nbsp;used&nbsp;by&nbsp;intent&nbsp;functions&nbsp;to&nbsp;generate&nbsp;<br>
+standard&nbsp;speeches&nbsp;if&nbsp;the&nbsp;speeches&nbsp;JSON&nbsp;file&nbsp;was&nbsp;defined&nbsp;(see&nbsp;the&nbsp;help&nbsp;of&nbsp;<br>
+<a href="#-set_dialog_speeches_file">set_dialog_speeches_file</a>()&nbsp;function&nbsp;for&nbsp;details).<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;False.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;initialize&nbsp;and&nbsp;start&nbsp;the&nbsp;NNL&nbsp;dialog&nbsp;system&nbsp;and&nbsp;returns&nbsp;True.</tt></dd></dl>
+ <dl><dt><a name="-is_keeping_mode"><strong>is_keeping_mode</strong></a>(acid)</dt><dd><tt>Check&nbsp;if&nbsp;is&nbsp;keeping&nbsp;current&nbsp;input&nbsp;mode&nbsp;for&nbsp;the&nbsp;next&nbsp;iteration&nbsp;<br>
+of&nbsp;dialog&nbsp;processor.&nbsp;See&nbsp;<a href="#-set_mode">set_mode</a>()&nbsp;function&nbsp;for&nbsp;details.&nbsp;&nbsp;&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor.<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;False.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;returns&nbsp;True.</tt></dd></dl>
+ <dl><dt><a name="-is_recording_intents"><strong>is_recording_intents</strong></a>(acid)</dt><dd><tt>Check&nbsp;if&nbsp;intents&nbsp;are&nbsp;being&nbsp;recorded.&nbsp;In&nbsp;practice,&nbsp;returns&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;sequential&nbsp;index&nbsp;of&nbsp;the&nbsp;next&nbsp;intent&nbsp;to&nbsp;be&nbsp;recorded.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;If&nbsp;this&nbsp;index&nbsp;is&nbsp;zero,&nbsp;intents&nbsp;are&nbsp;not&nbsp;being&nbsp;recorded.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;If&nbsp;this&nbsp;index&nbsp;is&nbsp;greater&nbsp;than&nbsp;zero,&nbsp;then&nbsp;intents&nbsp;are&nbsp;being<br>
+&nbsp;&nbsp;&nbsp;&nbsp;recorded&nbsp;and&nbsp;the&nbsp;next&nbsp;intent&nbsp;will&nbsp;receive&nbsp;this&nbsp;value&nbsp;for<br>
+&nbsp;&nbsp;&nbsp;&nbsp;its&nbsp;sequential&nbsp;index.&nbsp;See&nbsp;the&nbsp;help&nbsp;of&nbsp;<a href="#-start_recording_intents">start_recording_intents</a>()&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;function&nbsp;for&nbsp;details.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor.<br>
+&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Zero&nbsp;if&nbsp;intents&nbsp;are&nbsp;not&nbsp;being&nbsp;recorded.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;A&nbsp;non&nbsp;zero&nbsp;value&nbsp;(the&nbsp;sequential&nbsp;index&nbsp;of&nbsp;the&nbsp;next&nbsp;intent&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;to&nbsp;be&nbsp;recorded)&nbsp;if&nbsp;intents&nbsp;are&nbsp;being&nbsp;recorded.</tt></dd></dl>
+ <dl><dt><a name="-keep_mode"><strong>keep_mode</strong></a>(acid)</dt><dd><tt>Keep&nbsp;current&nbsp;input&nbsp;mode&nbsp;for&nbsp;the&nbsp;next&nbsp;iteration&nbsp;of&nbsp;dialog&nbsp;<br>
+processor.&nbsp;See&nbsp;<a href="#-set_mode">set_mode</a>()&nbsp;function&nbsp;for&nbsp;details.&nbsp;&nbsp;&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor.<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;False.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;returns&nbsp;True.</tt></dd></dl>
+ <dl><dt><a name="-keep_topic"><strong>keep_topic</strong></a>(acid)</dt><dd><tt>Keep&nbsp;the&nbsp;current&nbsp;discussion&nbsp;topic&nbsp;alive&nbsp;in&nbsp;the&nbsp;next&nbsp;iteration&nbsp;of&nbsp;<br>
+dialog&nbsp;processor.&nbsp;When&nbsp;called&nbsp;inside&nbsp;some&nbsp;intention&nbsp;function,&nbsp;will&nbsp;<br>
+preserve&nbsp;the&nbsp;name&nbsp;and&nbsp;content&nbsp;of&nbsp;current&nbsp;discussion&nbsp;topic&nbsp;for&nbsp;the&nbsp;next&nbsp;<br>
+iteration&nbsp;of&nbsp;dialog&nbsp;processor.&nbsp;For&nbsp;more&nbsp;details&nbsp;on&nbsp;discussion&nbsp;topics&nbsp;<br>
+see&nbsp;the&nbsp;help&nbsp;of&nbsp;<a href="#-set_topic">set_topic</a>()&nbsp;function.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor.<br>
+&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;False.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;returns&nbsp;True.</tt></dd></dl>
+ <dl><dt><a name="-pass_mode_forward"><strong>pass_mode_forward</strong></a>(acid)</dt><dd><tt>Pass&nbsp;current&nbsp;input&nbsp;mode&nbsp;for&nbsp;the&nbsp;next&nbsp;iteration&nbsp;of&nbsp;dialog&nbsp;<br>
+processor.&nbsp;See&nbsp;<a href="#-set_mode">set_mode</a>()&nbsp;function&nbsp;for&nbsp;details.&nbsp;&nbsp;&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor.<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;False.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;returns&nbsp;True.</tt></dd></dl>
+ <dl><dt><a name="-pass_topic_forward"><strong>pass_topic_forward</strong></a>(acid)</dt></dl>
+ <dl><dt><a name="-process_dialog_input"><strong>process_dialog_input</strong></a>(acid, username, userinput)</dt><dd><tt>Process&nbsp;user&nbsp;input&nbsp;with&nbsp;dialog&nbsp;processors&nbsp;configured&nbsp;in&nbsp;NNL&nbsp;dialog<br>
+system.<br>
+&nbsp;<br>
+First,&nbsp;runs&nbsp;the&nbsp;main&nbsp;processor&nbsp;of&nbsp;NNL&nbsp;dialog&nbsp;system&nbsp;on&nbsp;the&nbsp;user&nbsp;input&nbsp;<br>
+text&nbsp;trying&nbsp;to&nbsp;identify&nbsp;some&nbsp;intention&nbsp;(i.e.&nbsp;match&nbsp;some&nbsp;intent&nbsp;pattern&nbsp;on<br>
+the&nbsp;user&nbsp;input).&nbsp;If&nbsp;some&nbsp;intent&nbsp;is&nbsp;found,&nbsp;then&nbsp;calls&nbsp;the&nbsp;function&nbsp;that&nbsp;<br>
+implements&nbsp;the&nbsp;intention&nbsp;and&nbsp;returns&nbsp;the&nbsp;response&nbsp;provided&nbsp;by&nbsp;the&nbsp;function&nbsp;<br>
+to&nbsp;the&nbsp;caller.&nbsp;<br>
+&nbsp;<br>
+If&nbsp;no&nbsp;intention&nbsp;is&nbsp;found&nbsp;and&nbsp;hear-talk&nbsp;rules&nbsp;processing&nbsp;is&nbsp;configured,&nbsp;<br>
+then&nbsp;check&nbsp;if&nbsp;some&nbsp;hear-talk&nbsp;rule&nbsp;can&nbsp;be&nbsp;applied&nbsp;to&nbsp;user&nbsp;input.&nbsp;If&nbsp;this&nbsp;is&nbsp;<br>
+so,&nbsp;then&nbsp;return&nbsp;the&nbsp;text&nbsp;produced&nbsp;by&nbsp;the&nbsp;rule&nbsp;to&nbsp;the&nbsp;caller.<br>
+&nbsp;<br>
+Finally,&nbsp;if&nbsp;no&nbsp;intention&nbsp;was&nbsp;found&nbsp;in&nbsp;user&nbsp;input,&nbsp;neither&nbsp;some&nbsp;hear-talk&nbsp;<br>
+rule&nbsp;could&nbsp;be&nbsp;applied&nbsp;to&nbsp;this&nbsp;input,&nbsp;then&nbsp;if&nbsp;the&nbsp;AIML&nbsp;interpreter&nbsp;is&nbsp;<br>
+configured,&nbsp;runs&nbsp;this&nbsp;interpreter&nbsp;on&nbsp;the&nbsp;user&nbsp;input&nbsp;and&nbsp;returns&nbsp;the&nbsp;<br>
+response&nbsp;provided&nbsp;by&nbsp;this&nbsp;interpreter&nbsp;to&nbsp;the&nbsp;caller.&nbsp;<br>
+&nbsp;<br>
+Otherwise&nbsp;return&nbsp;None.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;username:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;name&nbsp;of&nbsp;the&nbsp;user&nbsp;that&nbsp;sent&nbsp;the&nbsp;input&nbsp;text<br>
+&nbsp;&nbsp;&nbsp;&nbsp;userinput:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;string&nbsp;with&nbsp;last&nbsp;input&nbsp;to&nbsp;be&nbsp;processed&nbsp;by&nbsp;dialog&nbsp;system<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;None.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;returns&nbsp;a&nbsp;string&nbsp;with&nbsp;response&nbsp;provided&nbsp;by&nbsp;some&nbsp;intention&nbsp;or&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;by&nbsp;the&nbsp;AIML&nbsp;interpreter.&nbsp;The&nbsp;function&nbsp;<a href="#-get_last_dlg_proc">get_last_dlg_proc</a>(acid)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;will&nbsp;return&nbsp;what&nbsp;processor&nbsp;('NNL',&nbsp;'AIML'&nbsp;or&nbsp;None)&nbsp;whas&nbsp;used&nbsp;to<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;process&nbsp;last&nbsp;input.</tt></dd></dl>
+ <dl><dt><a name="-record_intent"><strong>record_intent</strong></a>(acid, username, userinput, intentname, matches=None)</dt><dd><tt>Record&nbsp;an&nbsp;intent&nbsp;executed&nbsp;by&nbsp;the&nbsp;actor.&nbsp;See&nbsp;the&nbsp;help&nbsp;of&nbsp;<br>
+<a href="#-start_recording_intents">start_recording_intents</a>()&nbsp;function&nbsp;for&nbsp;details.<br>
+&nbsp;<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;username:&nbsp;the&nbsp;name&nbsp;of&nbsp;the&nbsp;user&nbsp;that&nbsp;sent&nbsp;the&nbsp;input&nbsp;text<br>
+&nbsp;&nbsp;&nbsp;&nbsp;userinput:&nbsp;the&nbsp;text&nbsp;sent&nbsp;by&nbsp;the&nbsp;user<br>
+&nbsp;&nbsp;&nbsp;&nbsp;intentname:&nbsp;the&nbsp;name&nbsp;of&nbsp;the&nbsp;intent&nbsp;(which&nbsp;is&nbsp;also&nbsp;the&nbsp;name&nbsp;of&nbsp;the&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;function&nbsp;that&nbsp;implements&nbsp;the&nbsp;intent)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;matches:&nbsp;optional&nbsp;list&nbsp;of&nbsp;strings&nbsp;extracted&nbsp;by&nbsp;the&nbsp;token&nbsp;matcher,&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;can&nbsp;be&nbsp;None&nbsp;if&nbsp;no&nbsp;strings&nbsp;were&nbsp;extracted&nbsp;from&nbsp;the&nbsp;input&nbsp;string,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;otherwise&nbsp;is&nbsp;the&nbsp;list&nbsp;of&nbsp;matches:&nbsp;[match1,&nbsp;match2,&nbsp;...]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;extracted&nbsp;from&nbsp;the&nbsp;input&nbsp;string<br>
+&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;False.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;returns&nbsp;True.</tt></dd></dl>
+ <dl><dt><a name="-replace_recording_intent"><strong>replace_recording_intent</strong></a>(acid, username, userinput, intentname, matches=None)</dt><dd><tt>Replace&nbsp;the&nbsp;intent&nbsp;to&nbsp;be&nbsp;recorded,&nbsp;by&nbsp;this&nbsp;intent.&nbsp;See&nbsp;the&nbsp;help&nbsp;<br>
+of&nbsp;<a href="#-start_recording_intents">start_recording_intents</a>()&nbsp;function&nbsp;for&nbsp;details.<br>
+&nbsp;<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;username:&nbsp;the&nbsp;name&nbsp;of&nbsp;the&nbsp;user&nbsp;that&nbsp;sent&nbsp;the&nbsp;input&nbsp;text<br>
+&nbsp;&nbsp;&nbsp;&nbsp;userinput:&nbsp;the&nbsp;text&nbsp;sent&nbsp;by&nbsp;the&nbsp;user<br>
+&nbsp;&nbsp;&nbsp;&nbsp;intentname:&nbsp;the&nbsp;name&nbsp;of&nbsp;the&nbsp;intent&nbsp;(which&nbsp;is&nbsp;also&nbsp;the&nbsp;name&nbsp;of&nbsp;the&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;function&nbsp;that&nbsp;implements&nbsp;the&nbsp;intent)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;matches:&nbsp;optional&nbsp;list&nbsp;of&nbsp;strings&nbsp;extracted&nbsp;by&nbsp;the&nbsp;token&nbsp;matcher,&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;can&nbsp;be&nbsp;None&nbsp;if&nbsp;no&nbsp;strings&nbsp;were&nbsp;extracted&nbsp;from&nbsp;the&nbsp;input&nbsp;string,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;otherwise&nbsp;is&nbsp;the&nbsp;list&nbsp;of&nbsp;matches:&nbsp;[match1,&nbsp;match2,&nbsp;...]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;extracted&nbsp;from&nbsp;the&nbsp;input&nbsp;string<br>
+&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;False.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;returns&nbsp;True.</tt></dd></dl>
+ <dl><dt><a name="-replay_intent"><strong>replay_intent</strong></a>(acid, username, userinput, intentname, matches)</dt><dd><tt>Replay&nbsp;an&nbsp;intent&nbsp;previosly&nbsp;recorded&nbsp;by&nbsp;the&nbsp;actor.&nbsp;See&nbsp;the&nbsp;<br>
+help&nbsp;of&nbsp;<a href="#-start_recording_intents">start_recording_intents</a>()&nbsp;function&nbsp;for&nbsp;details.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;username:&nbsp;the&nbsp;name&nbsp;of&nbsp;the&nbsp;user&nbsp;that&nbsp;sent&nbsp;the&nbsp;input&nbsp;text<br>
+&nbsp;&nbsp;&nbsp;&nbsp;userinput:&nbsp;the&nbsp;text&nbsp;sent&nbsp;by&nbsp;the&nbsp;user<br>
+&nbsp;&nbsp;&nbsp;&nbsp;intentname:&nbsp;the&nbsp;name&nbsp;of&nbsp;the&nbsp;intent&nbsp;(which&nbsp;is&nbsp;also&nbsp;the&nbsp;name&nbsp;of&nbsp;the&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;function&nbsp;that&nbsp;implements&nbsp;the&nbsp;intent)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;matches:&nbsp;optional&nbsp;list&nbsp;of&nbsp;strings&nbsp;extracted&nbsp;by&nbsp;the&nbsp;token&nbsp;matcher,&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;can&nbsp;be&nbsp;None&nbsp;if&nbsp;no&nbsp;strings&nbsp;were&nbsp;extracted&nbsp;from&nbsp;the&nbsp;input&nbsp;string,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;otherwise&nbsp;is&nbsp;the&nbsp;list&nbsp;of&nbsp;matches:&nbsp;[match1,&nbsp;match2,&nbsp;...]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;extracted&nbsp;from&nbsp;the&nbsp;input&nbsp;string<br>
+&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;None.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;returns&nbsp;a&nbsp;string&nbsp;with&nbsp;response&nbsp;provided&nbsp;by&nbsp;the<br>
+&nbsp;&nbsp;&nbsp;&nbsp;intention&nbsp;function.</tt></dd></dl>
+ <dl><dt><a name="-reset_mode"><strong>reset_mode</strong></a>(acid)</dt><dd><tt>Reset&nbsp;input&nbsp;mode&nbsp;for&nbsp;the&nbsp;next&nbsp;iteration&nbsp;of&nbsp;dialog&nbsp;processor<br>
+See&nbsp;<a href="#-set_mode">set_mode</a>()&nbsp;function&nbsp;for&nbsp;details.&nbsp;&nbsp;&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor.<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;False.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;returns&nbsp;True.</tt></dd></dl>
+ <dl><dt><a name="-reset_topic"><strong>reset_topic</strong></a>(acid)</dt></dl>
+ <dl><dt><a name="-restart_recording_intents"><strong>restart_recording_intents</strong></a>(acid, newindex)</dt><dd><tt>Restart&nbsp;the&nbsp;recording&nbsp;of&nbsp;intents&nbsp;performed&nbsp;by&nbsp;the&nbsp;actor.<br>
+&nbsp;<br>
+The&nbsp;NNL&nbsp;dialog&nbsp;system&nbsp;provides&nbsp;a&nbsp;service&nbsp;to&nbsp;record&nbsp;intent&nbsp;functions&nbsp;<br>
+executed&nbsp;by&nbsp;the&nbsp;actor&nbsp;during&nbsp;the&nbsp;processing&nbsp;of&nbsp;user&nbsp;inputs.&nbsp;These&nbsp;intents,&nbsp;<br>
+for&nbsp;short,&nbsp;are&nbsp;recorded&nbsp;as&nbsp;intent&nbsp;records,&nbsp;which&nbsp;are&nbsp;memory&nbsp;records&nbsp;where&nbsp;<br>
+the&nbsp;second&nbsp;field&nbsp;is&nbsp;an&nbsp;sequential&nbsp;index&nbsp;of&nbsp;the&nbsp;recorded&nbsp;intent,&nbsp;with&nbsp;value&nbsp;<br>
+1&nbsp;for&nbsp;the&nbsp;first&nbsp;record,&nbsp;2&nbsp;for&nbsp;the&nbsp;second,&nbsp;and&nbsp;so&nbsp;on.<br>
+&nbsp;<br>
+The&nbsp;<a href="#-restart_recording_intents">restart_recording_intents</a>()&nbsp;restart&nbsp;the&nbsp;recording&nbsp;of&nbsp;intents,<br>
+but&nbsp;with&nbsp;a&nbsp;new&nbsp;sequential&nbsp;index&nbsp;provided&nbsp;by&nbsp;the&nbsp;newindex&nbsp;argument.<br>
+&nbsp;<br>
+After&nbsp;calling&nbsp;<a href="#-restart_recording_intents">restart_recording_intents</a>()&nbsp;each&nbsp;intention&nbsp;executed&nbsp;by&nbsp;the<br>
+actor&nbsp;will&nbsp;be&nbsp;registered&nbsp;as&nbsp;a&nbsp;new&nbsp;'record-intent'&nbsp;memory&nbsp;record,<br>
+starting&nbsp;with&nbsp;intent&nbsp;index&nbsp;equals&nbsp;to&nbsp;newindex<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;newindex:&nbsp;the&nbsp;new&nbsp;initial&nbsp;value&nbsp;of&nbsp;sequential&nbsp;index&nbsp;of&nbsp;recorded&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;intents,&nbsp;after&nbsp;the&nbsp;recording&nbsp;is&nbsp;restarted<br>
+&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;False.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;returns&nbsp;True.</tt></dd></dl>
+ <dl><dt><a name="-restore_prod_rules"><strong>restore_prod_rules</strong></a>(acid, prodsfile)</dt><dd><tt>The&nbsp;NNL&nbsp;dialog&nbsp;system&nbsp;provides&nbsp;a&nbsp;service&nbsp;to&nbsp;dynamically<br>
+manage&nbsp;hear-talk&nbsp;rules.&nbsp;The&nbsp;<a href="#-restore_prod_rules">restore_prod_rules</a>()&nbsp;function,&nbsp;<br>
+restores&nbsp;hear-talk&nbsp;rules&nbsp;stored&nbsp;in&nbsp;JSON&nbsp;file.<br>
+&nbsp;<br>
+&nbsp;Args:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;prodsfile:&nbsp;&nbsp;str&nbsp;with&nbsp;the&nbsp;name&nbsp;of&nbsp;JSON&nbsp;file&nbsp;where&nbsp;hear-talk<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rules&nbsp;are&nbsp;stored.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;False.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;returns&nbsp;True</tt></dd></dl>
+ <dl><dt><a name="-save_hear_talk_rules"><strong>save_hear_talk_rules</strong></a>(acid, prodsfile)</dt><dd><tt>The&nbsp;NNL&nbsp;dialog&nbsp;system&nbsp;provides&nbsp;a&nbsp;service&nbsp;to&nbsp;dynamically&nbsp;manage&nbsp;<br>
+hear-talk&nbsp;rules.&nbsp;The&nbsp;function&nbsp;<a href="#-save_hear_talk_rules">save_hear_talk_rules</a>()&nbsp;saves<br>
+the&nbsp;hear-talk&nbsp;rules&nbsp;currently&nbsp;in&nbsp;use&nbsp;by&nbsp;NNL&nbsp;processor&nbsp;directly&nbsp;<br>
+to&nbsp;a&nbsp;JSON&nbsp;file.<br>
+&nbsp;<br>
+&nbsp;Args:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;prodsfile:&nbsp;&nbsp;str&nbsp;with&nbsp;the&nbsp;name&nbsp;of&nbsp;JSON&nbsp;file&nbsp;where&nbsp;hear-talk<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rules&nbsp;will&nbsp;be&nbsp;written.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;False.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;returns&nbsp;True</tt></dd></dl>
+ <dl><dt><a name="-set_dialog_aiml_files"><strong>set_dialog_aiml_files</strong></a>(acid, aimlfiles)</dt><dd><tt>The&nbsp;NNL&nbsp;dialog&nbsp;processor&nbsp;can&nbsp;also&nbsp;be&nbsp;configured&nbsp;to&nbsp;use&nbsp;AIML<br>
+rules&nbsp;to&nbsp;process&nbsp;user&nbsp;input.&nbsp;An&nbsp;additional&nbsp;AIML&nbsp;interpreter&nbsp;can&nbsp;<br>
+be&nbsp;configured&nbsp;to&nbsp;work&nbsp;with&nbsp;NNL&nbsp;dialog&nbsp;system.&nbsp;<br>
+&nbsp;<br>
+If&nbsp;the&nbsp;aimlfiles&nbsp;argument&nbsp;is&nbsp;provided&nbsp;then&nbsp;the&nbsp;dialog&nbsp;system&nbsp;will&nbsp;<br>
+try&nbsp;to&nbsp;initialize&nbsp;the&nbsp;AIML&nbsp;kernel&nbsp;interpreter&nbsp;with&nbsp;these&nbsp;files.&nbsp;<br>
+If&nbsp;the&nbsp;AIML&nbsp;initialization&nbsp;is&nbsp;OK&nbsp;and&nbsp;no&nbsp;intention&nbsp;is&nbsp;found&nbsp;on&nbsp;user&nbsp;<br>
+input&nbsp;neither&nbsp;an&nbsp;hear-talk&nbsp;rule&nbsp;can&nbsp;be&nbsp;applied&nbsp;to&nbsp;this&nbsp;input,&nbsp;then&nbsp;<br>
+the&nbsp;AIML&nbsp;intepreter&nbsp;will&nbsp;process&nbsp;the&nbsp;input&nbsp;string.&nbsp;Any&nbsp;response&nbsp;<br>
+provided&nbsp;by&nbsp;AIML&nbsp;interpreter&nbsp;is&nbsp;then&nbsp;returned&nbsp;to&nbsp;the&nbsp;user.<br>
+&nbsp;<br>
+Functions&nbsp;<a href="#-aiml_set_bot_prop">aiml_set_bot_prop</a>()&nbsp;and&nbsp;<a href="#-aiml_get_bot_prop">aiml_get_bot_prop</a>()&nbsp;can&nbsp;be&nbsp;used&nbsp;to<br>
+manage&nbsp;global&nbsp;bot&nbsp;properties&nbsp;(constants)&nbsp;accessed&nbsp;by&nbsp;AIML&nbsp;rules&nbsp;with<br>
+AIML&nbsp;tags&nbsp;like:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;bot&nbsp;name="master"/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;bot&nbsp;name="name"/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;bot&nbsp;name="birthday"/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;bot&nbsp;name="birthplace"/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;bot&nbsp;name="gender"/&gt;<br>
+&nbsp;<br>
+Functions&nbsp;<a href="#-aiml_set_pred">aiml_set_pred</a>()&nbsp;and&nbsp;<a href="#-aiml_get_pred">aiml_get_pred</a>()&nbsp;can&nbsp;be&nbsp;used&nbsp;to&nbsp;read&nbsp;and<br>
+modify&nbsp;global&nbsp;predicates&nbsp;(variables)&nbsp;used&nbsp;by&nbsp;AIML&nbsp;rules&nbsp;with<br>
+AIML&nbsp;tags&nbsp;like:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;set&nbsp;name="name"/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;get&nbsp;name="name"/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;set&nbsp;name="age"/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;get&nbsp;name="age"/&gt;<br>
+&nbsp;<br>
+See&nbsp;the&nbsp;help&nbsp;of&nbsp;these&nbsp;functions&nbsp;for&nbsp;more&nbsp;details.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;aimlfiles:&nbsp;&nbsp;the&nbsp;AIML&nbsp;file&nbsp;(or&nbsp;list&nbsp;of&nbsp;AIML&nbsp;files)&nbsp;to&nbsp;be&nbsp;loaded&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;by&nbsp;AIML&nbsp;interpreter<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Returns:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;False.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;configure&nbsp;AIML&nbsp;files&nbsp;used&nbsp;by&nbsp;the&nbsp;NNL&nbsp;dialog&nbsp;system&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;and&nbsp;returns&nbsp;True.</tt></dd></dl>
+ <dl><dt><a name="-set_dialog_hear_talk_rules_file"><strong>set_dialog_hear_talk_rules_file</strong></a>(acid, rulesfile)</dt><dd><tt>In&nbsp;addition&nbsp;to&nbsp;the&nbsp;main&nbsp;processor&nbsp;of&nbsp;the&nbsp;NNL&nbsp;dialog&nbsp;system,&nbsp;<br>
+which&nbsp;is&nbsp;oriented&nbsp;to&nbsp;find&nbsp;user&nbsp;intents,&nbsp;the&nbsp;NNL&nbsp;dialog&nbsp;system&nbsp;can&nbsp;<br>
+also&nbsp;handle&nbsp;simple&nbsp;"hear&nbsp;and&nbsp;talk"&nbsp;rules&nbsp;that&nbsp;map&nbsp;token&nbsp;patterns&nbsp;<br>
+found&nbsp;in&nbsp;input&nbsp;text&nbsp;directly&nbsp;into&nbsp;output&nbsp;text&nbsp;messages.&nbsp;If&nbsp;no&nbsp;intent&nbsp;<br>
+is&nbsp;found&nbsp;on&nbsp;the&nbsp;user&nbsp;input&nbsp;and&nbsp;the&nbsp;hear-talk&nbsp;rule&nbsp;processing&nbsp;is&nbsp;<br>
+configured&nbsp;then&nbsp;the&nbsp;NNL&nbsp;processor&nbsp;will&nbsp;search&nbsp;hear-talk&nbsp;rules&nbsp;for&nbsp;a&nbsp;<br>
+rule&nbsp;that&nbsp;match&nbsp;the&nbsp;input&nbsp;string&nbsp;and&nbsp;return&nbsp;the&nbsp;output&nbsp;of&nbsp;this&nbsp;rule<br>
+(the&nbsp;'talk'&nbsp;part&nbsp;of&nbsp;the&nbsp;rule)&nbsp;as&nbsp;the&nbsp;output&nbsp;message.<br>
+&nbsp;<br>
+This&nbsp;hear-talk&nbsp;rule&nbsp;processing&nbsp;is&nbsp;configured&nbsp;by&nbsp;the&nbsp;hear-talk&nbsp;JSON&nbsp;<br>
+file&nbsp;defined&nbsp;by&nbsp;rulesfile&nbsp;parameter.&nbsp;This&nbsp;file&nbsp;stores&nbsp;a&nbsp;JSON&nbsp;list<br>
+of&nbsp;hear-talk&nbsp;rules&nbsp;with&nbsp;the&nbsp;following&nbsp;structure:<br>
+[<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"hear":&nbsp;&nbsp;&nbsp;&nbsp;[token-patterns-for-rule-1],<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"talk":&nbsp;&nbsp;&nbsp;&nbsp;&lt;output-for-rule-1&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;},<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"hear":&nbsp;&nbsp;&nbsp;&nbsp;[token-patterns-for-rule-2],<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"talk":&nbsp;&nbsp;&nbsp;&nbsp;&lt;output-for-rule-2&gt;,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;},<br>
+&nbsp;&nbsp;&nbsp;&nbsp;...<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"hear":&nbsp;&nbsp;&nbsp;&nbsp;[token-patterns-for-rule-n],<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"talk":&nbsp;&nbsp;&nbsp;&nbsp;&lt;output-for-rule-n&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+]<br>
+where:&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;output-for-rule-i&gt;&nbsp;can&nbsp;be&nbsp;an&nbsp;output&nbsp;string&nbsp;or&nbsp;a&nbsp;list&nbsp;of&nbsp;output&nbsp;strings.<br>
+&nbsp;<br>
+Each&nbsp;hear-talk&nbsp;rule&nbsp;has&nbsp;a&nbsp;"hear"&nbsp;and&nbsp;a&nbsp;"talk"&nbsp;side.&nbsp;The&nbsp;"hear"&nbsp;side&nbsp;of&nbsp;<br>
+the&nbsp;rule&nbsp;define&nbsp;a&nbsp;list&nbsp;of&nbsp;token&nbsp;patterns&nbsp;to&nbsp;be&nbsp;matched&nbsp;against&nbsp;the&nbsp;input&nbsp;<br>
+string.&nbsp;The&nbsp;format&nbsp;of&nbsp;these&nbsp;token&nbsp;patterns&nbsp;is&nbsp;the&nbsp;same&nbsp;used&nbsp;in&nbsp;the&nbsp;pattern&nbsp;<br>
+to&nbsp;intents&nbsp;file&nbsp;(see&nbsp;the&nbsp;help&nbsp;of&nbsp;<a href="#-set_dialog_patterns_file">set_dialog_patterns_file</a>()&nbsp;function&nbsp;for&nbsp;<br>
+details).<br>
+&nbsp;<br>
+The&nbsp;hear-talk&nbsp;pattern&nbsp;matcher&nbsp;scans&nbsp;the&nbsp;hear-talk&nbsp;JSON&nbsp;file&nbsp;from&nbsp;top&nbsp;to&nbsp;<br>
+botton&nbsp;for&nbsp;each&nbsp;new&nbsp;input&nbsp;string.&nbsp;If&nbsp;some&nbsp;of&nbsp;the&nbsp;token&nbsp;patterns&nbsp;from&nbsp;the&nbsp;<br>
+"hear"&nbsp;part&nbsp;of&nbsp;some&nbsp;hear-talk&nbsp;rule&nbsp;match&nbsp;the&nbsp;input&nbsp;string,&nbsp;then&nbsp;the&nbsp;output&nbsp;<br>
+for&nbsp;this&nbsp;rule&nbsp;defined&nbsp;in&nbsp;the&nbsp;"talk"&nbsp;side&nbsp;of&nbsp;the&nbsp;rule&nbsp;is&nbsp;processed&nbsp;and&nbsp;sent&nbsp;<br>
+back&nbsp;to&nbsp;the&nbsp;user.<br>
+&nbsp;<br>
+The&nbsp;output&nbsp;of&nbsp;hear-talk&nbsp;rules&nbsp;can&nbsp;be&nbsp;composed&nbsp;by&nbsp;an&nbsp;output&nbsp;string&nbsp;or&nbsp;by&nbsp;<br>
+a&nbsp;list&nbsp;of&nbsp;output&nbsp;strings.&nbsp;If&nbsp;it&nbsp;is&nbsp;a&nbsp;list,&nbsp;then&nbsp;some&nbsp;string&nbsp;of&nbsp;this&nbsp;list&nbsp;<br>
+is&nbsp;randomically&nbsp;chosen&nbsp;as&nbsp;the&nbsp;output&nbsp;string&nbsp;to&nbsp;be&nbsp;sent&nbsp;to&nbsp;user.<br>
+&nbsp;<br>
+Output&nbsp;strings&nbsp;can&nbsp;contain&nbsp;some&nbsp;additional&nbsp;fields,&nbsp;enclosed&nbsp;by&nbsp;'{'&nbsp;and<br>
+'}'&nbsp;character,&nbsp;which&nbsp;are&nbsp;replaced&nbsp;with&nbsp;corresponding&nbsp;values&nbsp;before&nbsp;<br>
+sending&nbsp;the&nbsp;output&nbsp;back&nbsp;to&nbsp;user.<br>
+&nbsp;<br>
+Fields&nbsp;{0},&nbsp;{1},&nbsp;{2},&nbsp;...&nbsp;are&nbsp;replaced&nbsp;by&nbsp;tokens&nbsp;extracted&nbsp;from&nbsp;the&nbsp;input&nbsp;<br>
+string&nbsp;by&nbsp;the&nbsp;token&nbsp;pattern&nbsp;(see&nbsp;<a href="#-set_dialog_patterns_file">set_dialog_patterns_file</a>()&nbsp;function&nbsp;help&nbsp;<br>
+for&nbsp;details&nbsp;on&nbsp;how&nbsp;to&nbsp;extract&nbsp;tokens&nbsp;from&nbsp;input).<br>
+&nbsp;<br>
+Fields&nbsp;{memory-var-1},&nbsp;{memory-var-2},&nbsp;...&nbsp;where&nbsp;memory-var-i&nbsp;are&nbsp;strings<br>
+with&nbsp;the&nbsp;name&nbsp;of&nbsp;memory&nbsp;variables,&nbsp;are&nbsp;replaced&nbsp;by&nbsp;the&nbsp;values&nbsp;of&nbsp;these<br>
+variables.&nbsp;A&nbsp;memory&nbsp;variable&nbsp;is&nbsp;stored&nbsp;in&nbsp;a&nbsp;memory&nbsp;record&nbsp;with&nbsp;two&nbsp;fields:&nbsp;<br>
+the&nbsp;first&nbsp;field&nbsp;is&nbsp;a&nbsp;string&nbsp;with&nbsp;the&nbsp;name&nbsp;of&nbsp;the&nbsp;variable&nbsp;and&nbsp;the&nbsp;second&nbsp;<br>
+field&nbsp;is&nbsp;a&nbsp;string&nbsp;with&nbsp;the&nbsp;value&nbsp;of&nbsp;the&nbsp;variable.&nbsp;<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;rulesfile:&nbsp;name&nbsp;of&nbsp;JSON&nbsp;file&nbsp;containing&nbsp;hear-talk&nbsp;rules<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;False.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;configure&nbsp;hear-talk&nbsp;rules&nbsp;file&nbsp;used&nbsp;by&nbsp;the&nbsp;NNL&nbsp;dialog&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;system&nbsp;and&nbsp;returns&nbsp;True.</tt></dd></dl>
+ <dl><dt><a name="-set_dialog_intents_file"><strong>set_dialog_intents_file</strong></a>(acid, intentsfile)</dt><dd><tt>The&nbsp;main&nbsp;processor&nbsp;of&nbsp;NNL&nbsp;dialog&nbsp;system&nbsp;is&nbsp;formed&nbsp;by&nbsp;a&nbsp;token&nbsp;pattern&nbsp;<br>
+matcher&nbsp;that&nbsp;try&nbsp;to&nbsp;identify&nbsp;some&nbsp;intention&nbsp;on&nbsp;the&nbsp;input&nbsp;string,&nbsp;and&nbsp;execute&nbsp;<br>
+the&nbsp;corresponding&nbsp;Python&nbsp;function&nbsp;that&nbsp;implements&nbsp;the&nbsp;handling&nbsp;of&nbsp;this&nbsp;<br>
+intention.<br>
+&nbsp;<br>
+Intent&nbsp;functions&nbsp;are&nbsp;Python&nbsp;functions&nbsp;that&nbsp;implement&nbsp;the&nbsp;handling&nbsp;of&nbsp;intentions&nbsp;<br>
+defined&nbsp;in&nbsp;the&nbsp;patterns&nbsp;to&nbsp;intents&nbsp;file.&nbsp;The&nbsp;intentsfile&nbsp;parameter&nbsp;is&nbsp;the&nbsp;name&nbsp;of&nbsp;<br>
+the&nbsp;Python&nbsp;module&nbsp;that&nbsp;contains&nbsp;all&nbsp;intent&nbsp;functions&nbsp;defined&nbsp;in&nbsp;the&nbsp;pattern&nbsp;<br>
+to&nbsp;intents&nbsp;JSON&nbsp;file.<br>
+&nbsp;<br>
+Intent&nbsp;functions&nbsp;defined&nbsp;in&nbsp;intentsfile&nbsp;module&nbsp;must&nbsp;have&nbsp;the&nbsp;same&nbsp;name&nbsp;of&nbsp;<br>
+the&nbsp;intention&nbsp;and&nbsp;must&nbsp;use&nbsp;the&nbsp;following&nbsp;template:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;intent_name(acid,username,userinput,matches)<br>
+where&nbsp;intent_name&nbsp;is&nbsp;the&nbsp;name&nbsp;of&nbsp;the&nbsp;intention&nbsp;as&nbsp;defined&nbsp;in&nbsp;the&nbsp;patterns&nbsp;to<br>
+intents&nbsp;file&nbsp;(without&nbsp;the&nbsp;quotes),&nbsp;and&nbsp;with&nbsp;the&nbsp;following&nbsp;arguments:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;username:&nbsp;&nbsp;&nbsp;name&nbsp;of&nbsp;the&nbsp;user&nbsp;as&nbsp;received&nbsp;by&nbsp;<a href="#-process_dialog_input">process_dialog_input</a>()&nbsp;function<br>
+&nbsp;&nbsp;&nbsp;&nbsp;userinput:&nbsp;&nbsp;string&nbsp;with&nbsp;last&nbsp;user&nbsp;input&nbsp;as&nbsp;received&nbsp;by&nbsp;<a href="#-process_dialog_input">process_dialog_input</a>()&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;function<br>
+&nbsp;&nbsp;&nbsp;&nbsp;matches:&nbsp;&nbsp;&nbsp;&nbsp;list&nbsp;of&nbsp;tokens&nbsp;extracted&nbsp;by&nbsp;the&nbsp;token&nbsp;matcher,&nbsp;can&nbsp;be&nbsp;None&nbsp;or&nbsp;the<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;empty&nbsp;list&nbsp;[]&nbsp;if&nbsp;no&nbsp;tokens&nbsp;were&nbsp;extracted&nbsp;from&nbsp;the&nbsp;input&nbsp;string<br>
+&nbsp;<br>
+Intent&nbsp;functions&nbsp;return&nbsp;a&nbsp;string&nbsp;to&nbsp;be&nbsp;sent&nbsp;back&nbsp;to&nbsp;the&nbsp;user.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;intentsfile:&nbsp;name&nbsp;of&nbsp;Python&nbsp;module&nbsp;with&nbsp;functions&nbsp;that&nbsp;implement&nbsp;dialog&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;intentions<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Returns:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;False.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;configure&nbsp;the&nbsp;intents&nbsp;file&nbsp;to&nbsp;be&nbsp;used&nbsp;by&nbsp;the&nbsp;NNL&nbsp;dialog&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;system&nbsp;and&nbsp;returns&nbsp;True.</tt></dd></dl>
+ <dl><dt><a name="-set_dialog_patterns_file"><strong>set_dialog_patterns_file</strong></a>(acid, pattsfile)</dt><dd><tt>The&nbsp;main&nbsp;processor&nbsp;of&nbsp;NNL&nbsp;dialog&nbsp;system&nbsp;is&nbsp;formed&nbsp;by&nbsp;a&nbsp;token&nbsp;pattern&nbsp;<br>
+matcher&nbsp;that&nbsp;try&nbsp;to&nbsp;identify&nbsp;some&nbsp;intention&nbsp;on&nbsp;the&nbsp;input&nbsp;string,&nbsp;and&nbsp;execute&nbsp;<br>
+the&nbsp;corresponding&nbsp;Python&nbsp;function&nbsp;that&nbsp;implements&nbsp;the&nbsp;handling&nbsp;of&nbsp;this&nbsp;<br>
+intention.&nbsp;<br>
+&nbsp;<br>
+The&nbsp;token&nbsp;pattern&nbsp;matcher&nbsp;is&nbsp;configured&nbsp;by&nbsp;a&nbsp;patterns&nbsp;to&nbsp;intents&nbsp;JSON&nbsp;file&nbsp;<br>
+(the&nbsp;pattsfile&nbsp;parameter)&nbsp;with&nbsp;a&nbsp;JSON&nbsp;list&nbsp;with&nbsp;the&nbsp;following&nbsp;structure:<br>
+[<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{"intent-1":&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[pattern1-for-intent-1,&nbsp;pattern2-for-intent1,&nbsp;...]},<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{"intent-2":&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[pattern1-for-intent-2,&nbsp;pattern2-for-intent2,&nbsp;...]},<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{"intent-3":&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[pattern1-for-intent-3,&nbsp;pattern2-for-intent3,&nbsp;...]},<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{"intent-n":&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[pattern1-for-intent-n,&nbsp;pattern2-for-intent-n,&nbsp;...]}<br>
+]<br>
+&nbsp;<br>
+In&nbsp;this&nbsp;list,&nbsp;each&nbsp;element&nbsp;with&nbsp;index&nbsp;i&nbsp;is&nbsp;an&nbsp;JSON&nbsp;<a href="builtins.html#object">object</a>&nbsp;with&nbsp;structure:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{"intent-i":&nbsp;[pattern1-for-intent-i,&nbsp;pattern2-for-intenti,&nbsp;...]}<br>
+that&nbsp;defines&nbsp;an&nbsp;intent&nbsp;detection&nbsp;pattern&nbsp;where:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;intent-i&nbsp;is&nbsp;the&nbsp;identifier&nbsp;of&nbsp;the&nbsp;intention.&nbsp;Intent&nbsp;identifiers&nbsp;can<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;have&nbsp;one&nbsp;of&nbsp;the&nbsp;following&nbsp;formats:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;intent-name<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;intent-name:[username1,&nbsp;username2,&nbsp;...]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;intent-name@dialog-mode<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;intent-name:[username1,&nbsp;username2,&nbsp;...]@dialog-mode<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;where:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;intent-name&nbsp;is&nbsp;the&nbsp;name&nbsp;of&nbsp;the&nbsp;Python&nbsp;function&nbsp;which&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;implements&nbsp;the&nbsp;intention,&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;username1,&nbsp;username2&nbsp;are&nbsp;names&nbsp;of&nbsp;users,&nbsp;when&nbsp;this&nbsp;list&nbsp;of&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;users&nbsp;is&nbsp;specified,&nbsp;then&nbsp;the&nbsp;intention&nbsp;can&nbsp;be&nbsp;selected&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;only&nbsp;if&nbsp;the&nbsp;user&nbsp;that&nbsp;send&nbsp;the&nbsp;input&nbsp;text&nbsp;being&nbsp;processed&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;is&nbsp;in&nbsp;this&nbsp;list.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dialog-mode&nbsp;is&nbsp;an&nbsp;identifier&nbsp;that&nbsp;can&nbsp;be&nbsp;used&nbsp;to&nbsp;select&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;particular&nbsp;intentions&nbsp;from&nbsp;the&nbsp;JSON&nbsp;dialog&nbsp;pattern&nbsp;file.&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;See&nbsp;<a href="#-set_mode">set_mode</a>()&nbsp;function&nbsp;for&nbsp;details.&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;pattern1-for-intent-i,&nbsp;pattern2-for-intent-i,&nbsp;...<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;are&nbsp;token&nbsp;patterns,&nbsp;where&nbsp;each&nbsp;token&nbsp;pattern&nbsp;is&nbsp;a<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;string&nbsp;of&nbsp;tokens&nbsp;to&nbsp;be&nbsp;matched&nbsp;against&nbsp;the&nbsp;input&nbsp;string.&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+To&nbsp;identify&nbsp;some&nbsp;intention&nbsp;on&nbsp;the&nbsp;input&nbsp;string&nbsp;the&nbsp;token&nbsp;pattern&nbsp;matcher<br>
+will&nbsp;go&nbsp;through&nbsp;the&nbsp;list&nbsp;of&nbsp;intent&nbsp;detection&nbsp;patterns&nbsp;from&nbsp;the&nbsp;first&nbsp;to&nbsp;the&nbsp;<br>
+last&nbsp;element&nbsp;(or,&nbsp;equivalently,&nbsp;from&nbsp;top&nbsp;to&nbsp;bottom&nbsp;of&nbsp;patterns&nbsp;to&nbsp;intents&nbsp;<br>
+JSON&nbsp;file).<br>
+&nbsp;<br>
+If&nbsp;some&nbsp;token&nbsp;pattern&nbsp;from&nbsp;a&nbsp;patterns-for-intent-i&nbsp;list&nbsp;matches&nbsp;the&nbsp;input&nbsp;<br>
+string,&nbsp;then&nbsp;the&nbsp;intent&nbsp;Python&nbsp;function&nbsp;corresponding&nbsp;to&nbsp;intent&nbsp;identifier<br>
+intent-i,&nbsp;is&nbsp;called.&nbsp;<br>
+&nbsp;<br>
+Only&nbsp;the&nbsp;first&nbsp;intention&nbsp;found&nbsp;on&nbsp;the&nbsp;input&nbsp;string&nbsp;has&nbsp;its&nbsp;corresponding&nbsp;<br>
+intent&nbsp;function&nbsp;called.&nbsp;The&nbsp;pattern&nbsp;matcher&nbsp;scans&nbsp;the&nbsp;pattern&nbsp;to&nbsp;intent<br>
+JSON&nbsp;file&nbsp;from&nbsp;top&nbsp;to&nbsp;botton&nbsp;for&nbsp;each&nbsp;new&nbsp;input&nbsp;string.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+A&nbsp;token&nbsp;pattern&nbsp;is&nbsp;a&nbsp;string&nbsp;formed&nbsp;by&nbsp;tokens&nbsp;enclosed&nbsp;in&nbsp;'&lt;'&nbsp;and&nbsp;'&gt;'.<br>
+Words&nbsp;separated&nbsp;by&nbsp;one&nbsp;or&nbsp;more&nbsp;spaces&nbsp;(or&nbsp;tabs)&nbsp;in&nbsp;the&nbsp;input&nbsp;string<br>
+are&nbsp;matched&nbsp;against&nbsp;the&nbsp;tokens&nbsp;defined&nbsp;in&nbsp;the&nbsp;token&nbsp;pattern.<br>
+The&nbsp;case&nbsp;of&nbsp;characters&nbsp;(if&nbsp;they&nbsp;are&nbsp;uppercase&nbsp;or&nbsp;lowercase)&nbsp;is&nbsp;<br>
+irrelevant.&nbsp;Additionally,&nbsp;regular&nbsp;expression&nbsp;operators&nbsp;can&nbsp;be&nbsp;used<br>
+with&nbsp;tokens&nbsp;and&nbsp;inside&nbsp;tokens&nbsp;too.&nbsp;In&nbsp;particular,&nbsp;the&nbsp;following&nbsp;regular<br>
+expression&nbsp;operations&nbsp;are&nbsp;supported&nbsp;by&nbsp;token&nbsp;patterns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"."&nbsp;-&nbsp;the&nbsp;dot&nbsp;operator&nbsp;will&nbsp;match&nbsp;any&nbsp;character&nbsp;in&nbsp;that&nbsp;position;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"|"&nbsp;-&nbsp;the&nbsp;OR&nbsp;operator&nbsp;can&nbsp;be&nbsp;use&nbsp;for&nbsp;OR&nbsp;comparisons:&nbsp;a&nbsp;match&nbsp;occurs<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;any&nbsp;word&nbsp;from&nbsp;the&nbsp;words&nbsp;separated&nbsp;by&nbsp;"|"&nbsp;inside&nbsp;the&nbsp;token&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;match&nbsp;the&nbsp;corresponding&nbsp;word&nbsp;in&nbsp;the&nbsp;input&nbsp;string<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"*"&nbsp;-&nbsp;the&nbsp;asterisk&nbsp;operator&nbsp;will&nbsp;match&nbsp;any&nbsp;sequence&nbsp;of&nbsp;zero&nbsp;or&nbsp;more<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;repetitions&nbsp;of&nbsp;the&nbsp;character&nbsp;or&nbsp;pattern&nbsp;preceding&nbsp;this&nbsp;operator&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"+"&nbsp;-&nbsp;the&nbsp;plus&nbsp;operator&nbsp;will&nbsp;match&nbsp;any&nbsp;sequence&nbsp;of&nbsp;one&nbsp;or&nbsp;more<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;repetitions&nbsp;of&nbsp;the&nbsp;character&nbsp;or&nbsp;pattern&nbsp;preceding&nbsp;this&nbsp;oper&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"?"&nbsp;-&nbsp;the&nbsp;optional&nbsp;operator:&nbsp;the&nbsp;matching&nbsp;of&nbsp;the&nbsp;preceding&nbsp;token&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;in&nbsp;the&nbsp;token&nbsp;pattern&nbsp;is&nbsp;optional<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"_"&nbsp;-&nbsp;the&nbsp;substring&nbsp;operator&nbsp;used&nbsp;only&nbsp;on&nbsp;the&nbsp;beginning&nbsp;or&nbsp;the<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ending&nbsp;of&nbsp;the&nbsp;token&nbsp;pattern:&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;if&nbsp;the&nbsp;token&nbsp;pattern&nbsp;starts&nbsp;with&nbsp;"_",&nbsp;then&nbsp;the&nbsp;subsequent&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;token&nbsp;pattern&nbsp;do&nbsp;not&nbsp;need&nbsp;to&nbsp;match&nbsp;from&nbsp;the&nbsp;beginning&nbsp;of&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;input&nbsp;string&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;if&nbsp;the&nbsp;token&nbsp;pattern&nbsp;ends&nbsp;with&nbsp;"_",&nbsp;then&nbsp;the&nbsp;preceding<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;token&nbsp;pattern&nbsp;do&nbsp;not&nbsp;need&nbsp;to&nbsp;match&nbsp;until&nbsp;the&nbsp;end&nbsp;of&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;input&nbsp;string&nbsp;<br>
+&nbsp;<br>
+Strings&nbsp;can&nbsp;also&nbsp;be&nbsp;extracted&nbsp;from&nbsp;the&nbsp;input&nbsp;string&nbsp;by&nbsp;enclosing&nbsp;tokens&nbsp;<br>
+in&nbsp;the&nbsp;token&nbsp;pattern&nbsp;in&nbsp;'('&nbsp;and&nbsp;')'.&nbsp;Text&nbsp;that&nbsp;matched&nbsp;tokens&nbsp;enclosed&nbsp;in&nbsp;<br>
+parentheses&nbsp;is&nbsp;extracted&nbsp;and&nbsp;returned&nbsp;by&nbsp;the&nbsp;token&nbsp;matcher.&nbsp;Some&nbsp;examples&nbsp;<br>
+of&nbsp;token&nbsp;patterns:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"&lt;a&gt;&lt;text&gt;&lt;with&gt;&lt;five&gt;&lt;tokens&gt;"&nbsp;-&nbsp;this&nbsp;pattern&nbsp;will&nbsp;match&nbsp;strings&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;similar&nbsp;to:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"a&nbsp;text&nbsp;with&nbsp;five&nbsp;tokens"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"A&nbsp;Text&nbsp;&nbsp;&nbsp;With&nbsp;fIVe&nbsp;tokeNS"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"A&nbsp;TeXT&nbsp;with&nbsp;&nbsp;&nbsp;FIVE&nbsp;&nbsp;TOKEns"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"_&lt;a&gt;&lt;text&gt;&lt;with&gt;&lt;five&gt;&lt;tokens&gt;"&nbsp;-&nbsp;this&nbsp;pattern&nbsp;will&nbsp;match&nbsp;strings&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;similar&nbsp;to:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"a&nbsp;text&nbsp;with&nbsp;five&nbsp;tokens"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"this&nbsp;is&nbsp;not&nbsp;a&nbsp;&nbsp;&nbsp;text&nbsp;&nbsp;&nbsp;with&nbsp;&nbsp;&nbsp;five&nbsp;tokens"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"THIS&nbsp;&nbsp;also&nbsp;is&nbsp;not&nbsp;A&nbsp;Text&nbsp;&nbsp;&nbsp;With&nbsp;fIVe&nbsp;&nbsp;tokeNS"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"I&nbsp;dont&nbsp;care&nbsp;about&nbsp;A&nbsp;TeXT&nbsp;with&nbsp;&nbsp;&nbsp;FIVE&nbsp;TOKEns"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"&lt;a&gt;&lt;text&gt;&lt;with&gt;&lt;five&gt;&lt;tokens&gt;_"&nbsp;-&nbsp;this&nbsp;pattern&nbsp;will&nbsp;match&nbsp;strings&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;similar&nbsp;to:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"a&nbsp;text&nbsp;with&nbsp;five&nbsp;tokens"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"A&nbsp;Text&nbsp;&nbsp;&nbsp;With&nbsp;fIVe&nbsp;tokeNS&nbsp;is&nbsp;what&nbsp;i&nbsp;NEEd"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"A&nbsp;TeXT&nbsp;with&nbsp;&nbsp;&nbsp;FIVE&nbsp;TOKEns&nbsp;and&nbsp;another&nbsp;four&nbsp;TOkens"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"_&lt;a&gt;&lt;text&gt;&lt;with&gt;&lt;five&gt;&lt;tokens&gt;_"&nbsp;-&nbsp;this&nbsp;pattern&nbsp;will&nbsp;match&nbsp;strings&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;similar&nbsp;to:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"a&nbsp;text&nbsp;with&nbsp;five&nbsp;tokens"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"this&nbsp;is&nbsp;not&nbsp;a&nbsp;&nbsp;&nbsp;text&nbsp;&nbsp;&nbsp;with&nbsp;&nbsp;&nbsp;five&nbsp;tokens"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"A&nbsp;Text&nbsp;&nbsp;&nbsp;With&nbsp;fIVe&nbsp;tokeNS&nbsp;is&nbsp;what&nbsp;i&nbsp;NEEd"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"thIS&nbsp;is&nbsp;not&nbsp;A&nbsp;TeXT&nbsp;with&nbsp;&nbsp;&nbsp;FIVE&nbsp;TOKEns&nbsp;and&nbsp;another&nbsp;&nbsp;four&nbsp;toKens"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"&lt;a&gt;&lt;text|phrase|paragraph|message&gt;&lt;with&gt;&lt;five&gt;&lt;tokens|words|terms&gt;"&nbsp;-<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this&nbsp;pattern&nbsp;will&nbsp;match&nbsp;strings&nbsp;similar&nbsp;to:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"a&nbsp;text&nbsp;with&nbsp;five&nbsp;tokens"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"a&nbsp;message&nbsp;with&nbsp;five&nbsp;words"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"A&nbsp;Paragraph&nbsp;With&nbsp;Five&nbsp;Terms"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"A&nbsp;phrase&nbsp;with&nbsp;&nbsp;&nbsp;FIVE&nbsp;words"&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"_&lt;.+&gt;&lt;.+&gt;&lt;with&gt;_"&nbsp;-&nbsp;this&nbsp;pattern&nbsp;matches&nbsp;with&nbsp;strings&nbsp;that&nbsp;have&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a&nbsp;sequence&nbsp;of&nbsp;3&nbsp;tokens&nbsp;where&nbsp;the&nbsp;last&nbsp;token&nbsp;is&nbsp;"with"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"&lt;a&gt;(&lt;.*&gt;)&lt;with&gt;"&nbsp;-&nbsp;this&nbsp;pattern&nbsp;matches&nbsp;with&nbsp;strings&nbsp;that&nbsp;have&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a&nbsp;sequence&nbsp;of&nbsp;2&nbsp;or&nbsp;more&nbsp;tokens&nbsp;where&nbsp;the&nbsp;first&nbsp;token&nbsp;is&nbsp;"a"&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;and&nbsp;the&nbsp;last&nbsp;is&nbsp;"with".&nbsp;This&nbsp;pattern&nbsp;also&nbsp;extract&nbsp;the&nbsp;text&nbsp;that<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;match&nbsp;the&nbsp;tokens&nbsp;in&nbsp;the&nbsp;middle&nbsp;of&nbsp;the&nbsp;sequence.&nbsp;For&nbsp;instance,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this&nbsp;pattern&nbsp;will&nbsp;match&nbsp;the&nbsp;string:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"a&nbsp;text&nbsp;with&nbsp;five&nbsp;tokens"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;and&nbsp;extract&nbsp;the&nbsp;string:&nbsp;"text"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;It&nbsp;will&nbsp;also&nbsp;match&nbsp;the&nbsp;string:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"A&nbsp;Paragraph&nbsp;With&nbsp;Five&nbsp;Terms"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;extracting&nbsp;the&nbsp;string:&nbsp;"Paragraph"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"&lt;.+&gt;&lt;.+&gt;&lt;with&gt;"&nbsp;-&nbsp;matches&nbsp;with&nbsp;strings&nbsp;that&nbsp;start&nbsp;with&nbsp;a&nbsp;sequence<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;of&nbsp;3&nbsp;tokens&nbsp;and&nbsp;the&nbsp;last&nbsp;token&nbsp;is&nbsp;"with"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"_&lt;.+&gt;&lt;.+&gt;&lt;five&gt;&lt;.+&gt;"&nbsp;-&nbsp;matches&nbsp;with&nbsp;strings&nbsp;that&nbsp;end&nbsp;with&nbsp;a&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sequence&nbsp;of&nbsp;4&nbsp;tokens,&nbsp;where&nbsp;the&nbsp;third&nbsp;token&nbsp;of&nbsp;this<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sequence&nbsp;is&nbsp;"five"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"(&lt;t.*&gt;)"&nbsp;-&nbsp;matches&nbsp;with&nbsp;strings&nbsp;that&nbsp;have&nbsp;one&nbsp;token&nbsp;which&nbsp;starts&nbsp;with<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;character&nbsp;'t'.&nbsp;The&nbsp;matching&nbsp;string&nbsp;is&nbsp;also&nbsp;extracted<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"(&lt;a.*&gt;)&lt;.*&gt;*(&lt;t.*&gt;)"&nbsp;-&nbsp;matches&nbsp;with&nbsp;strings&nbsp;formed&nbsp;by&nbsp;a&nbsp;sequence&nbsp;of&nbsp;2<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;or&nbsp;more&nbsp;tokens,&nbsp;where&nbsp;the&nbsp;first&nbsp;token&nbsp;start&nbsp;with&nbsp;character&nbsp;'a'&nbsp;and<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;last&nbsp;token&nbsp;start&nbsp;with&nbsp;character&nbsp;'t'.&nbsp;This&nbsp;pattern&nbsp;also&nbsp;extract&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;strings&nbsp;corresponding&nbsp;to&nbsp;the&nbsp;first&nbsp;and&nbsp;last&nbsp;token.&nbsp;&nbsp;For&nbsp;instance,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this&nbsp;pattern&nbsp;will&nbsp;match&nbsp;the&nbsp;string:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"a&nbsp;text&nbsp;with&nbsp;five&nbsp;tokens"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;and&nbsp;extract&nbsp;the&nbsp;strings:&nbsp;"a"&nbsp;and&nbsp;"tokens"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;It&nbsp;will&nbsp;also&nbsp;match&nbsp;the&nbsp;string:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"A&nbsp;Paragraph&nbsp;With&nbsp;Five&nbsp;Terms"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;extracting&nbsp;the&nbsp;strings:&nbsp;"A"&nbsp;and&nbsp;"Terms"<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;pattsfile:&nbsp;name&nbsp;of&nbsp;JSON&nbsp;file&nbsp;with&nbsp;dialog&nbsp;patterns&nbsp;to&nbsp;detect&nbsp;intentions<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;False.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;configure&nbsp;the&nbsp;dialog&nbsp;pattern&nbsp;file&nbsp;used&nbsp;by&nbsp;NNL&nbsp;dialog&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;system&nbsp;and&nbsp;returns&nbsp;True.</tt></dd></dl>
+ <dl><dt><a name="-set_dialog_speeches_file"><strong>set_dialog_speeches_file</strong></a>(acid, speechesfile)</dt><dd><tt>The&nbsp;NNL&nbsp;dialog&nbsp;system&nbsp;provides&nbsp;a&nbsp;service&nbsp;that&nbsp;can&nbsp;be&nbsp;used&nbsp;by&nbsp;<br>
+intent&nbsp;functions&nbsp;to&nbsp;generate&nbsp;standard&nbsp;speeches&nbsp;or&nbsp;locutions.&nbsp;The&nbsp;<br>
+<a href="#-set_dialog_speeches_file">set_dialog_speeches_file</a>()&nbsp;function&nbsp;configures&nbsp;this&nbsp;service,&nbsp;<br>
+informing&nbsp;through&nbsp;the&nbsp;speechesfile&nbsp;parameter,&nbsp;which&nbsp;JSON&nbsp;file&nbsp;<br>
+contains&nbsp;the&nbsp;set&nbsp;of&nbsp;standard&nbsp;speeches&nbsp;or&nbsp;locutions&nbsp;to&nbsp;be&nbsp;used&nbsp;by<br>
+the&nbsp;service.&nbsp;<br>
+&nbsp;<br>
+Each&nbsp;speech&nbsp;has&nbsp;an&nbsp;unique&nbsp;identifier&nbsp;associated&nbsp;to&nbsp;to&nbsp;a&nbsp;list&nbsp;of&nbsp;<br>
+strings&nbsp;of&nbsp;text.&nbsp;These&nbsp;strings&nbsp;define&nbsp;the&nbsp;standard&nbsp;phrases&nbsp;or&nbsp;<br>
+utterances&nbsp;to&nbsp;be&nbsp;said&nbsp;in&nbsp;respect&nbsp;to&nbsp;the&nbsp;speech&nbsp;id.&nbsp;The&nbsp;JSON&nbsp;file&nbsp;<br>
+that&nbsp;defines&nbsp;the&nbsp;speeches&nbsp;have&nbsp;the&nbsp;following&nbsp;structure:<br>
+{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"speech-id-1":&nbsp;&nbsp;["string-1-of-speech-id-1",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"string-2-of-speech-id-1",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"speech-id-2":&nbsp;&nbsp;["string-1-of-speech-id-1",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"string-2-of-speech-id-1",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"speech-id-n":&nbsp;&nbsp;["string-1-of-speech-id-1",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"string-2-of-speech-id-1",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],<br>
+}<br>
+&nbsp;<br>
+The&nbsp;function:&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-gen_speak">gen_speak</a>(acid,speechid,paramlist=[],defaultphrase="")<br>
+can&nbsp;be&nbsp;used&nbsp;in&nbsp;intent&nbsp;functions&nbsp;to&nbsp;generate&nbsp;standard&nbsp;speeches.&nbsp;When&nbsp;called,&nbsp;<br>
+this&nbsp;function&nbsp;will&nbsp;try&nbsp;to&nbsp;find&nbsp;the&nbsp;list&nbsp;of&nbsp;strings/phrases&nbsp;associated&nbsp;to&nbsp;<br>
+speechid&nbsp;and&nbsp;return&nbsp;a&nbsp;random&nbsp;selected&nbsp;string/phrase&nbsp;from&nbsp;this&nbsp;list&nbsp;(if&nbsp;<br>
+nothing&nbsp;is&nbsp;found,&nbsp;this&nbsp;function&nbsp;returns&nbsp;defaultphrase&nbsp;argument).<br>
+Parametric&nbsp;phrases,&nbsp;with&nbsp;parameters&nbsp;{0},&nbsp;{1},&nbsp;...&nbsp;are&nbsp;possible.&nbsp;If&nbsp;they&nbsp;<br>
+are&nbsp;used&nbsp;the&nbsp;paramlist&nbsp;argument&nbsp;contains&nbsp;the&nbsp;list&nbsp;of&nbsp;values&nbsp;to&nbsp;replace&nbsp;<br>
+parameters&nbsp;{0},&nbsp;{1},&nbsp;...<br>
+&nbsp;<br>
+The&nbsp;function:&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-get_speaks">get_speaks</a>(acid,speechid)&nbsp;<br>
+will&nbsp;return&nbsp;the&nbsp;list&nbsp;of&nbsp;strings&nbsp;or&nbsp;phrases&nbsp;associated&nbsp;to&nbsp;a&nbsp;speechid.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;speechesfile:&nbsp;name&nbsp;of&nbsp;JSON&nbsp;file&nbsp;containing&nbsp;speeches&nbsp;that&nbsp;can&nbsp;be&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;used&nbsp;in&nbsp;intention&nbsp;functions<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Returns:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;False.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;configure&nbsp;the&nbsp;speeches&nbsp;file&nbsp;used&nbsp;by&nbsp;the&nbsp;NNL&nbsp;dialog&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;system&nbsp;and&nbsp;returns&nbsp;True.</tt></dd></dl>
+ <dl><dt><a name="-set_mode"><strong>set_mode</strong></a>(acid, mode)</dt><dd><tt>Set&nbsp;input&nbsp;mode&nbsp;for&nbsp;the&nbsp;next&nbsp;iteration&nbsp;of&nbsp;dialog&nbsp;processor.<br>
+&nbsp;<br>
+The&nbsp;NNL&nbsp;dialog&nbsp;system&nbsp;provides&nbsp;a&nbsp;service&nbsp;to&nbsp;handle&nbsp;input&nbsp;modes&nbsp;that&nbsp;<br>
+can&nbsp;be&nbsp;used&nbsp;to&nbsp;select&nbsp;particular&nbsp;intentions&nbsp;from&nbsp;the&nbsp;JSON&nbsp;dialog&nbsp;<br>
+pattern&nbsp;files.&nbsp;An&nbsp;input&nbsp;mode&nbsp;is&nbsp;defined&nbsp;by&nbsp;an&nbsp;identifier&nbsp;(a&nbsp;single&nbsp;<br>
+word)&nbsp;that&nbsp;can&nbsp;be&nbsp;associated&nbsp;to&nbsp;some&nbsp;intention&nbsp;in&nbsp;the&nbsp;dialog&nbsp;pattern&nbsp;<br>
+file&nbsp;using&nbsp;an&nbsp;'@'&nbsp;character.<br>
+&nbsp;<br>
+The&nbsp;patterns&nbsp;corresponding&nbsp;to&nbsp;this&nbsp;intention&nbsp;are&nbsp;compared&nbsp;against&nbsp;the&nbsp;<br>
+input&nbsp;string&nbsp;only&nbsp;if&nbsp;the&nbsp;current&nbsp;input&nbsp;mode&nbsp;is&nbsp;the&nbsp;same&nbsp;input<br>
+mode&nbsp;associated&nbsp;to&nbsp;the&nbsp;intention&nbsp;by&nbsp;the&nbsp;'@'&nbsp;character.&nbsp;For&nbsp;instance,&nbsp;in&nbsp;<br>
+the&nbsp;following&nbsp;dialog&nbsp;patterns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{"processResponse":&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;["&lt;the&gt;&lt;response|answer&gt;&lt;is&gt;(&lt;.+&gt;+)"]},<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{"processResponde@answering-mode":<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;["&lt;is&gt;(&lt;.+&gt;+)",&nbsp;"&lt;it&gt;&lt;is&gt;(&lt;.+&gt;+)",&nbsp;"(&lt;.+&gt;+)"]},<br>
+the&nbsp;intention&nbsp;processResponse()&nbsp;will&nbsp;be&nbsp;called&nbsp;if&nbsp;the&nbsp;pattern:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"&lt;the&gt;&lt;response|answer&gt;&lt;is&gt;(&lt;.+&gt;+)"<br>
+matches&nbsp;the&nbsp;input&nbsp;string,&nbsp;or&nbsp;if&nbsp;the&nbsp;current&nbsp;input&nbsp;mode&nbsp;is:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"answering-mode"<br>
+and&nbsp;some&nbsp;of&nbsp;the&nbsp;following&nbsp;patterns&nbsp;match&nbsp;the&nbsp;input&nbsp;string:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"&lt;is&gt;(&lt;.+&gt;+)",&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"&lt;it&gt;&lt;is&gt;(&lt;.+&gt;+)",&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"(&lt;.+&gt;+)"<br>
+&nbsp;<br>
+Note&nbsp;that&nbsp;in&nbsp;this&nbsp;example,&nbsp;the&nbsp;patterns&nbsp;used&nbsp;in&nbsp;"answering-mode"&nbsp;mode&nbsp;are<br>
+much&nbsp;more&nbsp;generic&nbsp;than&nbsp;the&nbsp;patterns&nbsp;used&nbsp;when&nbsp;this&nbsp;mode&nbsp;is&nbsp;not&nbsp;required.<br>
+In&nbsp;particular&nbsp;the&nbsp;last&nbsp;pattern,&nbsp;"(&lt;.+&gt;+)",&nbsp;will&nbsp;match&nbsp;and&nbsp;extract&nbsp;any<br>
+sequence&nbsp;of&nbsp;words.<br>
+&nbsp;<br>
+As&nbsp;in&nbsp;the&nbsp;case&nbsp;of&nbsp;discussion&nbsp;topics,&nbsp;an&nbsp;input&nbsp;mode&nbsp;will&nbsp;usually&nbsp;last<br>
+only&nbsp;for&nbsp;one&nbsp;iteraction&nbsp;of&nbsp;NNL&nbsp;dialog&nbsp;processor.&nbsp;After&nbsp;processing&nbsp;the&nbsp;<br>
+input&nbsp;string&nbsp;and&nbsp;soon&nbsp;before&nbsp;returning&nbsp;the&nbsp;response,&nbsp;the&nbsp;NNL&nbsp;dialog&nbsp;<br>
+processor&nbsp;will&nbsp;reset&nbsp;or&nbsp;clear&nbsp;the&nbsp;current&nbsp;input&nbsp;mode.<br>
+&nbsp;<br>
+However,&nbsp;if&nbsp;during&nbsp;the&nbsp;processing&nbsp;of&nbsp;the&nbsp;input&nbsp;string&nbsp;by&nbsp;some&nbsp;intention<br>
+function,&nbsp;the&nbsp;<a href="#-set_mode">set_mode</a>()&nbsp;function&nbsp;is&nbsp;called&nbsp;by&nbsp;some&nbsp;intention&nbsp;function,&nbsp;then<br>
+a&nbsp;new&nbsp;input&nbsp;mode&nbsp;is&nbsp;defined&nbsp;and&nbsp;will&nbsp;be&nbsp;used&nbsp;in&nbsp;the&nbsp;next&nbsp;iteration&nbsp;of<br>
+dialog&nbsp;processor.&nbsp;<br>
+&nbsp;<br>
+Likewise,&nbsp;if&nbsp;the&nbsp;<a href="#-keep_mode">keep_mode</a>()&nbsp;function&nbsp;is&nbsp;called&nbsp;by&nbsp;some&nbsp;intention&nbsp;function&nbsp;<br>
+then&nbsp;the&nbsp;current&nbsp;input&nbsp;mode&nbsp;will&nbsp;be&nbsp;preserved&nbsp;to&nbsp;be&nbsp;used&nbsp;in&nbsp;the&nbsp;next&nbsp;<br>
+iteraction&nbsp;of&nbsp;the&nbsp;dialog&nbsp;processor.&nbsp;&nbsp;<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;mode:&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;the&nbsp;identifier&nbsp;of&nbsp;input&nbsp;mode,&nbsp;input<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mode&nbsp;identifiers&nbsp;are&nbsp;single&nbsp;words<br>
+&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;False.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;returns&nbsp;True.</tt></dd></dl>
+ <dl><dt><a name="-set_next_topic"><strong>set_next_topic</strong></a>(acid, name, content=None)</dt><dd><tt>Set&nbsp;the&nbsp;name&nbsp;and&nbsp;(optionally)&nbsp;the&nbsp;content&nbsp;for&nbsp;the&nbsp;next&nbsp;discussion&nbsp;<br>
+topic.&nbsp;The&nbsp;name&nbsp;of&nbsp;the&nbsp;topic&nbsp;is&nbsp;a&nbsp;string&nbsp;and&nbsp;the&nbsp;content&nbsp;of&nbsp;topic,<br>
+if&nbsp;defined,&nbsp;can&nbsp;be&nbsp;any&nbsp;Python&nbsp;literal&nbsp;value.&nbsp;Usually&nbsp;a&nbsp;discussion&nbsp;topic&nbsp;<br>
+lasts&nbsp;only&nbsp;for&nbsp;one&nbsp;iteraction&nbsp;of&nbsp;dialog&nbsp;&nbsp;processor.&nbsp;However,&nbsp;if&nbsp;during&nbsp;<br>
+the&nbsp;processing&nbsp;of&nbsp;the&nbsp;user&nbsp;input,&nbsp;the&nbsp;<a href="#-set_next_topic">set_next_topic</a>()&nbsp;function&nbsp;is&nbsp;called&nbsp;&nbsp;&nbsp;&nbsp;<br>
+by&nbsp;some&nbsp;intention&nbsp;function,&nbsp;then&nbsp;after&nbsp;reseting&nbsp;the&nbsp;current&nbsp;topic,&nbsp;this&nbsp;<br>
+next&nbsp;topic&nbsp;will&nbsp;be&nbsp;transformed&nbsp;in&nbsp;the&nbsp;new&nbsp;current&nbsp;topic.&nbsp;For&nbsp;more&nbsp;details&nbsp;<br>
+on&nbsp;discussion&nbsp;topics&nbsp;see&nbsp;the&nbsp;help&nbsp;of&nbsp;<a href="#-set_topic">set_topic</a>()&nbsp;function.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;name:&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;topic&nbsp;name<br>
+&nbsp;&nbsp;&nbsp;&nbsp;content:&nbsp;any&nbsp;literal&nbsp;value<br>
+&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;False.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;returns&nbsp;True.</tt></dd></dl>
+ <dl><dt><a name="-set_topic"><strong>set_topic</strong></a>(acid, name, content=None)</dt><dd><tt>Set&nbsp;the&nbsp;name&nbsp;and&nbsp;(optionally)&nbsp;the&nbsp;content&nbsp;for&nbsp;the&nbsp;current&nbsp;discussion&nbsp;<br>
+topic.&nbsp;The&nbsp;name&nbsp;of&nbsp;the&nbsp;topic&nbsp;is&nbsp;a&nbsp;string&nbsp;and&nbsp;the&nbsp;content&nbsp;of&nbsp;topic,&nbsp;if&nbsp;<br>
+defined,&nbsp;can&nbsp;be&nbsp;any&nbsp;Python&nbsp;literal&nbsp;value.<br>
+&nbsp;<br>
+The&nbsp;NNL&nbsp;dialog&nbsp;system&nbsp;provides&nbsp;a&nbsp;service&nbsp;to&nbsp;handle&nbsp;discussion&nbsp;topics&nbsp;<br>
+that&nbsp;can&nbsp;be&nbsp;used&nbsp;by&nbsp;intent&nbsp;functions&nbsp;to&nbsp;keep&nbsp;track&nbsp;of&nbsp;the&nbsp;topic&nbsp;being&nbsp;<br>
+discussed&nbsp;in&nbsp;dialogs&nbsp;with&nbsp;user.&nbsp;<br>
+&nbsp;<br>
+When&nbsp;called&nbsp;inside&nbsp;an&nbsp;intention&nbsp;function,&nbsp;the&nbsp;<a href="#-set_topic">set_topic</a>()&nbsp;function&nbsp;alters&nbsp;the&nbsp;<br>
+current&nbsp;topic&nbsp;for&nbsp;the&nbsp;duration&nbsp;of&nbsp;the&nbsp;current&nbsp;processing&nbsp;iteration&nbsp;of&nbsp;dialog&nbsp;<br>
+processor.&nbsp;After&nbsp;this&nbsp;iteration&nbsp;the&nbsp;current&nbsp;topic&nbsp;usually&nbsp;will&nbsp;be&nbsp;reset&nbsp;or&nbsp;<br>
+cleared.&nbsp;A&nbsp;discussion&nbsp;topic&nbsp;usually&nbsp;lasts&nbsp;only&nbsp;for&nbsp;one&nbsp;iteraction&nbsp;of&nbsp;<br>
+dialog&nbsp;processor.&nbsp;After&nbsp;processing&nbsp;the&nbsp;input&nbsp;string&nbsp;and&nbsp;soon&nbsp;before<br>
+returning&nbsp;the&nbsp;response,&nbsp;the&nbsp;dialog&nbsp;processor&nbsp;will&nbsp;reset&nbsp;or&nbsp;clear&nbsp;the<br>
+current&nbsp;discussion&nbsp;topic.<br>
+&nbsp;<br>
+However,&nbsp;if&nbsp;during&nbsp;the&nbsp;processing&nbsp;of&nbsp;the&nbsp;input&nbsp;string&nbsp;by&nbsp;some&nbsp;intention<br>
+function,&nbsp;the&nbsp;next&nbsp;discussion&nbsp;topic&nbsp;is&nbsp;set&nbsp;by&nbsp;calling&nbsp;the&nbsp;<a href="#-set_next_topic">set_next_topic</a>()&nbsp;<br>
+function&nbsp;then&nbsp;after&nbsp;reseting&nbsp;the&nbsp;current&nbsp;topic,&nbsp;this&nbsp;next&nbsp;topic&nbsp;will&nbsp;be&nbsp;<br>
+transformed&nbsp;in&nbsp;the&nbsp;new&nbsp;current&nbsp;topic.&nbsp;The&nbsp;function&nbsp;<a href="#-keep_topic">keep_topic</a>()&nbsp;can&nbsp;also&nbsp;<br>
+be&nbsp;used&nbsp;in&nbsp;intention&nbsp;functions&nbsp;to&nbsp;keep&nbsp;de&nbsp;current&nbsp;discussion&nbsp;topic&nbsp;alive&nbsp;<br>
+in&nbsp;the&nbsp;next&nbsp;iteraction&nbsp;of&nbsp;the&nbsp;dialog&nbsp;processor.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;name:&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;topic&nbsp;name<br>
+&nbsp;&nbsp;&nbsp;&nbsp;content:&nbsp;any&nbsp;literal&nbsp;value<br>
+&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;False.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;returns&nbsp;True.</tt></dd></dl>
+ <dl><dt><a name="-start_recording_intents"><strong>start_recording_intents</strong></a>(acid)</dt><dd><tt>Start&nbsp;recording&nbsp;the&nbsp;intents&nbsp;performed&nbsp;by&nbsp;the&nbsp;actor.<br>
+&nbsp;<br>
+The&nbsp;NNL&nbsp;dialog&nbsp;system&nbsp;provides&nbsp;a&nbsp;service&nbsp;to&nbsp;record&nbsp;intent&nbsp;functions&nbsp;<br>
+executed&nbsp;by&nbsp;the&nbsp;actor&nbsp;during&nbsp;the&nbsp;processing&nbsp;of&nbsp;user&nbsp;inputs.&nbsp;<br>
+&nbsp;<br>
+These&nbsp;intents,&nbsp;for&nbsp;short,&nbsp;are&nbsp;recorded&nbsp;as&nbsp;intent&nbsp;records,&nbsp;which&nbsp;are&nbsp;<br>
+memory&nbsp;records&nbsp;with&nbsp;the&nbsp;following&nbsp;format:<br>
+&nbsp;<br>
+['recorded-intent',index,time,username,userinput,intentname,matches...]<br>
+&nbsp;<br>
+where:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;index:&nbsp;is&nbsp;the&nbsp;sequential&nbsp;index&nbsp;of&nbsp;the&nbsp;recorded&nbsp;intent,&nbsp;with&nbsp;value&nbsp;1&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;the&nbsp;first&nbsp;intent&nbsp;record,&nbsp;and&nbsp;2,&nbsp;3,&nbsp;...&nbsp;for&nbsp;the&nbsp;next&nbsp;records<br>
+&nbsp;&nbsp;&nbsp;&nbsp;time:&nbsp;system&nbsp;time&nbsp;when&nbsp;the&nbsp;intent&nbsp;was&nbsp;recorded<br>
+&nbsp;&nbsp;&nbsp;&nbsp;username:&nbsp;the&nbsp;name&nbsp;of&nbsp;the&nbsp;user&nbsp;that&nbsp;sent&nbsp;the&nbsp;input&nbsp;text<br>
+&nbsp;&nbsp;&nbsp;&nbsp;userinput:&nbsp;the&nbsp;text&nbsp;sent&nbsp;by&nbsp;the&nbsp;user<br>
+&nbsp;&nbsp;&nbsp;&nbsp;intentname:&nbsp;the&nbsp;name&nbsp;of&nbsp;the&nbsp;intent&nbsp;(which&nbsp;is&nbsp;also&nbsp;the&nbsp;name&nbsp;of&nbsp;the&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;function&nbsp;that&nbsp;implements&nbsp;the&nbsp;intent)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;matches:&nbsp;optional&nbsp;list&nbsp;of&nbsp;strings&nbsp;extracted&nbsp;by&nbsp;the&nbsp;token&nbsp;matcher,&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;can&nbsp;be&nbsp;None&nbsp;if&nbsp;no&nbsp;strings&nbsp;were&nbsp;extracted&nbsp;from&nbsp;the&nbsp;input&nbsp;string,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;otherwise&nbsp;is&nbsp;the&nbsp;series&nbsp;of&nbsp;matches:&nbsp;match1,&nbsp;match2,&nbsp;...<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;extracted&nbsp;from&nbsp;the&nbsp;input&nbsp;string<br>
+&nbsp;<br>
+After&nbsp;calling&nbsp;<a href="#-start_recording_intents">start_recording_intents</a>()&nbsp;each&nbsp;intention&nbsp;executed&nbsp;by&nbsp;the<br>
+actor&nbsp;will&nbsp;be&nbsp;registered&nbsp;as&nbsp;a&nbsp;new&nbsp;'record-intent'&nbsp;memory&nbsp;record,<br>
+starting&nbsp;with&nbsp;intent&nbsp;index&nbsp;equals&nbsp;to&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor.<br>
+&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;False.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;returns&nbsp;True.</tt></dd></dl>
+ <dl><dt><a name="-stop_recording_intents"><strong>stop_recording_intents</strong></a>(acid)</dt><dd><tt>Stop&nbsp;recording&nbsp;the&nbsp;intents&nbsp;performed&nbsp;by&nbsp;the&nbsp;actor.&nbsp;After&nbsp;calling&nbsp;<br>
+<a href="#-stop_recording_intents">stop_recording_intents</a>()&nbsp;the&nbsp;next&nbsp;intention&nbsp;functions&nbsp;executed&nbsp;by&nbsp;the&nbsp;<br>
+actor&nbsp;do&nbsp;not&nbsp;will&nbsp;be&nbsp;recorded&nbsp;as&nbsp;'record-intent'&nbsp;memory&nbsp;records.<br>
+See&nbsp;the&nbsp;help&nbsp;of&nbsp;<a href="#-start_recording_intents">start_recording_intents</a>()&nbsp;function&nbsp;for&nbsp;details.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor.<br>
+&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;False.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;returns&nbsp;True.</tt></dd></dl>
+</td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>AIMLFiles</strong> = {}<br>
+<strong>AIMLKrnlTbl</strong> = {}<br>
+<strong>CurrDiscussTopic</strong> = {}<br>
+<strong>CurrInputMode</strong> = {}<br>
+<strong>IntentsFunctionsFile</strong> = {}<br>
+<strong>IntentsFunctionsTbl</strong> = {}<br>
+<strong>IntentsPatternsFile</strong> = {}<br>
+<strong>IntentsPatternsTbl</strong> = {}<br>
+<strong>LastDlgProc</strong> = {}<br>
+<strong>ProdRulesFile</strong> = {}<br>
+<strong>ProdRulesTbl</strong> = {}<br>
+<strong>RecIntents</strong> = {}<br>
+<strong>ReplaceRecIntent</strong> = {}<br>
+<strong>SpeechesFile</strong> = {}<br>
+<strong>SpeechesTbl</strong> = {}</td></tr></table>
+</body></html>

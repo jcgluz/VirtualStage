@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>-</title>
+  <style>
+    html {
+      line-height: 1.2;
+      font-family: Georgia, serif;
+      font-size: 16px;
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 1em;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
+      font-size: 85%;
+      margin: 0;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<h1>VirtualStage</h1>
+<h2>A Virtual Stage for Virtual Actors</h2>
+<p><em><strong>VirtualStage</strong></em> is a platform for the design
+and development of intelligent virtual actors, capable of controlling
+digital characters (or “Non-Player” Characters - NPCs) that operate in
+Virtual Reality (VR) worlds or environments.</p>
+<p><em><strong>VirtualStage</strong></em> offers a complete Applications
+Programming Interface (API) to program and control these digital
+characters in Python. Using <em><strong>VirtualStage</strong></em> API
+it is possible to quickly and easily create VirtualStage “actors” able
+to play and interpret the most diverse types of digital characters in a
+VR world.</p>
+<p>In a sense, <em><strong>VirtualStage</strong></em> API creates a true
+“virtual stage” for “virtual actors”. Analogously to real actors, a
+<em><strong>VirtualStage</strong></em> actor must also follow a script
+to act on the virtual stage and play a digital character. But, in the
+case of <em><strong>VirtualStage</strong></em>, the scripts that guide
+the actor’s performance are scripts in Python. Using the
+<em><strong>VirtualStage</strong></em> API a Python program can
+implement several actors that play different digital characters on the
+virtual stage, each of these actors being executed by a separate
+thread.</p>
+<p>The <em><strong>VirtualStage</strong></em> API is implemented by an
+extensive library of Python modules and functions designed to manage and
+control the operation of actors and its scripts. This API provides
+functions that allow the actor to precisely control the performance of
+its digital character on the stage or virtual world.</p>
+<p>This API also makes it possible for actors to perform a wide variety
+of actions on the virtual stage, interact with other characters or
+avatars, and observe what objects exist and what situations are
+occurring on the virtual stage. <em><strong>VirtualStage</strong></em>
+provides a memory to store and recall information collected and
+generated by the actor during its performance.</p>
+<p><em><strong>VirtualStage</strong></em> also implements a Near Natural
+Language (NNL) dialog system, which supports several forms of
+conversations and chats between VirtualStage actors and its users (i.e.,
+other avatars and characters).</p>
+<p>The main purpose of <em><strong>VirtualStage</strong></em> is to be a
+learning tool on how to create and develop VR applications. I hope it
+has a smoother learning curve than other development tools for VR
+applications. Its overall goal as a development platform is to make the
+design and building of prototype VR applications and proof-of-concept
+systems a little easier and faster. It is not really aimed to develop
+full production applications. To do this, use professional platforms
+such as <em>Unreal</em> <a href="#ref1">[1]</a> or <em>Unity</em> <a
+href="#ref2">[2]</a>.</p>
+<h2>Software Architecture</h2>
+<p>The following figure shows the overall architecture of the
+<em><strong>VirtualStage</strong></em> platform:</p>
+<p><img src="./arch-virtualstage.png" alt="Image" /></p>
+<p>The <strong>ActorController</strong> module provides functions to
+manage and control the operation of actors and its scripts. It also
+provides functions for <em><strong>VirtualStage</strong></em> actors to
+communicate with other actors, without depending on VR world simulator
+for this communication.</p>
+<p>The <strong>DialogController</strong> Module implements the Near
+Natural Language (NNL) dialog system, which supports several forms of
+conversations and chats between <em><strong>VirtualStage</strong></em>
+actors and its users (i.e., other avatars and characters).</p>
+<p>The <strong>VirtualStage Actions Library</strong> implement all
+actions that the actor can perform on VR world. It also implements
+actions to manage actor’s memory and perceptions. This library is
+composed by the following modules:</p>
+<ul>
+<li><p>Module <strong>AppearanceActions</strong>: implement actions to
+view and/or change avatar’s appearance.</p></li>
+<li><p>Module <strong>CommunicateActions</strong>: implement actions to
+communicate with other avatars.</p></li>
+<li><p>Module <strong>MemoryActions</strong>: implement actions to
+manage actor’s memory.</p></li>
+<li><p>Module <strong>ModifyActions</strong>: implement actions to
+modify objects and entities of VR world.</p></li>
+<li><p>Module <strong>MoveActions</strong>: implement actions to move
+the avatar on VR world.</p></li>
+<li><p>Module <strong>ObserveActions</strong>: implement actions to
+observe object, entities and properties of VR world.</p></li>
+<li><p>Module <strong>PerceptActions</strong>: implement actions to
+manage actor’s perceptions.</p></li>
+<li><p>Module <strong>PositionActions</strong>: implement actions to
+view and/or change avatar’s positioning and orientation.</p></li>
+<li><p>Module <strong>PostureActions</strong>: implement actions to view
+and/or change avatar’s posture and gestures.</p></li>
+<li><p>Module <strong>ResourcesActions</strong>: implement actions to
+view and/or modify resources stored in the avatar’s inventory.</p></li>
+<li><p>Module <strong>SocialActions</strong>: implement actions for
+social interaction with other avatars.</p></li>
+<li><p>Module <strong>SystemActions</strong>: implement system
+actions.</p></li>
+</ul>
+<p>The <em><strong>VRAgents</strong></em> interface library provide
+access to OpenSimulator <a href="#ref3">[3]</a> VR simulators. This
+library is written in C# and implements an actions/perceptions
+abstraction layer on top of <em>LibOpenMetaverse</em> <a
+href="#ref4">[4]</a> library, providing a API, which allow agents (and
+<em><strong>VirtualStage</strong></em> actors) to interact with VR
+entities or objects through high-level actions, and register high-level
+perceptions about observed entities or objects.</p>
+<h2>Installing</h2>
+<p>Currently <em><strong>VirtualStage</strong></em> only runs on
+Windows, I’ve tested it on Windows 10 and Windows 11. I hope I can
+generate a Linux version, but for now I haven’t had the time.</p>
+<p><em><strong>VirtualStage</strong></em> is distributed mainly in
+source form, so to install it download the source code from repository
+and unpack it in <code>VirtualStage</code> directory, for instance
+<code>C:\VirtualStage</code>.</p>
+<p>The <code>VirtualStage\VRAgents</code> directory contains the source
+code of <em><strong>VRAgents</strong></em> interface library, which
+provide access to OpenSimulator <a href="#ref3">[3]</a> VR simulators. A
+precompiled <em><strong>VRAgents</strong></em> library is distributed on
+<code>VirtualStage\bin</code> directory, but if necessary this library
+can be recompiled using VisualStudio solution file
+<code>VirtualStage\VRAgents\VRAgents.sln</code>.</p>
+<p>For <em><strong>VRAgents</strong></em> and
+<em><strong>VirtualStage</strong></em> to run it is necessary to have
+<em>.NET Framework</em> 4.8 installed.</p>
+<p>VirtualStage also needs Python 3.8.2 because newer versions of Python
+(at least to version 3.10, which I have tested) have compatibility
+issues with version 2.5.2 of the <em>pythonnet</em> package (this
+package is needed to access <em><strong>VRAgents</strong></em> library,
+which is written in C#).</p>
+<p>So first download the appropriate installer for your computer
+(usually the 64-bit version), run it and install Python 3.8.2.</p>
+<p>After installing Python, install the following Python packages:</p>
+<ul>
+<li><p><em>pythonnet</em> package: this package supports the interface
+to C# modules and libraries required to use
+<em><strong>VRAgents</strong></em> library. The version 2.5.2 of this
+package must be installed. The <em>PythonNet</em> package is used with
+the <code>clr</code> namespace, so after installing this package it must
+be imported in programs thar will use VirtualStage using the
+directive:</p>
+<p><code>import clr</code></p></li>
+<li><p><em>nltk</em> package: this package provides tools for natural
+language processing. To install it run the following command in Windows
+terminal:</p>
+<p><code>pip install nltk</code></p></li>
+</ul>
+<p>After installing this package it is necessary to download the ‘punkt’
+tokenization model used in nltk. This is done with the following
+commands executed inside the Python console:</p>
+<pre><code>&gt;&gt;&gt; import nltk
+&gt;&gt;&gt; nltk.download(&#39;punkt&#39;)</code></pre>
+<ul>
+<li><p><em>python-aiml</em> package: this package implements an AIML
+interpreter in Python. To install it run the following command in
+Windows terminal:</p>
+<p><code>pip install python-aiml</code></p></li>
+</ul>
+<h2>Running</h2>
+<p>The <strong>ActorController</strong> module provides functions to
+manage and control the operation of actors and its scripts. It is the
+main module of <em><strong>VirtualStage</strong></em> and provides
+access not only to the functions that control actor’s operation, but
+also to the <strong>VirtualStage Actions Library</strong>. This module
+must be imported by all Python programs that use
+<em><strong>VirtualStage</strong></em>:</p>
+<pre><code>import ActorController as ac</code></pre>
+<p>The operation (performance) of some actor is started by calling the
+following function:</p>
+<pre><code>start_actor(first_name, last_name, password, vr_server_url, start_loc=None, 
+    init_script=None, extra_args=None)        </code></pre>
+<p>This function tries to connect with an <em>OpenSimulator</em> <a
+href="#ref3">[3]</a> VR simulator located in <em>vr_server_url</em> web
+address, logging in the avatar with name and password defined, resp., by
+<em>first_name</em>, <em>last_name</em> and <em>password</em> args. If
+the login is successful, this avatar will be the digital character or
+NPC controlled by the <em><strong>VirtualStage</strong></em> actor in
+the VR world.</p>
+<p>After a successful login, the <em>start_actor</em>() function begins
+actor’s performance by running the initial script of actor (as defined
+by <em>init_script</em> argument) in a new Python thread. If everything
+goes well, then <em>start_actor</em>() returns the actor’s
+“<em>acid</em>” to the calling function, which is a string with the
+actor’s unique universal ID (UUID) that must be used when calling other
+functions of <em><strong>VirtualStage</strong></em> API. However, if
+some problem occur, this function returns None.</p>
+<p>All <em><strong>VirtualStage</strong></em> actors begin their
+performances by running an initial script, which is implemented by the
+Python function passed to <em>start_actor</em>() as the
+<em>init_script</em> argument. This argument is a reference a callable
+Python function with the following arguments:</p>
+<pre><code>acid: a string with the unique global identifier of new actor.    
+acname: the name of new actor.    
+extra_args: tuple with additional arguments.</code></pre>
+<p><strong>Note</strong>: for debugging and testing purposes, the
+<em>init_script</em> argument can be None. In this case, the function
+and the Python thread were this function isrunning will be the initial
+script and thread of the actor. This tipically is the Python console and
+by doing this is possible to call VirtualStage API functions directly
+from the console.</p>
+<p>When the initial script function terminates and return, this only
+finish the corresponding Python thread. To logout the avatar controlled
+by this actor from VR world and end actor’s operation in this world is
+necessary to call the function:</p>
+<pre><code>stop_actor(acid)</code></pre>
+<p>The <strong>DialogController</strong> Module implements the Near
+Natural Language (NNL) dialog system, which supports several forms of
+conversations and chats between <em><strong>VirtualStage</strong></em>
+actors and its users (i.e., other avatars and characters).</p>
+<p>The NNL dialog system provides several dialog processors to handle
+the interactions or conversations between the actor and users:</p>
+<ul>
+<li><p>Main intent processor: this processor tries to identify an
+intention on the input string and execute the corresponding intent
+function, which the actor’s handling of user intention.</p></li>
+<li><p>Hear-talk rules processor: the dialog system handle “hear and
+talk” production rules that map token patterns found on input text into
+output text messages.</p></li>
+<li><p>AIML rules interpreter: an AIML interpreter can be configured to
+work integrated with NNL dialog system.</p></li>
+</ul>
+<p>To use NNL dialog system in some program, it is necessary to import
+this module:</p>
+<pre><code>import DialogController as dc</code></pre>
+<p>To start NNL dialog system, first is necessary to configure its main
+processor using functions:</p>
+<pre><code>set_dialog_patterns_file(acid, pattsfile)
+set_dialog_intents_file(acid, intentsfile)</code></pre>
+<p>If hear-talk processor or AIML interpreter are used, they must be
+configured by functions:</p>
+<pre><code>set_dialog_hear_talk_rules_file(acid, prodrulesfile)
+set_dialog_aiml_files(acid, aimlfiles)</code></pre>
+<p>Then the dialog system is initialized calling the function:</p>
+<pre><code>init_dialog_system(acid)</code></pre>
+<p>The user input is processed by NNL dialog system by calling the
+function:</p>
+<pre><code>process_dialog_input(acid, username, userinput)</code></pre>
+<p>This function has the following arguments:</p>
+<pre><code>acid: is a string with the unique ID of the VirtualStage actor 
+username:  is the name of the user that sent the input
+userinput: is a string with the text entered by the user</code></pre>
+<p>If some dialog processor was succesful in handling the input, then
+this function returns an string of text that can be sent back to user.
+Otherwise, this function returns None.</p>
+<p>The following code shows an example of a simple actor, the
+<strong>ChatterActor</strong>, which is distributed with
+<em><strong>VirtualStage</strong></em>:</p>
+<pre><code>import ActorController as ac
+import DialogController as dc
+stop_chatter_actor=False
+def main_script(acid,actorname,x,y):
+    global stop_chatter_actor
+    # Some memories to remember about me 
+    ac.record(acid,[&#39;character-name&#39;,&#39;Chatter VRBot&#39;])
+    ac.record(acid,[&#39;character-age&#39;,&#39;1&#39;])
+    ac.record(acid,[&#39;character-gender&#39;,&#39;robot&#39;])
+    # Initialization of dialog manager    
+    dc.set_dialog_patterns_file(acid,&#39;ChatterPatterns.json&#39;)
+    dc.set_dialog_intents_file(acid,&#39;ChatterIntents&#39;)
+    dc.set_dialog_aiml_files(acid,[&#39;aiml\\standard-bot\\std-*.aiml&#39;])
+    dc.init_dialog_system(acid)
+    # Teleporting to initial position x and y
+    ac.tele_to(acid,x,y)
+    # Saying hello to everyone
+    ac.say(acid,&#39;Hello everyone, everything good?&#39;)
+    # Main interaction loop
+    while (not stop_chatter_actor):
+        # Wait for chat msg not sent by me (max 5 secs)
+        msg = ac.wait_chat_msg(acid,&#39;!&#39;+actorname,None,5) 
+        if (msg==None): 
+            continue # No message received, return to loop
+        resp=None
+        try: # Process input by dialog system            
+            resp = ac.process_dialog_input(acid,msg[1],msg[2])
+        except Exception as e:
+            print(&#39;Chat error: &#39;,e)
+        if resp!=None:
+            # Something to say, according to dialog system 
+            ac.say(acid,resp) 
+    ac.stop_actor(acid)
+
+def stop():
+    global stop_chatter_actor
+    stop_chatter_actor=True
+    
+def start():
+    return ac.start_actor(&quot;Chatter&quot;,&quot;Actor&quot;,&quot;actor&quot;,
+             &quot;http://127.0.0.1:9000&quot;, main_script,(128.0,128.0))</code></pre>
+<h2>Remarks</h2>
+<p>The current version of <strong>VirtualStage</strong> (and its C#
+counterpart, the <strong>VRAgents</strong> library) is 0.7.0.</p>
+<p>I am using this version number now because versions 0.5 and 0.6 of
+this software had already been used with some degree of success by two
+undergraduate classes, in 2021 and 2022, to design and develop some
+small and simple virtual worlds, but with the support of intelligent
+actors, aimed at Health Education.</p>
+<p>However, despite having been reasonably tested, this software
+certainly still has a number of bugs, so use it with care.</p>
+<p>The <strong>TestActor</strong> agent, included in the
+<em><strong>VirtualStage</strong></em> distribution, can be used to test
+several features of <em><strong>VirtualStage</strong></em> API. The
+<strong>TestActor</strong> agent does not cover all function of this
+API, but cover a significative subset of it. This actor is continuously
+being evolved to incorporate the tests of more functions and features of
+<em><strong>VirtualStage</strong></em>.</p>
+<p><em><strong>VirtualStage</strong></em> was based on a previous
+plataform, the <strong>VirtuaLog</strong> platform that provided access
+to <em>OpenSimulator</em> VR worlds by programs written in Prolog. Using
+<strong>VirtuaLog</strong> we created VR and AR intelligent educational
+games to help the teaching of History <a href="#ref5">[5]</a> and
+Biological Sciences and Ecology <a href="#ref6">[6]</a>.</p>
+<p>I’m a member of the hugely small community of Prolog programmers, and
+I’m particularly fond of this programming language (it was the second
+programming language I learned, after Pascal). But Prolog really has a
+very difficult learning curve and almost zero popularity, which makes
+using <strong>VirtuaLog</strong> a very hard task. So I took advantage
+of the Covid-19 pandemic period to bring all
+<strong>VirtuaLog</strong>’s functionalities and resources to the Python
+language, creating the <em><strong>VirtualStage</strong></em> platform
+in the process.</p>
+<p>I already known that Python is easy to learn and program, and have a
+very smooth learning curve. But, the development of VirtualStage in
+Python show me that this language is really a very elegant and full
+fledge programming language. Furthermore, it is an interpreted language,
+something it shares with Prolog, and I am a big fan of interpreted
+languages, particularly for creating experimental prototypes.</p>
+<p>For me, being able to incrementally develop a prototype that
+implements some idea still not much clear, exploring and testing the
+computational possibilities of this idea while developing and being able
+to change the sources at any time without waiting for a long compilation
+process, it is a very efficient way to use computation for scientific
+and innovative purposes.</p>
+<p>I hope you have same kind of fun using this software!</p>
+<p>Happy coding ;)</p>
+<ul>
+<li>João Gluz</li>
+</ul>
+<h2>References</h2>
+<p><a id="ref1">1. <a href="https://www.unrealengine.com">Epic Games.
+Unreal Engine site (last access Aug. 2023) </a></p>
+<p><a id="ref2">2. <a href="https://unity.com/">Unity Technologies.
+Unity Engine site (last access Aug. 2023) </a></p>
+<p><a id="ref3">3. <a href="http://opensimulator.org">Open Simulator
+site (last access Aug. 23023)</a></p>
+<p><a id="ref4">4. <a
+href="https://github.com/openmetaversefoundation/libopenmetaverse">LibOpenMetaverse
+GitHub page, Release 0.9.3 (last access Aug. 2023)</a></p>
+<p><a id="ref5">5. Baierle, I &amp; Gluz, J. C. Programming Intelligent
+Embodied Pedagogical Agents to Teach the Beginnings of Industrial
+Revolution. In: <em>Int. Conf. on Intelligent Tutoring Systems
+(ITS)</em>, 2018, Montreal. Procs. of ITS 2018, 2018.</p>
+<p><a id="ref6">6. Gluz, J.C., Passerino, L.M., Preuss, E., Baierle, I.,
+Cimadevila, M. Ambiente Virtual Tangível para Integração Sensorial no
+Ensino de Ciências numa Perspectiva Inclusiva. In: <em>Simpósio
+Brasileiro de Informática na Educação (SBIE 2018)</em>, 2018, Fortaleza.
+Anais do SBIE 2018, 2018.</p>
+</body>
+</html>

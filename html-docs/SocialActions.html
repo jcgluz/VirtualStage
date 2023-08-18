@@ -1,0 +1,263 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module SocialActions</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>SocialActions</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href="index.html">index</a><br><a href="../socialactions.py">d:\virtualstage\socialactions.py</a></font></td></tr></table>
+    <p><tt>Module&nbsp;SocialActions&nbsp;-&nbsp;Social&nbsp;actions&nbsp;to&nbsp;interact&nbsp;with&nbsp;friends&nbsp;and&nbsp;groups<br>
+Functions:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-seek_groups">seek_groups</a>(acid,&nbsp;srchtxt)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-seek_people">seek_people</a>(acid,&nbsp;srchtxt)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-look_friend_status">look_friend_status</a>(acid,&nbsp;friendid)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-look_group_members">look_group_members</a>(acid,&nbsp;grpname)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-look_group_roles">look_group_roles</a>(acid,&nbsp;grpname)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-look_my_friends">look_my_friends</a>(acid)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-look_my_groups">look_my_groups</a>(acid)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-activate_group">activate_group</a>(acid,grpname)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-invite_to_group">invite_to_group</a>(acid,&nbsp;avname,&nbsp;grpid,&nbsp;grprole=None,&nbsp;grprole1=None,&nbsp;grprole2=None)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-join_group">join_group</a>(acid,grpidname)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-leave_group">leave_group</a>(acid,grpname)</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="ActorController.html">ActorController</a><br>
+</td><td width="25%" valign=top></td><td width="25%" valign=top></td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-activate_group"><strong>activate_group</strong></a>(acid, grpidname)</dt><dd><tt>Set&nbsp;a&nbsp;group&nbsp;as&nbsp;current&nbsp;active&nbsp;group.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;grpidname:&nbsp;&nbsp;str&nbsp;with&nbsp;name&nbsp;or&nbsp;unique&nbsp;id&nbsp;of&nbsp;group&nbsp;to&nbsp;be&nbsp;activated.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;false.&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;true.</tt></dd></dl>
+ <dl><dt><a name="-invite_to_group"><strong>invite_to_group</strong></a>(acid, avname, grpidname, grprole=None, grprole1=None, grprole2=None)</dt><dd><tt>Invites&nbsp;an&nbsp;user&nbsp;(avatar)&nbsp;to&nbsp;a&nbsp;group.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;avname:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;name&nbsp;of&nbsp;user's&nbsp;avatar;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;grpidname:&nbsp;&nbsp;str&nbsp;with&nbsp;name&nbsp;or&nbsp;unique&nbsp;id&nbsp;of&nbsp;group.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;grprole,&nbsp;grprole1,&nbsp;grprole2:&nbsp;&nbsp;&nbsp;&nbsp;optional&nbsp;str&nbsp;args&nbsp;with&nbsp;unique&nbsp;ids&nbsp;of<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;group&nbsp;roles&nbsp;the&nbsp;user&nbsp;is&nbsp;invited.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;false.&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;true.</tt></dd></dl>
+ <dl><dt><a name="-join_group"><strong>join_group</strong></a>(acid, grpidname)</dt><dd><tt>Attempt&nbsp;to&nbsp;join&nbsp;a&nbsp;group.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;grpidname:&nbsp;&nbsp;str&nbsp;with&nbsp;name&nbsp;or&nbsp;unique&nbsp;id&nbsp;of&nbsp;group.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;false.&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;true.</tt></dd></dl>
+ <dl><dt><a name="-leave_group"><strong>leave_group</strong></a>(acid, grpidname)</dt><dd><tt>Attempt&nbsp;to&nbsp;leave&nbsp;a&nbsp;group.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;grpidname:&nbsp;&nbsp;str&nbsp;with&nbsp;name&nbsp;or&nbsp;unique&nbsp;id&nbsp;of&nbsp;group.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;false.&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;true.</tt></dd></dl>
+ <dl><dt><a name="-look_friend_status"><strong>look_friend_status</strong></a>(acid, friendid)</dt><dd><tt>Show&nbsp;status&nbsp;info&nbsp;about&nbsp;friend.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;friendid:&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;id&nbsp;of&nbsp;friend.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;None.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;returns&nbsp;a&nbsp;'myfriend_status'&nbsp;perception&nbsp;record&nbsp;containing&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;status&nbsp;information&nbsp;about&nbsp;friend.&nbsp;This&nbsp;record&nbsp;records&nbsp;has&nbsp;the&nbsp;following&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;format:&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['myfriend_status",&nbsp;id,&nbsp;status,&nbsp;rgnhandle,&nbsp;x,&nbsp;y,&nbsp;z]<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;where:&nbsp;&nbsp;id&nbsp;is&nbsp;the&nbsp;unique&nbsp;global&nbsp;id&nbsp;of&nbsp;friend;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;status&nbsp;of&nbsp;friend&nbsp;in&nbsp;virt.&nbsp;world,&nbsp;can&nbsp;be:&nbsp;'online'&nbsp;or&nbsp;'offline';<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rgnhandle,&nbsp;x,&nbsp;y,&nbsp;z:&nbsp;optional&nbsp;fields,&nbsp;filled&nbsp;if&nbsp;status='online',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rgnhandle&nbsp;is&nbsp;the&nbsp;handle&nbsp;of&nbsp;region&nbsp;where&nbsp;friend&nbsp;is&nbsp;located,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x,&nbsp;y,&nbsp;z&nbsp;is&nbsp;the&nbsp;local&nbsp;position&nbsp;of&nbsp;friend&nbsp;in&nbsp;this&nbsp;region.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;this&nbsp;action&nbsp;also&nbsp;adds&nbsp;the&nbsp;'myfriend_status'&nbsp;record&nbsp;to&nbsp;the&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;perception&nbsp;base.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;All&nbsp;perception&nbsp;records&nbsp;fields&nbsp;are&nbsp;strings.</tt></dd></dl>
+ <dl><dt><a name="-look_group_members"><strong>look_group_members</strong></a>(acid, grpidname)</dt><dd><tt>Show&nbsp;members&nbsp;of&nbsp;some&nbsp;group.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;grpidname:&nbsp;&nbsp;str&nbsp;with&nbsp;name&nbsp;or&nbsp;unique&nbsp;id&nbsp;of&nbsp;group.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;None.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;returns&nbsp;an&nbsp;list&nbsp;of&nbsp;'group_member'&nbsp;perception&nbsp;records&nbsp;containing&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;information&nbsp;about&nbsp;members&nbsp;of&nbsp;group.&nbsp;These&nbsp;records&nbsp;have&nbsp;the&nbsp;following&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;format:&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['group_member',&nbsp;grpid,&nbsp;memberid,&nbsp;status,&nbsp;title,&nbsp;is_owner]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;where:&nbsp;&nbsp;grpid&nbsp;is&nbsp;the&nbsp;unique&nbsp;global&nbsp;id&nbsp;of&nbsp;group;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;memberid&nbsp;is&nbsp;the&nbsp;unique&nbsp;global&nbsp;id&nbsp;of&nbsp;member;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;status&nbsp;is&nbsp;the&nbsp;online&nbsp;status&nbsp;of&nbsp;member&nbsp;in&nbsp;virt.&nbsp;world;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;title&nbsp;is&nbsp;the&nbsp;title&nbsp;of&nbsp;member&nbsp;in&nbsp;group;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;is_owner,&nbsp;'true'&nbsp;if&nbsp;member&nbsp;is&nbsp;group&nbsp;owner,&nbsp;'false'&nbsp;otherwise.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;this&nbsp;action&nbsp;also&nbsp;adds&nbsp;the&nbsp;'group_member'&nbsp;records&nbsp;to&nbsp;the&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;perception&nbsp;base.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;All&nbsp;perception&nbsp;records&nbsp;fields&nbsp;are&nbsp;strings.</tt></dd></dl>
+ <dl><dt><a name="-look_group_roles"><strong>look_group_roles</strong></a>(acid, grpidname)</dt><dd><tt>Show&nbsp;roles&nbsp;of&nbsp;some&nbsp;group.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;grpidname:&nbsp;&nbsp;str&nbsp;with&nbsp;name&nbsp;or&nbsp;unique&nbsp;id&nbsp;of&nbsp;group.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;None.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;returns&nbsp;an&nbsp;list&nbsp;of&nbsp;'group_role'&nbsp;perception&nbsp;records&nbsp;containing&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;information&nbsp;about&nbsp;roles&nbsp;of&nbsp;group.&nbsp;These&nbsp;records&nbsp;have&nbsp;the&nbsp;following&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;format:&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['group_role',&nbsp;grpid,&nbsp;name,&nbsp;title,&nbsp;descr]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;where:&nbsp;&nbsp;grpid&nbsp;is&nbsp;the&nbsp;unique&nbsp;global&nbsp;id&nbsp;of&nbsp;group;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;name&nbsp;is&nbsp;the&nbsp;name&nbsp;of&nbsp;the&nbsp;role;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;title&nbsp;associated&nbsp;with&nbsp;role;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;descr&nbsp;is&nbsp;the&nbsp;description&nbsp;of&nbsp;role.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;this&nbsp;action&nbsp;also&nbsp;adds&nbsp;the&nbsp;'group_role'&nbsp;records&nbsp;to&nbsp;the&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;perception&nbsp;base.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;All&nbsp;perception&nbsp;records&nbsp;fields&nbsp;are&nbsp;strings.</tt></dd></dl>
+ <dl><dt><a name="-look_my_friends"><strong>look_my_friends</strong></a>(acid)</dt><dd><tt>Search&nbsp;for&nbsp;my&nbsp;friends&nbsp;in&nbsp;virtual&nbsp;world.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor;<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;None.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;returns&nbsp;a&nbsp;list&nbsp;of&nbsp;'myfriend'&nbsp;perception&nbsp;records&nbsp;containing&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;information&nbsp;about&nbsp;friends&nbsp;found&nbsp;in&nbsp;virtual&nbsp;world.&nbsp;These&nbsp;records&nbsp;have&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;following&nbsp;format:&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['myfriend',&nbsp;id,&nbsp;name,&nbsp;status,&nbsp;see_me_online,&nbsp;see_me_on_map,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;alter_my_objs,&nbsp;see_friend_online,&nbsp;see_friend_on_map,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;alter_friend_objs]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;where:&nbsp;&nbsp;id&nbsp;is&nbsp;the&nbsp;unique&nbsp;global&nbsp;id&nbsp;of&nbsp;friend;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;name&nbsp;is&nbsp;the&nbsp;full&nbsp;name&nbsp;of&nbsp;friend;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;status&nbsp;of&nbsp;friend&nbsp;in&nbsp;virt.&nbsp;world,&nbsp;can&nbsp;be:&nbsp;'online'&nbsp;or&nbsp;'offline';<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;see_me_online,&nbsp;see_me_on_map,&nbsp;alter_my_objs:&nbsp;rights&nbsp;from&nbsp;friend<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;to&nbsp;me,&nbsp;'true'&nbsp;if&nbsp;friend&nbsp;can,&nbsp;resp.,&nbsp;see&nbsp;me&nbsp;online,&nbsp;see&nbsp;me&nbsp;on&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;map&nbsp;or&nbsp;modify&nbsp;my&nbsp;objects,&nbsp;'false'&nbsp;otherwise;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;see_friend_online,&nbsp;see_friend_on_map,&nbsp;alter_friend_objs:&nbsp;rights&nbsp;from<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;me&nbsp;to&nbsp;friend,&nbsp;'true'&nbsp;if&nbsp;I&nbsp;can,&nbsp;resp.,&nbsp;see&nbsp;friend&nbsp;online,&nbsp;see&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;friend&nbsp;on&nbsp;map&nbsp;or&nbsp;alter&nbsp;friend&nbsp;objs,&nbsp;'false'&nbsp;otherwise.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;this&nbsp;action&nbsp;also&nbsp;adds&nbsp;'myfriend'&nbsp;retrieved&nbsp;records&nbsp;to&nbsp;the&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;perception&nbsp;base.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;All&nbsp;perception&nbsp;records&nbsp;fields&nbsp;are&nbsp;strings.</tt></dd></dl>
+ <dl><dt><a name="-look_my_groups"><strong>look_my_groups</strong></a>(acid)</dt><dd><tt>Show&nbsp;avatar's&nbsp;groups.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor;<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;None.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;returns&nbsp;an&nbsp;list&nbsp;of&nbsp;'mygroup'&nbsp;perception&nbsp;records&nbsp;containing&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;information&nbsp;about&nbsp;avatar's&nbsp;groups.&nbsp;These&nbsp;records&nbsp;have&nbsp;the&nbsp;following&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;format:&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['mygroup',&nbsp;id,&nbsp;name,&nbsp;num_members]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;where:&nbsp;&nbsp;id&nbsp;is&nbsp;the&nbsp;unique&nbsp;global&nbsp;id&nbsp;of&nbsp;group;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;name&nbsp;is&nbsp;the&nbsp;name&nbsp;of&nbsp;group;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;num_member&nbsp;is&nbsp;the&nbsp;current&nbsp;number&nbsp;of&nbsp;members&nbsp;of&nbsp;group.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;this&nbsp;action&nbsp;also&nbsp;adds&nbsp;'mygroup'&nbsp;retrieved&nbsp;records&nbsp;to&nbsp;the&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;perception&nbsp;base.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;All&nbsp;perception&nbsp;records&nbsp;fields&nbsp;are&nbsp;strings.</tt></dd></dl>
+ <dl><dt><a name="-seek_groups"><strong>seek_groups</strong></a>(acid, srchtxt)</dt><dd><tt>Search&nbsp;&nbsp;groups&nbsp;in&nbsp;virtual&nbsp;world.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;srchtxt:&nbsp;&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;name&nbsp;or&nbsp;part&nbsp;of&nbsp;name&nbsp;of&nbsp;group&nbsp;to&nbsp;search&nbsp;for.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;None.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;returns&nbsp;an&nbsp;list&nbsp;of&nbsp;'group'&nbsp;perception&nbsp;records&nbsp;containing&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;information&nbsp;about&nbsp;the&nbsp;groups&nbsp;found&nbsp;in&nbsp;virtual&nbsp;world.&nbsp;These&nbsp;records&nbsp;have&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;following&nbsp;format:&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['group',&nbsp;id,&nbsp;name,&nbsp;num_members]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;where:&nbsp;&nbsp;id&nbsp;is&nbsp;the&nbsp;unique&nbsp;global&nbsp;id&nbsp;of&nbsp;group;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;name&nbsp;is&nbsp;the&nbsp;name&nbsp;of&nbsp;group;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;num_member&nbsp;is&nbsp;the&nbsp;current&nbsp;number&nbsp;of&nbsp;members&nbsp;of&nbsp;group.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;this&nbsp;action&nbsp;also&nbsp;adds&nbsp;'group'&nbsp;retrieved&nbsp;records&nbsp;to&nbsp;the&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;perception&nbsp;base.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;All&nbsp;perception&nbsp;records&nbsp;fields&nbsp;are&nbsp;strings.</tt></dd></dl>
+ <dl><dt><a name="-seek_people"><strong>seek_people</strong></a>(acid, srchtxt)</dt><dd><tt>Search&nbsp;directory&nbsp;of&nbsp;people&nbsp;in&nbsp;virtual&nbsp;world.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;srchtxt:&nbsp;&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;name&nbsp;or&nbsp;part&nbsp;of&nbsp;name&nbsp;of&nbsp;people&nbsp;to&nbsp;search&nbsp;for.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;None.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;returns&nbsp;a&nbsp;list&nbsp;of&nbsp;'person'&nbsp;perception&nbsp;records&nbsp;containing&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;information&nbsp;about&nbsp;people&nbsp;found&nbsp;in&nbsp;virtual&nbsp;world.&nbsp;These&nbsp;records&nbsp;have&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;following&nbsp;format:&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['person',&nbsp;id,&nbsp;name,&nbsp;first_name,&nbsp;last_name,&nbsp;status]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;where:&nbsp;&nbsp;id&nbsp;is&nbsp;the&nbsp;unique&nbsp;global&nbsp;id&nbsp;of&nbsp;person;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;name&nbsp;is&nbsp;the&nbsp;full&nbsp;name&nbsp;of&nbsp;person;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;first_name&nbsp;and&nbsp;last_name&nbsp;are,&nbsp;resp.,&nbsp;first&nbsp;and&nbsp;last&nbsp;name&nbsp;of<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;person;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;status&nbsp;can&nbsp;be:&nbsp;'online'&nbsp;or&nbsp;'offline'.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;this&nbsp;action&nbsp;also&nbsp;adds&nbsp;'person'&nbsp;retrieved&nbsp;records&nbsp;to&nbsp;the&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;perception&nbsp;base.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;All&nbsp;perception&nbsp;records&nbsp;fields&nbsp;are&nbsp;strings.</tt></dd></dl>
+</td></tr></table>
+</body></html>

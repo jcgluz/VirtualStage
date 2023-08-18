@@ -1,0 +1,223 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module PerceptActions</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>PerceptActions</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href="index.html">index</a><br><a href="../perceptactions.py">d:\virtualstage\perceptactions.py</a></font></td></tr></table>
+    <p><tt>Module&nbsp;PerceptActions&nbsp;-&nbsp;Actions&nbsp;to&nbsp;manage&nbsp;actor's&nbsp;perceptions<br>
+Functions:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-perceive_all">perceive_all</a>(acid,&nbsp;percpatt)&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-perceive_if_one">perceive_if_one</a>(acid,&nbsp;percpatt)&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-perceive_if">perceive_if</a>(acid,&nbsp;percpatt)&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-perceive_one">perceive_one</a>(acid,&nbsp;percpatt)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-perceive">perceive</a>(acid,&nbsp;percpatt)&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-perceive_when_one">perceive_when_one</a>(acid,&nbsp;percpatt)&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-perceive_when">perceive_when</a>(acid,&nbsp;percpatt)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-record_perceptions">record_perceptions</a>(acid,&nbsp;percpatt)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-register_perception">register_perception</a>(acid,&nbsp;percept)&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-remove_perceptions">remove_perceptions</a>(acid,&nbsp;percpatt)&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-remove_all_perceptions">remove_all_perceptions</a>(acid)</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="ActorController.html">ActorController</a><br>
+</td><td width="25%" valign=top></td><td width="25%" valign=top></td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-perceive"><strong>perceive</strong></a>(acid, percpatt)</dt><dd><tt>Search&nbsp;perception&nbsp;base&nbsp;and&nbsp;recognize&nbsp;a&nbsp;perception&nbsp;that&nbsp;match&nbsp;percpatt&nbsp;pattern.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;percpatt:&nbsp;&nbsp;&nbsp;the&nbsp;perception&nbsp;search&nbsp;pattern:&nbsp;a&nbsp;list&nbsp;of&nbsp;fields,&nbsp;each&nbsp;field&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;containing&nbsp;an&nbsp;string&nbsp;or&nbsp;the&nbsp;None&nbsp;value.&nbsp;None&nbsp;fields&nbsp;in&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;perception&nbsp;pattern&nbsp;are&nbsp;ignored&nbsp;in&nbsp;the&nbsp;search,&nbsp;string&nbsp;fields<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;defined&nbsp;in&nbsp;perception&nbsp;pattern&nbsp;must&nbsp;be&nbsp;equal&nbsp;to&nbsp;corresponding<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;field&nbsp;in&nbsp;the&nbsp;perception&nbsp;record.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;None.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;returns&nbsp;the&nbsp;first&nbsp;perception&nbsp;that&nbsp;matches&nbsp;the&nbsp;perception&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;pattern.&nbsp;A&nbsp;perception&nbsp;record&nbsp;is&nbsp;simply&nbsp;a&nbsp;list&nbsp;of&nbsp;strings.</tt></dd></dl>
+ <dl><dt><a name="-perceive_all"><strong>perceive_all</strong></a>(acid, percpatt)</dt><dd><tt>Search&nbsp;perception&nbsp;base&nbsp;and&nbsp;recognize&nbsp;perceptions&nbsp;that&nbsp;match&nbsp;percpatt&nbsp;pattern.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;percpatt:&nbsp;&nbsp;&nbsp;the&nbsp;perception&nbsp;search&nbsp;pattern:&nbsp;a&nbsp;list&nbsp;of&nbsp;fields,&nbsp;each&nbsp;field&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;containing&nbsp;an&nbsp;string&nbsp;or&nbsp;the&nbsp;None&nbsp;value.&nbsp;None&nbsp;fields&nbsp;in&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;perception&nbsp;pattern&nbsp;are&nbsp;ignored&nbsp;in&nbsp;the&nbsp;search,&nbsp;string&nbsp;fields<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;defined&nbsp;in&nbsp;perception&nbsp;pattern&nbsp;must&nbsp;be&nbsp;equal&nbsp;to&nbsp;corresponding<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;field&nbsp;in&nbsp;the&nbsp;perception&nbsp;record.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;None.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;returns&nbsp;a&nbsp;list&nbsp;of&nbsp;perception&nbsp;records&nbsp;for&nbsp;each&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;perception&nbsp;that&nbsp;matches&nbsp;the&nbsp;perception&nbsp;pattern.&nbsp;A&nbsp;perception&nbsp;record&nbsp;is<br>
+&nbsp;&nbsp;&nbsp;&nbsp;simply&nbsp;a&nbsp;list&nbsp;of&nbsp;strings.</tt></dd></dl>
+ <dl><dt><a name="-perceive_if"><strong>perceive_if</strong></a>(acid, percpatt)</dt><dd><tt>Check&nbsp;if&nbsp;the&nbsp;perception&nbsp;base&nbsp;has&nbsp;a&nbsp;perception&nbsp;that&nbsp;match&nbsp;percpatt&nbsp;pattern<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;percpatt:&nbsp;&nbsp;&nbsp;the&nbsp;perception&nbsp;search&nbsp;pattern:&nbsp;a&nbsp;list&nbsp;of&nbsp;fields,&nbsp;each&nbsp;field&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;containing&nbsp;an&nbsp;string&nbsp;or&nbsp;the&nbsp;None&nbsp;value.&nbsp;None&nbsp;fields&nbsp;in&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;perception&nbsp;pattern&nbsp;are&nbsp;ignored&nbsp;in&nbsp;the&nbsp;search,&nbsp;string&nbsp;fields<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;defined&nbsp;in&nbsp;perception&nbsp;pattern&nbsp;must&nbsp;be&nbsp;equal&nbsp;to&nbsp;corresponding<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;field&nbsp;in&nbsp;the&nbsp;perception&nbsp;record.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;False.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;returns&nbsp;True.</tt></dd></dl>
+ <dl><dt><a name="-perceive_if_one"><strong>perceive_if_one</strong></a>(acid, percpatt)</dt><dd><tt>Check&nbsp;if&nbsp;the&nbsp;perception&nbsp;base&nbsp;has&nbsp;a&nbsp;perception&nbsp;that&nbsp;match&nbsp;percpatt&nbsp;pattern<br>
+&nbsp;&nbsp;&nbsp;&nbsp;and&nbsp;is&nbsp;unique<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;percpatt:&nbsp;&nbsp;&nbsp;the&nbsp;perception&nbsp;search&nbsp;pattern:&nbsp;a&nbsp;list&nbsp;of&nbsp;fields,&nbsp;each&nbsp;field&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;containing&nbsp;an&nbsp;string&nbsp;or&nbsp;the&nbsp;None&nbsp;value.&nbsp;None&nbsp;fields&nbsp;in&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;perception&nbsp;pattern&nbsp;are&nbsp;ignored&nbsp;in&nbsp;the&nbsp;search,&nbsp;string&nbsp;fields<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;defined&nbsp;in&nbsp;perception&nbsp;pattern&nbsp;must&nbsp;be&nbsp;equal&nbsp;to&nbsp;corresponding<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;field&nbsp;in&nbsp;the&nbsp;perception&nbsp;record.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;False.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;returns&nbsp;True.</tt></dd></dl>
+ <dl><dt><a name="-perceive_one"><strong>perceive_one</strong></a>(acid, percpatt)</dt><dd><tt>Search&nbsp;perception&nbsp;base&nbsp;and&nbsp;recognize&nbsp;a&nbsp;perception&nbsp;that&nbsp;match&nbsp;percpatt&nbsp;pattern<br>
+&nbsp;&nbsp;&nbsp;&nbsp;and&nbsp;is&nbsp;unique.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;percpatt:&nbsp;&nbsp;&nbsp;the&nbsp;perception&nbsp;search&nbsp;pattern:&nbsp;a&nbsp;list&nbsp;of&nbsp;fields,&nbsp;each&nbsp;field&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;containing&nbsp;an&nbsp;string&nbsp;or&nbsp;the&nbsp;None&nbsp;value.&nbsp;None&nbsp;fields&nbsp;in&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;perception&nbsp;pattern&nbsp;are&nbsp;ignored&nbsp;in&nbsp;the&nbsp;search,&nbsp;string&nbsp;fields<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;defined&nbsp;in&nbsp;perception&nbsp;pattern&nbsp;must&nbsp;be&nbsp;equal&nbsp;to&nbsp;corresponding<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;field&nbsp;in&nbsp;the&nbsp;perception&nbsp;record.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;None.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;returns&nbsp;the&nbsp;unique&nbsp;perception&nbsp;that&nbsp;matches&nbsp;the&nbsp;perception&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;pattern.&nbsp;A&nbsp;perception&nbsp;record&nbsp;is&nbsp;simply&nbsp;a&nbsp;list&nbsp;of&nbsp;strings.</tt></dd></dl>
+ <dl><dt><a name="-perceive_when"><strong>perceive_when</strong></a>(acid, percpatt)</dt><dd><tt>Search&nbsp;perception&nbsp;base&nbsp;for&nbsp;a&nbsp;perception&nbsp;that&nbsp;match&nbsp;percpatt&nbsp;search&nbsp;pattern,&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;returns&nbsp;the&nbsp;time&nbsp;when&nbsp;this&nbsp;perception&nbsp;was&nbsp;stored<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;percpatt:&nbsp;&nbsp;&nbsp;the&nbsp;perception&nbsp;search&nbsp;pattern:&nbsp;a&nbsp;list&nbsp;of&nbsp;fields,&nbsp;each&nbsp;field&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;containing&nbsp;an&nbsp;string&nbsp;or&nbsp;the&nbsp;None&nbsp;value.&nbsp;None&nbsp;fields&nbsp;in&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;perception&nbsp;pattern&nbsp;are&nbsp;ignored&nbsp;in&nbsp;the&nbsp;search,&nbsp;string&nbsp;fields<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;defined&nbsp;in&nbsp;perception&nbsp;pattern&nbsp;must&nbsp;be&nbsp;equal&nbsp;to&nbsp;corresponding<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;field&nbsp;in&nbsp;the&nbsp;perception&nbsp;record.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;None.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;returns&nbsp;the&nbsp;time&nbsp;of&nbsp;the&nbsp;first&nbsp;perception&nbsp;record&nbsp;found&nbsp;that&nbsp;matches&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;perception&nbsp;pattern.&nbsp;The&nbsp;time&nbsp;is&nbsp;a&nbsp;str&nbsp;that&nbsp;specifies&nbsp;the&nbsp;instant&nbsp;of&nbsp;time&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;using&nbsp;Microsoft&nbsp;Datetime.Parse()&nbsp;method&nbsp;format.&nbsp;Examples:&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"2008-11-01T19:35:00.0000000Z",&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"2008-11-01T19:35:00.0000000-07:00",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Sat,&nbsp;01&nbsp;Nov&nbsp;2008&nbsp;19:35:00&nbsp;GMT",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"03/01/2009&nbsp;05:42:00&nbsp;-5:00"</tt></dd></dl>
+ <dl><dt><a name="-perceive_when_one"><strong>perceive_when_one</strong></a>(acid, percpatt)</dt><dd><tt>Search&nbsp;perception&nbsp;base&nbsp;for&nbsp;a&nbsp;perception&nbsp;that&nbsp;match&nbsp;percpatt&nbsp;search&nbsp;pattern<br>
+&nbsp;&nbsp;&nbsp;&nbsp;and&nbsp;is&nbsp;unique,&nbsp;returns&nbsp;the&nbsp;time&nbsp;when&nbsp;this&nbsp;perception&nbsp;was&nbsp;stored<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;percpatt:&nbsp;&nbsp;&nbsp;the&nbsp;perception&nbsp;search&nbsp;pattern:&nbsp;a&nbsp;list&nbsp;of&nbsp;fields,&nbsp;each&nbsp;field&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;containing&nbsp;an&nbsp;string&nbsp;or&nbsp;the&nbsp;None&nbsp;value.&nbsp;None&nbsp;fields&nbsp;in&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;perception&nbsp;pattern&nbsp;are&nbsp;ignored&nbsp;in&nbsp;the&nbsp;search,&nbsp;string&nbsp;fields<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;defined&nbsp;in&nbsp;perception&nbsp;pattern&nbsp;must&nbsp;be&nbsp;equal&nbsp;to&nbsp;corresponding<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;field&nbsp;in&nbsp;the&nbsp;perception&nbsp;record.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;None.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;returns&nbsp;the&nbsp;time&nbsp;of&nbsp;the&nbsp;unique&nbsp;perception&nbsp;record&nbsp;found&nbsp;that&nbsp;matches&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;perception&nbsp;pattern.&nbsp;The&nbsp;time&nbsp;is&nbsp;a&nbsp;str&nbsp;that&nbsp;specifies&nbsp;the&nbsp;instant&nbsp;of&nbsp;time&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;using&nbsp;Microsoft&nbsp;Datetime.Parse()&nbsp;method&nbsp;format.&nbsp;Examples:&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"2008-11-01T19:35:00.0000000Z",&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"2008-11-01T19:35:00.0000000-07:00",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Sat,&nbsp;01&nbsp;Nov&nbsp;2008&nbsp;19:35:00&nbsp;GMT",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"03/01/2009&nbsp;05:42:00&nbsp;-5:00"</tt></dd></dl>
+ <dl><dt><a name="-record_perceptions"><strong>record_perceptions</strong></a>(acid, percpatt)</dt><dd><tt>Search&nbsp;perception&nbsp;base&nbsp;and&nbsp;store&nbsp;(remember)&nbsp;all&nbsp;perceptions&nbsp;that&nbsp;match&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;percpatt&nbsp;pattern&nbsp;as&nbsp;new&nbsp;memories&nbsp;with&nbsp;name&nbsp;'percept'<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;percpatt:&nbsp;&nbsp;&nbsp;the&nbsp;perception&nbsp;search&nbsp;pattern:&nbsp;a&nbsp;list&nbsp;of&nbsp;fields,&nbsp;each&nbsp;field&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;containing&nbsp;an&nbsp;string&nbsp;or&nbsp;the&nbsp;None&nbsp;value.&nbsp;None&nbsp;fields&nbsp;in&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;perception&nbsp;pattern&nbsp;are&nbsp;ignored&nbsp;in&nbsp;the&nbsp;search,&nbsp;string&nbsp;fields<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;defined&nbsp;in&nbsp;perception&nbsp;pattern&nbsp;must&nbsp;be&nbsp;equal&nbsp;to&nbsp;corresponding<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;field&nbsp;in&nbsp;the&nbsp;perception&nbsp;record.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;None.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;updates&nbsp;actor's&nbsp;memory&nbsp;with&nbsp;a&nbsp;list&nbsp;of&nbsp;perception&nbsp;records&nbsp;that&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;matches&nbsp;the&nbsp;perception&nbsp;pattern,&nbsp;and&nbsp;return&nbsp;this&nbsp;list.&nbsp;A&nbsp;remembered&nbsp;perception&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;record&nbsp;is&nbsp;a&nbsp;list&nbsp;of&nbsp;strings&nbsp;were&nbsp;the&nbsp;first&nbsp;element&nbsp;of&nbsp;the&nbsp;list&nbsp;is&nbsp;the&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;string&nbsp;'percept'.</tt></dd></dl>
+ <dl><dt><a name="-register_perception"><strong>register_perception</strong></a>(acid, perception)</dt><dd><tt>Registers&nbsp;a&nbsp;new&nbsp;perception&nbsp;record&nbsp;in&nbsp;perception&nbsp;base.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;perception:&nbsp;the&nbsp;perception&nbsp;record&nbsp;to&nbsp;be&nbsp;stored&nbsp;on&nbsp;the&nbsp;perception&nbsp;base,&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;it&nbsp;a&nbsp;list&nbsp;of&nbsp;strings.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;False.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;add&nbsp;new&nbsp;perception&nbsp;to&nbsp;perception&nbsp;base&nbsp;and&nbsp;returns&nbsp;True.</tt></dd></dl>
+ <dl><dt><a name="-remove_all_perceptions"><strong>remove_all_perceptions</strong></a>(acid)</dt><dd><tt>Delete&nbsp;all&nbsp;perceptions&nbsp;from&nbsp;perception&nbsp;base&nbsp;(clear&nbsp;perception&nbsp;base).<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;do&nbsp;not&nbsp;change&nbsp;perception&nbsp;base&nbsp;and&nbsp;return&nbsp;False.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;clear&nbsp;perception&nbsp;base&nbsp;and&nbsp;return&nbsp;True.</tt></dd></dl>
+ <dl><dt><a name="-remove_perceptions"><strong>remove_perceptions</strong></a>(acid, percpatt)</dt><dd><tt>Delete&nbsp;from&nbsp;perception&nbsp;base&nbsp;the&nbsp;perceptions&nbsp;that&nbsp;match&nbsp;percpatt&nbsp;search&nbsp;pattern.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;percpatt:&nbsp;&nbsp;&nbsp;the&nbsp;perception&nbsp;search&nbsp;pattern:&nbsp;a&nbsp;list&nbsp;of&nbsp;fields,&nbsp;each&nbsp;field&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;containing&nbsp;an&nbsp;string&nbsp;or&nbsp;the&nbsp;None&nbsp;value.&nbsp;None&nbsp;fields&nbsp;in&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;perception&nbsp;pattern&nbsp;are&nbsp;ignored&nbsp;in&nbsp;the&nbsp;search,&nbsp;string&nbsp;fields<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;defined&nbsp;in&nbsp;perception&nbsp;pattern&nbsp;must&nbsp;be&nbsp;equal&nbsp;to&nbsp;corresponding<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;field&nbsp;in&nbsp;the&nbsp;perception&nbsp;record.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;do&nbsp;not&nbsp;change&nbsp;perception&nbsp;base&nbsp;and&nbsp;returns&nbsp;False.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;delete&nbsp;the&nbsp;perceptions&nbsp;that&nbsp;match&nbsp;percpatt&nbsp;from&nbsp;perception&nbsp;base<br>
+&nbsp;&nbsp;&nbsp;&nbsp;and&nbsp;returns&nbsp;True.</tt></dd></dl>
+</td></tr></table>
+</body></html>

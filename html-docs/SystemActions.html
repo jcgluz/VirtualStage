@@ -1,0 +1,125 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module SystemActions</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>SystemActions</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href="index.html">index</a><br><a href="../systemactions.py">d:\virtualstage\systemactions.py</a></font></td></tr></table>
+    <p><tt>Module&nbsp;SystemActions&nbsp;-&nbsp;Execute&nbsp;system&nbsp;actions<br>
+Functions:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-get_attach_points">get_attach_points</a>(acid)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-get_msg_codes">get_msg_codes</a>(acid)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-get_mat_types">get_mat_types</a>(acid)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-get_prim_types">get_prim_types</a>(acid)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-get_std_anims">get_std_anims</a>(acid)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-get_tree_types">get_tree_types</a>(acid)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-set_log_level">set_log_level</a>(acid,level)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-pause_for">pause_for</a>(acid,&nbsp;seconds)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-pause">pause</a>(acid)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-resume">resume</a>(acid)</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="ActorController.html">ActorController</a><br>
+</td><td width="25%" valign=top></td><td width="25%" valign=top></td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-get_attach_points"><strong>get_attach_points</strong></a>(acid)</dt><dd><tt>Return&nbsp;names&nbsp;of&nbsp;my&nbsp;attachments&nbsp;points<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor.<br>
+&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;None.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;returns&nbsp;a&nbsp;list&nbsp;of&nbsp;attachment&nbsp;point&nbsp;names.</tt></dd></dl>
+ <dl><dt><a name="-get_mat_types"><strong>get_mat_types</strong></a>(acid)</dt><dd><tt>Return&nbsp;names&nbsp;of&nbsp;standard&nbsp;material&nbsp;types&nbsp;used&nbsp;in&nbsp;objects<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor.<br>
+&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;None.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;returns&nbsp;a&nbsp;list&nbsp;of&nbsp;material&nbsp;types&nbsp;names.</tt></dd></dl>
+ <dl><dt><a name="-get_msg_codes"><strong>get_msg_codes</strong></a>(acid)</dt><dd><tt>Return&nbsp;names&nbsp;of&nbsp;message&nbsp;codes&nbsp;used&nbsp;in&nbsp;instant&nbsp;message&nbsp;communicaiton<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor.<br>
+&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;None.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;returns&nbsp;a&nbsp;list&nbsp;of&nbsp;message&nbsp;codes&nbsp;names.</tt></dd></dl>
+ <dl><dt><a name="-get_prim_types"><strong>get_prim_types</strong></a>(acid)</dt><dd><tt>Return&nbsp;names&nbsp;of&nbsp;standard&nbsp;primitive&nbsp;types&nbsp;of&nbsp;objects<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor.<br>
+&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;None.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;returns&nbsp;a&nbsp;list&nbsp;of&nbsp;primitive&nbsp;types&nbsp;names.</tt></dd></dl>
+ <dl><dt><a name="-get_std_anims"><strong>get_std_anims</strong></a>(acid)</dt><dd><tt>Return&nbsp;names&nbsp;of&nbsp;standard&nbsp;animations<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor.<br>
+&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;None.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;returns&nbsp;a&nbsp;list&nbsp;of&nbsp;standard&nbsp;animation&nbsp;names.</tt></dd></dl>
+ <dl><dt><a name="-get_tree_types"><strong>get_tree_types</strong></a>(acid)</dt><dd><tt>Return&nbsp;names&nbsp;of&nbsp;standard&nbsp;types&nbsp;of&nbsp;trees<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor.<br>
+&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;None.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;returns&nbsp;a&nbsp;list&nbsp;of&nbsp;standard&nbsp;trees&nbsp;names.</tt></dd></dl>
+ <dl><dt><a name="-pause"><strong>pause</strong></a>(acid)</dt><dd><tt>Pause&nbsp;operation&nbsp;of&nbsp;actor's&nbsp;avatar&nbsp;<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor.<br>
+&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;False<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;True</tt></dd></dl>
+ <dl><dt><a name="-pause_for"><strong>pause_for</strong></a>(acid, seconds)</dt><dd><tt>Makes&nbsp;actor's&nbsp;avatar&nbsp;sleeps&nbsp;(stops&nbsp;operation)&nbsp;for&nbsp;a&nbsp;given&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;number&nbsp;of&nbsp;seconds.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;seconds:&nbsp;&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;number&nbsp;of&nbsp;seconds&nbsp;(an&nbsp;int&nbsp;value)&nbsp;to&nbsp;sleep.<br>
+&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;false.&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;true.</tt></dd></dl>
+ <dl><dt><a name="-resume"><strong>resume</strong></a>(acid)</dt><dd><tt>Resume&nbsp;actor's&nbsp;avatar&nbsp;operation.&nbsp;<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor.<br>
+&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;False<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;True</tt></dd></dl>
+ <dl><dt><a name="-set_log_level"><strong>set_log_level</strong></a>(acid, level)</dt><dd><tt>Set&nbsp;logging&nbsp;level&nbsp;<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;level:&nbsp;&nbsp;str&nbsp;with&nbsp;level&nbsp;of&nbsp;logging,&nbsp;can&nbsp;be:&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'none'&nbsp;(disable&nbsp;logging),&nbsp;'info',&nbsp;'warn',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'error'&nbsp;or&nbsp;'debug'<br>
+&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;False<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;True</tt></dd></dl>
+</td></tr></table>
+</body></html>

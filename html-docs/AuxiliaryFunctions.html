@@ -1,0 +1,601 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module AuxiliaryFunctions</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>AuxiliaryFunctions</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href="index.html">index</a><br><a href="../auxiliaryfunctions.py">d:\virtualstage\auxiliaryfunctions.py</a></font></td></tr></table>
+    <p><tt>Module&nbsp;AuxiliaryFunctions&nbsp;-&nbsp;module&nbsp;that&nbsp;implements&nbsp;some&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;auxiliary&nbsp;functions&nbsp;used&nbsp;by&nbsp;VirtualStage&nbsp;actors<br>
+Functions:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-maybe">maybe</a>(threshold)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-optional">optional</a>(threshold,text)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-find_nearest_obj">find_nearest_obj</a>(acid)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-find_obj_with_name">find_obj_with_name</a>(acid,name,&nbsp;radius=20.0)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-find_place">find_place</a>(acid,stx,sty)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-find_place_with_name_or_descr">find_place_with_name_or_descr</a>(acid,name)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-find_scene">find_scene</a>(acid,x,y)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-find_scene_with_name">find_scene_with_name</a>(acid,scenename)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-compute_scene_central_point">compute_scene_central_point</a>(acid,sceneid)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-find_task_with_name">find_task_with_name</a>(acid,taskname)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-learn_new_known_place">learn_new_known_place</a>(acid,&nbsp;lang,&nbsp;place_x,&nbsp;place_y)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-print_obj_type">print_obj_type</a>(acid,&nbsp;lang,&nbsp;obj)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-print_obj_info">print_obj_info</a>(acid,&nbsp;lang,&nbsp;obj)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-print_obj_name">print_obj_name</a>(acid,lang,obj)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-print_obj_descr">print_obj_descr</a>(acid,lang,obj)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-print_obj_use">print_obj_use</a>(acid,lang,obj)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-print_obj_attr">print_obj_attr</a>(acid,lang,attr,obj)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-print_place_info">print_place_info</a>(acid,lang,place)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-print_place_name">print_place_name</a>(acid,&nbsp;lang,&nbsp;place)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-print_place_descr">print_place_descr</a>(acid,lang,place)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-print_place_event">print_place_event</a>(acid,lang,place)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-print_place_attr">print_place_attr</a>(acid,lang,attr,place)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-print_scene_info">print_scene_info</a>(acid,lang,scene)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-print_scene_name">print_scene_name</a>(acid,&nbsp;lang,&nbsp;scene)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-print_task_info">print_task_info</a>(acid,&nbsp;lang,&nbsp;task)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-string_similarity">string_similarity</a>(str1,&nbsp;str2)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-set_string_similarity_metric">set_string_similarity_metric</a>(metric)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-possible_gender_of_name">possible_gender_of_name</a>(lang,&nbsp;name)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-translate">translate</a>(lang,&nbsp;termtype,&nbsp;termval,&nbsp;deftrans='')<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-importance_to_value">importance_to_value</a>(lang,&nbsp;imptxt)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-importance_to_text">importance_to_text</a>(lang,&nbsp;impval)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-relangle_to_avatar">relangle_to_avatar</a>(acid,avid)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-relangle_to_avatar_with_name">relangle_to_avatar_with_name</a>(acid,avname)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-reldir_to_avatar">reldir_to_avatar</a>(acid,avid)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-reldir_to_avatar_with_name">reldir_to_avatar_with_name</a>(acid,avname)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-vertpos_to_avatar">vertpos_to_avatar</a>(acid,avid)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-vertpos_to_avatar_with_name">vertpos_to_avatar_with_name</a>(acid,avname)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-relangle_to_obj">relangle_to_obj</a>(acid,objid)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-reldir_to_obj">reldir_to_obj</a>(acid,objid)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-vertpos_to_obj">vertpos_to_obj</a>(acid,objid)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-check_inside_poly">check_inside_poly</a>(p,&nbsp;poly)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-compute_poly_centroid">compute_poly_centroid</a>(vertices)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-compute_convex_poly">compute_convex_poly</a>(points)</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="ActorController.html">ActorController</a><br>
+<a href="clr.html">clr</a><br>
+<a href="DialogController.html">DialogController</a><br>
+</td><td width="25%" valign=top><a href="math.html">math</a><br>
+<a href="nltk.html">nltk</a><br>
+<a href="random.html">random</a><br>
+</td><td width="25%" valign=top><a href="re.html">re</a><br>
+<a href="time.html">time</a><br>
+<a href="unidecode.html">unidecode</a><br>
+</td><td width="25%" valign=top><a href="uuid.html">uuid</a><br>
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-check_inside_poly"><strong>check_inside_poly</strong></a>(p, poly)</dt><dd><tt>Check&nbsp;if&nbsp;2D&nbsp;point&nbsp;p&nbsp;is&nbsp;inside&nbsp;of&nbsp;polygon&nbsp;poly.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Points&nbsp;at&nbsp;the&nbsp;boundary&nbsp;line&nbsp;of&nbsp;the&nbsp;polygon&nbsp;are<br>
+&nbsp;&nbsp;&nbsp;&nbsp;not&nbsp;considered&nbsp;inside.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;p:&nbsp;tuple&nbsp;(x,y)&nbsp;with&nbsp;X,Y&nbsp;coordinates&nbsp;of&nbsp;point&nbsp;p.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;poly:&nbsp;&nbsp;list&nbsp;of&nbsp;2D&nbsp;points&nbsp;that&nbsp;define&nbsp;the&nbsp;polygon,&nbsp;each&nbsp;point&nbsp;is<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a&nbsp;tuple&nbsp;(x,y)&nbsp;with&nbsp;X,Y&nbsp;coordinates&nbsp;of&nbsp;the&nbsp;point.<br>
+&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Returns&nbsp;True,&nbsp;if&nbsp;p&nbsp;is&nbsp;inside&nbsp;polygon&nbsp;poly.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Returns&nbsp;False,&nbsp;otherwise.</tt></dd></dl>
+ <dl><dt><a name="-compute_convex_poly"><strong>compute_convex_poly</strong></a>(points)</dt><dd><tt>Computes&nbsp;the&nbsp;convex&nbsp;polygon&nbsp;(a&nbsp;convex&nbsp;hull)&nbsp;for&nbsp;the&nbsp;finite&nbsp;set&nbsp;of&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;2D&nbsp;planar&nbsp;points&nbsp;defined&nbsp;by&nbsp;points&nbsp;argument.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;points:&nbsp;the&nbsp;convex&nbsp;hull&nbsp;(or&nbsp;polygon)&nbsp;will&nbsp;be&nbsp;calculated&nbsp;over&nbsp;this&nbsp;set&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;of&nbsp;2D&nbsp;points,&nbsp;each&nbsp;&nbsp;point&nbsp;is&nbsp;a&nbsp;tuple&nbsp;(x,y)&nbsp;with&nbsp;X,Y&nbsp;coordinates&nbsp;of&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;point.<br>
+&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Returns&nbsp;a&nbsp;list&nbsp;of&nbsp;2D&nbsp;points&nbsp;that&nbsp;define&nbsp;the&nbsp;convex&nbsp;polygon,&nbsp;each&nbsp;point&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;is&nbsp;a&nbsp;tuple&nbsp;(x,y)&nbsp;with&nbsp;X,Y&nbsp;coordinates&nbsp;of&nbsp;the&nbsp;point.</tt></dd></dl>
+ <dl><dt><a name="-compute_poly_centroid"><strong>compute_poly_centroid</strong></a>(vertices)</dt><dd><tt>Compute&nbsp;the&nbsp;centroid&nbsp;(or&nbsp;geometric&nbsp;center)&nbsp;of&nbsp;the&nbsp;convex&nbsp;hull&nbsp;defined&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;by&nbsp;vertices&nbsp;list&nbsp;of&nbsp;2D&nbsp;points.&nbsp;This&nbsp;functions&nbsp;only&nbsp;works&nbsp;if&nbsp;vertices<br>
+&nbsp;&nbsp;&nbsp;&nbsp;is&nbsp;a&nbsp;polygon&nbsp;with&nbsp;a&nbsp;convex&nbsp;hull,i.e.&nbsp;is&nbsp;a&nbsp;convex&nbsp;polygon.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;vertices:&nbsp;&nbsp;list&nbsp;of&nbsp;2D&nbsp;points&nbsp;that&nbsp;define&nbsp;the&nbsp;convex&nbsp;hull,&nbsp;each&nbsp;point&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;is&nbsp;a&nbsp;tuple&nbsp;(x,y)&nbsp;with&nbsp;X,Y&nbsp;coordinates&nbsp;of&nbsp;the&nbsp;point.<br>
+&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;None.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;returns&nbsp;a&nbsp;tuple&nbsp;(x,y)&nbsp;with&nbsp;X,Y&nbsp;coordinates&nbsp;of&nbsp;the&nbsp;centroid.</tt></dd></dl>
+ <dl><dt><a name="-compute_scene_central_point"><strong>compute_scene_central_point</strong></a>(acid, sceneid)</dt><dd><tt>Compute&nbsp;the&nbsp;x,y&nbsp;coordinates&nbsp;of&nbsp;the&nbsp;central&nbsp;point&nbsp;of&nbsp;scene&nbsp;with<br>
+&nbsp;&nbsp;&nbsp;&nbsp;sceneid&nbsp;unique&nbsp;id<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor<br>
+&nbsp;&nbsp;&nbsp;&nbsp;sceneid:&nbsp;str&nbsp;with&nbsp;the&nbsp;unique&nbsp;id&nbsp;(the&nbsp;UUID)&nbsp;of&nbsp;scene<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;None.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;a&nbsp;pair&nbsp;(x,y)&nbsp;with&nbsp;X,Y&nbsp;coordinate&nbsp;of&nbsp;scene&nbsp;central&nbsp;point.</tt></dd></dl>
+ <dl><dt><a name="-find_nearest_obj"><strong>find_nearest_obj</strong></a>(acid)</dt><dd><tt>Find&nbsp;the&nbsp;nearest&nbsp;object&nbsp;from&nbsp;the&nbsp;position&nbsp;of&nbsp;avatar&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;controlled&nbsp;by&nbsp;the&nbsp;actor.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;None.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;returns&nbsp;the&nbsp;UUID&nbsp;of&nbsp;nearest&nbsp;object.</tt></dd></dl>
+ <dl><dt><a name="-find_obj_with_name"><strong>find_obj_with_name</strong></a>(acid, name, radius=20.0)</dt><dd><tt>Find&nbsp;the&nbsp;object&nbsp;with&nbsp;name&nbsp;name.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor<br>
+&nbsp;&nbsp;&nbsp;&nbsp;name:&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;object&nbsp;name<br>
+&nbsp;&nbsp;&nbsp;&nbsp;radius:&nbsp;float,&nbsp;int&nbsp;or&nbsp;numeric&nbsp;str&nbsp;with&nbsp;search&nbsp;radius&nbsp;in&nbsp;meters.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;None.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;returns&nbsp;the&nbsp;UUID&nbsp;of&nbsp;object.</tt></dd></dl>
+ <dl><dt><a name="-find_place"><strong>find_place</strong></a>(acid, x, y)</dt><dd><tt>Check&nbsp;if&nbsp;it&nbsp;is&nbsp;a&nbsp;known&nbsp;place&nbsp;at&nbsp;given&nbsp;x,y&nbsp;coordinates.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor<br>
+&nbsp;&nbsp;&nbsp;&nbsp;x,y:&nbsp;str&nbsp;float&nbsp;values&nbsp;of&nbsp;x,y&nbsp;coordinates<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;None.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;returns&nbsp;a&nbsp;known&nbsp;place&nbsp;record&nbsp;with&nbsp;following&nbsp;structure:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['known-place',&nbsp;id,&nbsp;x,&nbsp;y]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;where:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id&nbsp;is&nbsp;a&nbsp;str&nbsp;with&nbsp;the&nbsp;unique&nbsp;UUID&nbsp;of&nbsp;the&nbsp;known&nbsp;place;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x,&nbsp;y&nbsp;are&nbsp;str&nbsp;float&nbsp;values&nbsp;with&nbsp;the&nbsp;X,Y&nbsp;coordinates&nbsp;of&nbsp;central&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;position&nbsp;of&nbsp;place.</tt></dd></dl>
+ <dl><dt><a name="-find_place_with_name_or_descr"><strong>find_place_with_name_or_descr</strong></a>(acid, name)</dt><dd><tt>Find&nbsp;known&nbsp;place&nbsp;with&nbsp;name&nbsp;or&nbsp;description&nbsp;that&nbsp;match&nbsp;name&nbsp;argument.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor<br>
+&nbsp;&nbsp;&nbsp;&nbsp;name:&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;place&nbsp;name<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;None.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;returns&nbsp;a&nbsp;tuple&nbsp;(simil,id,term)&nbsp;where<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;simil&nbsp;is&nbsp;the&nbsp;maximum&nbsp;similarity&nbsp;coeficient&nbsp;found&nbsp;in&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;search,&nbsp;id&nbsp;is&nbsp;the&nbsp;UUID&nbsp;of&nbsp;the&nbsp;known&nbsp;place&nbsp;with<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;maximum&nbsp;similarity&nbsp;and&nbsp;term&nbsp;is&nbsp;the&nbsp;name&nbsp;or&nbsp;description<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;of&nbsp;this&nbsp;known&nbsp;place&nbsp;that&nbsp;achieved&nbsp;the&nbsp;maximum&nbsp;similarity<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;index.</tt></dd></dl>
+ <dl><dt><a name="-find_scene"><strong>find_scene</strong></a>(acid, x, y)</dt><dd><tt>Check&nbsp;if&nbsp;it&nbsp;is&nbsp;a&nbsp;known&nbsp;scene&nbsp;at&nbsp;given&nbsp;x,y&nbsp;coordinates.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor<br>
+&nbsp;&nbsp;&nbsp;&nbsp;x,y:&nbsp;str&nbsp;float&nbsp;values&nbsp;of&nbsp;x,y&nbsp;coordinates<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;None.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;returns&nbsp;a&nbsp;known&nbsp;place&nbsp;record&nbsp;with&nbsp;following&nbsp;structure:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['known-scene',&nbsp;id]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;where:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id&nbsp;is&nbsp;a&nbsp;str&nbsp;with&nbsp;the&nbsp;unique&nbsp;UUID&nbsp;of&nbsp;the&nbsp;known&nbsp;scene;</tt></dd></dl>
+ <dl><dt><a name="-find_scene_with_name"><strong>find_scene_with_name</strong></a>(acid, scenename)</dt><dd><tt>Find&nbsp;the&nbsp;UUID&nbsp;of&nbsp;the&nbsp;scene&nbsp;with&nbsp;name&nbsp;scenename.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor<br>
+&nbsp;&nbsp;&nbsp;&nbsp;scenename:&nbsp;str&nbsp;with&nbsp;the&nbsp;name&nbsp;of&nbsp;scene<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;None.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;returns&nbsp;a&nbsp;known&nbsp;scene&nbsp;record&nbsp;with&nbsp;following&nbsp;structure:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['known-scene',&nbsp;id]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;where:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id&nbsp;is&nbsp;a&nbsp;str&nbsp;with&nbsp;the&nbsp;unique&nbsp;UUID&nbsp;of&nbsp;the&nbsp;known&nbsp;scene;</tt></dd></dl>
+ <dl><dt><a name="-find_task_with_name"><strong>find_task_with_name</strong></a>(acid, taskname)</dt><dd><tt>Find&nbsp;the&nbsp;UUID&nbsp;of&nbsp;the&nbsp;task&nbsp;with&nbsp;name&nbsp;taskname.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor<br>
+&nbsp;&nbsp;&nbsp;&nbsp;taskname:&nbsp;str&nbsp;with&nbsp;the&nbsp;name&nbsp;of&nbsp;task<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;None.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;returns&nbsp;a&nbsp;known&nbsp;task&nbsp;record&nbsp;with&nbsp;following&nbsp;structure:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['known-task',&nbsp;id]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;where:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id&nbsp;is&nbsp;a&nbsp;str&nbsp;with&nbsp;the&nbsp;unique&nbsp;UUID&nbsp;of&nbsp;the&nbsp;known&nbsp;scene;</tt></dd></dl>
+ <dl><dt><a name="-importance_to_text"><strong>importance_to_text</strong></a>(lang, impval)</dt></dl>
+ <dl><dt><a name="-importance_to_value"><strong>importance_to_value</strong></a>(lang, imptxt)</dt></dl>
+ <dl><dt><a name="-learn_new_known_place"><strong>learn_new_known_place</strong></a>(acid, lang, x, y)</dt><dd><tt>Record&nbsp;a&nbsp;new&nbsp;known&nbsp;place.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor<br>
+&nbsp;&nbsp;&nbsp;&nbsp;lang:&nbsp;str&nbsp;with&nbsp;language&nbsp;identifier&nbsp;(currently&nbsp;accept&nbsp;pt-br)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;x,&nbsp;y:&nbsp;str&nbsp;float&nbsp;values&nbsp;with&nbsp;the&nbsp;X,Y&nbsp;coordinates&nbsp;of&nbsp;central&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;position&nbsp;of&nbsp;new&nbsp;known&nbsp;place.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Returns&nbsp;a&nbsp;known-place&nbsp;record&nbsp;with&nbsp;information&nbsp;about&nbsp;the&nbsp;new<br>
+&nbsp;&nbsp;&nbsp;&nbsp;known&nbsp;place.&nbsp;This&nbsp;record&nbsp;has&nbsp;the&nbsp;following&nbsp;structure:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['known-place',&nbsp;id,&nbsp;x,&nbsp;y]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;where:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id&nbsp;is&nbsp;a&nbsp;new&nbsp;random&nbsp;UUID&nbsp;for&nbsp;the&nbsp;known&nbsp;place<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x,y&nbsp;are&nbsp;the&nbsp;X,Y&nbsp;central&nbsp;coordinates&nbsp;of&nbsp;the&nbsp;known&nbsp;place<br>
+&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;known-place&nbsp;record&nbsp;is&nbsp;also&nbsp;stored&nbsp;in&nbsp;memory.&nbsp;This&nbsp;function<br>
+&nbsp;&nbsp;&nbsp;&nbsp;also&nbsp;stores&nbsp;in&nbsp;memory&nbsp;a&nbsp;place-radius&nbsp;record&nbsp;related&nbsp;to&nbsp;the&nbsp;known&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;place.&nbsp;This&nbsp;record&nbsp;has&nbsp;the&nbsp;following&nbsp;structure:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['place-radius',&nbsp;id,&nbsp;r]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;where&nbsp;id&nbsp;is&nbsp;the&nbsp;UUID&nbsp;of&nbsp;the&nbsp;new&nbsp;known&nbsp;place,&nbsp;and&nbsp;r&nbsp;is&nbsp;the&nbsp;radius&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;size&nbsp;in&nbsp;meters&nbsp;of&nbsp;this&nbsp;place&nbsp;from&nbsp;its&nbsp;central&nbsp;position.&nbsp;The&nbsp;default&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;initial&nbsp;radius&nbsp;size&nbsp;for&nbsp;known&nbsp;places&nbsp;is&nbsp;5.0&nbsp;meters,&nbsp;but&nbsp;this&nbsp;can&nbsp;be&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;easily&nbsp;changed&nbsp;updating&nbsp;this&nbsp;record.</tt></dd></dl>
+ <dl><dt><a name="-maybe"><strong>maybe</strong></a>(threshold)</dt></dl>
+ <dl><dt><a name="-optional"><strong>optional</strong></a>(threshold, text)</dt></dl>
+ <dl><dt><a name="-possible_gender_of_name"><strong>possible_gender_of_name</strong></a>(lang, name)</dt></dl>
+ <dl><dt><a name="-print_obj_attr"><strong>print_obj_attr</strong></a>(acid, lang, attr, obj)</dt><dd><tt>Print&nbsp;information&nbsp;about&nbsp;some&nbsp;recorded&nbsp;attribute&nbsp;(or&nbsp;property)&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;about&nbsp;the&nbsp;object&nbsp;in&nbsp;lang&nbsp;language.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor<br>
+&nbsp;&nbsp;&nbsp;&nbsp;lang:&nbsp;str&nbsp;with&nbsp;language&nbsp;identifier&nbsp;(currently&nbsp;accept&nbsp;pt-br)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;attr:&nbsp;str&nbsp;with&nbsp;identifier&nbsp;of&nbsp;object's&nbsp;attribute&nbsp;(or&nbsp;property)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;obj:&nbsp;obj&nbsp;record&nbsp;as&nbsp;returned&nbsp;by&nbsp;look_obj(),&nbsp;see&nbsp;look_obj()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;help&nbsp;for&nbsp;details.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Returns&nbsp;a&nbsp;string&nbsp;with&nbsp;information&nbsp;about&nbsp;some&nbsp;attribute&nbsp;(or&nbsp;property)&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;of&nbsp;the&nbsp;object&nbsp;in&nbsp;language&nbsp;defined&nbsp;by&nbsp;lang.&nbsp;This&nbsp;string&nbsp;can&nbsp;be&nbsp;sent&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;back&nbsp;to&nbsp;user.&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Currently&nbsp;only&nbsp;accepts&nbsp;pt-br&nbsp;language.&nbsp;For&nbsp;the&nbsp;remaining&nbsp;languages&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;generates&nbsp;a&nbsp;string&nbsp;in&nbsp;English.</tt></dd></dl>
+ <dl><dt><a name="-print_obj_descr"><strong>print_obj_descr</strong></a>(acid, lang, obj)</dt><dd><tt>Print&nbsp;description&nbsp;of&nbsp;the&nbsp;object&nbsp;in&nbsp;lang&nbsp;language.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor<br>
+&nbsp;&nbsp;&nbsp;&nbsp;lang:&nbsp;str&nbsp;with&nbsp;language&nbsp;identifier&nbsp;(currently&nbsp;accept&nbsp;pt-br)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;obj:&nbsp;obj&nbsp;record&nbsp;as&nbsp;returned&nbsp;by&nbsp;look_obj(),&nbsp;see&nbsp;look_obj()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;help&nbsp;for&nbsp;details.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Returns&nbsp;a&nbsp;string&nbsp;with&nbsp;description&nbsp;about&nbsp;the&nbsp;object&nbsp;in&nbsp;the<br>
+&nbsp;&nbsp;&nbsp;&nbsp;language&nbsp;defined&nbsp;by&nbsp;lang.&nbsp;This&nbsp;string&nbsp;can&nbsp;be&nbsp;sent&nbsp;back&nbsp;to&nbsp;user.&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Currently&nbsp;only&nbsp;accepts&nbsp;pt-br&nbsp;language.&nbsp;For&nbsp;the&nbsp;remaining&nbsp;languages&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;generates&nbsp;a&nbsp;string&nbsp;in&nbsp;English.</tt></dd></dl>
+ <dl><dt><a name="-print_obj_info"><strong>print_obj_info</strong></a>(acid, lang, obj)</dt><dd><tt>Print&nbsp;information&nbsp;about&nbsp;the&nbsp;object,&nbsp;including&nbsp;the&nbsp;type,&nbsp;name,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;description&nbsp;and&nbsp;use&nbsp;of&nbsp;the&nbsp;object&nbsp;(if&nbsp;available)&nbsp;in&nbsp;the<br>
+&nbsp;&nbsp;&nbsp;&nbsp;lang&nbsp;language.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor<br>
+&nbsp;&nbsp;&nbsp;&nbsp;lang:&nbsp;str&nbsp;with&nbsp;language&nbsp;identifier&nbsp;(currently&nbsp;accept&nbsp;pt-br)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;obj:&nbsp;obj&nbsp;record&nbsp;as&nbsp;returned&nbsp;by&nbsp;look_obj(),&nbsp;see&nbsp;look_obj()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;help&nbsp;for&nbsp;details.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Returns&nbsp;a&nbsp;string&nbsp;with&nbsp;information&nbsp;about&nbsp;the&nbsp;object&nbsp;in&nbsp;language&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;defined&nbsp;by&nbsp;lang.&nbsp;This&nbsp;string&nbsp;can&nbsp;be&nbsp;sent&nbsp;back&nbsp;to&nbsp;user.&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Currently&nbsp;only&nbsp;works&nbsp;with&nbsp;pt-br&nbsp;language.&nbsp;For&nbsp;the&nbsp;remaining&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;languages&nbsp;generates&nbsp;a&nbsp;string&nbsp;in&nbsp;English.</tt></dd></dl>
+ <dl><dt><a name="-print_obj_name"><strong>print_obj_name</strong></a>(acid, lang, obj)</dt><dd><tt>Print&nbsp;the&nbsp;name&nbsp;of&nbsp;the&nbsp;object&nbsp;in&nbsp;lang&nbsp;language.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor<br>
+&nbsp;&nbsp;&nbsp;&nbsp;lang:&nbsp;str&nbsp;with&nbsp;language&nbsp;identifier&nbsp;(currently&nbsp;accept&nbsp;pt-br)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;obj:&nbsp;obj&nbsp;record&nbsp;as&nbsp;returned&nbsp;by&nbsp;look_obj(),&nbsp;see&nbsp;look_obj()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;help&nbsp;for&nbsp;details.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Returns&nbsp;a&nbsp;string&nbsp;with&nbsp;information&nbsp;about&nbsp;the&nbsp;name&nbsp;of&nbsp;the&nbsp;object&nbsp;in<br>
+&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;language&nbsp;defined&nbsp;by&nbsp;lang.&nbsp;This&nbsp;string&nbsp;can&nbsp;be&nbsp;sent&nbsp;back&nbsp;to&nbsp;user.&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Currently&nbsp;only&nbsp;accepts&nbsp;pt-br&nbsp;language.&nbsp;For&nbsp;the&nbsp;remaining&nbsp;languages&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;generates&nbsp;a&nbsp;string&nbsp;in&nbsp;English.</tt></dd></dl>
+ <dl><dt><a name="-print_obj_type"><strong>print_obj_type</strong></a>(acid, lang, obj)</dt><dd><tt>Print&nbsp;type&nbsp;of&nbsp;the&nbsp;object&nbsp;in&nbsp;lang&nbsp;language.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor<br>
+&nbsp;&nbsp;&nbsp;&nbsp;lang:&nbsp;str&nbsp;with&nbsp;language&nbsp;identifier&nbsp;(currently&nbsp;accept&nbsp;pt-br)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;obj:&nbsp;obj&nbsp;record&nbsp;as&nbsp;returned&nbsp;by&nbsp;look_obj(),&nbsp;see&nbsp;look_obj()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;help&nbsp;for&nbsp;details.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Returns&nbsp;a&nbsp;string&nbsp;with&nbsp;information&nbsp;about&nbsp;the&nbsp;type&nbsp;of&nbsp;the&nbsp;object&nbsp;in<br>
+&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;language&nbsp;defined&nbsp;by&nbsp;lang.&nbsp;This&nbsp;string&nbsp;can&nbsp;be&nbsp;sent&nbsp;back&nbsp;to&nbsp;user.&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Currently&nbsp;only&nbsp;accepts&nbsp;pt-br&nbsp;language.&nbsp;For&nbsp;the&nbsp;remaining&nbsp;languages&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;generates&nbsp;a&nbsp;string&nbsp;in&nbsp;English.</tt></dd></dl>
+ <dl><dt><a name="-print_obj_use"><strong>print_obj_use</strong></a>(acid, lang, obj)</dt><dd><tt>Print&nbsp;information&nbsp;about&nbsp;the&nbsp;recorded&nbsp;use&nbsp;of&nbsp;the&nbsp;object&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;in&nbsp;lang&nbsp;language.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor<br>
+&nbsp;&nbsp;&nbsp;&nbsp;lang:&nbsp;str&nbsp;with&nbsp;language&nbsp;identifier&nbsp;(currently&nbsp;accept&nbsp;pt-br)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;obj:&nbsp;obj&nbsp;record&nbsp;as&nbsp;returned&nbsp;by&nbsp;look_obj(),&nbsp;see&nbsp;look_obj()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;help&nbsp;for&nbsp;details.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Returns&nbsp;a&nbsp;string&nbsp;with&nbsp;information&nbsp;about&nbsp;the&nbsp;use&nbsp;of&nbsp;the&nbsp;object&nbsp;in<br>
+&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;language&nbsp;defined&nbsp;by&nbsp;lang.&nbsp;This&nbsp;string&nbsp;can&nbsp;be&nbsp;sent&nbsp;back&nbsp;to&nbsp;user.&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Currently&nbsp;only&nbsp;accepts&nbsp;pt-br&nbsp;language.&nbsp;For&nbsp;the&nbsp;remaining&nbsp;languages&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;generates&nbsp;a&nbsp;string&nbsp;in&nbsp;English.</tt></dd></dl>
+ <dl><dt><a name="-print_place_attr"><strong>print_place_attr</strong></a>(acid, lang, attr, place)</dt><dd><tt>Print&nbsp;information&nbsp;about&nbsp;some&nbsp;recorded&nbsp;attribute&nbsp;(or&nbsp;property)&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;about&nbsp;the&nbsp;known&nbsp;place&nbsp;in&nbsp;lang&nbsp;language.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor<br>
+&nbsp;&nbsp;&nbsp;&nbsp;lang:&nbsp;str&nbsp;with&nbsp;language&nbsp;identifier&nbsp;(currently&nbsp;accept&nbsp;pt-br)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;attr:&nbsp;str&nbsp;with&nbsp;identifier&nbsp;of&nbsp;object's&nbsp;attribute&nbsp;(or&nbsp;property)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;obj:&nbsp;obj&nbsp;record&nbsp;as&nbsp;returned&nbsp;by&nbsp;look_obj(),&nbsp;see&nbsp;look_obj()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;help&nbsp;for&nbsp;details.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Returns&nbsp;a&nbsp;string&nbsp;with&nbsp;information&nbsp;about&nbsp;some&nbsp;attribute&nbsp;(or&nbsp;property)&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;of&nbsp;the&nbsp;place&nbsp;in&nbsp;language&nbsp;defined&nbsp;by&nbsp;lang.&nbsp;This&nbsp;string&nbsp;can&nbsp;be&nbsp;sent&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;back&nbsp;to&nbsp;user.&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Currently&nbsp;only&nbsp;accepts&nbsp;pt-br&nbsp;language.&nbsp;For&nbsp;the&nbsp;remaining&nbsp;languages&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;generates&nbsp;a&nbsp;string&nbsp;in&nbsp;English.</tt></dd></dl>
+ <dl><dt><a name="-print_place_descr"><strong>print_place_descr</strong></a>(acid, lang, place)</dt><dd><tt>Print&nbsp;description&nbsp;about&nbsp;the&nbsp;known&nbsp;place&nbsp;in&nbsp;the<br>
+&nbsp;&nbsp;&nbsp;&nbsp;lang&nbsp;language.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor<br>
+&nbsp;&nbsp;&nbsp;&nbsp;lang:&nbsp;str&nbsp;with&nbsp;language&nbsp;identifier&nbsp;(currently&nbsp;accept&nbsp;pt-br)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;place:&nbsp;known-place&nbsp;record,&nbsp;see&nbsp;<a href="#-learn_new_known_place">learn_new_known_place</a>()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;help&nbsp;for&nbsp;details.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Returns&nbsp;a&nbsp;string&nbsp;with&nbsp;description&nbsp;about&nbsp;the&nbsp;place&nbsp;in&nbsp;language<br>
+&nbsp;&nbsp;&nbsp;&nbsp;defined&nbsp;by&nbsp;lang.&nbsp;This&nbsp;string&nbsp;can&nbsp;be&nbsp;sent&nbsp;back&nbsp;to&nbsp;user.&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Currently&nbsp;only&nbsp;works&nbsp;with&nbsp;pt-br&nbsp;language.&nbsp;For&nbsp;the&nbsp;remaining&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;languages&nbsp;generates&nbsp;a&nbsp;string&nbsp;in&nbsp;English.</tt></dd></dl>
+ <dl><dt><a name="-print_place_event"><strong>print_place_event</strong></a>(acid, lang, place)</dt><dd><tt>Print&nbsp;information&nbsp;about&nbsp;some&nbsp;event&nbsp;that&nbsp;occured&nbsp;in<br>
+&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;known&nbsp;place&nbsp;in&nbsp;the&nbsp;lang&nbsp;language.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor<br>
+&nbsp;&nbsp;&nbsp;&nbsp;lang:&nbsp;str&nbsp;with&nbsp;language&nbsp;identifier&nbsp;(currently&nbsp;accept&nbsp;pt-br)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;place:&nbsp;known-place&nbsp;record,&nbsp;see&nbsp;<a href="#-learn_new_known_place">learn_new_known_place</a>()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;help&nbsp;for&nbsp;details.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Returns&nbsp;a&nbsp;string&nbsp;with&nbsp;information&nbsp;about&nbsp;some&nbsp;event&nbsp;that&nbsp;ocurred<br>
+&nbsp;&nbsp;&nbsp;&nbsp;in&nbsp;the&nbsp;place&nbsp;in&nbsp;language&nbsp;defined&nbsp;by&nbsp;lang.&nbsp;This&nbsp;string&nbsp;can&nbsp;be&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;sent&nbsp;back&nbsp;to&nbsp;user.&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Currently&nbsp;only&nbsp;works&nbsp;with&nbsp;pt-br&nbsp;language.&nbsp;For&nbsp;the&nbsp;remaining&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;languages&nbsp;generates&nbsp;a&nbsp;string&nbsp;in&nbsp;English.</tt></dd></dl>
+ <dl><dt><a name="-print_place_info"><strong>print_place_info</strong></a>(acid, lang, place)</dt><dd><tt>Print&nbsp;information&nbsp;about&nbsp;some&nbsp;known&nbsp;place,&nbsp;including&nbsp;the&nbsp;name<br>
+&nbsp;&nbsp;&nbsp;&nbsp;and&nbsp;description&nbsp;of&nbsp;the&nbsp;place&nbsp;(if&nbsp;available)&nbsp;in&nbsp;the<br>
+&nbsp;&nbsp;&nbsp;&nbsp;lang&nbsp;language.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor<br>
+&nbsp;&nbsp;&nbsp;&nbsp;lang:&nbsp;str&nbsp;with&nbsp;language&nbsp;identifier&nbsp;(currently&nbsp;accept&nbsp;pt-br)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;place:&nbsp;known-place&nbsp;record,&nbsp;see&nbsp;<a href="#-learn_new_known_place">learn_new_known_place</a>()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;help&nbsp;for&nbsp;details.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Returns&nbsp;a&nbsp;string&nbsp;with&nbsp;information&nbsp;about&nbsp;the&nbsp;place&nbsp;in&nbsp;language&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;defined&nbsp;by&nbsp;lang.&nbsp;This&nbsp;string&nbsp;can&nbsp;be&nbsp;sent&nbsp;back&nbsp;to&nbsp;user.&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Currently&nbsp;only&nbsp;works&nbsp;with&nbsp;pt-br&nbsp;language.&nbsp;For&nbsp;the&nbsp;remaining&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;languages&nbsp;generates&nbsp;a&nbsp;string&nbsp;in&nbsp;English.</tt></dd></dl>
+ <dl><dt><a name="-print_place_name"><strong>print_place_name</strong></a>(acid, lang, place)</dt><dd><tt>Print&nbsp;information&nbsp;about&nbsp;the&nbsp;name&nbsp;of&nbsp;a&nbsp;known&nbsp;place&nbsp;in&nbsp;the<br>
+&nbsp;&nbsp;&nbsp;&nbsp;lang&nbsp;language.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor<br>
+&nbsp;&nbsp;&nbsp;&nbsp;lang:&nbsp;str&nbsp;with&nbsp;language&nbsp;identifier&nbsp;(currently&nbsp;accept&nbsp;pt-br)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;place:&nbsp;known-place&nbsp;record,&nbsp;see&nbsp;<a href="#-learn_new_known_place">learn_new_known_place</a>()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;help&nbsp;for&nbsp;details.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Returns&nbsp;a&nbsp;string&nbsp;with&nbsp;information&nbsp;about&nbsp;the&nbsp;name&nbsp;of&nbsp;place&nbsp;in<br>
+&nbsp;&nbsp;&nbsp;&nbsp;language&nbsp;defined&nbsp;by&nbsp;lang.&nbsp;This&nbsp;string&nbsp;can&nbsp;be&nbsp;sent&nbsp;back&nbsp;to&nbsp;user.&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Currently&nbsp;only&nbsp;works&nbsp;with&nbsp;pt-br&nbsp;language.&nbsp;For&nbsp;the&nbsp;remaining&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;languages&nbsp;generates&nbsp;a&nbsp;string&nbsp;in&nbsp;English.</tt></dd></dl>
+ <dl><dt><a name="-print_scene_info"><strong>print_scene_info</strong></a>(acid, lang, scene)</dt><dd><tt>Print&nbsp;information&nbsp;about&nbsp;some&nbsp;known&nbsp;scene&nbsp;in&nbsp;the<br>
+&nbsp;&nbsp;&nbsp;&nbsp;lang&nbsp;language.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor<br>
+&nbsp;&nbsp;&nbsp;&nbsp;lang:&nbsp;str&nbsp;with&nbsp;language&nbsp;identifier&nbsp;(currently&nbsp;accept&nbsp;pt-br)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;scene:&nbsp;known-scene&nbsp;record&nbsp;with&nbsp;following&nbsp;structure:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['known-scene',&nbsp;id]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;where:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id&nbsp;is&nbsp;a&nbsp;str&nbsp;with&nbsp;the&nbsp;unique&nbsp;UUID&nbsp;of&nbsp;the&nbsp;known&nbsp;scene;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Returns&nbsp;a&nbsp;string&nbsp;with&nbsp;information&nbsp;about&nbsp;the&nbsp;scene&nbsp;in&nbsp;language&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;defined&nbsp;by&nbsp;lang.&nbsp;This&nbsp;string&nbsp;can&nbsp;be&nbsp;sent&nbsp;back&nbsp;to&nbsp;user.&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Currently&nbsp;only&nbsp;works&nbsp;with&nbsp;pt-br&nbsp;language.&nbsp;For&nbsp;the&nbsp;remaining&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;languages&nbsp;generates&nbsp;a&nbsp;string&nbsp;in&nbsp;English.</tt></dd></dl>
+ <dl><dt><a name="-print_scene_name"><strong>print_scene_name</strong></a>(acid, lang, scene)</dt><dd><tt>Print&nbsp;information&nbsp;about&nbsp;the&nbsp;name&nbsp;of&nbsp;a&nbsp;known&nbsp;scene&nbsp;in&nbsp;the<br>
+&nbsp;&nbsp;&nbsp;&nbsp;lang&nbsp;language.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor<br>
+&nbsp;&nbsp;&nbsp;&nbsp;lang:&nbsp;str&nbsp;with&nbsp;language&nbsp;identifier&nbsp;(currently&nbsp;accept&nbsp;pt-br)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;scene:&nbsp;known-scene&nbsp;record&nbsp;with&nbsp;following&nbsp;structure:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['known-scene',&nbsp;id]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;where:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id&nbsp;is&nbsp;a&nbsp;str&nbsp;with&nbsp;the&nbsp;unique&nbsp;UUID&nbsp;of&nbsp;the&nbsp;known&nbsp;scene;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Returns&nbsp;a&nbsp;string&nbsp;with&nbsp;the&nbsp;scene&nbsp;of&nbsp;place&nbsp;in&nbsp;language&nbsp;defined&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;by&nbsp;lang.&nbsp;This&nbsp;string&nbsp;can&nbsp;be&nbsp;sent&nbsp;back&nbsp;to&nbsp;user.&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Currently&nbsp;only&nbsp;works&nbsp;with&nbsp;pt-br&nbsp;language.&nbsp;For&nbsp;the&nbsp;remaining&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;languages&nbsp;generates&nbsp;a&nbsp;string&nbsp;in&nbsp;English.</tt></dd></dl>
+ <dl><dt><a name="-print_task_info"><strong>print_task_info</strong></a>(acid, lang, task)</dt><dd><tt>Print&nbsp;information&nbsp;about&nbsp;the&nbsp;a&nbsp;known&nbsp;task&nbsp;in&nbsp;the<br>
+&nbsp;&nbsp;&nbsp;&nbsp;lang&nbsp;language.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor<br>
+&nbsp;&nbsp;&nbsp;&nbsp;lang:&nbsp;str&nbsp;with&nbsp;language&nbsp;identifier&nbsp;(currently&nbsp;accept&nbsp;pt-br)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;scene:&nbsp;known-task&nbsp;record&nbsp;with&nbsp;following&nbsp;structure:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['known-task',&nbsp;id]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;where:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id&nbsp;is&nbsp;a&nbsp;str&nbsp;with&nbsp;the&nbsp;unique&nbsp;UUID&nbsp;of&nbsp;the&nbsp;known&nbsp;task;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Returns&nbsp;a&nbsp;string&nbsp;with&nbsp;information&nbsp;about&nbsp;task&nbsp;in&nbsp;language&nbsp;defined&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;by&nbsp;lang.&nbsp;This&nbsp;string&nbsp;can&nbsp;be&nbsp;sent&nbsp;back&nbsp;to&nbsp;user.&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Currently&nbsp;only&nbsp;works&nbsp;with&nbsp;pt-br&nbsp;language.&nbsp;For&nbsp;the&nbsp;remaining&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;languages&nbsp;generates&nbsp;a&nbsp;string&nbsp;in&nbsp;English.</tt></dd></dl>
+ <dl><dt><a name="-relangle_to_avatar"><strong>relangle_to_avatar</strong></a>(acid, avid)</dt><dd><tt>Discover&nbsp;the&nbsp;relative&nbsp;angle&nbsp;(the&nbsp;bearing)&nbsp;from&nbsp;the&nbsp;avatar&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;controlled&nbsp;by&nbsp;the&nbsp;actor&nbsp;to&nbsp;other&nbsp;avatar&nbsp;with&nbsp;avid&nbsp;unique&nbsp;id.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;avid:&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;other&nbsp;avatar.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;None.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;returns&nbsp;a&nbsp;float&nbsp;with&nbsp;the&nbsp;relative&nbsp;angle&nbsp;(in&nbsp;degrees)&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;from&nbsp;&nbsp;actor's&nbsp;avatar&nbsp;to&nbsp;other&nbsp;avatar&nbsp;identified&nbsp;by&nbsp;avid.</tt></dd></dl>
+ <dl><dt><a name="-relangle_to_avatar_with_name"><strong>relangle_to_avatar_with_name</strong></a>(acid, avname)</dt><dd><tt>Discover&nbsp;the&nbsp;relative&nbsp;angle&nbsp;(the&nbsp;bearing)&nbsp;from&nbsp;the&nbsp;avatar&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;controlled&nbsp;by&nbsp;the&nbsp;actor&nbsp;to&nbsp;other&nbsp;avatar&nbsp;with&nbsp;avname&nbsp;name.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;avname:&nbsp;str&nbsp;with&nbsp;name&nbsp;of&nbsp;other&nbsp;avatar.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;None.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;returns&nbsp;a&nbsp;float&nbsp;with&nbsp;the&nbsp;relative&nbsp;angle&nbsp;(in&nbsp;degrees)&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;from&nbsp;actor's&nbsp;avatar&nbsp;to&nbsp;other&nbsp;avatar&nbsp;identified&nbsp;by&nbsp;avid.</tt></dd></dl>
+ <dl><dt><a name="-relangle_to_obj"><strong>relangle_to_obj</strong></a>(acid, objid)</dt><dd><tt>Discover&nbsp;the&nbsp;relative&nbsp;angle&nbsp;(the&nbsp;bearing)&nbsp;from&nbsp;the&nbsp;avatar&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;controlled&nbsp;by&nbsp;the&nbsp;actor&nbsp;to&nbsp;object&nbsp;with&nbsp;objid&nbsp;unique&nbsp;id.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;avid:&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;object.<br>
+&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;None.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;returns&nbsp;a&nbsp;float&nbsp;number&nbsp;with&nbsp;the&nbsp;relative&nbsp;angle&nbsp;(in&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;degrees)&nbsp;from&nbsp;actor's&nbsp;avatar&nbsp;to&nbsp;the&nbsp;object&nbsp;identified&nbsp;by&nbsp;objid.</tt></dd></dl>
+ <dl><dt><a name="-reldir_to_avatar"><strong>reldir_to_avatar</strong></a>(acid, avid)</dt><dd><tt>Discover&nbsp;the&nbsp;relative&nbsp;direction&nbsp;from&nbsp;the&nbsp;avatar&nbsp;controlled<br>
+&nbsp;&nbsp;&nbsp;&nbsp;by&nbsp;the&nbsp;actor&nbsp;to&nbsp;other&nbsp;avatar&nbsp;with&nbsp;avid&nbsp;unique&nbsp;id.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;avid:&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;other&nbsp;avatar.<br>
+&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;None.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;returns&nbsp;the&nbsp;relative&nbsp;direction&nbsp;from&nbsp;&nbsp;actor's&nbsp;avatar&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;to&nbsp;the&nbsp;other&nbsp;avatar&nbsp;identified&nbsp;by&nbsp;avid.&nbsp;Relative&nbsp;directions&nbsp;can<br>
+&nbsp;&nbsp;&nbsp;&nbsp;be:&nbsp;'straight-behind',&nbsp;'straight-ahead',&nbsp;'straight-at-left',&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;'straight-at-right',&nbsp;'ahead-at-right',&nbsp;'behind-at-right',&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;'behind-at-left'&nbsp;or&nbsp;'ahead-at-left'.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;following&nbsp;diagram&nbsp;show&nbsp;directions&nbsp;relative&nbsp;from&nbsp;avatar's&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;position:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;straight<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ahead&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ahead&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ahead&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;at&nbsp;left&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;at&nbsp;right<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|<br>
+&nbsp;&nbsp;&nbsp;&nbsp;straight&nbsp;&nbsp;--------------+--------------&nbsp;straight<br>
+&nbsp;&nbsp;&nbsp;&nbsp;at&nbsp;left&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;at&nbsp;right<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;behind&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;behind&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;at&nbsp;left&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;at&nbsp;right<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;straight<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;behind</tt></dd></dl>
+ <dl><dt><a name="-reldir_to_avatar_with_name"><strong>reldir_to_avatar_with_name</strong></a>(acid, avname)</dt><dd><tt>Discover&nbsp;the&nbsp;relative&nbsp;direction&nbsp;from&nbsp;the&nbsp;avatar&nbsp;controlled<br>
+&nbsp;&nbsp;&nbsp;&nbsp;by&nbsp;the&nbsp;actor&nbsp;to&nbsp;other&nbsp;avatar&nbsp;with&nbsp;avname&nbsp;name.&nbsp;See&nbsp;the&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;help&nbsp;of&nbsp;<a href="#-reldir_to_avatar">reldir_to_avatar</a>()&nbsp;for&nbsp;more&nbsp;details&nbsp;on&nbsp;relative<br>
+&nbsp;&nbsp;&nbsp;&nbsp;directions.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;avname:&nbsp;str&nbsp;with&nbsp;name&nbsp;of&nbsp;other&nbsp;avatar.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;None.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;returns&nbsp;the&nbsp;relative&nbsp;direction&nbsp;from&nbsp;&nbsp;actor's&nbsp;avatar&nbsp;to&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;other&nbsp;avatar&nbsp;with&nbsp;name&nbsp;avname.&nbsp;Relative&nbsp;directions&nbsp;can<br>
+&nbsp;&nbsp;&nbsp;&nbsp;be:&nbsp;'straight-behind',&nbsp;'straight-ahead',&nbsp;'straight-at-left',&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;'straight-at-right',&nbsp;'ahead-at-right',&nbsp;'behind-at-right',&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;'behind-at-left'&nbsp;or&nbsp;'ahead-at-left'.</tt></dd></dl>
+ <dl><dt><a name="-reldir_to_obj"><strong>reldir_to_obj</strong></a>(acid, objid)</dt><dd><tt>Discover&nbsp;the&nbsp;relative&nbsp;direction&nbsp;from&nbsp;the&nbsp;avatar&nbsp;controlled<br>
+&nbsp;&nbsp;&nbsp;&nbsp;by&nbsp;the&nbsp;actor&nbsp;to&nbsp;object&nbsp;with&nbsp;objid&nbsp;unique&nbsp;id.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;objid:&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;object.<br>
+&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;None.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;returns&nbsp;the&nbsp;relative&nbsp;direction&nbsp;from&nbsp;&nbsp;actor's&nbsp;avatar&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;to&nbsp;the&nbsp;object&nbsp;identified&nbsp;by&nbsp;objid.&nbsp;Relative&nbsp;directions&nbsp;can&nbsp;be:&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;'straight-behind',&nbsp;'straight-ahead',&nbsp;'straight-at-left',&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;'straight-at-right',&nbsp;'ahead-at-right',&nbsp;'behind-at-right',&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;'behind-at-left'&nbsp;or&nbsp;'ahead-at-left'.&nbsp;The&nbsp;following&nbsp;diagram&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;show&nbsp;directions&nbsp;relative&nbsp;from&nbsp;avatar's&nbsp;position:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;straight<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ahead&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ahead&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ahead&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;at&nbsp;left&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;at&nbsp;right<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|<br>
+&nbsp;&nbsp;&nbsp;&nbsp;straight&nbsp;&nbsp;--------------+--------------&nbsp;straight<br>
+&nbsp;&nbsp;&nbsp;&nbsp;at&nbsp;left&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;at&nbsp;right<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;behind&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;behind&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;at&nbsp;left&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;at&nbsp;right<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;straight<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;behind</tt></dd></dl>
+ <dl><dt><a name="-set_string_similarity_metric"><strong>set_string_similarity_metric</strong></a>(metric)</dt></dl>
+ <dl><dt><a name="-string_similarity"><strong>string_similarity</strong></a>(str1, str2)</dt></dl>
+ <dl><dt><a name="-translate"><strong>translate</strong></a>(lang, termtype, termval, deftrans='')</dt></dl>
+ <dl><dt><a name="-vertpos_to_avatar"><strong>vertpos_to_avatar</strong></a>(acid, avid)</dt><dd><tt>Discover&nbsp;the&nbsp;vertical&nbsp;position&nbsp;from&nbsp;the&nbsp;avatar&nbsp;controlled<br>
+&nbsp;&nbsp;&nbsp;&nbsp;by&nbsp;the&nbsp;actor&nbsp;to&nbsp;other&nbsp;avatar&nbsp;with&nbsp;avid&nbsp;unique&nbsp;id.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;avid:&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;other&nbsp;avatar.<br>
+&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;None.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;returns&nbsp;the&nbsp;vertical&nbsp;position&nbsp;from&nbsp;&nbsp;actor's&nbsp;avatar&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;to&nbsp;the&nbsp;other&nbsp;avatar&nbsp;identified&nbsp;by&nbsp;avid.&nbsp;Vertical&nbsp;positions&nbsp;can&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;be:&nbsp;'above',&nbsp;'below',&nbsp;'same-level',&nbsp;or&nbsp;'unknown'&nbsp;if&nbsp;the&nbsp;other<br>
+&nbsp;&nbsp;&nbsp;&nbsp;avatar&nbsp;is&nbsp;not&nbsp;found.</tt></dd></dl>
+ <dl><dt><a name="-vertpos_to_avatar_with_name"><strong>vertpos_to_avatar_with_name</strong></a>(acid, avname)</dt><dd><tt>Discover&nbsp;the&nbsp;vertical&nbsp;position&nbsp;from&nbsp;the&nbsp;avatar&nbsp;controlled<br>
+&nbsp;&nbsp;&nbsp;&nbsp;by&nbsp;the&nbsp;actor&nbsp;to&nbsp;other&nbsp;avatar&nbsp;with&nbsp;name&nbsp;avname.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;avname:&nbsp;str&nbsp;with&nbsp;name&nbsp;of&nbsp;other&nbsp;avatar.<br>
+&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;None.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;returns&nbsp;the&nbsp;vertical&nbsp;position&nbsp;from&nbsp;&nbsp;actor's&nbsp;avatar&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;to&nbsp;the&nbsp;other&nbsp;avatar&nbsp;with&nbsp;name&nbsp;avname.&nbsp;Vertical&nbsp;positions&nbsp;can&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;be:&nbsp;'above',&nbsp;'below',&nbsp;'same-level',&nbsp;or&nbsp;'unknown'&nbsp;if&nbsp;the&nbsp;other<br>
+&nbsp;&nbsp;&nbsp;&nbsp;avatar&nbsp;is&nbsp;not&nbsp;found.</tt></dd></dl>
+ <dl><dt><a name="-vertpos_to_obj"><strong>vertpos_to_obj</strong></a>(acid, objid)</dt><dd><tt>Discover&nbsp;the&nbsp;vertical&nbsp;position&nbsp;from&nbsp;the&nbsp;avatar&nbsp;controlled<br>
+&nbsp;&nbsp;&nbsp;&nbsp;by&nbsp;the&nbsp;actor&nbsp;to&nbsp;other&nbsp;object&nbsp;with&nbsp;pbjid&nbsp;unique&nbsp;id.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;objid:&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;object.<br>
+&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;None.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;returns&nbsp;the&nbsp;vertical&nbsp;position&nbsp;from&nbsp;&nbsp;actor's&nbsp;avatar&nbsp;to&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;object&nbsp;identified&nbsp;by&nbsp;objid.&nbsp;Vertical&nbsp;positions&nbsp;can&nbsp;be:&nbsp;'above',&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;'below'&nbsp;or&nbsp;'same-level'.</tt></dd></dl>
+</td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>PtBrFemNames</strong> = []<br>
+<strong>PtBrMascNames</strong> = []<br>
+<strong>SimilarityMetric</strong> = 'jaro-winkler'</td></tr></table>
+</body></html>

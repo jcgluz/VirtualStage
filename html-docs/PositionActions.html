@@ -1,0 +1,287 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module PositionActions</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>PositionActions</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href="index.html">index</a><br><a href="../positionactions.py">d:\virtualstage\positionactions.py</a></font></td></tr></table>
+    <p><tt>Module&nbsp;PositionActions&nbsp;-&nbsp;Actions&nbsp;to&nbsp;view&nbsp;and/or&nbsp;change&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;positioning&nbsp;of&nbsp;avatar&nbsp;controlled&nbsp;by&nbsp;the&nbsp;actor<br>
+Functions:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-look_my_region">look_my_region</a>(acid)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-look_my_height">look_my_height</a>(acid)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-look_my_wind">look_my_wind</a>(acid)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-look_my_position">look_my_position</a>(acid)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-look_my_rotation">look_my_rotation</a>(acid)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-look_my_velocity">look_my_velocity</a>(acid)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-look_my_acceleration">look_my_acceleration</a>(acid)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-look_my_ang_velocity">look_my_ang_velocity</a>(acid)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-rotate_toward">rotate_toward</a>(acid,&nbsp;x,&nbsp;y,&nbsp;z)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-turn_to_abs_dir">turn_to_abs_dir</a>(acid,&nbsp;dir,&nbsp;unit)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-turn_to_rel_dir">turn_to_rel_dir</a>(acid,&nbsp;dir,&nbsp;unit)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-turn_to_named_dir">turn_to_named_dir</a>(acid,&nbsp;dirname)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-turn_to_pos">turn_to_pos</a>(acid,&nbsp;x,&nbsp;y,&nbsp;z)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-turn_to_obj">turn_to_obj</a>(acid,&nbsp;objid)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-turn_to_avatar">turn_to_avatar</a>(acid,&nbsp;avname)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-turning_to">turning_to</a>(acid,&nbsp;opt)</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="ActorController.html">ActorController</a><br>
+</td><td width="25%" valign=top></td><td width="25%" valign=top></td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-look_my_acceleration"><strong>look_my_acceleration</strong></a>(acid)</dt><dd><tt>Return&nbsp;information&nbsp;about&nbsp;the&nbsp;acceleration&nbsp;of&nbsp;the&nbsp;avatar<br>
+&nbsp;&nbsp;&nbsp;&nbsp;controlled&nbsp;by&nbsp;the&nbsp;actor.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor.<br>
+&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;None.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;returns&nbsp;an&nbsp;'myaccel'&nbsp;perception&nbsp;record&nbsp;containing&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;information&nbsp;about&nbsp;the&nbsp;position&nbsp;of&nbsp;my&nbsp;avatar.&nbsp;Perception<br>
+&nbsp;&nbsp;&nbsp;&nbsp;records&nbsp;are&nbsp;list&nbsp;of&nbsp;strings,&nbsp;'myaccel'&nbsp;record&nbsp;have&nbsp;the&nbsp;following<br>
+&nbsp;&nbsp;&nbsp;&nbsp;format:&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['myaccel',&nbsp;acid,&nbsp;ax,&nbsp;ay,&nbsp;az]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;where:&nbsp;&nbsp;ax,&nbsp;ay&nbsp;and&nbsp;az&nbsp;are&nbsp;values&nbsp;in&nbsp;m/s^2&nbsp;that&nbsp;represent&nbsp;the&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acceleration&nbsp;of&nbsp;the&nbsp;avatar,&nbsp;respectively,&nbsp;on&nbsp;x,y&nbsp;and&nbsp;z&nbsp;axis.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;this&nbsp;action&nbsp;also&nbsp;adds&nbsp;the&nbsp;'myaccel&nbsp;record&nbsp;to&nbsp;the<br>
+&nbsp;&nbsp;&nbsp;&nbsp;perception&nbsp;base.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;All&nbsp;perception&nbsp;records&nbsp;fields&nbsp;are&nbsp;strings.</tt></dd></dl>
+ <dl><dt><a name="-look_my_ang_velocity"><strong>look_my_ang_velocity</strong></a>(acid)</dt><dd><tt>Return&nbsp;information&nbsp;about&nbsp;the&nbsp;angular&nbsp;velocity&nbsp;of&nbsp;the&nbsp;avatar&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;controled&nbsp;by&nbsp;the&nbsp;actor.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor.<br>
+&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;None.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;returns&nbsp;an&nbsp;'myangvel'&nbsp;perception&nbsp;record&nbsp;containing&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;information&nbsp;about&nbsp;the&nbsp;rotation&nbsp;of&nbsp;my&nbsp;avatar.&nbsp;Perception<br>
+&nbsp;&nbsp;&nbsp;&nbsp;records&nbsp;are&nbsp;list&nbsp;of&nbsp;strings,&nbsp;'myangvel'&nbsp;record&nbsp;have&nbsp;the&nbsp;following<br>
+&nbsp;&nbsp;&nbsp;&nbsp;format:&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['myangvel',&nbsp;acid,&nbsp;rx,&nbsp;ry,&nbsp;rz]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;where:&nbsp;rx,&nbsp;ry&nbsp;and&nbsp;rz&nbsp;are&nbsp;values&nbsp;in&nbsp;radians&nbsp;per&nbsp;second&nbsp;that&nbsp;represent<br>
+&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;rate&nbsp;of&nbsp;rotation&nbsp;of&nbsp;avatar,&nbsp;respectively,&nbsp;on&nbsp;axis&nbsp;x,&nbsp;y&nbsp;and&nbsp;z.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;this&nbsp;action&nbsp;also&nbsp;adds&nbsp;the&nbsp;'myangvel'&nbsp;record&nbsp;to&nbsp;the<br>
+&nbsp;&nbsp;&nbsp;&nbsp;perception&nbsp;base.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;All&nbsp;perception&nbsp;records&nbsp;fields&nbsp;are&nbsp;strings.</tt></dd></dl>
+ <dl><dt><a name="-look_my_height"><strong>look_my_height</strong></a>(acid)</dt><dd><tt>Look&nbsp;terrain&nbsp;height&nbsp;in&nbsp;avatar's&nbsp;current&nbsp;position<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;None.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;returns&nbsp;a&nbsp;perception&nbsp;record&nbsp;with&nbsp;information&nbsp;about&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;height&nbsp;in&nbsp;X,Y&nbsp;coordinates:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['my_terrain_height',&nbsp;rid,&nbsp;x,&nbsp;y,&nbsp;height]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;where:&nbsp;&nbsp;rid&nbsp;is&nbsp;the&nbsp;unique&nbsp;global&nbsp;id&nbsp;of&nbsp;region;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x,y&nbsp;are&nbsp;the&nbsp;X,Y&nbsp;coordinates&nbsp;of&nbsp;actor's&nbsp;avatar&nbsp;position;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;height&nbsp;is&nbsp;the&nbsp;height&nbsp;in&nbsp;meters&nbsp;at&nbsp;X,Y&nbsp;position.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;All&nbsp;fields&nbsp;from&nbsp;perception&nbsp;records&nbsp;are&nbsp;strings.</tt></dd></dl>
+ <dl><dt><a name="-look_my_position"><strong>look_my_position</strong></a>(acid)</dt><dd><tt>Return&nbsp;information&nbsp;about&nbsp;the&nbsp;position&nbsp;of&nbsp;the&nbsp;avatar<br>
+&nbsp;&nbsp;&nbsp;&nbsp;controlled&nbsp;by&nbsp;the&nbsp;actor&nbsp;.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor.<br>
+&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;None.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;returns&nbsp;an&nbsp;'mypos'&nbsp;perception&nbsp;record&nbsp;containing&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;information&nbsp;about&nbsp;the&nbsp;position&nbsp;of&nbsp;my&nbsp;avatar.&nbsp;Perception<br>
+&nbsp;&nbsp;&nbsp;&nbsp;records&nbsp;are&nbsp;list&nbsp;of&nbsp;strings,&nbsp;'mypos'&nbsp;record&nbsp;have&nbsp;the&nbsp;following<br>
+&nbsp;&nbsp;&nbsp;&nbsp;format:&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['mypos',&nbsp;acid,&nbsp;x,&nbsp;y,&nbsp;z]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;where:&nbsp;&nbsp;x,&nbsp;y,&nbsp;z&nbsp;are&nbsp;the&nbsp;coordinates&nbsp;of&nbsp;avatar&nbsp;in&nbsp;current&nbsp;region.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;this&nbsp;action&nbsp;also&nbsp;adds&nbsp;the&nbsp;'mypos'&nbsp;record&nbsp;to&nbsp;the<br>
+&nbsp;&nbsp;&nbsp;&nbsp;perception&nbsp;base.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;All&nbsp;perception&nbsp;records&nbsp;fields&nbsp;are&nbsp;strings.</tt></dd></dl>
+ <dl><dt><a name="-look_my_region"><strong>look_my_region</strong></a>(acid)</dt><dd><tt>Return&nbsp;information&nbsp;about&nbsp;current&nbsp;region&nbsp;(i.e.&nbsp;the&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;region&nbsp;where&nbsp;is&nbsp;the&nbsp;avatar&nbsp;controlled&nbsp;by&nbsp;the&nbsp;actor).<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor.<br>
+&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;None.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;returns&nbsp;an&nbsp;'myregion'&nbsp;perception&nbsp;record&nbsp;containing&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;information&nbsp;about&nbsp;the&nbsp;simulator&nbsp;region&nbsp;where&nbsp;the&nbsp;avatar&nbsp;is&nbsp;currently<br>
+&nbsp;&nbsp;&nbsp;&nbsp;positioned.&nbsp;Perception&nbsp;records&nbsp;are&nbsp;list&nbsp;of&nbsp;strings,&nbsp;'myregion'&nbsp;record&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;have&nbsp;the&nbsp;following&nbsp;format:&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['myregion",&nbsp;rid,&nbsp;rgname]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;where:&nbsp;&nbsp;rid&nbsp;unique&nbsp;global&nbsp;id&nbsp;of&nbsp;region;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rgname&nbsp;name&nbsp;or&nbsp;region&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;this&nbsp;action&nbsp;also&nbsp;adds&nbsp;to&nbsp;perception&nbsp;base&nbsp;a&nbsp;list&nbsp;of&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;perception&nbsp;records&nbsp;with&nbsp;more&nbsp;info&nbsp;about&nbsp;avatar's&nbsp;current&nbsp;region:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['myregion",&nbsp;rid,&nbsp;rgname]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['region",&nbsp;rid]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['name",&nbsp;rid&nbsp;,&nbsp;rgname]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['handle',&nbsp;rid&nbsp;,&nbsp;handle]:&nbsp;unique&nbsp;rgn&nbsp;id,&nbsp;combination&nbsp;of&nbsp;X,Y&nbsp;coords<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['world_coord',&nbsp;rid&nbsp;,&nbsp;x,&nbsp;y]:&nbsp;global&nbsp;coords&nbsp;X,Y&nbsp;of&nbsp;region&nbsp;in&nbsp;world&nbsp;grid<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['access_level',&nbsp;rid&nbsp;,&nbsp;accesslev]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['flags',&nbsp;rid,&nbsp;flags]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['terr_hght_rng0',&nbsp;rid,&nbsp;heightrange0]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['terr_hght_rng1',&nbsp;rid,&nbsp;heightrange1]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['terr_hght_rng2',&nbsp;rid,&nbsp;heightrange2]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['terr_hght_rng3',&nbsp;rid,&nbsp;heightrange3]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['terr_strt_hght0',&nbsp;rid,&nbsp;terrstartheight0]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['terr_strt_hght1',&nbsp;rid,&nbsp;terrstartheight0]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['terr_strt_hght2',&nbsp;rid,&nbsp;terrstartheight0]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['terr_strt_hght3',&nbsp;rid,&nbsp;terrstartheight0]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['terr_base0',&nbsp;rid,&nbsp;terrbase0]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['terr_base1',&nbsp;rid,&nbsp;terrbase0]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['terr_base2',&nbsp;rid,&nbsp;terrbase0]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['terr_base3',&nbsp;rid,&nbsp;terrbase0]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['terr_detail0',&nbsp;rid,&nbsp;terrdetail0]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['terr_detail1',&nbsp;rid,&nbsp;terrdetail0]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['terr_detail2',&nbsp;rid,&nbsp;terrdetail0]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['terr_detail3',&nbsp;rid,&nbsp;terrdetail0]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['water_height',&nbsp;rid,&nbsp;waterheight]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;All&nbsp;perception&nbsp;records&nbsp;fields&nbsp;are&nbsp;strings.</tt></dd></dl>
+ <dl><dt><a name="-look_my_rotation"><strong>look_my_rotation</strong></a>(acid)</dt><dd><tt>Return&nbsp;information&nbsp;about&nbsp;the&nbsp;rotation&nbsp;of&nbsp;the&nbsp;avatar&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;controled&nbsp;by&nbsp;the&nbsp;actor.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor.<br>
+&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;None.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;returns&nbsp;an&nbsp;'myrot'&nbsp;perception&nbsp;record&nbsp;containing&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;information&nbsp;about&nbsp;the&nbsp;rotation&nbsp;of&nbsp;my&nbsp;avatar.&nbsp;Perception<br>
+&nbsp;&nbsp;&nbsp;&nbsp;records&nbsp;are&nbsp;list&nbsp;of&nbsp;strings,&nbsp;'myrot'&nbsp;record&nbsp;have&nbsp;the&nbsp;following<br>
+&nbsp;&nbsp;&nbsp;&nbsp;format:&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['myrot',&nbsp;acid,&nbsp;roll,&nbsp;pitch,&nbsp;yaw]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;where:&nbsp;&nbsp;roll,&nbsp;pitch,&nbsp;yaw&nbsp;are&nbsp;Euler&nbsp;radian&nbsp;angles&nbsp;of&nbsp;avatar&nbsp;rotation<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;this&nbsp;action&nbsp;also&nbsp;adds&nbsp;the&nbsp;'myrot'&nbsp;record&nbsp;to&nbsp;the<br>
+&nbsp;&nbsp;&nbsp;&nbsp;perception&nbsp;base.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;All&nbsp;perception&nbsp;records&nbsp;fields&nbsp;are&nbsp;strings.</tt></dd></dl>
+ <dl><dt><a name="-look_my_velocity"><strong>look_my_velocity</strong></a>(acid)</dt><dd><tt>Return&nbsp;information&nbsp;about&nbsp;the&nbsp;velocity&nbsp;of&nbsp;the&nbsp;avatar<br>
+&nbsp;&nbsp;&nbsp;&nbsp;controlled&nbsp;by&nbsp;the&nbsp;actor.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor.<br>
+&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;None.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;returns&nbsp;an&nbsp;'myvel'&nbsp;perception&nbsp;record&nbsp;containing&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;information&nbsp;about&nbsp;the&nbsp;position&nbsp;of&nbsp;my&nbsp;avatar.&nbsp;Perception<br>
+&nbsp;&nbsp;&nbsp;&nbsp;records&nbsp;are&nbsp;list&nbsp;of&nbsp;strings,&nbsp;'myvel'&nbsp;record&nbsp;have&nbsp;the&nbsp;following<br>
+&nbsp;&nbsp;&nbsp;&nbsp;format:&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['myvel',&nbsp;acid,&nbsp;vx,&nbsp;vy,&nbsp;vz]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;where:&nbsp;&nbsp;vx,&nbsp;vy&nbsp;and&nbsp;vz&nbsp;are&nbsp;values&nbsp;in&nbsp;m/s&nbsp;that&nbsp;represent&nbsp;the&nbsp;velocity&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;of&nbsp;the&nbsp;avatar,&nbsp;respectively,&nbsp;on&nbsp;x,y&nbsp;and&nbsp;z&nbsp;axis.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;this&nbsp;action&nbsp;also&nbsp;adds&nbsp;the&nbsp;'myvel&nbsp;record&nbsp;to&nbsp;the<br>
+&nbsp;&nbsp;&nbsp;&nbsp;perception&nbsp;base.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;All&nbsp;perception&nbsp;records&nbsp;fields&nbsp;are&nbsp;strings.</tt></dd></dl>
+ <dl><dt><a name="-look_my_wind"><strong>look_my_wind</strong></a>(acid)</dt><dd><tt>Look&nbsp;wind&nbsp;speed&nbsp;in&nbsp;avatar's&nbsp;current&nbsp;position<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;None.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;returns&nbsp;a&nbsp;perception&nbsp;record&nbsp;with&nbsp;information&nbsp;about&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;wind&nbsp;speed:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;['my_wind_speed',&nbsp;rid,&nbsp;x,&nbsp;y,&nbsp;xspeed,&nbsp;yspeed]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;where:&nbsp;&nbsp;rid&nbsp;is&nbsp;the&nbsp;unique&nbsp;global&nbsp;id&nbsp;of&nbsp;region;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x,y&nbsp;are&nbsp;the&nbsp;X,Y&nbsp;coordinates&nbsp;of&nbsp;actor's&nbsp;avatar&nbsp;position;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;xspeed&nbsp;is&nbsp;the&nbsp;wind&nbsp;speed&nbsp;in&nbsp;X-axis;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;yspeed&nbsp;is&nbsp;the&nbsp;wind&nbsp;speed&nbsp;in&nbsp;Y-axis.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;All&nbsp;fields&nbsp;from&nbsp;perception&nbsp;records&nbsp;are&nbsp;strings.</tt></dd></dl>
+ <dl><dt><a name="-rotate_toward"><strong>rotate_toward</strong></a>(acid, roll, pitch, yaw)</dt><dd><tt>Rotates&nbsp;the&nbsp;avatar&nbsp;body&nbsp;from&nbsp;3D&nbsp;Euler&nbsp;rotation&nbsp;angles&nbsp;in&nbsp;radians<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor<br>
+&nbsp;&nbsp;&nbsp;&nbsp;roll:&nbsp;&nbsp;&nbsp;float&nbsp;with&nbsp;X-axis&nbsp;euler&nbsp;angle&nbsp;in&nbsp;radians<br>
+&nbsp;&nbsp;&nbsp;&nbsp;pitch:&nbsp;&nbsp;float&nbsp;with&nbsp;Y-axis&nbsp;euler&nbsp;angle&nbsp;in&nbsp;radians<br>
+&nbsp;&nbsp;&nbsp;&nbsp;yaw:&nbsp;&nbsp;&nbsp;&nbsp;float&nbsp;with&nbsp;X-axis&nbsp;euler&nbsp;angle&nbsp;in&nbsp;radians<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;False<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;True</tt></dd></dl>
+ <dl><dt><a name="-turn_to_abs_dir"><strong>turn_to_abs_dir</strong></a>(acid, absangle, unit)</dt><dd><tt>Rotates&nbsp;avatar&nbsp;body&nbsp;to&nbsp;direction&nbsp;defined&nbsp;by&nbsp;an&nbsp;absolute&nbsp;angle&nbsp;<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor<br>
+&nbsp;&nbsp;&nbsp;&nbsp;absangle:&nbsp;&nbsp;&nbsp;float&nbsp;with&nbsp;absolute&nbsp;angle&nbsp;of&nbsp;new&nbsp;direction<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;absolute&nbsp;east&nbsp;is&nbsp;at&nbsp;0&nbsp;dg,&nbsp;north&nbsp;at&nbsp;90&nbsp;dg,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;west&nbsp;at&nbsp;180&nbsp;dg&nbsp;and&nbsp;south&nbsp;at&nbsp;280&nbsp;dg<br>
+&nbsp;&nbsp;&nbsp;&nbsp;unit:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;str,&nbsp;can&nbsp;be&nbsp;'rad'&nbsp;or&nbsp;'dg'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;False<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;True</tt></dd></dl>
+ <dl><dt><a name="-turn_to_avatar"><strong>turn_to_avatar</strong></a>(acid, avname)</dt><dd><tt>Rotates&nbsp;the&nbsp;avatar&nbsp;body&nbsp;toward&nbsp;the&nbsp;position&nbsp;of&nbsp;some&nbsp;avatar<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor<br>
+&nbsp;&nbsp;&nbsp;&nbsp;avname:&nbsp;str&nbsp;with&nbsp;the&nbsp;name&nbsp;of&nbsp;avatar&nbsp;to&nbsp;turns&nbsp;toward<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;False<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;True</tt></dd></dl>
+ <dl><dt><a name="-turn_to_named_dir"><strong>turn_to_named_dir</strong></a>(acid, dirname)</dt><dd><tt>Rotates&nbsp;avatar&nbsp;body&nbsp;to&nbsp;dirname&nbsp;direction<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor<br>
+&nbsp;&nbsp;&nbsp;&nbsp;dirname:&nbsp;&nbsp;&nbsp;&nbsp;str,&nbsp;can&nbsp;be&nbsp;'east','west','north','south','left'&nbsp;or&nbsp;'right'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;False<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;True</tt></dd></dl>
+ <dl><dt><a name="-turn_to_obj"><strong>turn_to_obj</strong></a>(acid, objid)</dt><dd><tt>Rotates&nbsp;the&nbsp;avatar&nbsp;body&nbsp;toward&nbsp;the&nbsp;position&nbsp;of&nbsp;objid&nbsp;object<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor<br>
+&nbsp;&nbsp;&nbsp;&nbsp;objid:&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;object&nbsp;to&nbsp;turns&nbsp;toward<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;False<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;True</tt></dd></dl>
+ <dl><dt><a name="-turn_to_pos"><strong>turn_to_pos</strong></a>(acid, x, y, z)</dt><dd><tt>Rotates&nbsp;the&nbsp;avatar&nbsp;body&nbsp;toward&nbsp;a&nbsp;target&nbsp;x,y,z&nbsp;position.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor<br>
+&nbsp;&nbsp;&nbsp;&nbsp;x,y,z:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;floats&nbsp;with&nbsp;region&nbsp;X,Y,Z&nbsp;coordinates&nbsp;to&nbsp;turn&nbsp;toward<br>
+&nbsp;&nbsp;&nbsp;&nbsp;unit:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;str,&nbsp;can&nbsp;be&nbsp;'rad'&nbsp;or&nbsp;'dg'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;False<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;True</tt></dd></dl>
+ <dl><dt><a name="-turn_to_rel_dir"><strong>turn_to_rel_dir</strong></a>(acid, relangle, unit)</dt><dd><tt>Rotates&nbsp;avatar&nbsp;body&nbsp;by&nbsp;relative&nbsp;angle&nbsp;added&nbsp;to&nbsp;current&nbsp;direction<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor<br>
+&nbsp;&nbsp;&nbsp;&nbsp;relangle:&nbsp;&nbsp;&nbsp;float&nbsp;with&nbsp;relative&nbsp;angle&nbsp;to&nbsp;be&nbsp;added&nbsp;to&nbsp;current&nbsp;direction<br>
+&nbsp;&nbsp;&nbsp;&nbsp;unit:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;str,&nbsp;can&nbsp;be&nbsp;'rad'&nbsp;or&nbsp;'dg'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;False<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;True</tt></dd></dl>
+ <dl><dt><a name="-turning_to"><strong>turning_to</strong></a>(acid, turnact)</dt><dd><tt>Start/stop&nbsp;turning&nbsp;action<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;acid:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;unique&nbsp;global&nbsp;identifier&nbsp;of&nbsp;actor<br>
+&nbsp;&nbsp;&nbsp;&nbsp;turnact:&nbsp;&nbsp;&nbsp;&nbsp;str&nbsp;with&nbsp;turning&nbsp;action,&nbsp;can&nbsp;be&nbsp;'left'&nbsp;to&nbsp;start&nbsp;to<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;turning&nbsp;left,&nbsp;'right'&nbsp;to&nbsp;start&nbsp;to&nbsp;turning&nbsp;right&nbsp;or<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'stop'&nbsp;to&nbsp;stop&nbsp;turning&nbsp;action<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Returns:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;fail,&nbsp;returns&nbsp;False<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;True</tt></dd></dl>
+</td></tr></table>
+</body></html>
