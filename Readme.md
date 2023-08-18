@@ -199,7 +199,7 @@ def stop():
     stop_chatter_actor=True
     
 def start():
-    return ac.start_actor("Chatter","Actor","actor",
+    return ac.start_actor("Chatter","Actor","actor", [],
              "http://127.0.0.1:9000", main_script,(128.0,128.0))
 ```
 
