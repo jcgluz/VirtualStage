@@ -1,0 +1,339 @@
+﻿<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{3610E086-3FD5-491E-8A09-AE47FA396D82}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <NoStandardLibraries>false</NoStandardLibraries>
+    <AssemblyName>VRAgents</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DocumentationFile>
+    </DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RootNamespace>VRAgents</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Bcl.AsyncInterfaces.6.0.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Experimental.Collections, Version=1.0.6.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Experimental.Collections.1.0.6-e190117-3\lib\netstandard2.0\Microsoft.Experimental.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.ObjectPool, Version=5.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Extensions.ObjectPool.5.0.0-preview.2.20167.3\lib\netstandard2.0\Microsoft.Extensions.ObjectPool.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>packages\Newtonsoft.Json.13.0.2-beta2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Drawing.Common, Version=4.0.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Drawing.Common.5.0.0-preview.2.20160.6\lib\net461\System.Drawing.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Memory.4.5.4\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http, Version=4.1.1.3, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Net.Http.4.3.4\lib\net46\System.Net.Http.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.NameResolution, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Net.NameResolution.4.3.0\lib\net46\System.Net.NameResolution.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Runtime.4.3.0\lib\net462\System.Runtime.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Algorithms, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Security.Cryptography.Algorithms.4.3.0\lib\net463\System.Security.Cryptography.Algorithms.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Encoding, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Security.Cryptography.Encoding.4.3.0\lib\net46\System.Security.Cryptography.Encoding.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Primitives, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Security.Cryptography.Primitives.4.3.0\lib\net46\System.Security.Cryptography.Primitives.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.X509Certificates, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Security.Cryptography.X509Certificates.4.3.0\lib\net461\System.Security.Cryptography.X509Certificates.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Text.Encodings.Web, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Text.Encodings.Web.6.0.0\lib\net461\System.Text.Encodings.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Json, Version=6.0.0.6, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Text.Json.6.0.6\lib\net461\System.Text.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Channels, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Threading.Channels.5.0.0-preview.2.20160.6\lib\netstandard2.0\System.Threading.Channels.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="XmlRpcCore, Version=3.1.2.77, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\XmlRpcCore.3.1.2.77\lib\netstandard2.0\XmlRpcCore.dll</HintPath>
+    </Reference>
+    <Reference Include="zlib.net, Version=1.0.3.0, Culture=neutral, PublicKeyToken=47d7877cb3620160">
+      <HintPath>packages\zlib.net.1.0.4.0\lib\zlib.net.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="LICENSE.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+    <None Include="README.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="OpenMetaverse.PrimMesher\ObjMesh.cs" />
+    <Compile Include="OpenMetaverse.PrimMesher\PrimMesher.cs" />
+    <Compile Include="OpenMetaverse.PrimMesher\SculptMap.cs" />
+    <Compile Include="OpenMetaverse.PrimMesher\SculptMesh.cs" />
+    <Compile Include="OpenMetaverse.PrimMesher\VertexIndexer.cs" />
+    <Compile Include="OpenMetaverse.Rendering.Meshmerizer\MeshmerizerR.cs" />
+    <Compile Include="OpenMetaverse.Rendering.Simple\SimpleRenderer.cs" />
+    <Compile Include="OpenMetaverse.StructuredData\JSON\IJsonWrapper.cs" />
+    <Compile Include="OpenMetaverse.StructuredData\JSON\JsonData.cs" />
+    <Compile Include="OpenMetaverse.StructuredData\JSON\JsonException.cs" />
+    <Compile Include="OpenMetaverse.StructuredData\JSON\JsonMapper.cs" />
+    <Compile Include="OpenMetaverse.StructuredData\JSON\JsonReader.cs" />
+    <Compile Include="OpenMetaverse.StructuredData\JSON\JsonWriter.cs" />
+    <Compile Include="OpenMetaverse.StructuredData\JSON\Lexer.cs" />
+    <Compile Include="OpenMetaverse.StructuredData\JSON\OSDJson.cs" />
+    <Compile Include="OpenMetaverse.StructuredData\JSON\ParserToken.cs" />
+    <Compile Include="OpenMetaverse.StructuredData\LLSD\BinaryLLSD.cs" />
+    <Compile Include="OpenMetaverse.StructuredData\LLSD\NotationLLSD.cs" />
+    <Compile Include="OpenMetaverse.StructuredData\LLSD\XmlLLSD.cs" />
+    <Compile Include="OpenMetaverse.StructuredData\StructuredData.cs" />
+    <Compile Include="OpenMetaverse.Types\BlockingQueue.cs" />
+    <Compile Include="OpenMetaverse.Types\CircularQueue.cs" />
+    <Compile Include="OpenMetaverse.Types\Color4.cs" />
+    <Compile Include="OpenMetaverse.Types\CRC32.cs" />
+    <Compile Include="OpenMetaverse.Types\DoubleDictionary.cs" />
+    <Compile Include="OpenMetaverse.Types\Enums.cs" />
+    <Compile Include="OpenMetaverse.Types\EnumsPrimitive.cs" />
+    <Compile Include="OpenMetaverse.Types\ExpiringCache.cs" />
+    <Compile Include="OpenMetaverse.Types\Lazy.cs" />
+    <Compile Include="OpenMetaverse.Types\LocklessQueue.cs" />
+    <Compile Include="OpenMetaverse.Types\Matrix4.cs" />
+    <Compile Include="OpenMetaverse.Types\Quaternion.cs" />
+    <Compile Include="OpenMetaverse.Types\Ray.cs" />
+    <Compile Include="OpenMetaverse.Types\ReaderWriterLockSlim.cs" />
+    <Compile Include="OpenMetaverse.Types\ThreadSafeDictionary.cs" />
+    <Compile Include="OpenMetaverse.Types\TokenBucket.cs" />
+    <Compile Include="OpenMetaverse.Types\Utils.cs" />
+    <Compile Include="OpenMetaverse.Types\UtilsConversions.cs" />
+    <Compile Include="OpenMetaverse.Types\UUID.cs" />
+    <Compile Include="OpenMetaverse.Types\Vector2.cs" />
+    <Compile Include="OpenMetaverse.Types\Vector3.cs" />
+    <Compile Include="OpenMetaverse.Types\Vector3d.cs" />
+    <Compile Include="OpenMetaverse.Types\Vector4.cs" />
+    <Compile Include="OpenMetaverse.Utilities\RegistrationApi.cs" />
+    <Compile Include="OpenMetaverse.Utilities\Utilities.cs" />
+    <Compile Include="OpenMetaverse.Utilities\VoiceManager.cs" />
+    <Compile Include="OpenMetaverse.Utilities\VoiceManagerBlocking.cs" />
+    <Compile Include="OpenMetaverse\AgentManager.cs" />
+    <Compile Include="OpenMetaverse\AgentManagerCamera.cs" />
+    <Compile Include="OpenMetaverse\AgentManagerMovement.cs" />
+    <Compile Include="OpenMetaverse\AgentThrottle.cs" />
+    <Compile Include="OpenMetaverse\Animations.cs" />
+    <Compile Include="OpenMetaverse\AppearanceManager.cs" />
+    <Compile Include="OpenMetaverse\AssetCache.cs" />
+    <Compile Include="OpenMetaverse\AssetManager.cs" />
+    <Compile Include="OpenMetaverse\Assets\Archiving\ArchiveConstants.cs" />
+    <Compile Include="OpenMetaverse\Assets\Archiving\AssetsArchiver.cs" />
+    <Compile Include="OpenMetaverse\Assets\Archiving\OarFile.cs" />
+    <Compile Include="OpenMetaverse\Assets\Archiving\RegionSettings.cs" />
+    <Compile Include="OpenMetaverse\Assets\Archiving\TarArchiveReader.cs" />
+    <Compile Include="OpenMetaverse\Assets\Archiving\TarArchiveWriter.cs" />
+    <Compile Include="OpenMetaverse\Assets\Asset.cs" />
+    <Compile Include="OpenMetaverse\Assets\AssetTypes\AssetAnimation.cs" />
+    <Compile Include="OpenMetaverse\Assets\AssetTypes\AssetBodypart.cs" />
+    <Compile Include="OpenMetaverse\Assets\AssetTypes\AssetCallingCard.cs" />
+    <Compile Include="OpenMetaverse\Assets\AssetTypes\AssetClothing.cs" />
+    <Compile Include="OpenMetaverse\Assets\AssetTypes\AssetGesture.cs" />
+    <Compile Include="OpenMetaverse\Assets\AssetTypes\AssetLandmark.cs" />
+    <Compile Include="OpenMetaverse\Assets\AssetTypes\AssetMesh.cs" />
+    <Compile Include="OpenMetaverse\Assets\AssetTypes\AssetMutable.cs" />
+    <Compile Include="OpenMetaverse\Assets\AssetTypes\AssetNotecard.cs" />
+    <Compile Include="OpenMetaverse\Assets\AssetTypes\AssetPrim.cs" />
+    <Compile Include="OpenMetaverse\Assets\AssetTypes\AssetScriptBinary.cs" />
+    <Compile Include="OpenMetaverse\Assets\AssetTypes\AssetScriptText.cs" />
+    <Compile Include="OpenMetaverse\Assets\AssetTypes\AssetSound.cs" />
+    <Compile Include="OpenMetaverse\Assets\AssetTypes\AssetTexture.cs" />
+    <Compile Include="OpenMetaverse\Assets\AssetTypes\AssetWearable.cs" />
+    <Compile Include="OpenMetaverse\Avatar.cs" />
+    <Compile Include="OpenMetaverse\AvatarManager.cs" />
+    <Compile Include="OpenMetaverse\BitPack.cs" />
+    <Compile Include="OpenMetaverse\BVHDecoder.cs" />
+    <Compile Include="OpenMetaverse\Capabilities\CapsBase.cs" />
+    <Compile Include="OpenMetaverse\Capabilities\CapsClient.cs" />
+    <Compile Include="OpenMetaverse\Capabilities\EventQueueClient.cs" />
+    <Compile Include="OpenMetaverse\Caps.cs" />
+    <Compile Include="OpenMetaverse\CapsToPacket.cs" />
+    <Compile Include="OpenMetaverse\CoordinateFrame.cs" />
+    <Compile Include="OpenMetaverse\DirectoryManager.cs" />
+    <Compile Include="OpenMetaverse\DownloadManager.cs" />
+    <Compile Include="OpenMetaverse\EstateTools.cs" />
+    <Compile Include="OpenMetaverse\EventDictionary.cs" />
+    <Compile Include="OpenMetaverse\FriendsManager.cs" />
+    <Compile Include="OpenMetaverse\GridClient.cs" />
+    <Compile Include="OpenMetaverse\GridManager.cs" />
+    <Compile Include="OpenMetaverse\GroupManager.cs" />
+    <Compile Include="OpenMetaverse\Helpers.cs" />
+    <Compile Include="OpenMetaverse\Imaging\BakeLayer.cs" />
+    <Compile Include="OpenMetaverse\Imaging\ManagedImage.cs" />
+    <Compile Include="OpenMetaverse\Imaging\OpenJPEG.cs" />
+    <Compile Include="OpenMetaverse\Imaging\TGALoader.cs" />
+    <Compile Include="OpenMetaverse\ImportExport\Collada.cs" />
+    <Compile Include="OpenMetaverse\ImportExport\ColladalLoader.cs" />
+    <Compile Include="OpenMetaverse\ImportExport\Model.cs" />
+    <Compile Include="OpenMetaverse\ImportExport\ModelUploader.cs" />
+    <Compile Include="OpenMetaverse\Interfaces\IMessage.cs" />
+    <Compile Include="OpenMetaverse\Interfaces\IRendering.cs" />
+    <Compile Include="OpenMetaverse\InternalDictionary.cs" />
+    <Compile Include="OpenMetaverse\Inventory.cs" />
+    <Compile Include="OpenMetaverse\InventoryManager.cs" />
+    <Compile Include="OpenMetaverse\InventoryNode.cs" />
+    <Compile Include="OpenMetaverse\InventoryNodeDictionary.cs" />
+    <Compile Include="OpenMetaverse\Logger.cs" />
+    <Compile Include="OpenMetaverse\Login.cs" />
+    <Compile Include="OpenMetaverse\Messages\LindenMessages.cs" />
+    <Compile Include="OpenMetaverse\Messages\MessageEventDecoder.cs" />
+    <Compile Include="OpenMetaverse\Messages\Messages.cs" />
+    <Compile Include="OpenMetaverse\NameValue.cs" />
+    <Compile Include="OpenMetaverse\NetworkManager.cs" />
+    <Compile Include="OpenMetaverse\ObjectManager.cs" />
+    <Compile Include="OpenMetaverse\ObjectPool.cs" />
+    <Compile Include="OpenMetaverse\ObjectPoolBase.cs" />
+    <Compile Include="OpenMetaverse\ObservableDictionary.cs" />
+    <Compile Include="OpenMetaverse\PacketDecoder.cs" />
+    <Compile Include="OpenMetaverse\Parallel.cs" />
+    <Compile Include="OpenMetaverse\ParcelManager.cs" />
+    <Compile Include="OpenMetaverse\Permissions.cs" />
+    <Compile Include="OpenMetaverse\Primitives\ObjectMedia.cs" />
+    <Compile Include="OpenMetaverse\Primitives\ParticleSystem.cs" />
+    <Compile Include="OpenMetaverse\Primitives\Primitive.cs" />
+    <Compile Include="OpenMetaverse\Primitives\TextureEntry.cs" />
+    <Compile Include="OpenMetaverse\ProtocolManager.cs" />
+    <Compile Include="OpenMetaverse\Rendering\EndianAwareBinaryReader.cs" />
+    <Compile Include="OpenMetaverse\Rendering\LindenMesh.cs" />
+    <Compile Include="OpenMetaverse\Rendering\LindenSkeleton.Ext.cs" />
+    <Compile Include="OpenMetaverse\Rendering\LindenSkeleton.Xsd.cs" />
+    <Compile Include="OpenMetaverse\Rendering\Rendering.cs" />
+    <Compile Include="OpenMetaverse\Settings.cs" />
+    <Compile Include="OpenMetaverse\Simulator.cs" />
+    <Compile Include="OpenMetaverse\SoundManager.cs" />
+    <Compile Include="OpenMetaverse\Sounds.cs" />
+    <Compile Include="OpenMetaverse\TerrainCompressor.cs" />
+    <Compile Include="OpenMetaverse\TerrainManager.cs" />
+    <Compile Include="OpenMetaverse\TexturePipeline.cs" />
+    <Compile Include="OpenMetaverse\ThreadUtil.cs" />
+    <Compile Include="OpenMetaverse\UDPBase.cs" />
+    <Compile Include="OpenMetaverse\UtilizationStatistics.cs" />
+    <Compile Include="OpenMetaverse\WorkPool.cs" />
+    <Compile Include="OpenMetaverse\Voice\TCPPipe.cs" />
+    <Compile Include="OpenMetaverse\Voice\VoiceAccount.cs" />
+    <Compile Include="OpenMetaverse\Voice\VoiceAux.cs" />
+    <Compile Include="OpenMetaverse\Voice\VoiceConnector.cs" />
+    <Compile Include="OpenMetaverse\Voice\VoiceControl.cs" />
+    <Compile Include="OpenMetaverse\Voice\VoiceDefinitions.cs" />
+    <Compile Include="OpenMetaverse\Voice\VoiceGateway.cs" />
+    <Compile Include="OpenMetaverse\Voice\VoiceParticipant.cs" />
+    <Compile Include="OpenMetaverse\Voice\VoiceSession.cs" />
+    <Compile Include="OpenMetaverse\_Packets_.cs" />
+    <Compile Include="OpenMetaverse\_VisualParam_.cs" />
+    <Compile Include="Beliefs.cs" />
+    <Compile Include="BeliefsBase.cs" />
+    <Compile Include="CommunicationActions.cs" />
+    <Compile Include="ModificationActions.cs" />
+    <Compile Include="MovementActions.cs" />
+    <Compile Include="ObservationActions.cs" />
+    <Compile Include="Perceptions.cs" />
+    <Compile Include="PerceptionsBase.cs" />
+    <Compile Include="PositionActions.cs" />
+    <Compile Include="SelfModificationActions.cs" />
+    <Compile Include="SelfObservationActions.cs" />
+    <Compile Include="SocialModificationActions.cs" />
+    <Compile Include="SocialObservationActions.cs" />
+    <Compile Include="SystemActions.cs" />
+    <Compile Include="TimerTask.cs" />
+    <Compile Include="VRAgentController.cs" />
+    <Compile Include="Actions.cs" />
+    <Compile Include="VRAgentManager.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSHARP.Targets" />
+  <ProjectExtensions>
+    <VisualStudio AllowExistingFolder="true" />
+  </ProjectExtensions>
+  <Import Project="packages\System.Text.Json.6.0.6\build\System.Text.Json.targets" Condition="Exists('packages\System.Text.Json.6.0.6\build\System.Text.Json.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('packages\System.Text.Json.6.0.6\build\System.Text.Json.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\System.Text.Json.6.0.6\build\System.Text.Json.targets'))" />
+  </Target>
+</Project>

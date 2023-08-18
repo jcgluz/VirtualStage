@@ -1,0 +1,27 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30011.22
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VRAgents", "VRAgents.csproj", "{3610E086-3FD5-491E-8A09-AE47FA396D82}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3610E086-3FD5-491E-8A09-AE47FA396D82}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3610E086-3FD5-491E-8A09-AE47FA396D82}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3610E086-3FD5-491E-8A09-AE47FA396D82}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3610E086-3FD5-491E-8A09-AE47FA396D82}.Release|Any CPU.Build.0 = Release|Any CPU
+		{636C9377-C4F7-4239-A446-F9915E6FCFB4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{636C9377-C4F7-4239-A446-F9915E6FCFB4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3F814DE0-BC5C-49C0-B50B-92119BF2E1AA}
+	EndGlobalSection
+EndGlobal
