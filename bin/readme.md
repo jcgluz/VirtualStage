@@ -1,3 +1,3 @@
-This directory contains dll files to run VirtualStage.
+This directory contains dll files needed to run VirtualStage.
 VRAgents.dll is the precompiled VRAgents library. 
-The source code of this library is in VirtualStage\VRAgents directory.
+The VirtualStage\VRAgents directory contains the source code of this library.
