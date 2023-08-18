@@ -1,0 +1,45 @@
+LLWearable version 22
+FleepGrid - Trousers - khaki
+
+	permissions 0
+	{
+		base_mask	00082000
+		owner_mask	00082000
+		group_mask	00000000
+		everyone_mask	00000000
+		next_owner_mask	00082000
+		creator_id	d391e072-75c9-4bc8-9272-5622b84ec638
+		owner_id	c07c31ca-c145-4470-a81f-05010112d7d3
+		last_owner_id	c07c31ca-c145-4470-a81f-05010112d7d3
+		group_id	00000000-0000-0000-0000-000000000000
+	}
+	sale_info	0
+	{
+		sale_type	not
+		sale_price	10
+	}
+type 5
+parameters 21
+160 0
+516 .25
+614 1
+615 1
+625 .07
+638 0
+793 3
+806 1
+807 1
+808 1
+814 1
+815 1
+816 .25
+869 0
+913 .38
+914 1
+915 1
+1017 1
+1018 1
+1035 1
+1036 1
+textures 1
+2 bd63a612-9aef-4e98-a3a4-15818e838f08

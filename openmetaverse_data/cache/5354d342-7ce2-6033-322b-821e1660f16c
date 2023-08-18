@@ -1,0 +1,34 @@
+LLWearable version 22
+DefaultShoes_6
+
+	permissions 0
+	{
+		base_mask	7fffffff
+		owner_mask	7fffffff
+		group_mask	00000000
+		everyone_mask	00000000
+		next_owner_mask	00082000
+		creator_id	848154d2-3ead-4a81-a656-be21f90076ad
+		owner_id	848154d2-3ead-4a81-a656-be21f90076ad
+		last_owner_id	848154d2-3ead-4a81-a656-be21f90076ad
+		group_id	00000000-0000-0000-0000-000000000000
+	}
+	sale_info	0
+	{
+		sale_type	not
+		sale_price	10
+	}
+type 6
+parameters 10
+198 .29
+503 .19
+508 -.01
+513 1
+514 .49
+616 .19
+654 .74
+812 0
+813 0
+817 0
+textures 1
+7 5748decc-f629-461c-9a36-a35a221fe21f

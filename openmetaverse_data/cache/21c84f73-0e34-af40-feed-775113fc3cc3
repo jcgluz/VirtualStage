@@ -1,0 +1,34 @@
+LLWearable version 22
+DefaultShirt_6
+
+	permissions 0
+	{
+		base_mask	7fffffff
+		owner_mask	7fffffff
+		group_mask	00000000
+		everyone_mask	00000000
+		next_owner_mask	00082000
+		creator_id	848154d2-3ead-4a81-a656-be21f90076ad
+		owner_id	848154d2-3ead-4a81-a656-be21f90076ad
+		last_owner_id	848154d2-3ead-4a81-a656-be21f90076ad
+		group_id	00000000-0000-0000-0000-000000000000
+	}
+	sale_info	0
+	{
+		sale_type	not
+		sale_price	10
+	}
+type 4
+parameters 10
+781 .78
+800 1
+801 1
+802 .78
+803 1
+804 1
+805 1
+828 0
+840 0
+868 1
+textures 1
+1 09069f46-55c8-4383-b298-c54bd7c9701e

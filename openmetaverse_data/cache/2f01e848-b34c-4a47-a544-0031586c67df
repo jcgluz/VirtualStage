@@ -1,0 +1,26 @@
+LLWearable version 22
+[IC] Ranika Eyes Hazel
+
+	permissions 0
+	{
+		base_mask	7fffffff
+		owner_mask	7fffffff
+		group_mask	00000000
+		everyone_mask	00000000
+		next_owner_mask	00082000
+		creator_id	0e524ca5-4f23-49e9-806a-52fefae5329d
+		owner_id	0e524ca5-4f23-49e9-806a-52fefae5329d
+		last_owner_id	0e524ca5-4f23-49e9-806a-52fefae5329d
+		group_id	00000000-0000-0000-0000-000000000000
+	}
+	sale_info	0
+	{
+		sale_type	not
+		sale_price	10
+	}
+type 3
+parameters 2
+98 1
+99 0
+textures 1
+3 a92d5218-cc74-4a6a-9166-bb9a7ae4960a
