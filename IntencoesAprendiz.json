@@ -1,0 +1,1251 @@
+[
+   {
+      "saudacoes": [
+         "<olá|ola>_",
+         "<oi>_",
+         "<como><voc.|tu><vai.*|est.*>_",
+         "<tudo><tranquilo|bem|certo>_",
+         "<bom><dia>_",
+         "<boa><tarde|noite>_"
+      ]
+   },
+   {
+      "incentivos": [
+         "<ótimo>_",
+         "<muito><bom>_",
+         "<excelente>_",
+         "<tá><certo><é><isso><mesmo>_",
+         "<perfeito>_"
+      ]
+   },
+   {
+      "adeus": [
+         "<bye><bye>",
+         "<tchau>",
+         "<até><mais>",
+         "<até><logo>",
+         "<adeus>"
+      ]
+   },
+   {
+      "usuarioInformaNome": [
+         "<o>?<meu><nome><é>(<.*>*)",
+         "<pode><me><chamar><de>(<.*>*)",
+         "<me><chamam><de>(<.*>*)",
+         "<eu><me><chamo>(<.*>*)"
+      ]
+   },
+   {
+      "respostaSim": [
+         "<sim>",
+         "<ok>",
+         "<concordo>",
+         "<tudo><bem|certo>",
+         "<tá|ta><bem|certo>",
+         "<confirmo>",
+         "<com><certeza>",
+         "<está|esta><bem>",
+         "<sem><d.vida>",
+         "<está|esta>?<certo>",
+         "<positivo>",
+         "<isso><sim>",
+         "<de><acordo>",
+         "<mas><sim>",
+         "<claro><que><sim>"
+      ]
+   },
+   {
+      "respostaNao": [
+         "<não|nao>",
+         "<não|nao><pode>",
+         "<não|nao><da|dá>",
+         "<neca>",
+         "<nego>",
+         "<recuso>",
+         "<recusado>",
+         "<me><oponho>",
+         "<nunca>",
+         "<nenhum>",
+         "<negado>",
+         "<negativo>"
+      ]
+   },
+   {
+      "obrigado": [
+         "<muit>?<obrigado><a>?<voc.>?",
+         "<atenciosamente>",
+         "<agradecido>",
+         "<grato>",
+         "<beleza>",
+         "<jóia>",
+         "<não|nao><ha|há><de><que>",
+         "<por><nada>",
+         "<disponha>"
+      ]
+   },
+   {
+      "ajudaSobreComandos": [
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<ajuda|informac..s|info><sobre>?<comandos|ordens>",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<que><comandos|ordems><o|a>?<voc.|tu|senhor|senhora>?<sabe><fazer>",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<que><comandos|ordems><o|a>?<voc.|tu|senhor|senhora>?<obedece|faz>"
+      ]
+   },
+   {
+      "ajudaBatePapos": [
+         "_<diga|fale|explique><quais|que><bate|chats|bate.papos><papos>?<voc.|tu>?<conhec.*>_?",
+         "_<ajuda|informac..s|info><sobre>?<bate|chats|bate.papos><papos>?_"
+      ]
+   },
+   {
+      "ajudaConversas": [
+         "_<diga|fale|explique><quais|que><conversas|discuss.es|di.logos|bate.papos|papos|falas><voc.>?<conhe.e>?",
+         "_<diga|fale|explique><quais|que><conversas|discuss.es|di.logos|bate.papos|papos|falas><voc.>?<conhe.e>?<sobre>?(<.+>+)",
+         "_<ajuda|informac..s|info><sobre>?<conversas|discuss.es|di.logos|bate.papos|papos|falas>",
+         "_<ajuda|informac..s|info><sobre>?<conversas|discuss.es|di.logos|bate.papos|papos|falas><sobre>?(<.+>+)"
+      ]
+   },
+   {
+      "ajudaSobreConversa": [
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria>?<de>?<me>?<diga|fale|explique|dizer|falar|explicar>?<quais|que><frases|ora..es|senten.as|palavras><o|a>?<voc.|tu|senhor|senhora><conhe.e.*|sabe.*|reconhe.e.*|aprendeu|entende>?<sobre>?<a|o>?<conversa|discuss.o|di.logo|bate.papo|papo|fala>(<.+>+)",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria>?<de>?<ajuda|informac..s|info|ajudar|informar><sobre>?<conversa|discuss.o|di.logo|bate.papo|papo|fala>(<.+>+)"
+      ]
+   },
+   {
+      "logOut": [
+         "<fa.a><log><out>",
+         "<fa.a><logout>",
+         "<saia|deixe><deste|desta|este|esta|do|da><mundo|vr|rv><agora>?",
+         "<vá|va|volte><para|pra><casa>"
+      ]
+   },
+   {
+      "setPrDebType": [
+         "<set><prdeb><type>(<.*>*)"
+      ]
+   },
+   {
+      "enablePrDeb": [
+         "<enable><prdeb>_"
+      ]
+   },
+   {
+      "disablePrDeb": [
+         "<disable><prdeb>_"
+      ]
+   },
+   {
+      "perguntaMeuNome": [
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<voc.|tu>?<se|pode>?<sabe|conhece|lembra|sabes|conheces|lembras|me>?<dizer|falar>?<o|a>?<qual><é|e><o>?<.eu><nome>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<voc.|tu>?<se|pode>?<sabe|conhece|lembra|sabes|conheces|lembras|me>?<dizer|falar>?<o|a>?<como><voc.|tu><se|te><chama|chamas>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<voc.|tu>?<se|pode>?<sabe|conhece|lembra|sabes|conheces|lembras|me>?<dizer|falar>?<o|a>?<como><é|e>?<que>?<te><chamam>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<voc.|tu>?<se|pode>?<sabe|conhece|lembra|sabes|conheces|lembras|me>?<dizer|falar>?<o|a>?<como><voc.|tu><é|e|és|es><chamado>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<voc.|tu><tem|tens><um>?<nome>_"
+      ]
+   },
+   {
+      "perguntaConfirmaMeuNome": [
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o>?<.eu><nome><é|e>(<.*>)",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<te><chamam><de>?(<.*>)",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<voc.><é|e><chamado><de>?(<.*>)",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?(<.*>)<é|e><o>?<.eu><nome>"
+      ]
+   },
+   {
+      "perguntaMinhasInformacoes": [
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<voc.|tu>?<se|pode>?<sabe|conhece|lembra|sabes|conheces|lembras|me>?<dizer|falar>?<o|a>?<o>?<que|quem><é|és><voc.|tu>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<voc.|tu><é|és><o>?<que|quem>_"
+      ]
+   },
+   {
+      "perguntaMeuSexoIdade": [
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<voc.|tu>?<se|pode>?<sabe|conhece|lembra|sabes|conheces|lembras|me>?<dizer|falar>?<o|a>?<qual|pode><é|e|me><informar|dizer>?<.ua>?<idade><e>?<.eu>?<sexo>",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<voc.|tu>?<se|pode>?<sabe|conhece|lembra|sabes|conheces|lembras|me>?<dizer|falar>?<o|a>?<qual|pode><é|e|me><informar|dizer>?<.eu>?<sexo><e>?<.ua>?<idade>"
+      ]
+   },
+   {
+      "perguntaObjetosConhecidos": [
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<quais|que><objetos|coisas|peças|utensílios|entes|entidades|primitivas|artefatos|aparelhos|instrumentos|dispositivos|troços|trecos|tralhas|trambolhos|cacarecos|bugigangas><voc.|tu>?<se>?<conhece|sabe|lembra|reconhece>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<mostre|liste|fale><os|as|dos|as>?<objetos|coisas|peças|utensílios|entes|entidades|primitivas|artefatos|aparelhos|instrumentos|dispositivos|troços|trecos|tralhas|trambolhos|cacarecos|bugigangas><que>?<se>?<conhecidos|reconhecidos|conhece|sabe|lembra>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<voc.|tu>?<conhece|sabe|lembra><algo>?<sobre|de|da>?<algum|alguma>?<objeto|coisa|peça|utensílio|ente|entidade|primitiva|artefato|aparelho|instrumento|dispositivo|troço|treco|tralha|trambolho|cacareco|bugiganga>_"
+      ]
+   },
+   {
+      "perguntaInformacaoObjeto": [
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o>?<que><vo.e|tu><sabe.*|conhe.e.*><sobre><isso|isto>",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o>?<que><vo.e|tu><sabe.*|conhe.e.*><sobre><aqu.l.|es..><objeto|coisa|peça|utensílio|ente|entidade|primitiva|artefato|aparelho|instrumento|dispositivo|troço|treco|tralha|trambolho|cacareco|bugiganga>?_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<voc.|tu><sabe.*|conhe.e.*><algo|alguma><coisa>?<sobre><isso|isto>",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<voc.|tu><sabe.*|conhe.e.*><algo|alguma><coisa>?<sobre><aqu.l.|es..>_<objeto|coisa|peça|utensílio|ente|entidade|primitiva|artefato|aparelho|instrumento|dispositivo|troço|treco|tralha|trambolho|cacareco|bugiganga>?_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<me>?<fale|conte|diga><tudo>?<sobre><isso|isto>",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<me>?<fale|conte|diga><tudo>?<sobre><aqu.l.|es..><objeto|coisa|peça|utensílio|ente|entidade|primitiva|artefato|aparelho|instrumento|dispositivo|troço|treco|tralha|trambolho|cacareco|bugiganga>?_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o>?<que><te|lhe><disseram|falaram|comentaram><sobre><isso|isto>",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o>?<que><te|lhe><disseram|falaram|comentaram><sobre><aqu.l.|es..><objeto|coisa|peça|utensílio|ente|entidade|primitiva|artefato|aparelho|instrumento|dispositivo|troço|treco|tralha|trambolho|cacareco|bugiganga>?_"
+      ]
+   },
+   {
+      "perguntaNomeObjeto": [
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<voc.|tu>?<se|pode>?<sabe|conhece|lembra|sabes|conheces|lembras|me>?<dizer|falar>?<o|a>?<qual|que|como><é>?<o>?<nome|identificador|denomina..o|identifica..o><dis..|daquilo>",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<voc.|tu>?<se|pode>?<sabe|conhece|lembra|sabes|conheces|lembras|me>?<dizer|falar>?<o|a>?<qual|que|como><é>?<o>?<nome|identificador|denomina..o|identifica..o><des..|daquel.><objeto|coisa|peça|utensílio|ente|entidade|primitiva|artefato|aparelho|instrumento|dispositivo|troço|treco|tralha|trambolho|cacareco|bugiganga>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<voc.|tu>?<se|pode>?<sabe|conhece|lembra|sabes|conheces|lembras|me>?<dizer|falar>?<o|a>?<que|qual><o>?<nome|identificador|denomina..o|identifica..o><t.m>?<is..|aquilo>",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<voc.|tu>?<se|pode>?<sabe|conhece|lembra|sabes|conheces|lembras|me>?<dizer|falar>?<o|a>?<que|qual><o>?<nome|identificador|denomina..o|identifica..o><t.m>?<es..|aquel.><objeto|coisa|peça|utensílio|ente|entidade|primitiva|artefato|aparelho|instrumento|dispositivo|troço|treco|tralha|trambolho|cacareco|bugiganga>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<voc.|tu>?<se|pode>?<sabe|conhece|lembra|sabes|conheces|lembras|me>?<dizer|falar>?<o|a>?<como><se><chama|denomina|identifica><is..|aquilo>",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<voc.|tu>?<se|pode>?<sabe|conhece|lembra|sabes|conheces|lembras|me>?<dizer|falar>?<o|a>?<como><se><chama|denomina|identifica><es..|aquel.><objeto|coisa|peça|utensílio|ente|entidade|primitiva|artefato|aparelho|instrumento|dispositivo|troço|treco|tralha|trambolho|cacareco|bugiganga>_"
+      ]
+   },
+   {
+      "perguntaDescricaoObjeto": [
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<voc.|tu>?<se|pode>?<sabe|conhece|lembra|sabes|conheces|lembras|me>?<dizer|falar>?<o|a>?<como><se>?<descreve|descrever><es..|aquel.><objeto|coisa|peça|utensílio|ente|entidade|primitiva|artefato|aparelho|instrumento|dispositivo|troço|treco|tralha|trambolho|cacareco|bugiganga>?_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<voc.|tu>?<se|pode>?<sabe|conhece|lembra|sabes|conheces|lembras|me>?<dizer|falar>?<o|a>?<qual|que><é>?<a><descri..o><des..|daquel.><objeto|coisa|peça|utensílio|ente|entidade|primitiva|artefato|aparelho|instrumento|dispositivo|troço|treco|tralha|trambolho|cacareco|bugiganga>?_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<voc.|tu>?<se|pode>?<sabe|conhece|lembra|sabes|conheces|lembras|me>?<dizer|falar>?<o|a>?<detalhes|particularidades|especificidades|peculiaridades|características|propriedades><adicionais|extras>?<sobre><es..|aquel.><objeto|coisa|peça|utensílio|ente|entidade|primitiva|artefato|aparelho|instrumento|dispositivo|troço|treco|tralha|trambolho|cacareco|bugiganga>?_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<voc.|tu>?<se|pode>?<sabe|conhece|lembra|sabes|conheces|lembras|me>?<dizer|falar>?<o|a>?<detalhes|particularidades|especificidades|peculiaridades|características|propriedades><adicionais|extras>?<des..|daquel.><objeto|coisa|peça|utensílio|ente|entidade|primitiva|artefato|aparelho|instrumento|dispositivo|troço|treco|tralha|trambolho|cacareco|bugiganga>?_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<voc.|tu><tem|tens><detalhes|informa..es><adicionais|extras>?<sobre><es..|aquel.><objeto|coisa|peça|utensílio|ente|entidade|primitiva|artefato|aparelho|instrumento|dispositivo|troço|treco|tralha|trambolho|cacareco|bugiganga>?_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<voc.|tu><tem|tens><detalhes|informa..es><adicionais|extras>?<des..|daquel.><objeto|coisa|peça|utensílio|ente|entidade|primitiva|artefato|aparelho|instrumento|dispositivo|troço|treco|tralha|trambolho|cacareco|bugiganga>?_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<voc.|tu>?<se|pode>?<sabe|conhece|lembra|sabes|conheces|lembras|me>?<dizer|falar>?<o|a>?<o>?<que><é><es..|aquel.><objeto|coisa|peça|utensílio|ente|entidade|primitiva|artefato|aparelho|instrumento|dispositivo|troço|treco|tralha|trambolho|cacareco|bugiganga>?_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<voc.|tu>?<se|pode>?<sabe|conhece|lembra|sabes|conheces|lembras|me>?<dizer|falar>?<o|a>?<o>?<que><é><is.o|aquilo><aqui|ali|lá|la>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<voc.|tu>?<se|pode>?<sabe|conhece|lembra|sabes|conheces|lembras|me>?<dizer|falar>?<o|a>?<aquel.|es..><objeto|coisa|peça|utensílio|ente|entidade|primitiva|artefato|aparelho|instrumento|dispositivo|troço|treco|tralha|trambolho|cacareco|bugiganga><aqui|ali|lá|la>?<é><o><que>_"
+      ]
+   },
+   {
+      "perguntaUsoObjeto": [
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<voc.|tu>?<se|pode>?<sabe|conhece|lembra|sabes|conheces|lembras|me>?<dizer|falar>?<o|a>?<para|pra><que><is..|aqu.l.|es..><objeto|coisa|peça|utensílio|ente|entidade|primitiva|artefato|aparelho|instrumento|dispositivo|troço|treco|tralha|trambolho|cacareco|bugiganga>?<se|é>?<usa|serve|usad.|utilizad.>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<aquel.|es..><objeto|coisa|peça|utensílio|ente|entidade|primitiva|artefato|aparelho|instrumento|dispositivo|troço|treco|tralha|trambolho|cacareco|bugiganga>?<aqui|ali|lá>?<se|é>?<usa|serve|usad.|utilizad.><para|pra><que>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<voc.|tu>?<se|pode>?<sabe|conhece|lembra|sabes|conheces|lembras|me>?<dizer|falar>?<o|a>?<qual|que><é>?<o|a>?<uso|utiliza..o|serventia><dis.o|daquilo><aqui|lá|ali>?",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<voc.|tu>?<se|pode>?<sabe|conhece|lembra|sabes|conheces|lembras|me>?<dizer|falar>?<o|a>?<qual|que><é>?<o|a>?<uso|utiliza..o|serventia><daquel.|des..><objeto|coisa|peça|utensílio|ente|entidade|primitiva|artefato|aparelho|instrumento|dispositivo|troço|treco|tralha|trambolho|cacareco|bugiganga>?_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<voc.|tu>?<se|pode>?<sabe|conhece|lembra|sabes|conheces|lembras|me>?<dizer|falar>?<o|a>?<para|pra>?<que><se|é>?<usa|serve|usad.|utilizad.><aquel.|es..|o|a><objeto|coisa|peça|utensílio|ente|entidade|primitiva|artefato|aparelho|instrumento|dispositivo|troço|treco|tralha|trambolho|cacareco|bugiganga>?_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<voc.|tu>?<se|pode>?<sabe|conhece|lembra|sabes|conheces|lembras|me>?<dizer|falar>?<o|a>?<para|pra><que><se|é>?<usa|serve|usad.|utilizad.><is..|aquilo>",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<voc.|tu>?<se|pode>?<sabe|conhece|lembra|sabes|conheces|lembras|me>?<dizer|falar>?<o|a>?<que|qual><uso|serventia|utiliza..o><tem><aquel.|es..|o|a><objeto|coisa|peça|utensílio|ente|entidade|primitiva|artefato|aparelho|instrumento|dispositivo|troço|treco|tralha|trambolho|cacareco|bugiganga>?_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<voc.|tu>?<se|pode>?<sabe|conhece|lembra|sabes|conheces|lembras|me>?<dizer|falar>?<o|a>?<que|qual><uso|serventia|utiliza..o><tem><is..|aquilo><aqui|ali|lá>?"
+      ]
+   },
+   {
+      "perguntaImportanciaObjeto": [
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<voc.|tu>?<se|pode>?<sabe|conhece|lembra|sabes|conheces|lembras|me>?<dizer|falar>?<o|a>?<qual|que|quanto|como|o|a><é|e>?<o|a>?<grau|valor|dimens.o>?<de|da>?<import.ncia|relev.ncia><dis.o|daquilo>",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<voc.|tu>?<se|pode>?<sabe|conhece|lembra|sabes|conheces|lembras|me>?<dizer|falar>?<o|a>?<qual|que|quanto|como|o|a><é|e>?<o|a>?<grau|valor|dimens.o>?<de|da>?<import.ncia|relev.ncia><des..|daquel.><objeto|coisa|peça|utensílio|ente|entidade|primitiva|artefato|aparelho|instrumento|dispositivo|troço|treco|tralha|trambolho|cacareco|bugiganga>",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<voc.|tu>?<se|pode>?<sabe|conhece|lembra|sabes|conheces|lembras|me>?<dizer|falar>?<o|a>?<qu.o|quanto><importante|relevante><e|é>?<es..|aquel.><e|é>?<objeto|coisa|peça|utensílio|ente|entidade|primitiva|artefato|aparelho|instrumento|dispositivo|troço|treco|tralha|trambolho|cacareco|bugiganga>"
+      ]
+   },
+   {
+      "perguntaAtributoObjeto": [
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<voc.|tu>?<se|pode>?<sabe|conhece|lembra|sabes|conheces|lembras|me>?<dizer|falar>?<o|a>?<qual|que|como|o|a><é>?<o|a>?(<.+>+)<dis.o|daquilo>",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<voc.|tu>?<se|pode>?<sabe|conhece|lembra|sabes|conheces|lembras|me>?<dizer|falar>?<o|a>?<qual|que|como|o|a><é>?<o|a>?(<.+>+)<des..|daquel.><objeto|coisa|peça|utensílio|ente|entidade|primitiva|artefato|aparelho|instrumento|dispositivo|troço|treco|tralha|trambolho|cacareco|bugiganga>"
+      ]
+   },
+   {
+      "perguntaLugaresConhecidos": [
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<quais|que><lugares|locais|posições|localidades|áreas|espaços|pontos|zonas|partes|localizações|sítios><voc.|tu>?<se>?<conhec.*|sabe.*|lembra.*>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<mostre|liste|fale><sobre>?<lugares|locais|posições|localidades|áreas|espaços|pontos|zonas|partes|localizações|sítios><conhecidos>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<mostre|liste|fale><sobre>?<lugares|locais|posições|localidades|áreas|espaços|pontos|zonas|partes|localizações|sítios><que>?<se>?<lembra>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<voc.|tu>?<conhec.*|sabe.*|lembra.*><algo>?<sobre>?<algum|alguma><lugar|local|posição|localidade|área|espaço|ponto|zona|parte|localização|sítio>_"
+      ]
+   },
+   {
+      "perguntaInformacaoLugar": [
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<me>?<fale|conte|diga>?<o>?<que><vo.e|tu><sabe.*|conhe.e.*><sobre><aqui|ali>",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<me>?<fale|conte|diga>?<o>?<que><vo.e|tu><sabe.*|conhe.e.*><sobre><es..|aquel.|des..|daquel.|o|do|a|da><lugar|local|posição|localidade|área|espaço|ponto|zona|parte|localização|sítio>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<voc.|tu>?<sabe.*|conhe.e.*><algo|alguma><coisa>?<sobre><es..|aquel.|des..|daquel.|o|do|a|da><lugar|local|posição|localidade|área|espaço|ponto|zona|parte|localização|sítio>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<voc.|tu>?<sabe.*|conhe.e.*><algo|alguma><coisa>?<sobre><aqui|ali>",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<me><fale|conte|diga><tudo>?<sobre><es..|aquel.|des..|daquel.|o|do|a|da><lugar|local|posição|localidade|área|espaço|ponto|zona|parte|localização|sítio>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<me><fale|conte|diga><tudo>?<sobre><aqui|ali>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<me>?<fale|conte|diga>?<o>?<que><te|lhe><disseram|falaram|comentaram><sobre><es..|aquel.|des..|daquel.|o|do|a|da><lugar|local|posição|localidade|área|espaço|ponto|zona|parte|localização|sítio>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<me>?<fale|conte|diga>?<o>?<que><te|lhe><disseram|falaram|comentaram><sobre><aqui|ali>"
+      ]
+   },
+   {
+      "perguntaNomeLugar": [
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<voc.|tu>?<se|pode>?<sabe|conhece|lembra|sabes|conheces|lembras|me>?<dizer|falar>?<o|a>?<qual|como><é>?<o>?<nome|identifica..o|denomina..o><des..|daquel.><lugar|local|posição|localidade|área|espaço|ponto|zona|parte|localização|sítio>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<voc.|tu>?<se|pode>?<sabe|conhece|lembra|sabes|conheces|lembras|me>?<dizer|falar>?<o|a>?<qual|como><é>?<o>?<nome|identifica..o|denomina..o><daqui|dali>",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<voc.|tu>?<se|pode>?<sabe|conhece|lembra|sabes|conheces|lembras|me>?<dizer|falar>?<o|a>?<que><nome|identifica..o|denomina..o><t.m><es..|aquel.><lugar|local|posição|localidade|área|espaço|ponto|zona|parte|localização|sítio>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<voc.|tu>?<se|pode>?<sabe|conhece|lembra|sabes|conheces|lembras|me>?<dizer|falar>?<o|a>?<que><nome|identifica..o|denomina..o><t.m><aqui|ali|lá>",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<voc.|tu>?<se|pode>?<sabe|conhece|lembra|sabes|conheces|lembras|me>?<dizer|falar>?<o|a>?<como><se><chama|denomina><es..|aquel.><lugar|local|posição|localidade|área|espaço|ponto|zona|parte|localização|sítio>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<voc.|tu>?<se|pode>?<sabe|conhece|lembra|sabes|conheces|lembras|me>?<dizer|falar>?<o|a>?<como><se><chama|denomina><aqui|ali|lá>"
+      ]
+   },
+   {
+      "perguntaDescricaoLugar": [
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<voc.|tu>?<se|pode>?<sabe|conhece|lembra|sabes|conheces|lembras|me>?<dizer|falar>?<o|a>?<como><se>?<descreve|descrever><es..|aquel.><lugar|local|posição|localidade|área|espaço|ponto|zona|parte|localização|sítio>?_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<voc.|tu>?<se|pode>?<sabe|conhece|lembra|sabes|conheces|lembras|me>?<dizer|falar>?<o|a>?<qual|que><é>?<a><descri..o><des..|daquel.><lugar|local|posição|localidade|área|espaço|ponto|zona|parte|localização|sítio>?_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<voc.|tu>?<se|pode>?<sabe|conhece|lembra|sabes|conheces|lembras|me>?<dizer|falar>?<o|a>?<detalhes|particularidades|especificidades|peculiaridades|características|propriedades><adicionais|extras>?<sobre><es..|aquel.><lugar|local|posição|localidade|área|espaço|ponto|zona|parte|localização|sítio>?_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<voc.|tu>?<se|pode>?<sabe|conhece|lembra|sabes|conheces|lembras|me>?<dizer|falar>?<o|a>?<detalhes|particularidades|especificidades|peculiaridades|características|propriedades><adicionais|extras>?<des..|daquel.><lugar|local|posição|localidade|área|espaço|ponto|zona|parte|localização|sítio>?_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<voc.|tu><tem|tens><detalhes|informa..es><adicionais|extras>?<sobre><es..|aquel.><lugar|local|posição|localidade|área|espaço|ponto|zona|parte|localização|sítio>?_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<voc.|tu><tem|tens><detalhes|informa..es><adicionais|extras>?<des..|daquel.><lugar|local|posição|localidade|área|espaço|ponto|zona|parte|localização|sítio>?_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<voc.|tu>?<se|pode>?<sabe|conhece|lembra|sabes|conheces|lembras|me>?<dizer|falar>?<o|a>?<o>?<que><é><es..|aquel.><lugar|local|posição|localidade|área|espaço|ponto|zona|parte|localização|sítio>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<aquel.|es..><lugar|local|posição|localidade|área|espaço|ponto|zona|parte|localização|sítio><aqui|ali|lá|la>?<é><o><que>_"
+      ]
+   },
+   {
+      "perguntaEventoLugar": [
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<voc.|tu>?<se|pode>?<sabe|conhece|lembra|sabes|conheces|lembras|me>?<dizer|falar>?<o|a>?<que|qual><evento|ocorr.ncia|caso|situa..o|fato><importante|digno>?<de>?<nota|valor>?<ocorreu|aconteceu|se.*passou><nes..|naquel.><lugar|local|posição|localidade|área|espaço|ponto|zona|parte|localização|sítio>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<voc.|tu>?<se|pode>?<sabe|conhece|lembra|sabes|conheces|lembras|me>?<dizer|falar>?<o|a>?<que|qual><evento|ocorr.ncia|caso|situa..o|fato><importante|digno>?<de>?<nota|valor>?<ocorreu|aconteceu|se.*passou><aqui|ali|lá|lá>",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<voc.|tu>?<se|pode>?<sabe|conhece|lembra|sabes|conheces|lembras|me>?<dizer|falar>?<o|a>?<o>?<que><ocorreu|aconteceu|se.*passou><nes..|naquel.><lugar|local|posição|localidade|área|espaço|ponto|zona|parte|localização|sítio>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<voc.|tu>?<se|pode>?<sabe|conhece|lembra|sabes|conheces|lembras|me>?<dizer|falar>?<o|a>?<o>?<que><ocorreu|aconteceu|se.*passou><aqui|ali|lá|lá>"
+      ]
+   },
+   {
+      "perguntaImportanciaLugar": [
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<voc.|tu>?<se|pode>?<sabe|conhece|lembra|sabes|conheces|lembras|me>?<dizer|falar>?<o|a>?<qual|que|quanto|como|o|a><é|e>?<o|a>?<grau|valor|dimens.o>?<de|da>?<import.ncia|relev.ncia><daqui|dali>",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<voc.|tu>?<se|pode>?<sabe|conhece|lembra|sabes|conheces|lembras|me>?<dizer|falar>?<o|a>?<qual|que|quanto|como|o|a><é|e>?<o|a>?<grau|valor|dimens.o>?<de|da>?<import.ncia|relev.ncia><des..|daquel.><lugar|local|posição|localidade|área|espaço|ponto|zona|parte|localização|sítio>",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<voc.|tu>?<se|pode>?<sabe|conhece|lembra|sabes|conheces|lembras|me>?<dizer|falar>?<o|a>?<qu.o|quanto><importante|relevante><e|é>?<es..|aquel.><e|é>?<lugar|local|posição|localidade|área|espaço|ponto|zona|parte|localização|sítio>"
+      ]
+   },
+   {
+      "perguntaAtributoLugar": [
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<voc.|tu>?<se|pode>?<sabe|conhece|lembra|sabes|conheces|lembras|me>?<dizer|falar>?<o|a>?<qual|que|como|o|a><é>?<o|a>?(<.+>+)<daqui|dali>",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<voc.|tu>?<se|pode>?<sabe|conhece|lembra|sabes|conheces|lembras|me>?<dizer|falar>?<o|a>?<qual|que|como|o|a><é>?<o|a>?(<.+>+)<des..|daquel.><lugar|local|posição|localidade|área|espaço|ponto|zona|parte|localização|sítio>"
+      ]
+   },
+   {
+      "perguntaQueObjetosConheceAqui": [
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<voc.|tu>?<se|pode>?<sabe|conhece|lembra|sabes|conheces|lembras|me>?<dizer|falar>?<o|a>?<que|quais><objetos|coisas|peças|utensílios|entes|entidades|primitivas|artefatos|aparelhos|instrumentos|dispositivos|troços|trecos|tralhas|trambolhos|cacarecos|bugigangas><t.m><aqui|ali>",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<voc.|tu>?<se|pode>?<sabe|conhece|lembra|sabes|conheces|lembras|me>?<dizer|falar>?<o|a>?<que|quais><objetos|coisas|peças|utensílios|entes|entidades|primitivas|artefatos|aparelhos|instrumentos|dispositivos|troços|trecos|tralhas|trambolhos|cacarecos|bugigangas><t.m><aqui|ali>?<nes..>?<lugar|local|posição|localidade|área|espaço|ponto|zona|parte|localização|sítio>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<que|quais><objetos|coisas|peças|utensílios|entes|entidades|primitivas|artefatos|aparelhos|instrumentos|dispositivos|troços|trecos|tralhas|trambolhos|cacarecos|bugigangas><voc.|tu>?<conhece|identifica|lembra><aqui|daqui|ali|dali>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<que|quais><objetos|coisas|peças|utensílios|entes|entidades|primitivas|artefatos|aparelhos|instrumentos|dispositivos|troços|trecos|tralhas|trambolhos|cacarecos|bugigangas><voc.|tu>?<conhece|identifica|lembra><aqui|daqui|ali|dali>?<nes..|des..|daquel.>?<lugar|local|posição|localidade|área|espaço|ponto|zona|parte|localização|sítio>_"
+      ]
+   },
+   {
+      "perguntaInformacaoSobreNome": [
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o>?<que><vo.e|tu><sabe.*|conhe.e.*|lembra.*><sobre>(<.+>+?)<\\?>?",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<voc.|tu><sabe.*|conhe.e.*|lembra.*><algo|alguma><coisa>?<sobre>(<.+>+?)<\\?>?",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<me>?<fale|conte|diga><tudo>?<sobre>(<.+>+?)<\\?>?",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o>?<que><te|lhe><disseram|falaram|comentaram><sobre>(<.+>+?)<\\?>?",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o>?<que><é>(<.+>+?)<\\?>?"
+      ]
+   },
+   {
+      "perguntaCenasConhecidas": [
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<quais|que><cenas|cen.rios><voc.|tu>?<se>?<conhec.*|sabe.*|lembra.*>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<mostre|liste|fale><sobre>?<cenas|cen.rios><conhecidos>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<mostre|liste|fale><sobre>?<cenas|cen.rios><que>?<se>?<lembra>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<voc.|tu>?<conhec.*|sabe.*|lembra.*><algo>?<sobre>?<algum|alguma|alguns|algumas><cena|cen.rio|cenas|cen.rios>_"
+      ]
+   },
+   {
+      "perguntaInformacaoCena": [
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<me>?<fale|conte|diga>?<o>?<que><vo.e|tu><sabe.*|conhe.e.*><sobre><es..|aquel.|des..|daquel.|o|do|a|da><cena|cen.rio>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<voc.|tu>?<sabe.*|conhe.e.*><algo|alguma><coisa>?<sobre><es..|aquel.|des..|daquel.|o|do|a|da><cena|cen.rio>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<me><fale|conte|diga><tudo>?<sobre><es..|aquel.|des..|daquel.|o|do|a|da><cena|cen.rio>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<me>?<fale|conte|diga>?<o>?<que><te|lhe><disseram|falaram|comentaram><sobre><es..|aquel.|des..|daquel.|o|do|a|da><cena|cen.rio>_"
+      ]
+   },
+   {
+      "perguntaNomeCena": [
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<voc.|tu>?<se|pode>?<sabe|conhece|lembra|sabes|conheces|lembras|me>?<dizer|falar>?<o|a>?<qual><é|e>?<o>?<nome><des..><cena|cen.rio><\\?>?",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<voc.|tu>?<se|pode>?<sabe|conhece|lembra|sabes|conheces|lembras|me>?<dizer|falar>?<o|a>?<como|se><se|é|e|tem><chama|chamada|chamado|nome><es..><cena|cen.rio><\\?>?"
+      ]
+   },
+   {
+      "perguntaConfirmaNomeCena": [
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<voc.|tu>?<se|pode>?<sabe|conhece|lembra|sabes|conheces|lembras|me>?<dizer|falar>?<o|a>?<es..><é|e>?<o|a>?<cena|cen.rio><de|da|do><.+>+<\\?>",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<voc.|tu>?<se|pode>?<sabe|conhece|lembra|sabes|conheces|lembras|me>?<dizer|falar>?<o|a>?<es..><é|e>?<o|a>?<cena|cen.rio><de|da|do><.+>+",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<voc.|tu>?<se|pode>?<sabe|conhece|lembra|sabes|conheces|lembras|me>?<dizer|falar>?<o|a>?<se>?<estamos><na|no><cena|cen.rio><de|da|do><.+>+<\\?>",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<voc.|tu>?<se|pode>?<sabe|conhece|lembra|sabes|conheces|lembras|me>?<dizer|falar>?<o|a>?<se>?<estamos><na|no><cena|cen.rio><de|da|do><.+>",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<me>?<confirme|verifique|diga|fale><se>?<estamos><na|no><cena|cen.rio><de|da|do><.+>+<\\?>",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<me>?<confirme|verifique|diga|fale><se>?<estamos><na|no><cena|cen.rio><de|da|do><.+>"
+      ]
+   },
+   {
+      "perguntaTarefasConhecidas": [
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<quais|que><tarefas|atua..es|performances><voc.|tu>?<se>?<conhec.*|sabe.*|lembra.*>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<mostre|liste|fale><sobre>?<tarefas|atua..es|performances><conhecidos>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<mostre|liste|fale><sobre>?<tarefas|atua..es|performances><que>?<voc.><se|sabe>?<lembra|fazer>_"
+      ]
+   },
+   {
+      "perguntaInformacaoTarefaComNome": [
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<me>?<fale|conte|diga>?<o>?<que><vo.e|tu><sabe.*|conhe.e.*><sobre><es..|aquel.|des..|daquel.|o|do|a|da><tarefa|atua..o|performance><de|da|do>?(<.+>+)",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<voc.|tu>?<sabe.*|conhe.e.*><algo|alguma><coisa>?<sobre><es..|aquel.|des..|daquel.|o|do|a|da><tarefa|atua..o|performance><de|da|do>?(<.+>+)",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<me><fale|conte|diga><tudo>?<sobre><es..|aquel.|des..|daquel.|o|do|a|da><tarefa|atua..o|performance><de|da|do>?(<.+>+)",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<me>?<fale|conte|diga>?<o>?<que><te|lhe><disseram|falaram|comentaram><sobre><es..|aquel.|des..|daquel.|o|do|a|da><tarefa|atua..o|performance><de|da|do>?(<.+>+)"
+      ]
+   },
+   {
+      "meLeveCena": [
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<me|quero|desejo><que>?<me>?<leve|ir><me>?<ao|a|para|pra|pro>?<a|o>?<cena|cen.rio><com|d.>?<nome|chamado>?(<.+>+)",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<vamos><ao|a|para|pra|pro>?<a|o>?<cena|cen.rio><com|d.>?<nome|chamado>?(<.+>+)"
+      ]
+   },
+   {
+      "meLeveLugar": [
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<me|quero|desejo><que>?<me>?<leve|ir><me>?<ao|a|para|pra|pro>?<a|o>?<lugar|local|posição|posic.o|localidade|área|area|espaço|espaco|ponto|zona|parte|localização|localizac.o|sítio|sitio><com|d.>?<nome|chamado>?(<.+>+)",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<vamos><ao|a|para|pra|pro>?<a|o>?<lugar|local|posição|posic.o|localidade|área|area|espaço|espaco|ponto|zona|parte|localização|localizac.o|sítio|sitio><com|d.>?<nome|chamado>?(<.+>+)"
+      ]
+   },
+   {
+      "olheObjeto": [
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<olhe|veja|observe><para|pra|pro>?<is..|aqu.l.>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<olhe|veja|observe><para|pra|pro>?<es..|aquel.|o|a><objeto|coisa|peça|utensílio|ente|entidade|primitiva|artefato|aparelho|instrumento|dispositivo|troço|treco|tralha|trambolho|cacareco|bugiganga>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<voc.|tu><vê|ve|v.s|viu|observou><is..|aqu.l.>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<voc.|tu><vê|ve|v.s|viu|observou><es..|aquel.|o|a><objeto|coisa|peça|utensílio|ente|entidade|primitiva|artefato|aparelho|instrumento|dispositivo|troço|treco|tralha|trambolho|cacareco|bugiganga>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria>?<de>?<ver|olhar|observar><is..|aqu.l.>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria>?<de>?<ver|olhar|observar><es..|aquel.|o|a><objeto|coisa|peça|utensílio|ente|entidade|primitiva|artefato|aparelho|instrumento|dispositivo|troço|treco|tralha|trambolho|cacareco|bugiganga>_"
+      ]
+   },
+   {
+      "aponteObjeto": [
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<aponte|indique><para|pra>?<is..|aqu.l.>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<aponte|indique><para|pra>?<es..|aquel.|o|a><objeto|coisa|peça|utensílio|ente|entidade|primitiva|artefato|aparelho|instrumento|dispositivo|troço|treco|tralha|trambolho|cacareco|bugiganga>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria>?<de>?<apontar|indicar><para|pra>?<is..|aqu.l.>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria>?<de>?<apontar|indicar><para|pra>?<es..|aquel.|o|a><objeto|coisa|peça|utensílio|ente|entidade|primitiva|artefato|aparelho|instrumento|dispositivo|troço|treco|tralha|trambolho|cacareco|bugiganga>_"
+      ]
+   },
+   {
+      "pareDeApontar": [
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<pare|deixe><de>?<apontar|indicar>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<n.o><aponte|indique>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria>?<de>?<parar|deixar><de>?<apontar|indicar>_"
+      ]
+   },
+   {
+      "ordenaComando": [
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<eu>?<te><ordeno|comando><que>?(<.+>)",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora><deve|deves>(<.+>)",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<execute|fa.a><comando>?<a|o>?(<.+>)"
+      ]
+   },
+   {
+      "olheParaMim": [
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<se>?<dirija|volte|olhe><para|pra><mim|ca|cá>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<me><olhe|veja>",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria>?<de>?<se>?<dirijir|voltar|olhar><para|pra><mim|ca|cá>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria>?<de>?<me><olhar|ver>"
+      ]
+   },
+   {
+      "sigaMe": [
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<va|vá|vai|vem|venha|volte|mova.se|mova|ande|caminhe|siga><junto>?<comigo>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<va|vá|vai|vem|venha|volte|mova.se|mova|ande|caminhe|siga><ao>?<meu><lado>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<siga|acompanhe><me>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<me><siga|acompanhe>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<me><fa.a><companhia>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<vamos><vir|ir|andar|caminhar|seguir|voltar|mover.se><juntos>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria>?<de>?<vir|ir|andar|caminhar|seguir|voltar|mover.se><comigo>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria>?<de>?<me><seguir|acompanhar>_"
+      ]
+   },
+   {
+      "meDeixeSozinho": [
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<nao|não><va|vá|vai|vem|venha|volte|mova.se|mova|ande|caminhe|siga><junto>?<comigo>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<pare><de><me>?<seguir|acompanhar>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<pare><de><vir|ir|andar|caminhar|seguir|voltar|mover.se><comigo>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<va|vá><embora>",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<saia><de><perto>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<me><deixe|largue>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<nao|não><me><siga>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<me>?<deixe><me>?<sozinho>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria>?<de>?<parar><de><me>?<seguir|acompanhar>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria>?<de>?<parar><de><vir|ir|andar|caminhar|seguir|voltar|mover.se><comigo>_"
+      ]
+   },
+   {
+      "vaParaPosicao": [
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<va|vá|vai|vem|venha|volte|mova.se|mova|ande|caminhe|siga><para|at.|pra|pro|na|no><a|o>?<lugar|local|posição|posic.o|localidade|área|area|espaço|espaco|ponto|zona|parte|localização|localizac.o|sítio|sitio>?<de>?(<.*>)<e>?(<.*>)",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria>?<de>?<vir|ir|andar|caminhar|seguir|voltar|mover.se><para|at.|pra|pro|na|no><a|o>?<lugar|local|posição|posic.o|localidade|área|area|espaço|espaco|ponto|zona|parte|localização|localizac.o|sítio|sitio>?<de>?(<.*>)<e>?(<.*>)"
+      ]
+   },
+   {
+      "vaParaOndeEsta": [
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<va|vá|vai|vem|venha|volte|mova.se|mova|ande|caminhe|siga><para|at.|pra><onde|aonde><est.|fica><o|a>?<objeto|coisa|peça|utensílio|ente|entidade|primitiva|artefato|aparelho|instrumento|dispositivo|troço|treco|tralha|trambolho|cacareco|bugiganga>?(<.+>+)",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<va|vá|vai|vem|venha|volte|mova.se|mova|ande|caminhe|siga><no|na><lugar|local|posição|posic.o|localidade|área|area|espaço|espaco|ponto|zona|parte|localização|localizac.o|sítio|sitio><em|no|na>?<que|qual><est.><o|a>?<objeto|coisa|peça|utensílio|ente|entidade|primitiva|artefato|aparelho|instrumento|dispositivo|troço|treco|tralha|trambolho|cacareco|bugiganga>?(<.+>+)",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria>?<de>?<vir|ir|andar|caminhar|seguir|voltar|mover.se><para|at.|pra><onde|aonde><est.|fica><o|a>?<objeto|coisa|peça|utensílio|ente|entidade|primitiva|artefato|aparelho|instrumento|dispositivo|troço|treco|tralha|trambolho|cacareco|bugiganga>?(<.+>+)",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria>?<de>?<vir|ir|andar|caminhar|seguir|voltar|mover.se><no|na><lugar|local|posição|posic.o|localidade|área|area|espaço|espaco|ponto|zona|parte|localização|localizac.o|sítio|sitio><em|no|na>?<que|qual><est.><o|a>?<objeto|coisa|peça|utensílio|ente|entidade|primitiva|artefato|aparelho|instrumento|dispositivo|troço|treco|tralha|trambolho|cacareco|bugiganga>?(<.+>+)"
+      ]
+   },
+   {
+      "vaParaLugar": [
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<va|vá|vai|vem|venha|volte|mova.se|mova|ande|caminhe|siga><para|at.|pra|pro|ao|a><o|a>?<lugar|local|posição|posic.o|localidade|área|area|espaço|espaco|ponto|zona|parte|localização|localizac.o|sítio|sitio><de|da|do>?(<.+>+)",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria>?<de>?<vir|ir|andar|caminhar|seguir|voltar|mover.se><para|at.|pra|pro|ao|a><o|a>?<lugar|local|posição|posic.o|localidade|área|area|espaço|espaco|ponto|zona|parte|localização|localizac.o|sítio|sitio><de|da|do>?(<.+>+)",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<vamos><para|at.|pra|pro|ao|a><o|a>?<lugar|local|posição|posic.o|localidade|área|area|espaço|espaco|ponto|zona|parte|localização|localizac.o|sítio|sitio><de|da|do>?(<.+>+)"
+      ]
+   },
+   {
+      "vaParaCena": [
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<va|vá|vai|vem|venha|volte|mova.se|mova|ande|caminhe|siga><para|at.|pra|pro|ao|a><o|a>?<cena|cen.rio><de|da|do>?(<.+>+)",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria>?<de>?<vir|ir|andar|caminhar|seguir|voltar|mover.se><para|at.|pra|pro|ao|a><o|a>?<cena|cen.rio><de|da|do>?(<.+>+)",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<vamos><para|at.|pra|pro|ao|a><o|a>?<cena|cen.rio><de|da|do>?(<.+>+)"
+      ]
+   },
+   {
+      "vaEmFrente": [
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<va|vá|vai|vem|venha|volte|mova.se|mova|ande|caminhe|siga>?<em|para|pra|a>?<frente|adiante|avante>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria>?<de>?<vir|ir|andar|caminhar|seguir|voltar|mover.se>?<em|para|pra|a>?<frente|adiante|avante>_"
+      ]
+   },
+   {
+      "vaParaTras": [
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<va|vá|vai|vem|venha|volte|mova.se|mova|ande|caminhe|siga>?<para|pra><tr.s|atr.s>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria>?<de>?<vir|ir|andar|caminhar|seguir|voltar|mover.se>?<para|pra><trás|tras|atrás|atras>_"
+      ]
+   },
+   {
+      "vaParaDireita": [
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<va|vá|vai|vem|venha|volte|mova.se|mova|ande|caminhe|siga>?<para|pra|a><direita>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<va|vá|vai|vem|venha|volte|mova.se|mova|ande|caminhe|siga>?<para|pra|pro|ao><o>?<lado><direito>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria>?<de>?<vir|ir|andar|caminhar|seguir|voltar|mover.se>?<para|pra|a><direita>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria>?<de>?<vir|ir|andar|caminhar|seguir|voltar|mover.se>?<para|pra|pro|ao><o>?<lado><direito>_"
+      ]
+   },
+   {
+      "vaParaEsquerda": [
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<va|vá|vai|vem|venha|volte|mova.se|mova|ande|caminhe|siga>?<para|pra|a><esquerda>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<va|vá|vai|vem|venha|volte|mova.se|mova|ande|caminhe|siga>?<para|pra|pro|ao><o>?<lado><esquerdo>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria>?<de>?<vir|ir|andar|caminhar|seguir|voltar|mover.se>?<para|pra|a><esquerda>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria>?<de>?<vir|ir|andar|caminhar|seguir|voltar|mover.se>?<para|pra|pro|ao><o>?<lado><esquerdo>_"
+      ]
+   },
+   {
+      "pareDeVoar": [
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<desça><daí>?_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<pare|chega><de><voar>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<va|vá|vai|vem|venha|volte|mova.se|mova|ande|caminhe|siga><pra|para|pro><o>?<baixo|ch.o>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria>?<de>?<vir|ir|andar|caminhar|seguir|voltar|mover.se><pra|para|pro><o>?<baixo|ch.o>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<n.o><voe><mais>?_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<volte><pra|para|pro><o>?<baixo|ch.o>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria>?<de>?<parar><de><voar>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria>?<de>?<n.o><voar><mais>?_"
+      ]
+   },
+   {
+      "comeceVoar": [
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<voe>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<começe|pode><a>?<voar>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<saia|vá><voando>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria>?<de>?<come.ar>?<a>?<voar>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<va|vá|vai|vem|venha|volte|mova.se|mova|ande|caminhe|siga><voando>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<va|vá|vai|vem|venha|volte|mova.se|mova|ande|caminhe|siga><vir|ir|andar|caminhar|seguir|voltar|mover.se><voando>_"
+      ]
+   },
+   {
+      "pareDeCorrer": [
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<n.o><corra>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<pare><de>?<correr>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<vá|va><devagar>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria>?<de>?<parar><de>?<correr>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<n.o><va|vá|vai|vem|venha|volte|mova.se|mova|ande|caminhe|siga><correndo>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria>?<de>?<vir|ir|andar|caminhar|seguir|voltar|mover.se><correndo>_"
+      ]
+   },
+   {
+      "comeceCorrer": [
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<corra>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<começe|pode><a>?<correr>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<saia|vá><correndo|r.pido>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria>?<de>?<correr>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria>?<de>?<andar><r.pido>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<va|vá|vai|vem|venha|volte|mova.se|mova|ande|caminhe|siga><correndo>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<va|vá|vai|vem|venha|volte|mova.se|mova|ande|caminhe|siga><andando>?<r.pido>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria>?<de>?<vir|ir|andar|caminhar|seguir|voltar|mover.se><correndo>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria>?<de>?<vir|ir|andar|caminhar|seguir|voltar|mover.se><andando>?<r.pido>_"
+      ]
+   },
+   {
+      "comeceAndar": [
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<ande|caminhe>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<começe|pode><a>?<andar|caminhar>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<saia|vá><andando|caminhando>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria>?<de>?<andar|caminhar>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<va|vá|vai|vem|venha|volte|mova.se|mova|ande|caminhe|siga><andando|caminhando>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria>?<de>?<vir|ir|andar|caminhar|seguir|voltar|mover.se><andar|caminhar>_"
+      ]
+   },
+   {
+      "venhaAqui": [
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<va|vá|vai|vem|venha|volte|mova.se|mova|ande|caminhe|siga><at.|para|pra>?<aqui|ali|cá|ca>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria>?<de>?<vir|ir|andar|caminhar|seguir|voltar|mover.se><at.|para|pra>?<aqui|ali|cá|ca>_"
+      ]
+   },
+   {
+      "venhaAoConsultorio": [
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<va|vá|vai|vem|venha|volte|mova.se|mova|ande|caminhe|siga><ao|para|pra|pro><o>?<consult.rio>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria>?<de>?<vir|ir|andar|caminhar|seguir|voltar|mover.se><ao|para|pra|pro><o>?<consult.rio>_"
+      ]
+   },
+   {
+      "teleporteAqui": [
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<se>?<teleporte|transporte|teletransporte><se>?<at.|para|pra>?<aqui|ali|cá|ca>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria>?<de>?<se>?<teleportar|transportar|portar|teletransportar><se>?<at.|para|pra>?<aqui|ali|cá|ca>_"
+      ]
+   },
+   {
+      "senteSeAqui": [
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<sente.se><aqui|ali|la|lá|ai|aí>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<se>?<sente><se>?<aqui|ali|la|lá|ai|aí>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria>?<de>?<se>?<sentar|assentar><aqui|ali|la|lá|aí|ai>_"
+      ]
+   },
+   {
+      "fiqueDePe": [
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<agora>?<fique>?<de|em><pé|pe><agora>?",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<agora>?<levante.se><agora>?",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<agora>?<se>?<levante><se>?<agora>?",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria>?<de>?<ficar><de|em><pé|pe><agora>?",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria>?<de>?<se>?<levantar><se>?<agora>?"
+      ]
+   },
+   {
+      "deiteNaMesa": [
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<deite.se><na|nesta|nessa>?<mesa|maca|padiola>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<se>?<deite|acoste|repouse><se>?<na|nesta|nessa>?<mesa|maca|padiola>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria>?<de>?<se>?<deitar|acomodar|acostar><na|nesta|nessa>?<mesa|maca|padiola>_"
+      ]
+   },
+   {
+      "deiteNaCama": [
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<deite.se><n.|nest.|ness.>?<cama|leito>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<se>?<deite|acoste|repouse><se>?<n.|nest.|ness.>?<cama|leito>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria>?<de>?<se>?<deitar|acostar|repousar><n.|nest.|ness.>?<cama|leito>_"
+      ]
+   },
+   {
+      "deiteNoSofa": [
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<deite.se><no|neste|nesse>?<sof.|divã|diva>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<se>?<deite|acoste|repouse><se>?<no|neste|nesse>?<sof.|divã|diva>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria>?<de>?<se>?<deitar|acostar|repousar><no|neste|nesse>?<sof.|divã|diva>_"
+      ]
+   },
+   {
+      "senteNaMesa": [
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<sente.se|assente.se|acomode.se><na|nesta|nessa>?<mesa|maca|padiola>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<se>?<sente|assente|acomode><se>?<na|nesta|nessa>?<mesa|maca|padiola>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria>?<de>?<se>?<sentar|acomodar|assentar><na|nesta|nessa>?<mesa|maca|padiola>_"
+      ]
+   },
+   {
+      "senteNaCama": [
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<sente.se|assente.se|acomode.se><n.|nest.|ness.>?<cama|leito>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<se>?<sente|assente|acomode><se>?<n.|nest.|ness.>?<cama|leito>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria>?<de>?<se>?<sentar|acomodar|assentar><cama|leito>?<cama|leito>_"
+      ]
+   },
+   {
+      "senteNaCadeira": [
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<sente.se|assente.se|acomode.se><n.|nest.|ness.>?<cadeira|poltrona|banco|assento>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<se>?<sente|assente|acomode><se>?<n.|nest.|ness.>?<cadeira|poltrona|banco|assento>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria>?<de>?<se>?<sentar|acomodar|assentar><cama|leito>?<cadeira|poltrona|banco|assento>_"
+      ]
+   },
+   {
+      "levanteBracoParaCima": [
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<levante|aponte|deixe|coloque|mova><bem>?<o>?<bra.o>(<.+>)<para|pra|pro|ao>?<cima|alto|acima>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<levante|aponte|deixe|coloque|mova><bem>?<o>?<bra.o>(<.+>)<na><vertical>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria>?<de>?<levantar|apontar|deixar|colocar|mover><bem>?<o>?<bra.o>(<.+>)<para|pra|pro|ao>?<cima|alto|acima>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria>?<de>?<levantar|apontar|deixar|colocar|mover><bem>?<o>?<bra.o>(<.+>)<na><vertical>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<m.o|bra.o>(<.+>)<ao|para|pra|pro><o>?<alto>_"
+      ]
+   },
+   {
+      "bracosParaCima": [
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<levante|aponte|deixe|coloque|mova><bem>?<os>?<dois>?<ambos>?<bra.os><para|pra|pro|ao>?<cima|alto|acima>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<levante|aponte|deixe|coloque|mova><bem>?<os>?<dois>?<ambos>?<bra.os><na><vertical>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria>?<de>?<levantar|apontar|deixar|colocar|mover><bem>?<os>?<dois>?<ambos>?<bra.os><para|pra|pro|ao>?<cima|alto|acima>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria>?<de>?<levantar|apontar|deixar|colocar|mover><bem>?<os>?<dois>?<ambos>?<bra.os><na><vertical>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<m.os|bra.os><ao|para|pra|pro><o>?<alto>_"
+      ]
+   },
+   {
+      "levanteBracoParaLado": [
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<levante|aponte|deixe|coloque|mova><bem>?<o>?<bra.o>(<.+>)<de|para|pra|pro|ao|na|no>?<lado|lateral>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<abra><bem>?<o>?<bra.o>(<.+>)_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria>?<de>?<levantar|apontar|deixar|colocar|mover><bem>?<o>?<bra.o>(<.+>)<de|para|pra|pro|ao|na|no>?<lado|lateral>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria>?<de>?<abrir><bem>?<o>?<bra.o>(<.+>)_"
+      ]
+   },
+   {
+      "abraBracos": [
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<levante|aponte|deixe|coloque|mova><bem>?<os>?<dois>?<ambos>?<bra.os><de|para|pra|pro|ao|na|no>?<lado|lateral>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<abra><bem>?<os>?<dois>?<ambos>?<bra.os>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria>?<de>?<levantar|apontar|deixar|colocar|mover|abrir><bem>?<os>?<dois>?<ambos>?<bra.os><de|para|pra|pro|ao|na|no>?<lado|lateral>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria>?<de>?<abrir><bem>?<os>?<dois>?<ambos>?<bra.os>_"
+      ]
+   },
+   {
+      "levanteBracoParaFrente": [
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<levante|aponte><bem>?<o>?<bra.o>(<.+>)",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<levante|aponte|deixe|coloque><bem>?<o>?<bra.o>(<.+>)<a|pra|para|em>?<frente|adiante>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<levante|aponte|deixe|coloque><o>?<bra.o>(<.+>)<na|em>?<linha>?<reta|horizontal|reto>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria>?<de>?<levantar|apontar><bem>?<o>?<bra.o>(<.+>)",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria>?<de>?<levantar|apontar|deixar|colocar><bem>?<o>?<bra.o>(<.+>)<a|pra|para|em>?<frente|adiante>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria>?<de>?<levantar|apontar|deixar|colocar><bem>?<o>?<bra.o>(<.+>)<na|em>?<linha>?<reta|horizontal|reto>_"
+      ]
+   },
+   {
+      "bracosParaFrente": [
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<levante|aponte><bem>?<os>?<dois>?<ambos>?<bra.os>",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<levante|aponte|deixe|coloque><bem>?<os>?<dois>?<ambos>?<bra.os><a|pra|para|em>?<frente|adiante>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<levante|aponte|deixe|coloque><bem>?<os>?<dois>?<ambos>?<bra.os><na|em>?<linha>?<reta|horizontal|reto>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria>?<de>?<levantar|apontar><bem>?<o>?<bra.o>(<.+>)",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria>?<de>?<levantar|apontar|deixar|colocar><bem>?<os>?<dois>?<ambos>?<bra.os><a|pra|para|em>?<frente|adiante>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria>?<de>?<levantar|apontar|deixar|colocar><bem>?<os>?<dois>?<ambos>?<bra.os><na|em>?<linha>?<reta|horizontal|reto>_"
+      ]
+   },
+   {
+      "abaixeBraco": [
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<abaixe|baixe|des.a><bem>?<o>?<bra.o>(<.+>)_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria>?<de>?<abaixar|baixar|descer><bem>?<o>?<bra.o>(<.+>)_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<aponte|deixe|coloque|relaxe><bem>?<o>?<bra.o>(<.+>)<bem>?<para|pra>?<baixo>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria>?<de>?<apontar|deixar|colocar|relaxar><bem>?<o>?<bra.o>(<.+>)<bem>?<para|pra>?<baixo>_"
+      ]
+   },
+   {
+      "abaixeOsBracos": [
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<abaixe|baixe|des.a><bem>?<os>?<bra.os>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria>?<de>?<abaixar|baixar|descer><bem>?<os>?<bra.os>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<aponte|deixe|coloque|relaxe><bem>?<os>?<bra.os><bem>?<para|pra>?<baixo>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria>?<de>?<apontar|deixar|colocar|relaxar><bem>?<os>?<bra.os><bem>?<para|pra>?<baixo>_"
+      ]
+   },
+   {
+      "pareMoverBraco": [
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<pare><de>?<mover|apontar|mexer><o>?<bra.o>(<.+>)_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria>?<de>?<parar><de>?<mover|apontar|mexer><o>?<bra.o>(<.+>)_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<relaxe|pare><o>?<bra.o>(<.+>)_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria>?<de>?<relaxar|parar><o>?<bra.o>(<.+>)_"
+      ]
+   },
+   {
+      "pareMoverOsBracos": [
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<pare><de>?<mover|apontar|mexer><os>?<dois>?<ambos>?<bra.os>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria>?<de>?<parar><de>?<mover|apontar|mexer><os>?<dois>?<ambos>?<bra.os>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<relaxe|pare><os>?<dois>?<ambos>?<bra.os>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<relaxar|parar><os>?<dois>?<ambos>?<bra.os>_"
+      ]
+   },
+   {
+      "levantePernaParaCima": [
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<levante><a>?<perna>(<.+>)",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria>?<de>?<levantar><a>?<perna>(<.+>)",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<levante|aponte|deixe|coloque>?<a>?<perna>(<.+>)<a|pra|para>?<cima|acima>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria>?<de>?<levantar|apontar|deixar|colocar><a>?<perna>(<.+>)<a|pra|para>?<cima|acima>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<levante|aponte|deixe|coloque>?<a>?<perna>(<.+>)<na>?<reta|horizontal>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria>?<de>?<levantar|apontar|deixar|colocar><a>?<perna>(<.+>)<na>?<reta|horizontal>_"
+      ]
+   },
+   {
+      "levanteUmPoucoPerna": [
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<levante><um>?<pouco><a>?<perna>(<.+>)",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria>?<de>?<levantar><um>?<pouco><a>?<perna>(<.+>)",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<levante|aponte|deixe|coloque>?<a>?<perna>(<.+>)<um>?<pouco><a|pra|para>?<cima|acima>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria>?<de>?<levantar|apontar|deixar|colocar><a>?<perna>(<.+>)<um>?<pouco><a|pra|para>?<cima|acima>_"
+      ]
+   },
+   {
+      "abaixePerna": [
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<abaixe><a>?<perna>(<.+>)_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria>?<de>?<abaixar><a>?<perna>(<.+>)_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<aponte|deixe|coloque|relaxe>?<a>?<perna>(<.+>)<para|pra>?<baixo>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria>?<de>?<apontar|deixar|colocar|relaxar><a>?<perna>(<.+>)<para|pra>?<baixo>_"
+      ]
+   },
+   {
+      "dobrePerna": [
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<dobre><a>?<perna>(<.+>)_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria>?<de>?<dobrar><a>?<perna>(<.+>)_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<deixe|coloque><a>?<perna>(<.+>)<dobrada>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria>?<de>?<deixar|colocar><a>?<perna>(<.+>)<dobrada>_"
+      ]
+   },
+   {
+      "pareMoverPerna": [
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<pare><de>?<mover|apontar|mexer><a>?<perna>(<.+>)_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria>?<de>?<parar><de>?<mover|apontar|mexer><a>?<perna>(<.+>)_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<relaxe|pare><a>?<perna>(<.+>)_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria>?<de>?<relaxar|parar><a>?<perna>(<.+>)_"
+      ]
+   },
+   {
+      "pareMoverAsPernas": [
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<pare><de>?<mover|apontar|mexer><as>?<pernas>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria>?<de>?<parar><de>?<mover|apontar|mexer><as>?<pernas>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<relaxe|pare><as>?<pernas>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria>?<de>?<relaxar|parar><as>?<pernas>_"
+      ]
+   },
+   {
+      "vireCabecaParaDireita": [
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<vire|olhe><a>?<cabe.a>?<a|para|pra|pro|ao|no>?<lado>?<direit.>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria>?<de>?<virar|olhar><a>?<cabe.a>?<a|para|pra|pro|ao|no>?<lado>?<direit.>_"
+      ]
+   },
+   {
+      "vireCabecaParaEsquerda": [
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<vire|olhe><a>?<cabe.a>?<a|para|pra|pro|ao|no>?<lado>?<esquerd.>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria>?<de>?<virar|olhar><a>?<cabe.a>?<a|para|pra|pro|ao|no>?<lado>?<esquerd.>_"
+      ]
+   },
+   {
+      "vireCabecaParaCima": [
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<vire|olhe><a>?<cabe.a>?<a|para|pra|pro|o>?<o>?<cima|alto|acima>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria>?<de>?<virar|olhar><a>?<cabe.a>?<a|para|pra|pro|o>?<o>?<cima|alto|acima>_"
+      ]
+   },
+   {
+      "vireCabecaParaBaixo": [
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<vire|olhe><a>?<cabe.a>?<a|para|pra|pro|o>?<o>?<baixo|abaixo>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria>?<de>?<virar|olhar><a>?<cabe.a>?<a|para|pra|pro|o>?<o>?<baixo|abaixo>_"
+      ]
+   },
+   {
+      "deiteSeChao": [
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<deite.se><no>?<ch.o|piso|solo>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<deite><se>?<no>?<ch.o|piso|solo>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria>?<de>?<se>?<deitar><no>?<ch.o|piso|solo>_"
+      ]
+   },
+   {
+      "levanteSeChao": [
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<levante.se><do>?<ch.o|piso|solo>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<levante><se>?<do>?<ch.o|piso|solo>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria>?<de>?<se>?<levantar><do>?<ch.o|piso|solo>_"
+      ]
+   },
+   {
+      "iniciarAnimacaoPadrao": [
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<come.e|come.ar|inicie|iniciar|fa.a|fazer|realize|realizar|execute|executar><a>?<anima..o><padr.o>(<.+>+)",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria>?<de>?<animar><com>?<o>?<padr.o>(<.+>+)"
+      ]
+   },
+   {
+      "iniciarAnimacaoGravada": [
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<come.e|come.ar|inicie|iniciar|fa.a|fazer|realize|realizar|execute|executar><a>?<anima..o>(<.+>+)",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria>?<de>?<animar><com>?(<.+>+)"
+      ]
+   },
+   {
+      "pararAnimacaoPadrao": [
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<pare|parar|encerre|encerrar|termine|terminar><a>?<anima..o><padr.o>(<.+>+)",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria>?<de>?<n.o|sem><animar><com>?<o>?<padr.o>(<.+>+)"
+      ]
+   },
+   {
+      "pararAnimacaoGravada": [
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<pare|parar|encerre|encerrar|termine|terminar><a>?<anima..o>(<.+>+)",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria>?<de>?<n.o|sem><animar><com>?(<.+>+)"
+      ]
+   },
+   {
+      "comecarTourTodosLugares": [
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<vamos|podemos>?<visitar|ver|passear|andar><os|as|nos|nas|esses|estes|nesses|pelos|neste|nestes>?<lugares|locais|posições|posic.es|localidades|áreas|areas|espaços|espacos|pontos|zonas|partes|localizações|localizac.es|sítios|sitios>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria>?<de>?<me><leve|levar><para>?<visitar|ver|passear|andar><os|as|nos|nas|esses|estes>?<lugares|locais|posições|posic.es|localidades|áreas|areas|espaços|espacos|pontos|zonas|partes|localizações|localizac.es|sítios|sitios>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<vamos|podemos>?<fazer|dar><um|uma>?<tour|passeio|volta><pelos|pelas>?<lugares|locais|posições|posic.es|localidades|áreas|areas|espaços|espacos|pontos|zonas|partes|localizações|localizac.es|sítios|sitios>_"
+      ]
+   },
+   {
+      "visitarProximoLugar": [
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<vamos|podemos>?<visitar|ver|passear><o|a|no|na>?<pr.xim.><lugar|local|posição|posic.o|localidade|área|area|espaço|espaco|ponto|zona|parte|localização|localizac.o|sítio|sitio>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<vamos>?<para|pra|pro>?<o|a|ao|no|na>?<pr.xim.><lugar|local|posição|posic.o|localidade|área|area|espaço|espaco|ponto|zona|parte|localização|localizac.o|sítio|sitio>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<podemos><ir><para|pra|pro>?<o|a|ao|no|na>?<pr.xim.><lugar|local|posição|posic.o|localidade|área|area|espaço|espaco|ponto|zona|parte|localização|localizac.o|sítio|sitio>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<vamos|podemos>?<visitar|ver|passear><o|a|no|na>?<lugar|local|posição|posic.o|localidade|área|area|espaço|espaco|ponto|zona|parte|localização|localizac.o|sítio|sitio><seguinte>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<vamos>?<para|pra|pro>?<o|a|ao|no|na>?<lugar|local|posição|posic.o|localidade|área|area|espaço|espaco|ponto|zona|parte|localização|localizac.o|sítio|sitio><seguinte>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<podemos><ir><para|pra|pro>?<o|a|ao|no|na>?<lugar|local|posição|posic.o|localidade|área|area|espaço|espaco|ponto|zona|parte|localização|localizac.o|sítio|sitio><seguinte>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria>?<de>?<me><leve|levar><para>?<visitar|ver|passear>?<o|a|ao|no|na>?<pr.xim.><lugar|local|posição|posic.o|localidade|área|area|espaço|espaco|ponto|zona|parte|localização|localizac.o|sítio|sitio>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria>?<de>?<me><leve|levar><para|pra|pro>?<visitar|ver|passear>?<o|a|ao|no|na>?<lugar|local|posição|posic.o|localidade|área|area|espaço|espaco|ponto|zona|parte|localização|localizac.o|sítio|sitio><seguinte>_"
+      ]
+   },
+   {
+      "pararTour": [
+         "<n.o><quero><mais>?<visitar|ver|passear>_",
+         "<n.o><quero><mais>?<fazer>?<o|a>?<visita|passeio|tour|visitas>_",
+         "<quero|tenho|preciso|precisamos><que>?<parar|finalizar|encerrar><o|a|os|as>?<visita|visitas|passeios|passeio|tour>_",
+         "_<vamos>?<parar|pare|chega|paramos><de|o|a|os|as>?<visitar|visita|ver|passear|passeio|visitas|tour>_",
+         "_<paramos|pare|chega|fim><a|o|de|da|do>?<fazer>?<o|a|os|as>?<visita|visitas|passeio|passeios|tour>_"
+      ]
+   },
+   {
+      "facaTarefa": [
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora><deve|deves><executar|fazer><a>?<tarefa|atua..o|performance><de>?(<.+>)",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<eu>?<te><ordeno|comando|mando>?<que>?<execute|fa.a><a>?<tarefa|atua..o|performance><de>?(<.+>)",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<quero|preciso|espero>?<que>?<o|a>?<voc.|tu|senhor|senhora>?<fa.a|execute|performe|atue><a>?<tarefa|atua..o|performance><de|da|do>?(<.+>+)",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora><tem|tens><que><fazer|executar|atuar|performar><a>?<tarefa|atua..o|performance><de|da|do>?(<.+>+)"
+      ]
+   },
+   {
+      "pegueCoisa": [
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<quero|preciso|espero>?<que>?<o|a>?<voc.|tu|senhor|senhora>?<pegue|leve|guarde|tome><est.|ess.|a|o>?<objeto|coisa|peça|utensílio|ente|entidade|primitiva|artefato|aparelho|instrumento|dispositivo|troço|treco|tralha|trambolho|cacareco|bugiganga><que>?<est.>?<aqui|ali|lá|la>?",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora><tem|tens><que><pegar|levar|guardar|tomar><est.|ess.|a|>?<objeto|coisa|peça|utensílio|ente|entidade|primitiva|artefato|aparelho|instrumento|dispositivo|troço|treco|tralha|trambolho|cacareco|bugiganga><que>?<est.>?<aqui|ali|lá|la>?"
+      ]
+   },
+   {
+      "pegueCoisaComNome": [
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<quero|preciso|espero>?<que>?<o|a>?<voc.|tu|senhor|senhora>?<pegue|leve|guarde|tome><est.|ess.|a|o>?<objeto|coisa|peça|utensílio|ente|entidade|primitiva|artefato|aparelho|instrumento|dispositivo|troço|treco|tralha|trambolho|cacareco|bugiganga><que|com>?<se|é|tem>?<chama|chamado|nome>?<de>?(<.+>+)",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora><tem|tens><que><pegar|levar|guardar|tomar><est.|ess.|a|>?<objeto|coisa|peça|utensílio|ente|entidade|primitiva|artefato|aparelho|instrumento|dispositivo|troço|treco|tralha|trambolho|cacareco|bugiganga><que|com>?<se|é|tem>?<chama|chamado|nome>?<de>?(<.+>+)"
+      ]
+   },
+   {
+      "largueCoisaComNomeNaPosicao": [
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<quero|preciso|espero>?<que>?<o|a>?<voc.|tu|senhor|senhora>?<largue|solte|ponha|coloque|jogue><est.|ess.|a|o>?<objeto|coisa|peça|utensílio|ente|entidade|primitiva|artefato|aparelho|instrumento|dispositivo|troço|treco|tralha|trambolho|cacareco|bugiganga><que|com>?<se|é|tem>?<chama|chamado|nome>?<de>?(<.+>+)<na|no|em><lugar|local|posição|posic.o|localidade|área|area|espaço|espaco|ponto|zona|parte|localização|localizac.o|sítio|sitio>?<de>?(<.+>)<e|,>?(<.+>)",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora><tem|tens><que><largar|soltar|colocar|por|jogar><est.|ess.|a|>?<objeto|coisa|peça|utensílio|ente|entidade|primitiva|artefato|aparelho|instrumento|dispositivo|troço|treco|tralha|trambolho|cacareco|bugiganga><que|com>?<se|é|tem>?<chama|chamado|nome>?<de>?(<.+>+)<na|no|em><lugar|local|posição|posic.o|localidade|área|area|espaço|espaco|ponto|zona|parte|localização|localizac.o|sítio|sitio>?<de>?(<.+>)<e|,>?(<.+>)"
+      ]
+   },
+   {
+      "largueCoisaComNomeEmCima": [
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<quero|preciso|espero>?<que>?<o|a>?<voc.|tu|senhor|senhora>?<largue|solte|ponha|coloque|jogue><est.|ess.|a|o>?<objeto|coisa|peça|utensílio|ente|entidade|primitiva|artefato|aparelho|instrumento|dispositivo|troço|treco|tralha|trambolho|cacareco|bugiganga><que|com>?<se|é|tem>?<chama|chamado|nome>?<de>?(<.+>+)<em|sobre|acima><cima|a|o|de|do|da><de|do|da>?<objeto|coisa|peça|utensílio|ente|entidade|primitiva|artefato|aparelho|instrumento|dispositivo|troço|treco|tralha|trambolho|cacareco|bugiganga>?(<.+>+)",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora><tem|tens><que><largar|soltar|colocar|por|jogar><est.|ess.|a|>?<objeto|coisa|peça|utensílio|ente|entidade|primitiva|artefato|aparelho|instrumento|dispositivo|troço|treco|tralha|trambolho|cacareco|bugiganga><que|com>?<se|é|tem>?<chama|chamado|nome>?<de>?(<.+>+)<em|sobre|acima><cima|a|o|de|do|da><de|do|da>?<objeto|coisa|peça|utensílio|ente|entidade|primitiva|artefato|aparelho|instrumento|dispositivo|troço|treco|tralha|trambolho|cacareco|bugiganga>?(<.+>+)"
+      ]
+   },
+   {
+      "largueCoisaComNome": [
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<quero|preciso|espero>?<que>?<o|a>?<voc.|tu|senhor|senhora>?<largue|solte|coloque|ponha|jogue><est.|ess.|a|o>?<objeto|coisa|peça|utensílio|ente|entidade|primitiva|artefato|aparelho|instrumento|dispositivo|troço|treco|tralha|trambolho|cacareco|bugiganga><que|com>?<se|é|tem>?<chama|chamado|nome>?<de>?(<.+>+)",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora><tem|tens><que><largar|soltar|por|colocar|jogar><est.|ess.|a|>?<objeto|coisa|peça|utensílio|ente|entidade|primitiva|artefato|aparelho|instrumento|dispositivo|troço|treco|tralha|trambolho|cacareco|bugiganga><que|com>?<se|é|tem>?<chama|chamado|nome>?<de>?(<.+>+)"
+      ]
+   },
+   {
+      "largueCoisaEmCima": [
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<quero|preciso|espero>?<que>?<o|a>?<voc.|tu|senhor|senhora>?<largue|solte|coloque|ponha|jogue><est.|ess.|a|o>?<objeto|coisa|peça|utensílio|ente|entidade|primitiva|artefato|aparelho|instrumento|dispositivo|troço|treco|tralha|trambolho|cacareco|bugiganga><que|de>?<pegou|levou|tomou|guardou>?<antes>?<em|sobre|acima><cima|a|o|de|do|da><de|do|da>?<objeto|coisa|peça|utensílio|ente|entidade|primitiva|artefato|aparelho|instrumento|dispositivo|troço|treco|tralha|trambolho|cacareco|bugiganga>?(<.+>+)",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora><tem|tens><que><largar|soltar|colocar|por|jogar><est.|ess.|a|>?<objeto|coisa|peça|utensílio|ente|entidade|primitiva|artefato|aparelho|instrumento|dispositivo|troço|treco|tralha|trambolho|cacareco|bugiganga><que|de>?<pegou|levou|tomou|guardou>?<antes>?<em|sobre|acima><cima|a|o|de|do|da><de|do|da>?<objeto|coisa|peça|utensílio|ente|entidade|primitiva|artefato|aparelho|instrumento|dispositivo|troço|treco|tralha|trambolho|cacareco|bugiganga>?(<.+>+)"
+      ]
+   },
+   {
+      "largueCoisaNaPosicao": [
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<quero|preciso|espero>?<que>?<o|a>?<voc.|tu|senhor|senhora>?<largue|solte|ponha|coloque|jogue><est.|ess.|a|o>?<objeto|coisa|peça|utensílio|ente|entidade|primitiva|artefato|aparelho|instrumento|dispositivo|troço|treco|tralha|trambolho|cacareco|bugiganga><que|de>?<pegou|levou|tomou|guardou>?<antes>?",
+         "<na|no|em><lugar|local|posição|posic.o|localidade|área|area|espaço|espaco|ponto|zona|parte|localização|localizac.o|sítio|sitio>?<de>?(<.+>)<e|,>?(<.+>)",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora><tem|tens><que><largar|soltar|colocar|por|jogar><est.|ess.|a|>?<objeto|coisa|peça|utensílio|ente|entidade|primitiva|artefato|aparelho|instrumento|dispositivo|troço|treco|tralha|trambolho|cacareco|bugiganga><que|de>?<pegou|levou|tomou|guardou>?<antes>?",
+         "<na|no|em><lugar|local|posição|posic.o|localidade|área|area|espaço|espaco|ponto|zona|parte|localização|localizac.o|sítio|sitio>?<de>?(<.+>)<e|,>?(<.+>)"
+      ]
+   },
+   {
+      "largueCoisa": [
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<quero|preciso|espero>?<que>?<o|a>?<voc.|tu|senhor|senhora>?<largue|solte|coloque|ponha|jogue><est.|ess.|a|o>?<objeto|coisa|peça|utensílio|ente|entidade|primitiva|artefato|aparelho|instrumento|dispositivo|troço|treco|tralha|trambolho|cacareco|bugiganga><que|de>?<pegou|levou|tomou|guardou>?<antes>?",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora><tem|tens><que><largar|soltar|colocar|por|jogar><est.|ess.|a|>?<objeto|coisa|peça|utensílio|ente|entidade|primitiva|artefato|aparelho|instrumento|dispositivo|troço|treco|tralha|trambolho|cacareco|bugiganga><que|de>?<pegou|levou|tomou|guardou>?<antes>?"
+      ]
+   },
+   {
+      "fale": [
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<quero|preciso|espero>?<que>?<o|a>?<voc.|tu|senhor|senhora>?<fale|diga><que>?(<.+>+)",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora><tem|tens><que><falar|dizer><que>?(<.+>+)"
+      ]
+   },
+   {
+      "crieCoisaNaPosicao": [
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<quero|preciso|espero>?<que>?<o|a>?<voc.|tu|senhor|senhora>?<crie|gere|produza|construa><um|uma>?(<.+>+)<na|no|em><lugar|local|posição|posic.o|localidade|área|area|espaço|espaco|ponto|zona|parte|localização|localizac.o|sítio|sitio>?<de>?(<.+>)<e|,>?(<.+>)",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora><tem|tens><que><criar|produzir|gerar|construir><um|uma>?(<.+>+)<na|no|em><lugar|local|posição|posic.o|localidade|área|area|espaço|espaco|ponto|zona|parte|localização|localizac.o|sítio|sitio>?<de>?(<.+>)<e|,>?(<.+>)"
+      ]
+   },
+   {
+      "aprendaPergunta": [
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria|vamos>?<de>?<eu|n.s>?<vou|irei|vamos>?<te|lhe>?<aprenda|saiba|guarde|lembre|lembre.se|conhe.a|registre|aprender|ensinar|mostrar|saber|lembrar|conhecer|registrar><sobre>?<que|qual|quais|como>?<para|pra|pro>?<a>?<pergunta|quest.o|questionamento|d.vida|interroga..o>(<.+>+)",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria|vamos>?<de>?<eu|n.s>?<vou|irei|vamos>?<te|lhe>?<aprenda|saiba|guarde|lembre|lembre.se|conhe.a|registre|aprender|ensinar|mostrar|saber|lembrar|conhecer|registrar><sobre>?<que|qual|quais|como>?<quando|se|caso><te>?<pergunta.*|questiona.*|indaga.*><sobre>?(<.+>+)"
+      ]
+   },
+   {
+      "aprendaResposta": [
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria|vamos>?<de>?<eu|n.s>?<vou|irei|vamos>?<te|lhe>?<aprenda|saiba|guarde|lembre|lembre.se|conhe.a|registre|aprender|ensinar|mostrar|saber|lembrar|conhecer|registrar><sobre>?<que|qual|quais|como>?<a|o>?<resposta|explica..o|explana..o|esclarecimento|aclaramento|retorno><é>?(<.+>+)",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria|vamos>?<de>?<eu|n.s>?<vou|irei|vamos>?<te|lhe>?<aprenda|saiba|guarde|lembre|lembre.se|conhe.a|registre|aprender|ensinar|mostrar|saber|lembrar|conhecer|registrar><sobre>?<que|qual|quais|como>?<a>?<responder|explicar|explanar|esclarecer|aclarar|retornar><que>?(<.+>+)",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria|vamos>?<de>?<eu|n.s>?<vou|irei|vamos>?<te|lhe>?<aprenda|saiba|guarde|lembre|lembre.se|conhe.a|registre|aprender|ensinar|mostrar|saber|lembrar|conhecer|registrar><sobre>?<que|qual|quais|como>?<e>?<responda|explique|explane|esclare.a|aclare|retorne><que>?(<.+>+)"
+      ]
+   },
+   {
+      "entreModoAprenderPerguntaResposta": [
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<vamos><aprender|conhecer|lembrar><sobre>?<alguns|uns>?<di.logos*|quiz.*|question.rio.*|pergunta.*|questo.*>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<vou><te|lhe><passar|ensinar|falar|dizer><sobre>?<alguns|uns><di.logo.*|quiz.*|question.rio.*|pergunta.*|questo.*>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<aprenda|conhe.a|lembre><se>?<de>?<alguns|uns>?<di.logo.*|quiz.*|question.rio.*|pergunta.*|questo.*>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<vou><passar|ensinar|falar|dizer><para|pra>?<voc.|ti>?<alguns|uns>?<di.logo.*|quiz.*|question.rio.*|pergunta.*|questo.*>_"
+      ]
+   },
+   {
+      "entreComPergunta@modo-aprender-pergunta": [
+         "(<.+>+)"
+      ]
+   },
+   {
+      "entreComResposta@modo-aprender-resposta": [
+         "(<.+>+)"
+      ]
+   },
+   {
+      "entreModoAprenderInfoObjeto": [
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<vamos><aprender|descobrir|conhecer><coisas|fatos|informa..es|dados>?<sobre>?<is..|es..|aqu.l.|d.s..|daqu.l.><objeto|coisa|peça|utensílio|ente|entidade|primitiva|artefato|aparelho|instrumento|dispositivo|troço|treco|tralha|trambolho|cacareco|bugiganga>?_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<vou><te|lhe><passar|ensinar|falar|dizer><coisas|fatos|informa..es|dados>?<sobre>?<is..|es..|aqu.l.|d.s..|daqu.l.><objeto|coisa|peça|utensílio|ente|entidade|primitiva|artefato|aparelho|instrumento|dispositivo|troço|treco|tralha|trambolho|cacareco|bugiganga>?_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<aprenda|descubra|conhe.a><coisas|fatos|informa..es|dados>?<sobre>?<is..|es..|aqu.l.|d.s..|daqu.l.><objeto|coisa|peça|utensílio|ente|entidade|primitiva|artefato|aparelho|instrumento|dispositivo|troço|treco|tralha|trambolho|cacareco|bugiganga>?_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<vou><passar|ensinar|falar|dizer><para|pra>?<voc.>?<coisas|fatos|informa..es|dados>?<sobre>?<is..|es..|aqu.l.|d.s..|daqu.l.><objeto|coisa|peça|utensílio|ente|entidade|primitiva|artefato|aparelho|instrumento|dispositivo|troço|treco|tralha|trambolho|cacareco|bugiganga>?_"
+      ]
+   },
+   {
+      "aprendaNomeObjeto": [
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria|vamos>?<de>?<eu|n.s>?<vou|irei|vamos>?<te|lhe>?<aprenda|saiba|guarde|lembre|lembre.se|conhe.a|registre|aprender|ensinar|mostrar|saber|lembrar|conhecer|registrar><sobre>?<que|qual|quais|como>?<o|a><nome><des..|daquel.|da|do><objeto|coisa|peça|utensílio|ente|entidade|primitiva|artefato|aparelho|instrumento|dispositivo|troço|treco|tralha|trambolho|cacareco|bugiganga><é>(<.+>+)",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria|vamos>?<de>?<eu|n.s>?<vou|irei|vamos>?<te|lhe>?<aprenda|saiba|guarde|lembre|lembre.se|conhe.a|registre|aprender|ensinar|mostrar|saber|lembrar|conhecer|registrar><sobre>?<que|qual|quais|como>?<o|a><nome>?<dis.o|daquilo><é>(<.+>+)",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria|vamos>?<de>?<eu|n.s>?<vou|irei|vamos>?<te|lhe>?<aprenda|saiba|guarde|lembre|lembre.se|conhe.a|registre|aprender|ensinar|mostrar|saber|lembrar|conhecer|registrar><sobre>?<que|qual|quais|como>?<es..|aquel.><objeto|coisa|peça|utensílio|ente|entidade|primitiva|artefato|aparelho|instrumento|dispositivo|troço|treco|tralha|trambolho|cacareco|bugiganga><se|é|e|tem><chama|chamado|nome>(<.+>+)",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria|vamos>?<de>?<eu|n.s>?<vou|irei|vamos>?<te|lhe>?<aprenda|saiba|guarde|lembre|lembre.se|conhe.a|registre|aprender|ensinar|mostrar|saber|lembrar|conhecer|registrar><sobre>?<que|qual|quais|como>?<is.o|aquilo><se|é|e|tem><chama|chamado|nome>(<.+>+)"
+      ]
+   },
+   {
+      "aprendaNomeObjeto@modo-aprender-info-obj": [
+         "<o|a><nome><des..|daquel.|da|do>?<objeto|coisa|peça|utensílio|ente|entidade|primitiva|artefato|aparelho|instrumento|dispositivo|troço|treco|tralha|trambolho|cacareco|bugiganga><é>(<.+>+)",
+         "<o|a><nome>?<dis.o|daquilo>?<é>(<.+>+)",
+         "<es..|aquel.><objeto|coisa|peça|utensílio|ente|entidade|primitiva|artefato|aparelho|instrumento|dispositivo|troço|treco|tralha|trambolho|cacareco|bugiganga><se><chama>(<.+>+)",
+         "<is.o|aquilo><se|é|e|tem><chama|chamado|nome>(<.+>+)"
+      ]
+   },
+   {
+      "aprendaDescricaoObjeto": [
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria|vamos>?<de>?<eu|n.s>?<vou|irei|vamos>?<te|lhe>?<aprenda|saiba|guarde|lembre|lembre.se|conhe.a|registre|aprender|ensinar|mostrar|saber|lembrar|conhecer|registrar><sobre>?<que|qual|quais|como>?<es..|aquel.|o|a><objeto|coisa|peça|utensílio|ente|entidade|primitiva|artefato|aparelho|instrumento|dispositivo|troço|treco|tralha|trambolho|cacareco|bugiganga><é>(<.+>+)",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria|vamos>?<de>?<eu|n.s>?<vou|irei|vamos>?<te|lhe>?<aprenda|saiba|guarde|lembre|lembre.se|conhe.a|registre|aprender|ensinar|mostrar|saber|lembrar|conhecer|registrar><sobre>?<que|qual|quais|como>?<is.o|aquilo><é>(<.+>+)"
+      ]
+   },
+   {
+      "aprendaDescricaoObjeto@modo-aprender-info-obj": [
+         "<es..|aquel.|o|a><objeto|coisa|peça|utensílio|ente|entidade|primitiva|artefato|aparelho|instrumento|dispositivo|troço|treco|tralha|trambolho|cacareco|bugiganga><é>(<.+>+)",
+         "<is.o|aquilo><é>(<.+>+)"
+      ]
+   },
+   {
+      "aprendaUsoObjeto": [
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria|vamos>?<de>?<eu|n.s>?<vou|irei|vamos>?<te|lhe>?<aprenda|saiba|guarde|lembre|lembre.se|conhe.a|registre|aprender|ensinar|mostrar|saber|lembrar|conhecer|registrar><sobre>?<que|qual|quais|como>?<es..|aquel.|o|a><objeto|coisa|peça|utensílio|ente|entidade|primitiva|artefato|aparelho|instrumento|dispositivo|troço|treco|tralha|trambolho|cacareco|bugiganga><serve|se__usa|é__usado><para|pra|como>?(<.+>+)",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria|vamos>?<de>?<eu|n.s>?<vou|irei|vamos>?<te|lhe>?<aprenda|saiba|guarde|lembre|lembre.se|conhe.a|registre|aprender|ensinar|mostrar|saber|lembrar|conhecer|registrar><sobre>?<que|qual|quais|como>?<is.o|aquilo><serve|se__usa|é__usado><para|pra|como>?(<.+>+)"
+      ]
+   },
+   {
+      "aprendaUsoObjeto@modo-aprender-info-obj": [
+         "<es..|aquel.|o|a><objeto|coisa|peça|utensílio|ente|entidade|primitiva|artefato|aparelho|instrumento|dispositivo|troço|treco|tralha|trambolho|cacareco|bugiganga><serve|se__usa|é__usado><para|pra|como>?(<.+>+)",
+         "<is.o|aquilo><serve|se__usa|é__usado><para|pra|como>?(<.+>+)"
+      ]
+   },
+   {
+      "aprendaImportanciaObjeto": [
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria|vamos>?<de>?<eu|n.s>?<vou|irei|vamos>?<te|lhe>?<aprenda|saiba|guarde|lembre|lembre.se|conhe.a|registre|aprender|ensinar|mostrar|saber|lembrar|conhecer|registrar><sobre>?<que|qual|quais|como>?<a|o><grau|valor|dimens.o>?<de|da>?<import.ncia|relev.ncia><des..|daquel.><objeto|coisa|peça|utensílio|ente|entidade|primitiva|artefato|aparelho|instrumento|dispositivo|troço|treco|tralha|trambolho|cacareco|bugiganga><é|e>(<.+>+)",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria|vamos>?<de>?<eu|n.s>?<vou|irei|vamos>?<te|lhe>?<aprenda|saiba|guarde|lembre|lembre.se|conhe.a|registre|aprender|ensinar|mostrar|saber|lembrar|conhecer|registrar><sobre>?<que|qual|quais|como>?<a|o><grau|valor|dimens.o>?<de|da>?<import.ncia|relev.ncia><dis.o|daquilo><é|e>?(<.+>+)",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria|vamos>?<de>?<eu|n.s>?<vou|irei|vamos>?<te|lhe>?<aprenda|saiba|guarde|lembre|lembre.se|conhe.a|registre|aprender|ensinar|mostrar|saber|lembrar|conhecer|registrar><sobre>?<que|qual|quais|como>?<es..|aquel.|o|a><objeto|coisa|peça|utensílio|ente|entidade|primitiva|artefato|aparelho|instrumento|dispositivo|troço|treco|tralha|trambolho|cacareco|bugiganga><aqui|ali>?<é|e>(<.+>+)<importante|relevante>",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria|vamos>?<de>?<eu|n.s>?<vou|irei|vamos>?<te|lhe>?<aprenda|saiba|guarde|lembre|lembre.se|conhe.a|registre|aprender|ensinar|mostrar|saber|lembrar|conhecer|registrar><sobre>?<que|qual|quais|como>?<es..|aquel.|o|a><objeto|coisa|peça|utensílio|ente|entidade|primitiva|artefato|aparelho|instrumento|dispositivo|troço|treco|tralha|trambolho|cacareco|bugiganga><aqui|ali>?<é|e|tem><um|uma>?(<.+>+)<grau|valor|dimens.o>?<de|da>?<import.ncia|relev.ncia>",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria|vamos>?<de>?<eu|n.s>?<vou|irei|vamos>?<te|lhe>?<aprenda|saiba|guarde|lembre|lembre.se|conhe.a|registre|aprender|ensinar|mostrar|saber|lembrar|conhecer|registrar><sobre>?<que|qual|quais|como>?<es..|aqu.l.|o|a><objeto|coisa|peça|utensílio|ente|entidade|primitiva|artefato|aparelho|instrumento|dispositivo|troço|treco|tralha|trambolho|cacareco|bugiganga>(<.+>+)<importante|relevante>",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria|vamos>?<de>?<eu|n.s>?<vou|irei|vamos>?<te|lhe>?<aprenda|saiba|guarde|lembre|lembre.se|conhe.a|registre|aprender|ensinar|mostrar|saber|lembrar|conhecer|registrar><sobre>?<que|qual|quais|como>?<es..|aqu.l.|o|a><objeto|coisa|peça|utensílio|ente|entidade|primitiva|artefato|aparelho|instrumento|dispositivo|troço|treco|tralha|trambolho|cacareco|bugiganga>(<n.o><tem>)<.*>*<import.ncia|relev.ncia>",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria|vamos>?<de>?<eu|n.s>?<vou|irei|vamos>?<te|lhe>?<aprenda|saiba|guarde|lembre|lembre.se|conhe.a|registre|aprender|ensinar|mostrar|saber|lembrar|conhecer|registrar><sobre>?<que|qual|quais|como>?<es..|aqu.l.|o|a><objeto|coisa|peça|utensílio|ente|entidade|primitiva|artefato|aparelho|instrumento|dispositivo|troço|treco|tralha|trambolho|cacareco|bugiganga>(<n.o><é|e>)<.*>*<importante|relevante>"
+      ]
+   },
+   {
+      "aprendaImportanciaObjeto@modo-aprender-info-obj": [
+         "<a|o><grau|valor|ordem|dimens.o>?<de|da>?<import.ncia|relev.ncia><des..|daquel.><objeto|coisa|peça|utensílio|ente|entidade|primitiva|artefato|aparelho|instrumento|dispositivo|troço|treco|tralha|trambolho|cacareco|bugiganga><é|e>(<.+>+)",
+         "<a|o><grau|ordem|dimens.o>?<import.ncia|relev.ncia><dis.o|daquilo><é>?(<.+>+)",
+         "<es..|aquel.|o|a><objeto|coisa|peça|utensílio|ente|entidade|primitiva|artefato|aparelho|instrumento|dispositivo|troço|treco|tralha|trambolho|cacareco|bugiganga><aqui|ali>?<é|e>(<.+>+)<importante|relevante>",
+         "<es..|aquel.|o|a><objeto|coisa|peça|utensílio|ente|entidade|primitiva|artefato|aparelho|instrumento|dispositivo|troço|treco|tralha|trambolho|cacareco|bugiganga><aqui|ali>?<tem><um|uma>?(<.+>+)<grau|valor|ordem|dimens.o>?<de|da>?<import.ncia|relev.ncia>",
+         "<es..|aqu.l.|o|a><objeto|coisa|peça|utensílio|ente|entidade|primitiva|artefato|aparelho|instrumento|dispositivo|troço|treco|tralha|trambolho|cacareco|bugiganga><é|e>(<.+>+)<importante|relevante>",
+         "<es..|aqu.l.|o|a><objeto|coisa|peça|utensílio|ente|entidade|primitiva|artefato|aparelho|instrumento|dispositivo|troço|treco|tralha|trambolho|cacareco|bugiganga><tem><um|uma>?(<.+>+)<grau|valor|ordem|dimens.o>?<de|da>?<import.ncia|relev.ncia>",
+         "<es..|aqu.l.|o|a><objeto|coisa|peça|utensílio|ente|entidade|primitiva|artefato|aparelho|instrumento|dispositivo|troço|treco|tralha|trambolho|cacareco|bugiganga>(<n.o><tem>)<.*>*<import.ncia|relev.ncia>",
+         "<es..|aqu.l.|o|a><objeto|coisa|peça|utensílio|ente|entidade|primitiva|artefato|aparelho|instrumento|dispositivo|troço|treco|tralha|trambolho|cacareco|bugiganga>(<n.o><é>)<.*>*<importante|relevante>"
+      ]
+   },
+   {
+      "aprendaAtributoObjeto": [
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria|vamos>?<de>?<eu|n.s>?<vou|irei|vamos>?<te|lhe>?<aprenda|saiba|guarde|lembre|lembre.se|conhe.a|registre|aprender|ensinar|mostrar|saber|lembrar|conhecer|registrar><sobre>?<que|qual|quais|como>?(<o|a>)(<.+>+)<des..|daquel.><objeto|coisa|peça|utensílio|ente|entidade|primitiva|artefato|aparelho|instrumento|dispositivo|troço|treco|tralha|trambolho|cacareco|bugiganga><é>(<.+>+)",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria|vamos>?<de>?<eu|n.s>?<vou|irei|vamos>?<te|lhe>?<aprenda|saiba|guarde|lembre|lembre.se|conhe.a|registre|aprender|ensinar|mostrar|saber|lembrar|conhecer|registrar><sobre>?<que|qual|quais|como>?(<o|a>)(<.+>+)<dis.o|daquilo><é>(<.+>+)"
+      ]
+   },
+   {
+      "aprendaAtributoObjeto@modo-aprender-info-obj": [
+         "(<o|a>)(<.+>+)<des..|daquel.><objeto|coisa|peça|utensílio|ente|entidade|primitiva|artefato|aparelho|instrumento|dispositivo|troço|treco|tralha|trambolho|cacareco|bugiganga><é>(<.+>+)",
+         "(<o|a>)(<.+>+)<dis.o|daquilo><é>(<.+>+)"
+      ]
+   },
+   {
+      "comeceAprenderAreaCena": [
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria|vamos>?<de>?<eu|n.s>?<vou|irei|vamos>?<te|lhe>?<aprenda|saiba|guarde|lembre|lembre.se|conhe.a|registre|aprender|ensinar|mostrar|saber|lembrar|conhecer|registrar><sobre>?<que|qual|quais|como>?<é|e|s.o>?<o|a|oas|as><espa.o|.rea|recinto|regi.o|aposento|sala|quarto|entorno|volta|borda|fronteira|fronteiras|bordas|limites|limite|divisa|divisas|limiar|limiares><des..|da|do><cena|cen.rio><aqui>?"
+      ]
+   },
+   {
+      "comeceAprenderAreaCenaComNome": [
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria|vamos>?<de>?<eu|n.s>?<vou|irei|vamos>?<te|lhe>?<aprenda|saiba|guarde|lembre|lembre.se|conhe.a|registre|aprender|ensinar|mostrar|saber|lembrar|conhecer|registrar><sobre>?<que|qual|quais|como>?<é|e|s.o>?<o|a|os|as><espa.o|.rea|recinto|regi.o|aposento|sala|quarto|entorno|volta|borda|fronteira|fronteiras|bordas|limites|limite|divisa|divisas|limiar|limiares><des..|da|do><cena|cen.rio><cujo|com|que><nome|se><é|e|de|chama>(<.+>+)",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria|vamos>?<de>?<eu|n.s>?<vou|irei|vamos>?<te|lhe>?<aprenda|saiba|guarde|lembre|lembre.se|conhe.a|registre|aprender|ensinar|mostrar|saber|lembrar|conhecer|registrar><sobre>?<que|qual|quais|como>?<é|e|s.o>?<o|a|os|as><espa.o|.rea|recinto|regi.o|aposento|sala|quarto|entorno|volta|borda|fronteira|fronteiras|bordas|limites|limite|divisa|divisas|limiar|limiares><des..|da|do><cena|cen.rio><chamada>?<de|da|do>?(<.+>+)"
+      ]
+   },
+   {
+      "aprendaPontoBordaCena": [
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria|vamos>?<de>?<eu|n.s>?<vou|irei|vamos>?<te|lhe>?<aprenda|saiba|guarde|lembre|lembre.se|conhe.a|registre|aprender|ensinar|mostrar|saber|lembrar|conhecer|registrar><sobre>?<que|qual|quais|como>?<aqui|onde><estou>?<parado>?<agora>?<é|e><um|uma|o|a><ponto|posi..o|localiza..o><inicial|final|intermedi.rio|mediano|do__meio>?<na|no|da|do><borda|fronteira|limite|divisa|limiar|entorno|volta><des..|daquel.|do|da><cena|cen.rio>",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria|vamos>?<de>?<eu|n.s>?<vou|irei|vamos>?<te|lhe>?<aprenda|saiba|guarde|lembre|lembre.se|conhe.a|registre|aprender|ensinar|mostrar|saber|lembrar|conhecer|registrar><sobre>?<que|qual|quais|como>?<es..|o|a><ponto|posi..o|localiza..o><aqui|onde>?<estou>?<parado>?<delimita|limita|demarca|est.><no|na|a|o>?<borda|fronteira|limite|divisa|limiar|.rea|espa.o|regi.o><des..|daquel.|do|da><cena|cen.rio>",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria|vamos>?<de>?<eu|n.s>?<vou|irei|vamos>?<te|lhe>?<aprenda|saiba|guarde|lembre|lembre.se|conhe.a|registre|aprender|ensinar|mostrar|saber|lembrar|conhecer|registrar><sobre>?<que|qual|quais|como>?<es..|aqui>?<é|e>?<um|uma><ponto|posi..o|localiza..o><no|na><borda|fronteira|limite|divisa|limiar|.rea|espa.o|regi.o><des..|daquel.|do|da><cena|cen.rio>"
+      ]
+   },
+   {
+      "pareAprenderAreaCena": [
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<vamos|podemos><parar><de>?<aprender|registrar|recordar><sobre>?<o|a><espa.o|.rea|recinto|região|aposento|sala|quarto|entorno|volta|limiar|borda|fronteira|divisa|limites|limite|divisas|limiares><da|do|de..><cena|cen.rio>",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<tá|ta>?<na>?<hora>?<de>?<parar><de>?<ensinar|mostrar><sobre>?<o|a><espa.o|.rea|recinto|região|aposento|sala|quarto|entorno|volta|limiar|borda|fronteira|divisa|limites|limite|divisas|limiares><do|da|de..>?<cena|cen.rio>",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<pare><de>?<aprender|registrar|recordar><sobre>?<o|a><espa.o|.rea|recinto|região|aposento|sala|quarto|entorno|volta|limiar|borda|fronteira|divisa|limites|limite|divisas|limiares><do|da|de..>?<cena|cen.rio>"
+      ]
+   },
+   {
+      "aprendaNomeCena": [
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria|vamos>?<de>?<eu|n.s>?<vou|irei|vamos>?<te|lhe>?<aprenda|saiba|guarde|lembre|lembre.se|conhe.a|registre|aprender|ensinar|mostrar|saber|lembrar|conhecer|registrar><sobre>?<que|qual|quais|como>?<o><nome><des..|daquel.|da|do><cena|cen.rio><aqui|ali>?<é>(<.+>+)",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria|vamos>?<de>?<eu|n.s>?<vou|irei|vamos>?<te|lhe>?<aprenda|saiba|guarde|lembre|lembre.se|conhe.a|registre|aprender|ensinar|mostrar|saber|lembrar|conhecer|registrar><sobre>?<que|qual|quais|como>?<es..|aquel.|o|a><cena|cen.rio><aqui|ali>?<se|é|e><chama|chamado>(<.+>+)"
+      ]
+   },
+   {
+      "aprendaInformacaoCena": [
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria|vamos>?<de>?<eu|n.s>?<vou|irei|vamos>?<te|lhe>?<aprenda|saiba|guarde|lembre|lembre.se|conhe.a|registre|aprender|ensinar|mostrar|saber|lembrar|conhecer|registrar><sobre>?<que|qual|quais|como>?<es..|aquel.|o|a><cena|cen.rio><aqui|ali>?<é|e>(<.+>+)",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria|vamos>?<de>?<eu|n.s>?<vou|irei|vamos>?<te|lhe>?<aprenda|saiba|guarde|lembre|lembre.se|conhe.a|registre|aprender|ensinar|mostrar|saber|lembrar|conhecer|registrar><sobre>?<que|qual|quais|como>?<aqui|ali>?<nes..|naquel.|no|na><cena|cen.rio><aqui|ali>?<é|e>(<.+>+)"
+      ]
+   },
+   {
+      "entreModoAprenderInfoLugar": [
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<vamos><aprender|descobrir|conhecer><coisas|fatos|informa..es|dados>?<sobre>?<es..|aquel.|des..|daquel.|o|do|a|da><lugar|local|posição|localidade|área|espaço|ponto|zona|parte|localização|sítio><aqui|ali>?",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<vou><te|lhe><passar|ensinar|falar|dizer><coisas|fatos|informa..es|dados>?<sobre>?<es..|aquel.|des..|daquel.|o|do|a|da><lugar|local|posição|localidade|área|espaço|ponto|zona|parte|localização|sítio><aqui|ali>?",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<aprenda|descubra|conhe.a><coisas|fatos|informa..es|dados>?<sobre>?<es,.|aquel.|des..|daquel.|o|do|a|da><lugar|local|posição|localidade|área|espaço|ponto|zona|parte|localização|sítio><aqui|ali>?",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<vou><passar|ensinar|falar|dizer><para|pra><voc.><coisas|fatos|informa..es|dados>?<sobre>?<es,.|aquel.|des..|daquel.|o|do|a|da><lugar|local|posição|localidade|área|espaço|ponto|zona|parte|localização|sítio><aqui|ali>?"
+      ]
+   },
+   {
+      "aprendaNomeLugar": [
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria|vamos>?<de>?<eu|n.s>?<vou|irei|vamos>?<te|lhe>?<aprenda|saiba|guarde|lembre|lembre.se|conhe.a|registre|aprender|ensinar|mostrar|saber|lembrar|conhecer|registrar><sobre>?<que|qual|quais|como>?<o><nome><des..|daquel.|do|da><lugar|local|posição|localidade|área|espaço|ponto|zona|parte|localização|sítio><aqui|ali>?<é|e>(<.+>+)",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria|vamos>?<de>?<eu|n.s>?<vou|irei|vamos>?<te|lhe>?<aprenda|saiba|guarde|lembre|lembre.se|conhe.a|registre|aprender|ensinar|mostrar|saber|lembrar|conhecer|registrar><sobre>?<que|qual|quais|como>?<o><nome><daqui|dali><é|e>(<.+>+)",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria|vamos>?<de>?<eu|n.s>?<vou|irei|vamos>?<te|lhe>?<aprenda|saiba|guarde|lembre|lembre.se|conhe.a|registre|aprender|ensinar|mostrar|saber|lembrar|conhecer|registrar><sobre>?<que|qual|quais|como>?<es..|aquel.|o|a><lugar|local|posição|localidade|área|espaço|ponto|zona|parte|localização|sítio><aqui|ali>?<se|é|e|tem><chama|chamado|nome>(<.+>+)"
+      ]
+   },
+   {
+      "aprendaNomeLugar@modo-aprender-info-lugar": [
+         "<o><nome><des..|daquel.|do|da><lugar|local|posição|localidade|área|espaço|ponto|zona|parte|localização|sítio><aqui|ali>?<é>(<.+>+)",
+         "<o><nome><daqui|dali><é|e>(<.+>+)",
+         "<es..|aquel.|o|a><lugar|local|posição|localidade|área|espaço|ponto|zona|parte|localização|sítio><aqui|ali>?<se|e|é|tem><chama|chamado|nome>(<.+>+)"
+      ]
+   },
+   {
+      "aprendaTamanhoLugar": [
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria|vamos>?<de>?<eu|n.s>?<vou|irei|vamos>?<te|lhe>?<aprenda|saiba|guarde|lembre|lembre.se|conhe.a|registre|aprender|ensinar|mostrar|saber|lembrar|conhecer|registrar><sobre>?<que|qual|quais|como>?<o|a><tamanho|raio|extensão|largura><des..|daquel.><lugar|local|posição|localidade|área|espaço|ponto|zona|parte|localização|sítio><aqui|ali>?<é>(<.+>)_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria|vamos>?<de>?<eu|n.s>?<vou|irei|vamos>?<te|lhe>?<aprenda|saiba|guarde|lembre|lembre.se|conhe.a|registre|aprender|ensinar|mostrar|saber|lembrar|conhecer|registrar><sobre>?<que|qual|quais|como>?<o|a><tamanho|raio|extensão|largura><daqui|dali><é>(<.+>)_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria|vamos>?<de>?<eu|n.s>?<vou|irei|vamos>?<te|lhe>?<aprenda|saiba|guarde|lembre|lembre.se|conhe.a|registre|aprender|ensinar|mostrar|saber|lembrar|conhecer|registrar><sobre>?<que|qual|quais|como>?<es..|aquel.|o><lugar|local|posição|localidade|área|espaço|ponto|zona|parte|localização|sítio><aqui|ali>?<tem><tamanho|raio|extensão|largura><de>?(<.+>)_"
+      ]
+   },
+   {
+      "aprendaTamanhoLugar@modo-aprender-info-lugar": [
+         "<o|a><tamanho|raio|extensão|largura><des..|daquel.><lugar|local|posição|localidade|área|espaço|ponto|zona|parte|localização|sítio><aqui|ali>?<é>(<.+>)_",
+         "<o|a><tamanho|raio|extensão|largura><daqui|dali><é>(<.+>)_",
+         "<es..|aquel.|o|a><lugar|local|posição|localidade|área|espaço|ponto|zona|parte|localização|sítio><aqui|ali>?<tem><tamanho|raio|extensão|largura><de>?(<.+>)_"
+      ]
+   },
+   {
+      "aprendaDescricaoLugar": [
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria|vamos>?<de>?<eu|n.s>?<vou|irei|vamos>?<te|lhe>?<aprenda|saiba|guarde|lembre|lembre.se|conhe.a|registre|aprender|ensinar|mostrar|saber|lembrar|conhecer|registrar><sobre>?<que|qual|quais|como>?<es..|aquel.|o|a><lugar|local|posição|localidade|área|espaço|ponto|zona|parte|localização|sítio><aqui|ali>?<é>(<.+>+)",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria|vamos>?<de>?<eu|n.s>?<vou|irei|vamos>?<te|lhe>?<aprenda|saiba|guarde|lembre|lembre.se|conhe.a|registre|aprender|ensinar|mostrar|saber|lembrar|conhecer|registrar><sobre>?<que|qual|quais|como>?<o|a><lugar|local|posição|localidade|área|espaço|ponto|zona|parte|localização|sítio><aqui|ali><é>(<.+>+)"
+      ]
+   },
+   {
+      "aprendaDescricaoLugar@modo-aprender-info-lugar": [
+         "<es..|aquel.|o|a><lugar|local|posição|localidade|área|espaço|ponto|zona|parte|localização|sítio><aqui|ali>?<é>(<.+>+)",
+         "<aqui|ali><é>(<.+>+)"
+      ]
+   },
+   {
+      "aprendaImportanciaLugar": [
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria|vamos>?<de>?<eu|n.s>?<vou|irei|vamos>?<te|lhe>?<aprenda|saiba|guarde|lembre|lembre.se|conhe.a|registre|aprender|ensinar|mostrar|saber|lembrar|conhecer|registrar><sobre>?<que|qual|quais|como>?<a|o><grau|valor|dimens.o>?<de|da>?<import.ncia|relev.ncia><des..|daquel.|do|da><lugar|local|posição|localidade|área|espaço|ponto|zona|parte|localização|sítio><aqui|ali>?<é|e>?(<.+>+)",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria|vamos>?<de>?<eu|n.s>?<vou|irei|vamos>?<te|lhe>?<aprenda|saiba|guarde|lembre|lembre.se|conhe.a|registre|aprender|ensinar|mostrar|saber|lembrar|conhecer|registrar><sobre>?<que|qual|quais|como>?<a|o><grau|valor|dimens.o>?<de|da>?<import.ncia|relev.ncia><daqui|dali><é|e>?(<.+>+)",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria|vamos>?<de>?<eu|n.s>?<vou|irei|vamos>?<te|lhe>?<aprenda|saiba|guarde|lembre|lembre.se|conhe.a|registre|aprender|ensinar|mostrar|saber|lembrar|conhecer|registrar><sobre>?<que|qual|quais|como>?<es..|aquel.|o|a><lugar|local|posição|localidade|área|espaço|ponto|zona|parte|localização|sítio><aqui|ali>?<é|e>?(<.+>+)<importante|relevante>",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria|vamos>?<de>?<eu|n.s>?<vou|irei|vamos>?<te|lhe>?<aprenda|saiba|guarde|lembre|lembre.se|conhe.a|registre|aprender|ensinar|mostrar|saber|lembrar|conhecer|registrar><sobre>?<que|qual|quais|como>?<es..|aquel.|o|a><lugar|local|posição|localidade|área|espaço|ponto|zona|parte|localização|sítio><aqui|ali>?<tem>(<.+>+)<grau|valor|dimens.o>?<de|da>?<import.ncia|relev.ncia>",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria|vamos>?<de>?<eu|n.s>?<vou|irei|vamos>?<te|lhe>?<aprenda|saiba|guarde|lembre|lembre.se|conhe.a|registre|aprender|ensinar|mostrar|saber|lembrar|conhecer|registrar><sobre>?<que|qual|quais|como>?<aqui|ali|lá|la><é|e>?<um|uma><lugar|local|posição|localidade|área|espaço|ponto|zona|parte|localização|sítio>(<.+>+)<importante|relevante|interessante>",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria|vamos>?<de>?<eu|n.s>?<vou|irei|vamos>?<te|lhe>?<aprenda|saiba|guarde|lembre|lembre.se|conhe.a|registre|aprender|ensinar|mostrar|saber|lembrar|conhecer|registrar><sobre>?<que|qual|quais|como>?<aqui|ali|lá|la><é|e>?<um|uma><lugar|local|posição|localidade|área|espaço|ponto|zona|parte|localização|sítio><com|que|da|de><tem>?(<.+>+)<import.ncia|relev.ncia|interesse>",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria|vamos>?<de>?<eu|n.s>?<vou|irei|vamos>?<te|lhe>?<aprenda|saiba|guarde|lembre|lembre.se|conhe.a|registre|aprender|ensinar|mostrar|saber|lembrar|conhecer|registrar><sobre>?<que|qual|quais|como>?<aqui|ali|lá|la><é|e>?<um|uma><lugar|local|posição|localidade|área|espaço|ponto|zona|parte|localização|sítio><que>(<n.o><tem|é|e>)<.*>*<import.ncia|relev.ncia>",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria|vamos>?<de>?<eu|n.s>?<vou|irei|vamos>?<te|lhe>?<aprenda|saiba|guarde|lembre|lembre.se|conhe.a|registre|aprender|ensinar|mostrar|saber|lembrar|conhecer|registrar><sobre>?<que|qual|quais|como>?<aqui|ali|lá|la>(<n.o><é|e>)<um|uma>?<lugar|local|posição|localidade|área|espaço|ponto|zona|parte|localização|sítio><.*>*<importante|relevante>"
+      ]
+   },
+   {
+      "aprendaImportanciaLugar@modo-aprender-info-lugar": [
+         "<a|o><grau|valor|dimens.o>?<de|da>?<import.ncia|relev.ncia><des..|daquel.><lugar|local|posição|localidade|área|espaço|ponto|zona|parte|localização|sítio><aqui|ali>?<é>(<.+>+)",
+         "<a|o><grau|valor|dimens.o>?<de>?<import.ncia|relev.ncia><daqui|dali><é>(<.+>+)",
+         "<es..|aquel.|o|a><lugar|local|posição|localidade|área|espaço|ponto|zona|parte|localização|sítio><aqui|ali>?<é>(<.+>+)<importante|relevante>",
+         "<es..|aquel.|o|a><lugar|local|posição|localidade|área|espaço|ponto|zona|parte|localização|sítio><aqui|ali>?<tem>(<.+>+)<grau|valor|dimens.o>?<de>?<import.ncia|relev.ncia>",
+         "<es..|aquel.|o|a><lugar|local|posição|localidade|área|espaço|ponto|zona|parte|localização|sítio><aqui|ali>?<tem><um|uma>?<grau|valor|ordem|dimens.o>?<de>?<import.ncia|relev.ncia>(<.+>+)",
+         "<aqui|ali|lá|la><é><um|uma><lugar|local|posição|localidade|área|espaço|ponto|zona|parte|localização|sítio>(<.+>+)<importante|relevante>",
+         "<aqui|ali|lá|la><é><um|uma><lugar|local|posição|localidade|área|espaço|ponto|zona|parte|localização|sítio><com|que|de|da><tem>?(<.+>+)<import.ncia|relev.ncia>",
+         "<aqui|ali|lá|la><é><um|uma><lugar|local|posição|localidade|área|espaço|ponto|zona|parte|localização|sítio><com|que|de|da><tem>?<um|uma>?<grau|valor|dimens.o>?<de|da>?<import.ncia|relev.ncia>(<.+>+)",
+         "<aqui|ali|lá|la><é><um|uma><lugar|local|posição|localidade|área|espaço|ponto|zona|parte|localização|sítio><que>(<n.o><tem>)<.*>*<import.ncia|relev.ncia>",
+         "<aqui|ali|lá|la>(<n.o><é|e>)<um|uma>?<lugar|local|posição|localidade|área|espaço|ponto|zona|parte|localização|sítio><.*>*<importante|relevante>"
+      ]
+   },
+   {
+      "aprendaEventoLugar": [
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria|vamos>?<de>?<eu|n.s>?<vou|irei|vamos>?<te|lhe>?<aprenda|saiba|guarde|lembre|lembre.se|conhe.a|registre|aprender|ensinar|mostrar|saber|lembrar|conhecer|registrar><sobre>?<que|qual|quais|como>?<ne..e|naquel.><lugar|local|posição|localidade|área|espaço|ponto|zona|parte|localização|sítio><aqui|ali>?<foi>?<onde>?<ocorreu|aconteceu|houve|sucedeu>(<.+>+)",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria|vamos>?<de>?<eu|n.s>?<vou|irei|vamos>?<te|lhe>?<aprenda|saiba|guarde|lembre|lembre.se|conhe.a|registre|aprender|ensinar|mostrar|saber|lembrar|conhecer|registrar><sobre>?<que|qual|quais|como>?<aqui|ali><foi>?<onde>?<ocorreu|aconteceu|houve|sucedeu>(<.+>+)"
+      ]
+   },
+   {
+      "aprendaEventoLugar@modo-aprender-info-lugar": [
+         "<nes..|naquel.><lugar|local|posição|localidade|área|espaço|ponto|zona|parte|localização|sítio><aqui|ali>?<foi>?<onde>?<ocorreu|aconteceu|houve|sucedeu>(<.+>+)",
+         "<aqui|ali><foi>?<onde>?<ocorreu|aconteceu|houve|sucedeu>(<.+>+)"
+      ]
+   },
+   {
+      "aprendaOrdemPreferenciaLugar": [
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria|vamos>?<de>?<eu|n.s>?<vou|irei|vamos>?<te|lhe>?<aprenda|saiba|guarde|lembre|lembre.se|conhe.a|registre|aprender|ensinar|mostrar|saber|lembrar|conhecer|registrar><sobre>?<que|qual|quais|como>?<es..|aquel.|o|a><lugar|local|posição|localidade|área|espaço|ponto|zona|parte|localização|sítio><aqui|ali|l.>?<tem>?<ordem|posi..o|n.mero><de>?<prefer.ncia|interesse><de>?(<.+>+)",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria|vamos>?<de>?<eu|n.s>?<vou|irei|vamos>?<te|lhe>?<aprenda|saiba|guarde|lembre|lembre.se|conhe.a|registre|aprender|ensinar|mostrar|saber|lembrar|conhecer|registrar><sobre>?<que|qual|quais|como>?<a|o>?<ordem|posi..o|n.mero><de>?<prefer.ncia|interesse><des..|daquel.|da|do><lugar|local|posição|localidade|área|espaço|ponto|zona|parte|localização|sítio><aqui|ali|l.>?<é|e>?(<.+>+)",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria|vamos>?<de>?<eu|n.s>?<vou|irei|vamos>?<te|lhe>?<aprenda|saiba|guarde|lembre|lembre.se|conhe.a|registre|aprender|ensinar|mostrar|saber|lembrar|conhecer|registrar><sobre>?<que|qual|quais|como>?<aqui|ali><é><o|a><lugar|local|posição|localidade|área|espaço|ponto|zona|parte|localização|sítio><de|n.|com>?<n.mero|posi..o|ordem><de>?<prefer.ncia|interesse>(<.+>+)"
+      ]
+   },
+   {
+      "aprendaOrdemLugar@modo-aprender-info-lugar": [
+         "<es..|aquel.|o|a><lugar|local|posição|localidade|área|espaço|ponto|zona|parte|localização|sítio><aqui|ali>?<é><o><lugar|local|posição|localidade|área|espaço|ponto|zona|parte|localização|sítio><de|n.>?<n.mero|posi..o|ordem|ordenamento>(<.+>)_",
+         "<es..|aquel.|o|a><lugar|local|posição|localidade|área|espaço|ponto|zona|parte|localização|sítio><aqui|ali>?<é><o>(<.+>)<lugar|local|posição|localidade|área|espaço|ponto|zona|parte|localização|sítio><n.><ordem|ordenamento>_",
+         "<aqui|ali><é><o><lugar|local|posição|localidade|área|espaço|ponto|zona|parte|localização|sítio><de|n.>?<n.mero|posi..o|ordem|ordenamento>(<.+>)_",
+         "<aqui|ali><é><o>(<.+>)<lugar|local|posição|localidade|área|espaço|ponto|zona|parte|localização|sítio><n.><ordem|ordenamento>_",
+         "<es..|aquel.|o|a><lugar|local|posição|localidade|área|espaço|ponto|zona|parte|localização|sítio><aqui|ali>?<tem|é><o>?<n.mero|posi..o|ordem|ordenamento>(<.+>)_"
+      ]
+   },
+   {
+      "aprendaAtributoLugar": [
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria|vamos>?<de>?<eu|n.s>?<vou|irei|vamos>?<te|lhe>?<aprenda|saiba|guarde|lembre|lembre.se|conhe.a|registre|aprender|ensinar|mostrar|saber|lembrar|conhecer|registrar><sobre>?<que|qual|quais|como>?(<o|a>)(<.+>+)<des..|daquel.><lugar|local|posição|localidade|área|espaço|ponto|zona|parte|localização|sítio><é>(<.+>+)",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria|vamos>?<de>?<eu|n.s>?<vou|irei|vamos>?<te|lhe>?<aprenda|saiba|guarde|lembre|lembre.se|conhe.a|registre|aprender|ensinar|mostrar|saber|lembrar|conhecer|registrar><sobre>?<que|qual|quais|como>?(<o|a>)(<.+>+)<daqui|dali><é>(<.+>+)"
+      ]
+   },
+   {
+      "aprendaAtributoLugar@modo-aprender-info-lugar": [
+         "(<o|a>)(<.+>+)<des..|daquel.><lugar|local|posição|localidade|área|espaço|ponto|zona|parte|localização|sítio><é>(<.+>+)",
+         "(<o|a>)(<.+>+)<daqui|dali><é>(<.+>+)"
+      ]
+   },
+   {
+      "comeceAprenderTarefaComNome": [
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria|vamos>?<de>?<eu|n.s>?<vou|irei|vamos>?<te|lhe>?<aprenda|saiba|guarde|lembre|lembre.se|conhe.a|registre|aprender|ensinar|mostrar|saber|lembrar|conhecer|registrar><sobre>?<que|qual|quais|como>?<a|como>?<fazer|executar>?<a|o|um|uma>?<tarefa|atua..o|performance><de|da|do|denominada|chamada|cujo|com>?<de|nome>?<é|e>?(<.+>+)"
+      ]
+   },
+   {
+      "comeceAprenderTarefa": [
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria|vamos>?<de>?<eu|n.s>?<vou|irei|vamos>?<te|lhe>?<aprenda|saiba|guarde|lembre|lembre.se|conhe.a|registre|aprender|ensinar|mostrar|saber|lembrar|conhecer|registrar><sobre>?<que|qual|quais|como>?<a|como>?<fazer|executar>?<a|o|um|uma>?<tarefa|atua..o|performance>"
+      ]
+   },
+   {
+      "aprendaNomeTarefa": [
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria|vamos>?<de>?<eu|n.s>?<vou|irei|vamos>?<te|lhe>?<aprenda|saiba|guarde|lembre|lembre.se|conhe.a|registre|aprender|ensinar|mostrar|saber|lembrar|conhecer|registrar><sobre>?<que|qual|quais|como>?<o>?<nome><da>?<tarefa|atua..o|performance><é|e>?(<.+>+)",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria|vamos>?<de>?<eu|n.s>?<vou|irei|vamos>?<te|lhe>?<aprenda|saiba|guarde|lembre|lembre.se|conhe.a|registre|aprender|ensinar|mostrar|saber|lembrar|conhecer|registrar><sobre>?<que|qual|quais|como>?<a>?<tarefa|atua..o|performance><se|tem|é|e><chama|nome|denominada|chamada>(<.+>+)"
+      ]
+   },
+   {
+      "pareAprenderTarefa": [
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<n.s>?<vamos>?<parar><de>?<aprender|registrar|recordar><.*>*<tarefa|atua..o|performance>",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<tá|ta>?<na>?<hora>?<de>?<parar><de>?<ensinar|mostrar><.*>*<tarefa|atua..o|performance>",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<pare><de>?<aprender|registrar|recordar><.*>*<tarefa|atua..o|performance>"
+      ]
+   },
+   {
+      "salveMemorias": [
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria>?<de>?<salve|armazene|salvar|armazenar><seu|teu>?<estado><mental><em>(<.+>)",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria>?<de>?<salve|armazene|salvar|armazenar><suas|tuas>?<mem.rias|lembranças|cren.as><em>(<.+>)",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria>?<de>?<salve|armazene|salvar|armazenar><suas|tuas>?<recorda..es|ensinamentos><em>(<.+>)",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria>?<de>?<salve|armazene|salvar|armazenar><seu|teu>?<estado><mental><no><arquivo>(<.+>)",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria>?<de>?<salve|armazene|salvar|armazenar><suas|tuas>?<mem.rias|lembran.as|crenças><no><arquivo>(<.+>)",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria>?<de>?<salve|armazene|salvar|armazenar><suas|tuas>?<recorda..es|ensinamentos><no><arquivo>(<.+>)"
+      ]
+   },
+   {
+      "recupereMemorias": [
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria>?<de>?<recupere|relembre|recuperar|relembrar><seu|teu>?<estado><mental><de>(<.+>)",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria>?<de>?<recupere|relembre|recuperar|relembrar><suas|tuas>?<mem.rias|lembran.as|crenças><de>(<.+>)",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria>?<de>?<recupere|relembre|recuperar|relembrar><suas|tuas>?<recorda..es|ensinamentos><de>(<.+>)",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria>?<de>?<recupere|relembre|recuperar|relembrar><seu|teu>?<estado><mental><do><arquivo>(<.+>)",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria>?<de>?<recupere|relembre|recuperar|relembrar><suas|tuas>?<mem.rias|lembran.as|crenças><do><arquivo>(<.+>)",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria>?<de>?<recupere|relembre|recuperar|relembrar><suas|tuas>?<recorda..es|ensinamentos><do><arquivo>(<.+>)"
+      ]
+   },
+   {
+      "salveBatePapos": [
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria>?<de>?<salve|armazene|salvar|armazenar><seus|teus>?<di.logos|bate><simples|papos>?<em|no><arquivo>?(<.+>)",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria>?<de>?<salve|armazene|salvar|armazenar><seus|teus>?<bate.papos><em|no><arquivo>?(<.+>)",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria>?<de>?<salve|armazene|salvar|armazenar><suas|tuas>?<conversas|entrevistas|perguntas|questões><simples|respostas>?<em|no><arquivo>?(<.+>)"
+      ]
+   },
+   {
+      "recupereBatePapos": [
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria>?<de>?<recupere|relembre|recuperar|relembrar><seus|teus>?<di.logos|bate><simples|papos>?<de|do><arquivo>?(<.+>)",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria>?<de>?<recupere|relembre|recuperar|relembrar><seus|teus>?<bate.papos><de|do><arquivo>?(<.+>)",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria>?<de>?<recupere|relembre|recuperar|relembrar><suas|tuas>?<conversas|entrevistas|perguntas|questões><simples|respostas>?<de|do><arquivo>?(<.+>)"
+      ]
+   },
+   {
+      "ultimaFraseTeste": [
+         "<última|ultima><frase><de><teste>",
+         "<último|ultima><fala><de><teste>",
+         "<último|ultima><mensagem><de><teste>",
+         "<testando><testando>?<fala|frase|mensagem><final>",
+         "<testando><testando>?<última|ultima><fala|frase|mensagem>"
+      ]
+   }
+]

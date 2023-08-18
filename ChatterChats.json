@@ -1,0 +1,17 @@
+[
+    {"hear":    ["<what><is><samba>_"],
+     "talk":    "It is a Brazilian music"},
+    {"hear":    ["<what><is><rock>_", "<what><is><jazz>_"],
+     "talk":    "It is a music of North American origin"},
+    {"hear":    ["<i><like><listening><to>?(<.+>+)"],
+     "talk":    "Great that you like listening to {0}"},
+    {"hear":    ["<i><like><to><read>(<.+>+)"],
+     "talk":    ["OK, I also like to read {0}",
+                "Yes, I also read {0}"]},
+    {"hear":    ["<hello>_","<hi>_"],
+     "talk":    ["Hello {username}","Hi {username}","Hello {username}, how are you?"]},
+    {"hear":    ["<what><is><your><name>_"],
+     "talk":    "My name is {character-name}"},
+    {"hear":    ["<how><old><are><you>_"],
+     "talk":    "My age is {character-age} years old"}
+]

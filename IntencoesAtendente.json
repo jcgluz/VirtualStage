@@ -1,0 +1,231 @@
+[
+   {
+      "saudacoes": [
+         "<oi|olá|ola>",
+         "<oi|olá|ola>?<como><voc.|tu>?<vai.*|est.*>_",
+         "<oi|olá|ola>?<tudo><tranquilo|bem|certo>_",
+         "<oi|olá|ola>?<bom><dia>_",
+         "<oi|olá|ola>?<boa><tarde|noite>_"
+      ]
+   },
+   {
+      "incentivos": [
+         "<sim|ok>?<ta|tá|esta|está>?<ótimo|otimo|excelente|certo|perfeito|continue>",
+         "<sim|ok>?<ta|tá|esta|está>?<muito|indo|siga><bom|bem|assim>",
+         "<sim|ok>?<tá|ta|esta|está>?<certo|bom|bem><é|e><isso|isto><mesmo|aí|ai>",
+         "<sim|ok>?<é|e><isso|isto><mesmo|aí|ai>"
+      ]
+   },
+   {
+      "vouAoConsultorio:['medica carla']": [
+         "<vou|estou><indo>?<ao|para|atender><o|no>?<consultorio>_",
+         "<vou|estou><indo>?<atender><na><minha>?<sala>_"
+      ]
+   },
+   {
+      "meChameSeHouverPacientes:['medica carla']": [
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<assim>?<se|que|quando><houver><pacientes|pessoas><pode>?<me>?<chamar|chame>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<pode>?<me>?<chamar|chame><assim>?<se|que|quando><houver><pacientes|pessoas>_"
+      ]
+   },
+   {
+      "mePassePacientes:['medica carla']": [
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<agora>?<pode>?<me>?<passar|passe|chamar|mandar|mande><os|as>?<pacientes|pessoas>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<agora>?<posso>?<receber><os|as>?<pacientes|pessoas>_"
+      ]
+   },
+   {
+      "agendarConsulta": [
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<quero|preciso|necessito|tenho|desejo|peço><para|pra>?<que>?<marcar|agendar|definir|reservar|combinar|programar><uma|um>?<hor.rio|hora>?<para|pra|pro>?<o>?<consulta|atendimento>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<vim|estou><aqui>?<hoje|agora>?<aqui>?<hoje|agora>?<para|pra>?<marcar|agendar|definir|reservar|combinar|programar><uma|um>?<hor.rio|hora>?<para|pra|pro>?<o>?<consulta|atendimento>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria>?<de>?<marcar|agendar|definir|reservar|combinar|programar><uma|um>?<hor.rio|hora>?<para|pra|pro>?<o>?<consulta|atendimento>_"
+      ]
+   },
+   {
+      "agendarExame": [
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<quero|preciso|necessito|tenho|desejo|peço><para|pra>?<que>?<marcar|agendar|definir|reservar|combinar|programar><uma|um>?<hor.rio|hora>?<para|pra|pro>?<o>?<exame|checkup|checape|estudo>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<vim|estou><aqui>?<hoje|agora>?<aqui>?<hoje|agora>?<para|pra>?<marcar|agendar|definir|reservar|combinar|programar><uma|um>?<hor.rio|hora>?<para|pra|pro>?<o>?<exame|checkup|checape|estudo>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria>?<de>?<marcar|agendar|definir|reservar|combinar|programar><uma|um>?<hor.rio|hora>?<para|pra|pro>?<o>?<exame|checkup|checape|estudo>_"
+      ]
+   },
+   {
+      "consultarPacienteComMedico": [
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<eu>?<sou|me><chamo>?(<.*>+)<e>?<quero|preciso|necessito|tenho|desejo|peço><para|pra>?<que>?<me>?<consultar|atender>_<com><a|o>?<dra|doutora|doutor|dr|medic.>(<.*>*)<agora|as|ás>?_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<eu>?<sou|me><chamo>?(<.*>+)<e>?<quero|preciso|necessito|tenho|desejo|peço><para|pra>?<que>?<me>?<consultar|atender>_<.*>*<dra|doutora|doutor|dr|medic.>(<.*><.*>?)_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<eu>?<sou|me><chamo>?(<.*>+)<e>?<vou><me>?<consultar|atender><com><a|o>?<dra|doutora|doutor|dr|medic.>(<.*>*)<agora|as|ás>?_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<eu>?<sou|me><chamo>?(<.*>+)<e>?<vou><me>?<consultar|atender><.*>*<dra|doutora|doutor|dr|medic.>(<.*><.*>?)_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<eu>?<sou|me><chamo>?(<.*>+)<e>?<vim|estou><aqui>?<hoje|agora>?<aqui>?<hoje|agora>?<para|pra>?<me>?<a|o>?<consultar|consulta|atender|atendimento>_<com><a|o>?<dra|doutora|doutor|dr|medic.>(<.*>*)<agora|as|ás>?_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<eu>?<sou|me><chamo>?(<.*>+)<e>?<vim|estou><aqui>?<hoje|agora>?<aqui>?<hoje|agora>?<para|pra>?<me>?<a|o>?<fazer>?<consultar|consulta|atender|atendimento>_<.*>*<dra|doutora|doutor|dr|medic.>(<.*><.*>?)_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<eu>?<sou|me><chamo>?(<.*>+)<e>?<ja|já>?<tenho><uma|um>?<consulta|atendimento><marcad.|agendad.><com><a|o>?<dra|doutora|doutor|dr|medic.>(<.*>*)<agora|as|ás>?_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<eu>?<sou|me><chamo>?(<.*>+)<e>?<ja|já>?<tenho><uma|um>?<consulta|atendimento><marcad.|agendad.><.*>*<dra|doutora|doutor|dr|medic.>(<.*><.*>?)_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<eu>?<sou|me><chamo>?(<.*>+)<e>?<ja|já>?<tenho><uma|um>?<hor.rio|hora>?<marcado|reservado|agendado|combinado>?<para|pra|pro>?<a|o>?<consulta|atendimento><com><a|o>?<dra|doutora|doutor|dr|medic.>(<.*>*)<agora|as|ás>?_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<eu>?<sou|me><chamo>?(<.*>+)<e>?<ja|já>?<tenho><uma|um>?<hor.rio|hora>?<marcado|reservado|agendado|combinado>?<para|pra|pro>?<a|o>?<consulta|atendimento><.*>*<dra|doutora|doutor|dr|medic.>(<.*><.*>?)_"
+      ]
+   },
+   {
+      "fazerConsulta": [
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<quero|preciso|necessito|tenho|desejo|peço><para|pra>?<que>?<me>?<consultar|atender>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<vou><me>?<consultar|atender>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<vim|estou><aqui>?<hoje|agora>?<aqui>?<hoje|agora>?<para|pra>?<me>?<a|o>?<fazer>?<consultar|consulta|atender|atendimento>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<ja|já>?<tenho><uma|um>?<consulta|atendimento>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<ja|já>?<tenho><uma|um>?<hor.rio|hora>?<marcado|reservado|agendado|combinado>?<para|pra|pro>?<o>?<consulta|atendimento>_"
+      ]
+   },
+   {
+      "fazerExameDeTipoComPaciente": [
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<eu>?<sou|me><chamo>?(<.*>+)<e>?<quero|preciso|necessito|tenho|desejo|peço><para|pra>?<que>?<fazer|realizar|proceder><com>?<o>?<exame|checkup|checape|estudo><de>?(<.*>+)<agora>?<as|ás>?_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<eu>?<sou|me><chamo>?(<.*>+)<e>?<vou><fazer|realizar|proceder><com>?<o>?<exame|checkup|checape|estudo><de>?(<.*>+)<agora>?<as|ás>?_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<eu>?<sou|me><chamo>?(<.*>+)<e>?<vim|estou><aqui>?<hoje|agora>?<aqui>?<hoje|agora>?<para|pra>?<fazer|realizar|proceder><com>?<o>?<exame|checkup|checape|estudo><de>?(<.*>+)<agora>?<as|ás>?_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<eu>?<sou|me><chamo>?(<.*>+)<e>?<ja|já>?<tenho><uma|um>?<exame|checkup|checape|estudo><de>?(<.*>+)<agora>?<as|ás>?_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<eu>?<sou|me><chamo>?(<.*>+)<e>?<ja|já>?<tenho><uma|um>?<hor.rio|hora>?<marcado|reservado|agendado|combinado>?<para|pra|pro>?<o>?<exame|checkup|checape|estudo><de>?(<.*>+)<agora>?<as|ás>?_"
+      ]
+   },
+   {
+      "fazerExame": [
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<quero|preciso|necessito|tenho|desejo|peço><para|pra>?<que>?<fazer|realizar|proceder><com>?<o>?<exame|checkup|checape|estudo>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<vou><fazer|realizar|proceder><com>?<o>?<exame|checkup|checape|estudo>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<vim|estou><aqui>?<hoje|agora>?<aqui>?<hoje|agora>?<para|pra>?<fazer|realizar|proceder><com>?<o>?<exame|checkup|checape|estudo>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<ja|já>?<tenho><uma|um>?<exame|checkup|checape|estudo>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<ja|já>?<tenho><uma|um>?<hor.rio|hora>?<marcado|reservado|agendado|combinado>?<para|pra|pro>?<o>?<exame|checkup|checape|estudo>_"
+      ]
+   },
+   {
+      "informaNome": [
+         "<ok|sim>?<oi|olá|ola>?<o>?<meu><nome><completo>?<é|e>(<.*>+)",
+         "<ok|sim>?<oi|olá|ola>?<pode><me><chamar><de>?(<.*>+)",
+         "<ok|sim>?<oi|olá|ola>?<eu>?<me><chamo|chamam><o|a|de>?(<.*>+)",
+         "<ok|sim>?<oi|olá|ola>?<eu>?<sou><o|a>?(<.*>+)"
+      ]
+   },
+   {
+      "informaNome@modo-informa-nome": [
+         "(<.*>*)"
+      ]
+   },
+   {
+      "informaMedico": [
+         "<ok|sim>?<oi|olá|ola>?<e|é>?<o|a>?<medico|medica|médico|médica|doutor|doutora|dr|dra><é|e|se>?<chama>?(<.*>+)",
+         "<ok|sim>?<oi|olá|ola>?<o>?<nome><do|da><medico|medica|médico|médica|doutor|doutora|dr|dra><é|e>?(<.*>+)"
+      ]
+   },
+   {
+      "informaMedico@modo-informa-medico": [
+         "(<.*>*)"
+      ]
+   },
+   {
+      "informaTipoExame": [
+         "<ok|sim>?<oi|olá|ola>?<e|é>?<um|o>?<exame|checkup|checape|estudo><de>?(<.*>+)",
+         "<ok|sim>?<oi|olá|ola>?<o>?<nome><do|da><exame|checkup|checape|estudo><é|e>?(<.*>+)"
+      ]
+   },
+   {
+      "informaExame@modo-informa-exame": [
+         "(<.*>*)"
+      ]
+   },
+   {
+      "informaHorario": [
+         "<ok|sim>?<oi|olá|ola>?<quero|fico>?<com>?<o|a>?<hor.rio|hora><das>?(<.*>+)",
+         "<ok|sim>?<oi|olá|ola>?<pra|para>?<mim>?<tá|ta|esta|está>?<bom|ok|otimo|ótimo>?<o|a>?<hor.rio|hora><das>?(<.*>+)"
+      ]
+   },
+   {
+      "informaHorario@modo-escolhe-horario": [
+         "(<.*>*)"
+      ]
+   },
+   {
+      "qualquerResposta@modo-segue-atendimento": [
+         "(<.*>*)"
+      ]
+   },
+   {
+      "confirma": [
+         "<sim>",
+         "<ok>",
+         "<concordo>",
+         "<tudo><bem>",
+         "<tá><bem>",
+         "<confirmo>",
+         "<com><certeza>",
+         "<tudo><certo>",
+         "<está><bem>",
+         "<sem><dúvida>",
+         "<está>?<certo>",
+         "<positivo>",
+         "<isso><sim>",
+         "<de><acordo>",
+         "<mas><sim>"
+      ]
+   },
+   {
+      "recusa": [
+         "<não|nao>",
+         "<não|nao><pode>",
+         "<não|nao><da|dá>",
+         "<neca>",
+         "<nego>",
+         "<recuso>",
+         "<recusado>",
+         "<me><oponho>",
+         "<nunca>",
+         "<nenhum>",
+         "<negado>",
+         "<negativo>"
+      ]
+   },
+   {
+      "olheParaMim": [
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<se>?<dirija|volte|olhe><para|pra><mim>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<me><olhe|veja>",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria>?<de>?<se>?<dirijir|voltar|olhar><para|pra><mim>_",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria>?<de>?<me><olhar|ver>"
+      ]
+   },
+   {
+      "ajudaConversas": [
+         "_<diga|fale|explique><quais|que><conversas|discuss.es|di.logos|bate.papos|papos|falas><voc.>?<conhe.e>?",
+         "_<diga|fale|explique><quais|que><conversas|discuss.es|di.logos|bate.papos|papos|falas><voc.>?<conhe.e>?<sobre>?(<.+>+)",
+         "_<ajuda|informac..s|info><sobre>?<conversas|discuss.es|di.logos|bate.papos|papos|falas>",
+         "_<ajuda|informac..s|info><sobre>?<conversas|discuss.es|di.logos|bate.papos|papos|falas><sobre>?(<.+>+)"
+      ]
+   },
+   {
+      "ajudaSobreConversa": [
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria>?<de>?<me>?<diga|fale|explique|dizer|falar|explicar>?<quais|que><frases|ora..es|senten.as|palavras><o|a>?<voc.|tu|senhor|senhora><conhe.e.*|sabe.*|reconhe.e.*|aprendeu|entende>?<sobre>?<a|o>?<conversa|discuss.o|di.logo|bate.papo|papo|fala>(<.+>+)",
+         "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria>?<de>?<ajuda|informac..s|info|ajudar|informar><sobre>?<conversa|discuss.o|di.logo|bate.papo|papo|fala>(<.+>+)"
+      ]
+   },
+   {
+      "adeus": [
+         "<bye><bye>",
+         "<tchau>",
+         "<até><mais>",
+         "<até><logo>",
+         "<adeus>"
+      ]
+   },
+   {
+      "logOut": [
+         "<fa.a><log><out>",
+         "<fa.a><logout>",
+         "<saia|deixe><deste|desta|este|esta|do|da><mundo|vr|rv><agora>?"
+      ]
+   },
+   {
+      "setPrDebType": [
+         "<set><prdeb><type>(<.*>*)"
+      ]
+   },
+   {
+      "enablePrDeb": [
+         "<enable><prdeb>_"
+      ]
+   },
+   {
+      "disablePrDeb": [
+         "<disable><prdeb>_"
+      ]
+   }
+]

@@ -1,0 +1,174 @@
+[
+   {
+      "hear": [
+         "<samba>"
+      ],
+      "talk": "É uma música brasileira"
+   },
+   {
+      "hear": [
+         "<rock>"
+      ],
+      "talk": "Música de origem norte-americana"
+   },
+   {
+      "hear": [
+         "<eu><gosto><de><m.sica>(<.+>+)"
+      ],
+      "talk": [
+         "Então você gosta de ouvir música {0}?",
+         "Que interessante que você gosta de música {0}",
+         "Não sabia que você gosta de música {0}"
+      ]
+   },
+   {
+      "hear": [
+         "<eu><gosto><de><ler>(<.+>+)"
+      ],
+      "talk": [
+         "Interessante que você gosta de ler {0}",
+         "Ler é importante",
+         "Não sabia que você gostava de ler {0}"
+      ]
+   },
+   {
+      "hear": [
+         "<hoje>?<estou><cansad.|exaust.|meio|chatead.><com>?<fraco|sono>_"
+      ],
+      "talk": [
+         "É o dia está meio pesado mesmo",
+         "Você deve estar trabalhando demais",
+         "Tente descansar um pouco",
+         "É hoje está um dia bastante complicado"
+      ]
+   },
+   {
+      "hear": [
+         "<hoje>?<o>?<dia><est.|tá|ta><pesado|cansativo|chato>_"
+      ],
+      "talk": [
+         "É o dia está meio pesado mesmo",
+         "Você deve estar trabalhando demais",
+         "Tente descansar um pouco",
+         "É hoje está um dia bastante complicado"
+      ]
+   },
+   {
+      "hear": [
+         "<tem>?<muito|bastante><trabalho><hoje>_",
+         "<voc.|tu>?<tá|ta|est.*>?<trabalhando><bastante|muito>_"
+      ],
+      "talk": [
+         "Sim tem muito trabalho",
+         "Sempre tem bastante trabalho",
+         "Sim estou trabalhando bastante",
+         "Sim sempre tem trabalho",
+         "É trabalho não falta",
+         "Sim muito atarefado hoje"
+      ]
+   },
+   {
+      "hear": [
+         "<ser.><que><vai><chover|esfriar><hoje>_",
+         "<est.|ta|t.a><frio|quente|chovendo>_"
+      ],
+      "talk": [
+         "Não sei, quase não olho pra fora",
+         "O tempo é sempre louco",
+         "Pode ser, o tempo aqui é complicado",
+         "Mas acho que vai melhorar",
+         "O tempo sempre muda",
+         "Sim acho que vai continuar assim"
+      ]
+   },
+   {
+      "hear": [
+         "<tudo><bem|bom|tranquilo><com><você>_",
+         "<tudo><bem|bom|tranquilo><contigo>_",
+         "<tu|voc.>?<est.*|ta|tá><bem|tranquilo>_"
+      ],
+      "talk": [
+         "Sim tudo bem",
+         "Tudo tranquilo meu caro",
+         "Sim sim tudo bem",
+         "Hoje está tudo bem",
+         "Tudo bem por agora",
+         "Claro que sim, tudo tranquilo"
+      ]
+   },
+   {
+      "hear": [
+         "<quem><é><que><te><criou>",
+         "<quem><é><teu|seu|tua|sua><pai|m.e|criador|criadora>"
+      ],
+      "talk": [
+         "Meu criador é {dcharacter-creator}",
+         "Sou um personagem digital criado por {dcharacter-creator}",
+         "Fui criado por {dcharacter-creator}"
+      ]
+   },
+   {
+      "hear": [
+         "<o>?<que><o|a><voc.|tu|senhor.*><est.*><sentindo|passando|sofrendo>_",
+         "<o>?<que><est.><acontecendo|passando|incomodando><com>?<o|a><senhor.*>_",
+         "<o>?<que><est.><te|lhe>?<incomodando|doendo|acontecendo|passando>_"
+      ],
+      "talk": [
+         "Estou com dor nos braços e nas articulações, parece que tenho febre",
+         "Acho que estou com febre, mas o pior é que me doem os braços",
+         "Os braços estão me incomodando, acho que tô com um pouco de febre",
+         "Me doem as articulações dos braços, também me sinto como se tivesse febre"
+      ]
+   },
+   {
+      "hear": [
+         "<voc.>?<se|te>?<lembra>?<quando><isso|isto><come.ou|iniciou>_",
+         "<voc.>?<se|te>?<lembra>?<quando><esta|essa><dor><come.ou|iniciou>_",
+         "<voc.>?<se|te>?<lembra>?<quando><vo.e|tu>?<come.ou|iniciou>_",
+         "<voc.>?<se|te>?<lembra>?<quando><isso|isto>?<come.ou|iniciou>_",
+         "<j.>?<faz><quanto>?<tempo>_"
+      ],
+      "talk": [
+         "Já faz uns dias",
+         "Tem uns três ou quatro dias",
+         "Desde a semana passada mais ou menos",
+         "Não faz muito, deve ter começado já faz uns dois ou três dias"
+      ]
+   },
+   {
+      "hear": [
+         "<o|a>?<voc.|tu|senhor|senhora>?<se|te>?<lembra.*>?<se>?<teve|sofreu><uma>?<les.o|tors.o>_",
+         "<o|a>?<voc.|tu|senhor|senhora>?<se|te>?<lembra.*>?<se>?<praticou|fez><muito>?<esfor.o|trabalho|esporte>_",
+         "<o|a>?<voc.|tu|senhor|senhora>?<se|te>?<lembra.*>?<se>?<carregou|levantou><muito>?<peso>_"
+      ],
+      "talk": [
+         "No outro fim de semana trabalhei bastante com a obra lá em casa",
+         "Já faz uma semana mais ou menos carreguei bastante peso pra obra que estamos fazendo em casa",
+         "Sim levantei bastante peso faz uns dias, estamos trabalhando lá em casa e eu estava ajudando",
+         "Não me lembro ter me lesionado, mas trabalhei muito e carreguei bastante peso na semana passada"
+      ]
+   },
+   {
+      "hear": [
+         "<ok>?<seu|dona>?<.*><n.s>?<vamos>_",
+         "<ok>?<seu|dona>?<.*><acho>_"
+      ],
+      "talk": [
+         "Ok doutora, me explica bem que se tiver que fazer isso eu faço sem problemas",
+         "Sim tudo bem, basta me dizer o que fazer",
+         "Claro doutora, se precisar vou fazer o que a senhora disser"
+      ]
+   },
+   {
+      "hear": [
+         "<.*>*"
+      ],
+      "talk": [
+         "Sou {character-name} o atendente aqui, não entendi o que você falou",
+         "Pode me chamar de {character-name}, não te entendi, o que você precisa?",
+         "Eu sou {character-name} e atendo aqui, o que você quer?",
+         "Me chamo {character-name}, sou recepcionista aqui, o que você precisa?",
+         "Sou {character-name} e faço a recepção aqui, o que precisa?"
+      ]
+   }
+]

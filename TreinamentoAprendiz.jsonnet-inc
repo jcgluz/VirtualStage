@@ -1,0 +1,467 @@
+###############################################################
+###############################################################
+#
+#   VirtualStage Platform - a virtual stage for virtual actors
+#
+#   Copyright (C): 2020-2023, Joao Carlos Gluz
+#   Contact:  João Carlos Gluz (jcgluz@gmail.com)
+#
+#   This program is free software: you can redistribute it and/or modify
+#   it under the terms of the GNU General Public License as published by
+#   the Free Software Foundation, either version 3 of the License, or
+#   (at your option) any later version.
+#
+#   This program is distributed in the hope that it will be useful,
+#   but WITHOUT ANY WARRANTY; without even the implied warranty of
+#   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#   GNU General Public License for more details.
+#
+#   You should have received a copy of the GNU General Public License
+#
+#********************************************************
+#
+#   File:       TreinamentoAprendiz.jsonnet-inc 
+#   Purpose:    Exemplo de arquivo JSON/JSONNET que especifica os padrões 
+#               de deteccao das intencoes de treinamento/aprendizagem
+#               das conversas do ator aprendiz
+#   Author:     João Carlos Gluz - 2020-2023
+#
+###############################################################
+###############################################################
+
+# Word/Phrases synonyms
+
+local sinonObjeto = "<objeto|coisa|peça|utensílio|ente|entidade|primitiva|"+
+					"artefato|aparelho|instrumento|dispositivo|"+
+					"troço|treco|tralha|trambolho|cacareco|bugiganga>";
+local sinonObjetos = "<objetos|coisas|peças|utensílios|entes|entidades|primitivas|"+
+					"artefatos|aparelhos|instrumentos|dispositivos|"+
+					"troços|trecos|tralhas|trambolhos|cacarecos|bugigangas>";
+local sinonLugar = 	"<lugar|local|posição|localidade|área|espaço|ponto|zona|"+
+					"parte|localização|sítio>";
+local sinonLugares = "<lugares|locais|posições|localidades|áreas|espaços|pontos|zonas|"+
+					"partes|localizações|sítios>";
+local sinonConversas = "<conversas|discuss.es|di.logos|bate.papos|papos|falas>";
+local sinonConversa = "<conversa|discuss.o|di.logo|bate.papo|papo|fala>";
+local sinonVemVai = "<va|vá|vai|vem|venha|volte|mova.se|mova|ande|caminhe|siga>";
+local sinonIrVir = "<vir|ir|andar|caminhar|seguir|voltar|mover.se>";
+local sinonPorFavor = "<agora>?<por|gostaria|agrade.o>?<favor|que|se>?<agora>?";
+local sinonPronTrat = "<o|a>?<voc.|tu|senhor|senhora>?<pode|podes|poderia|gostaria|vamos>?<de>?";
+local sinonVoceSabe = "<voc.|tu>?<se|pode>?<sabe|conhece|lembra|sabes|conheces|lembras|me>?"+
+                    "<dizer|falar>?<o|a>?";
+local sinonTarefa = "<tarefa|atua..o|performance>";
+local sinonTarefas = "<tarefas|atua..es|performances>";
+
+# Pattern prefixes
+
+local prefixAprender = sinonPorFavor+sinonPronTrat+"<eu|n.s>?<vou|irei|vamos>?<te|lhe>?<aprenda|saiba|guarde|"+
+    "lembre|lembre.se|conhe.a|registre|aprender|ensinar|mostrar|saber|lembrar|conhecer|registrar>"+
+    "<sobre>?<que|qual|quais|como>?";
+local prefixSalvar = sinonPorFavor+sinonPronTrat+"<salve|armazene|salvar|armazenar>";
+local prefixRecuperar = sinonPorFavor+sinonPronTrat+"<recupere|relembre|recuperar|relembrar>";
+
+
+[
+#**********************************************************************
+# Diálogos para aprender pares de Perguntas/Respostas
+#
+
+	{"aprendaPergunta":	
+		[
+        prefixAprender +
+			"<para|pra|pro>?<a>?<pergunta|quest.o|questionamento|d.vida|interroga..o>(<.+>+)",
+        prefixAprender +
+			"<quando|se|caso><te>?<pergunta.*|questiona.*|indaga.*><sobre>?(<.+>+)"
+		]},		
+	{"aprendaResposta":	
+		[
+        prefixAprender +
+			"<a|o>?<resposta|explica..o|explana..o|esclarecimento|aclaramento|retorno><é>?(<.+>+)",
+        prefixAprender +
+			"<a>?<responder|explicar|explanar|esclarecer|aclarar|retornar><que>?(<.+>+)",
+        prefixAprender +
+			"<e>?<responda|explique|explane|esclare.a|aclare|retorne><que>?(<.+>+)"
+		]},		
+	{"entreModoAprenderPerguntaResposta":	
+		[
+        sinonPorFavor+"<vamos><aprender|conhecer|lembrar><sobre>?<alguns|uns>?"+
+            "<di.logos*|quiz.*|question.rio.*|pergunta.*|questo.*>_",
+		sinonPorFavor+"<vou><te|lhe><passar|ensinar|falar|dizer><sobre>?<alguns|uns>"+
+            "<di.logo.*|quiz.*|question.rio.*|pergunta.*|questo.*>_",
+		sinonPorFavor+"<aprenda|conhe.a|lembre><se>?<de>?<alguns|uns>?"+
+            "<di.logo.*|quiz.*|question.rio.*|pergunta.*|questo.*>_",
+		sinonPorFavor+"<vou><passar|ensinar|falar|dizer><para|pra>?<voc.|ti>?<alguns|uns>?"+
+            "<di.logo.*|quiz.*|question.rio.*|pergunta.*|questo.*>_"
+		]},		
+	{"entreComPergunta@modo-aprender-pergunta":	
+		[
+        "(<.+>+)"
+		]},		
+	{"entreComResposta@modo-aprender-resposta":	
+		[
+        "(<.+>+)"
+		]},		
+
+#**********************************************************************
+# Diálogos para aprender informações sobre objetos
+#
+
+	{"entreModoAprenderInfoObjeto":	
+		[
+        sinonPorFavor+"<vamos><aprender|descobrir|conhecer><coisas|fatos|informa..es|dados>?"+
+			"<sobre>?<is..|es..|aqu.l.|d.s..|daqu.l.>"+sinonObjeto+"?_",
+		sinonPorFavor+"<vou><te|lhe><passar|ensinar|falar|dizer><coisas|fatos|informa..es|dados>?"+
+			"<sobre>?<is..|es..|aqu.l.|d.s..|daqu.l.>"+sinonObjeto+"?_",
+		sinonPorFavor+"<aprenda|descubra|conhe.a><coisas|fatos|informa..es|dados>?"+
+			"<sobre>?<is..|es..|aqu.l.|d.s..|daqu.l.>"+sinonObjeto+"?_",
+		sinonPorFavor+"<vou><passar|ensinar|falar|dizer><para|pra>?<voc.>?<coisas|fatos|informa..es|dados>?"+
+			"<sobre>?<is..|es..|aqu.l.|d.s..|daqu.l.>"+sinonObjeto+"?_"
+		]},		
+	{"aprendaNomeObjeto":	
+		[
+        prefixAprender +
+			"<o|a><nome><des..|daquel.|da|do>"+sinonObjeto+
+            "<é>(<.+>+)",
+		prefixAprender +
+			"<o|a><nome>?<dis.o|daquilo><é>(<.+>+)",
+		prefixAprender +
+			"<es..|aquel.>"+sinonObjeto+
+            "<se|é|e|tem><chama|chamado|nome>(<.+>+)",
+		prefixAprender +
+			"<is.o|aquilo><se|é|e|tem><chama|chamado|nome>(<.+>+)"
+		]},		
+	{"aprendaNomeObjeto@modo-aprender-info-obj":	
+		[
+        "<o|a><nome><des..|daquel.|da|do>?"+sinonObjeto+
+            "<é>(<.+>+)",
+		"<o|a><nome>?<dis.o|daquilo>?<é>(<.+>+)",
+		"<es..|aquel.>"+sinonObjeto+
+            "<se><chama>(<.+>+)",
+		"<is.o|aquilo><se|é|e|tem><chama|chamado|nome>(<.+>+)"
+		]},		
+	{"aprendaDescricaoObjeto":	
+		[
+        prefixAprender +
+			"<es..|aquel.|o|a>"+sinonObjeto+
+            "<é>(<.+>+)",
+		prefixAprender +
+			"<is.o|aquilo><é>(<.+>+)"
+		]},		
+	{"aprendaDescricaoObjeto@modo-aprender-info-obj":	
+		[
+        "<es..|aquel.|o|a>"+sinonObjeto+
+            "<é>(<.+>+)",
+		"<is.o|aquilo><é>(<.+>+)"
+		]},		
+	{"aprendaUsoObjeto":	
+		[
+        prefixAprender +
+			"<es..|aquel.|o|a>"+sinonObjeto+
+            "<serve|se__usa|é__usado><para|pra|como>?(<.+>+)",
+		prefixAprender +
+			"<is.o|aquilo><serve|se__usa|é__usado><para|pra|como>?(<.+>+)"
+		]},		
+	{"aprendaUsoObjeto@modo-aprender-info-obj":	
+		[
+        "<es..|aquel.|o|a>"+sinonObjeto+
+            "<serve|se__usa|é__usado><para|pra|como>?(<.+>+)",
+		"<is.o|aquilo><serve|se__usa|é__usado><para|pra|como>?(<.+>+)"
+		]},		
+	{"aprendaImportanciaObjeto":	
+		[
+        prefixAprender +
+			"<a|o><grau|valor|dimens.o>?<de|da>?<import.ncia|relev.ncia>"+
+            "<des..|daquel.>"+sinonObjeto+"<é|e>(<.+>+)",
+		prefixAprender +
+			"<a|o><grau|valor|dimens.o>?<de|da>?<import.ncia|relev.ncia>"+
+            "<dis.o|daquilo><é|e>?(<.+>+)",
+		prefixAprender +
+            "<es..|aquel.|o|a>"+sinonObjeto+
+            "<aqui|ali>?<é|e>(<.+>+)<importante|relevante>",
+		prefixAprender +
+            "<es..|aquel.|o|a>"+sinonObjeto+"<aqui|ali>?<é|e|tem><um|uma>?(<.+>+)"+
+            "<grau|valor|dimens.o>?<de|da>?<import.ncia|relev.ncia>",
+        prefixAprender +
+            "<es..|aqu.l.|o|a>"+sinonObjeto+"(<.+>+)<importante|relevante>",
+		prefixAprender +
+            "<es..|aqu.l.|o|a>"+sinonObjeto+"(<n.o><tem>)<.*>*<import.ncia|relev.ncia>",
+        prefixAprender +
+            "<es..|aqu.l.|o|a>"+sinonObjeto+"(<n.o><é|e>)<.*>*<importante|relevante>"
+		]},		
+	{"aprendaImportanciaObjeto@modo-aprender-info-obj":	
+		[
+        "<a|o><grau|valor|ordem|dimens.o>?<de|da>?<import.ncia|relev.ncia><des..|daquel.>"+
+            sinonObjeto+"<é|e>(<.+>+)",
+		"<a|o><grau|ordem|dimens.o>?<import.ncia|relev.ncia><dis.o|daquilo><é>?(<.+>+)",
+        "<es..|aquel.|o|a>"+sinonObjeto+"<aqui|ali>?<é|e>(<.+>+)<importante|relevante>",
+        "<es..|aquel.|o|a>"+sinonObjeto+"<aqui|ali>?<tem><um|uma>?(<.+>+)"+
+            "<grau|valor|ordem|dimens.o>?<de|da>?<import.ncia|relev.ncia>",
+        "<es..|aqu.l.|o|a>"+sinonObjeto+"<é|e>(<.+>+)<importante|relevante>",
+        "<es..|aqu.l.|o|a>"+sinonObjeto+
+            "<tem><um|uma>?(<.+>+)<grau|valor|ordem|dimens.o>?<de|da>?<import.ncia|relev.ncia>",
+        "<es..|aqu.l.|o|a>"+sinonObjeto+"(<n.o><tem>)<.*>*<import.ncia|relev.ncia>",
+        "<es..|aqu.l.|o|a>"+sinonObjeto+"(<n.o><é>)<.*>*<importante|relevante>"
+		]},		
+	{"aprendaAtributoObjeto":	
+		[
+        prefixAprender+"(<o|a>)(<.+>+)<des..|daquel.>"+sinonObjeto+"<é>(<.+>+)",
+		prefixAprender+"(<o|a>)(<.+>+)<dis.o|daquilo><é>(<.+>+)"
+		]},		
+	{"aprendaAtributoObjeto@modo-aprender-info-obj":	
+		[
+        "(<o|a>)(<.+>+)<des..|daquel.>"+sinonObjeto+"<é>(<.+>+)",
+		"(<o|a>)(<.+>+)<dis.o|daquilo><é>(<.+>+)"
+		]},		
+
+#**********************************************************************
+# Diálogos para aprender sobre informações de uma cena
+#
+
+	{"comeceAprenderAreaCena":	
+		[
+        prefixAprender+"<é|e|s.o>?<o|a|oas|as><espa.o|.rea|recinto|regi.o|aposento|sala|quarto|"+
+            "entorno|volta|borda|fronteira|fronteiras|bordas|limites|limite|divisa|divisas|limiar|"+
+            "limiares><des..|da|do><cena|cen.rio><aqui>?"
+		]},		
+	{"comeceAprenderAreaCenaComNome":	
+		[
+        prefixAprender+"<é|e|s.o>?<o|a|os|as><espa.o|.rea|recinto|regi.o|aposento|sala|quarto|"+
+            "entorno|volta|borda|fronteira|fronteiras|bordas|limites|limite|divisa|divisas|limiar|"+
+            "limiares><des..|da|do><cena|cen.rio><cujo|com|que><nome|se><é|e|de|chama>(<.+>+)",
+        prefixAprender+"<é|e|s.o>?<o|a|os|as><espa.o|.rea|recinto|regi.o|aposento|sala|quarto|"+
+            "entorno|volta|borda|fronteira|fronteiras|bordas|limites|limite|divisa|divisas|limiar|"+
+            "limiares><des..|da|do><cena|cen.rio><chamada>?<de|da|do>?(<.+>+)"
+		]},		
+	{"aprendaPontoBordaCena":	
+		[
+        prefixAprender +"<aqui|onde><estou>?<parado>?<agora>?<é|e><um|uma|o|a>"+
+            "<ponto|posi..o|localiza..o><inicial|final|intermedi.rio|mediano|do__meio>?"+
+            "<na|no|da|do><borda|fronteira|limite|divisa|limiar|entorno|volta><des..|daquel.|do|da>"+
+            "<cena|cen.rio>",
+        prefixAprender +"<es..|o|a><ponto|posi..o|localiza..o><aqui|onde>?<estou>?<parado>?"+
+            "<delimita|limita|demarca|est.><no|na|a|o>?<borda|fronteira|limite|divisa|limiar|.rea|espa.o|"+
+            "regi.o><des..|daquel.|do|da><cena|cen.rio>",
+        prefixAprender +"<es..|aqui>?<é|e>?<um|uma><ponto|posi..o|localiza..o>"+
+            "<no|na><borda|fronteira|limite|divisa|limiar|.rea|espa.o|"+
+            "regi.o><des..|daquel.|do|da><cena|cen.rio>"
+		]},		
+	{"pareAprenderAreaCena":	
+		[
+        sinonPorFavor+"<vamos|podemos><parar><de>?<aprender|registrar|recordar><sobre>?<o|a>"+
+            "<espa.o|.rea|recinto|região|aposento|sala|quarto|entorno|volta|limiar|borda|"+
+            "fronteira|divisa|limites|limite|divisas|limiares><da|do|de..><cena|cen.rio>",
+		sinonPorFavor+"<tá|ta>?<na>?<hora>?<de>?<parar><de>?<ensinar|mostrar><sobre>?<o|a>"+
+            "<espa.o|.rea|recinto|região|aposento|sala|quarto|entorno|volta|limiar|borda|"+
+            "fronteira|divisa|limites|limite|divisas|limiares><do|da|de..>?<cena|cen.rio>",
+		sinonPorFavor+"<pare><de>?<aprender|registrar|recordar><sobre>?<o|a>"+
+            "<espa.o|.rea|recinto|região|aposento|sala|quarto|entorno|volta|limiar|borda|"+
+            "fronteira|divisa|limites|limite|divisas|limiares><do|da|de..>?<cena|cen.rio>"
+		]},		
+	{"aprendaNomeCena":	
+		[
+        prefixAprender +
+			"<o><nome><des..|daquel.|da|do><cena|cen.rio><aqui|ali>?<é>(<.+>+)",
+		prefixAprender +
+			"<es..|aquel.|o|a><cena|cen.rio><aqui|ali>?<se|é|e><chama|chamado>(<.+>+)"
+		]},		
+	{"aprendaInformacaoCena":	
+		[
+        prefixAprender +
+			"<es..|aquel.|o|a><cena|cen.rio><aqui|ali>?<é|e>(<.+>+)",
+        prefixAprender +
+			"<aqui|ali>?<nes..|naquel.|no|na><cena|cen.rio><aqui|ali>?<é|e>(<.+>+)"
+		]},		
+        
+#**********************************************************************
+# Diálogos para aprender informações sobre lugares
+#
+
+	{"entreModoAprenderInfoLugar":	
+		[
+        sinonPorFavor+"<vamos><aprender|descobrir|conhecer><coisas|fatos|informa..es|dados>?"+
+			"<sobre>?<es..|aquel.|des..|daquel.|o|do|a|da>"+sinonLugar+"<aqui|ali>?",
+		sinonPorFavor+"<vou><te|lhe><passar|ensinar|falar|dizer><coisas|fatos|informa..es|dados>?"+
+			"<sobre>?<es..|aquel.|des..|daquel.|o|do|a|da>"+sinonLugar+"<aqui|ali>?",
+		sinonPorFavor+"<aprenda|descubra|conhe.a><coisas|fatos|informa..es|dados>?"+
+			"<sobre>?<es,.|aquel.|des..|daquel.|o|do|a|da>"+sinonLugar+"<aqui|ali>?",
+		sinonPorFavor+"<vou><passar|ensinar|falar|dizer><para|pra><voc.><coisas|fatos|informa..es|dados>?"+
+			"<sobre>?<es,.|aquel.|des..|daquel.|o|do|a|da>"+sinonLugar+"<aqui|ali>?"
+		]},		
+	{"aprendaNomeLugar":	
+		[
+        prefixAprender +
+			"<o><nome><des..|daquel.|do|da>"+sinonLugar+
+            "<aqui|ali>?<é|e>(<.+>+)",
+		prefixAprender +
+			"<o><nome><daqui|dali><é|e>(<.+>+)",
+		prefixAprender +
+			"<es..|aquel.|o|a>"+sinonLugar+
+                "<aqui|ali>?<se|é|e|tem><chama|chamado|nome>(<.+>+)"
+		]},		
+	{"aprendaNomeLugar@modo-aprender-info-lugar":	
+		[
+        "<o><nome><des..|daquel.|do|da>"+sinonLugar+
+            "<aqui|ali>?<é>(<.+>+)",
+		"<o><nome><daqui|dali><é|e>(<.+>+)",
+		"<es..|aquel.|o|a>"+sinonLugar+
+            "<aqui|ali>?<se|e|é|tem><chama|chamado|nome>(<.+>+)"
+		]},		
+	{"aprendaTamanhoLugar":	
+		[
+        prefixAprender +
+			"<o|a><tamanho|raio|extensão|largura><des..|daquel.>"+sinonLugar+
+            "<aqui|ali>?<é>(<.+>)_",
+		prefixAprender +
+			"<o|a><tamanho|raio|extensão|largura><daqui|dali><é>(<.+>)_",
+		prefixAprender +
+			"<es..|aquel.|o>"+sinonLugar+
+                "<aqui|ali>?<tem><tamanho|raio|extensão|largura><de>?(<.+>)_"
+		]},		
+	{"aprendaTamanhoLugar@modo-aprender-info-lugar":	
+		[
+        "<o|a><tamanho|raio|extensão|largura><des..|daquel.>"+sinonLugar+
+            "<aqui|ali>?<é>(<.+>)_",
+		"<o|a><tamanho|raio|extensão|largura><daqui|dali><é>(<.+>)_",
+		"<es..|aquel.|o|a>"+sinonLugar+
+            "<aqui|ali>?<tem><tamanho|raio|extensão|largura><de>?(<.+>)_"
+		]},		
+	{"aprendaDescricaoLugar":	
+		[
+        prefixAprender +
+			"<es..|aquel.|o|a>"+sinonLugar+
+                "<aqui|ali>?<é>(<.+>+)",
+		prefixAprender +
+			"<o|a>"+sinonLugar+"<aqui|ali><é>(<.+>+)"
+		]},		
+	{"aprendaDescricaoLugar@modo-aprender-info-lugar":	
+		[
+        "<es..|aquel.|o|a>"+sinonLugar+
+            "<aqui|ali>?<é>(<.+>+)",
+		"<aqui|ali><é>(<.+>+)"
+		]},		
+	{"aprendaImportanciaLugar":	
+		[prefixAprender +
+			"<a|o><grau|valor|dimens.o>?<de|da>?<import.ncia|relev.ncia>"+
+            "<des..|daquel.|do|da>"+sinonLugar+"<aqui|ali>?<é|e>?(<.+>+)",
+		prefixAprender+
+			"<a|o><grau|valor|dimens.o>?<de|da>?<import.ncia|relev.ncia>"+
+            "<daqui|dali><é|e>?(<.+>+)",
+		prefixAprender+
+            "<es..|aquel.|o|a>"+sinonLugar+
+            "<aqui|ali>?<é|e>?(<.+>+)<importante|relevante>",
+		prefixAprender+
+            "<es..|aquel.|o|a>"+sinonLugar+"<aqui|ali>?<tem>(<.+>+)"+
+            "<grau|valor|dimens.o>?<de|da>?<import.ncia|relev.ncia>",
+        prefixAprender+
+            "<aqui|ali|lá|la><é|e>?<um|uma>"+sinonLugar+
+            "(<.+>+)<importante|relevante|interessante>",
+		prefixAprender+
+            "<aqui|ali|lá|la><é|e>?<um|uma>"+sinonLugar+
+            "<com|que|da|de><tem>?(<.+>+)<import.ncia|relev.ncia|interesse>",
+		prefixAprender+
+            "<aqui|ali|lá|la><é|e>?<um|uma>"+sinonLugar+
+            "<que>(<n.o><tem|é|e>)<.*>*<import.ncia|relev.ncia>",
+        prefixAprender+
+            "<aqui|ali|lá|la>(<n.o><é|e>)<um|uma>?"+sinonLugar+"<.*>*<importante|relevante>"
+		]},		
+	{"aprendaImportanciaLugar@modo-aprender-info-lugar":	
+		[
+        "<a|o><grau|valor|dimens.o>?<de|da>?<import.ncia|relev.ncia><des..|daquel.>"+
+            sinonLugar+"<aqui|ali>?<é>(<.+>+)",
+		"<a|o><grau|valor|dimens.o>?<de>?<import.ncia|relev.ncia><daqui|dali><é>(<.+>+)",
+        "<es..|aquel.|o|a>"+sinonLugar+"<aqui|ali>?<é>(<.+>+)<importante|relevante>",
+        "<es..|aquel.|o|a>"+sinonLugar+"<aqui|ali>?<tem>(<.+>+)<grau|valor|dimens.o>?"+
+            "<de>?<import.ncia|relev.ncia>",
+        "<es..|aquel.|o|a>"+sinonLugar+"<aqui|ali>?<tem><um|uma>?<grau|valor|ordem|dimens.o>?"+
+            "<de>?<import.ncia|relev.ncia>(<.+>+)",
+        "<aqui|ali|lá|la><é><um|uma>"+sinonLugar+"(<.+>+)<importante|relevante>",
+        "<aqui|ali|lá|la><é><um|uma>"+sinonLugar+
+            "<com|que|de|da><tem>?(<.+>+)<import.ncia|relev.ncia>",
+        "<aqui|ali|lá|la><é><um|uma>"+sinonLugar+"<com|que|de|da><tem>?<um|uma>?"+
+            "<grau|valor|dimens.o>?<de|da>?<import.ncia|relev.ncia>(<.+>+)",
+        "<aqui|ali|lá|la><é><um|uma>"+sinonLugar+
+            "<que>(<n.o><tem>)<.*>*<import.ncia|relev.ncia>",
+        "<aqui|ali|lá|la>(<n.o><é|e>)<um|uma>?"+sinonLugar+"<.*>*<importante|relevante>"
+		]},		
+	{"aprendaEventoLugar":	
+		[
+        prefixAprender + 
+			"<ne..e|naquel.>"+sinonLugar+
+                "<aqui|ali>?<foi>?<onde>?"+
+			"<ocorreu|aconteceu|houve|sucedeu>(<.+>+)",
+		prefixAprender+
+			"<aqui|ali><foi>?<onde>?"+
+			"<ocorreu|aconteceu|houve|sucedeu>(<.+>+)"
+		]},		
+	{"aprendaEventoLugar@modo-aprender-info-lugar":	
+		[
+        "<nes..|naquel.>"+sinonLugar+
+            "<aqui|ali>?<foi>?<onde>?<ocorreu|aconteceu|houve|sucedeu>(<.+>+)",
+		"<aqui|ali><foi>?<onde>?"+
+			"<ocorreu|aconteceu|houve|sucedeu>(<.+>+)"
+		]},		
+	{"aprendaOrdemPreferenciaLugar":	
+		[
+        prefixAprender+"<es..|aquel.|o|a>"+sinonLugar+"<aqui|ali|l.>?<tem>?<ordem|posi..o|n.mero>"+
+            "<de>?<prefer.ncia|interesse><de>?(<.+>+)",
+		prefixAprender+"<a|o>?<ordem|posi..o|n.mero><de>?<prefer.ncia|interesse>"+
+            "<des..|daquel.|da|do>"+sinonLugar+"<aqui|ali|l.>?<é|e>?(<.+>+)",
+		prefixAprender +
+			"<aqui|ali><é><o|a>"+sinonLugar+
+			"<de|n.|com>?<n.mero|posi..o|ordem><de>?<prefer.ncia|interesse>(<.+>+)"
+		]},		
+	{"aprendaOrdemLugar@modo-aprender-info-lugar":	
+		[
+        "<es..|aquel.|o|a>"+sinonLugar+
+            "<aqui|ali>?<é><o>"+sinonLugar+
+			"<de|n.>?<n.mero|posi..o|ordem|ordenamento>(<.+>)_",
+		"<es..|aquel.|o|a>"+sinonLugar+
+            "<aqui|ali>?<é><o>(<.+>)"+sinonLugar+
+			"<n.><ordem|ordenamento>_",
+		"<aqui|ali><é><o>"+sinonLugar+""+
+			"<de|n.>?<n.mero|posi..o|ordem|ordenamento>(<.+>)_",
+		"<aqui|ali><é><o>(<.+>)"+sinonLugar+
+			"<n.><ordem|ordenamento>_",
+		"<es..|aquel.|o|a>"+sinonLugar+
+            "<aqui|ali>?<tem|é><o>?"+
+			"<n.mero|posi..o|ordem|ordenamento>(<.+>)_"
+		]},		
+	{"aprendaAtributoLugar":	
+		[
+        prefixAprender+"(<o|a>)(<.+>+)<des..|daquel.>"+sinonLugar+"<é>(<.+>+)",
+		prefixAprender+"(<o|a>)(<.+>+)<daqui|dali><é>(<.+>+)"
+		]},		
+	{"aprendaAtributoLugar@modo-aprender-info-lugar":	
+		[
+        "(<o|a>)(<.+>+)<des..|daquel.>"+sinonLugar+"<é>(<.+>+)",
+		"(<o|a>)(<.+>+)<daqui|dali><é>(<.+>+)"
+		]},	
+        
+#**********************************************************************
+# Diálogos para aprender tarefas/atuações ou performances
+#
+
+	{"comeceAprenderTarefaComNome":	
+		[
+		prefixAprender+"<a|como>?<fazer|executar>?<a|o|um|uma>?"+
+            sinonTarefa+"<de|da|do|denominada|chamada|cujo|com>?<de|nome>?<é|e>?(<.+>+)"
+		]},		
+	{"comeceAprenderTarefa":	
+		[
+		prefixAprender+"<a|como>?<fazer|executar>?<a|o|um|uma>?"+
+            sinonTarefa
+		]},		
+	{"aprendaNomeTarefa":	
+		[
+        prefixAprender +
+			"<o>?<nome><da>?"+sinonTarefa+"<é|e>?(<.+>+)",
+		prefixAprender +
+			"<a>?"+sinonTarefa+"<se|tem|é|e><chama|nome|denominada|chamada>(<.+>+)"
+		]},		
+	{"pareAprenderTarefa":	
+		[
+        sinonPorFavor+"<n.s>?<vamos>?<parar><de>?<aprender|registrar|recordar><.*>*"+sinonTarefa,
+		sinonPorFavor+"<tá|ta>?<na>?<hora>?<de>?<parar><de>?<ensinar|mostrar><.*>*"+sinonTarefa,
+		sinonPorFavor+"<pare><de>?<aprender|registrar|recordar><.*>*"+sinonTarefa
+		]}		
+]

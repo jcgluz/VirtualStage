@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
+<title>Índice do Help HTML do VirtualStage</title>
+<!-- base href="" -->
+</head>
+<body dir="ltr">
+<h1>VirtualStage HTML help index</h1>
+<table order="">
+<tbody>
+<tr>
+ <td><a class="file" href="ActorController.html">ActorController module</a></td>
+</tr>
+<tr>
+ <td><a class="file" href="DialogController.html">DialogController module</a></td>
+</tr>
+<tr>
+ <td><a class="file" href="AppearanceActions.html">AppearanceActions module</a></td>
+</tr>
+<tr>
+ <td><a class="file" href="CommunicateActions.html">CommunicateActions module</a></td>
+</tr>
+<tr>
+ <td><a class="file" href="MemoryActions.html">MemoryActions module</a></td>
+</tr>
+<tr>
+ <td><a class="file" href="ModifyActions.html">ModifyActions module</a></td>
+</tr>
+<tr>
+ <td><a class="file" href="MoveActions.html">MoveActions module</a></td>
+</tr>
+<tr>
+ <td><a class="file" href="ObserveActions.html">ObserveActions module</a></td>
+</tr>
+<tr>
+ <td><a class="file" href="PerceptActions.html">PerceptActions module</a></td>
+</tr>
+<tr>
+ <td><a class="file" href="PositionActions.html">PositionActions module</a></td>
+</tr>
+<tr>
+ <td><a class="file" href="PostureActions.html">PostureActions module</a></td>
+</tr>
+<tr>
+ <td><a class="file" href="ResourcesActions.html">ResourcesActions module</a></td>
+</tr>
+<tr>
+ <td><a class="file" href="SocialActions.html">SocialActions module</a></td>
+</tr>
+<tr>
+ <td><a class="file" href="SystemActions.html">SystemActions module</a></td>
+</tr>
+<tr>
+ <td><a class="file" href="AuxiliaryFunctions.html">AuxiliaryFunctions module</a></td>
+</tr>
+<tr>
+ <td><a class="file" href="AtorAtendente.html">AtorAtendente module</a></td>
+</tr>
+<tr>
+ <td><a class="file" href="IntencoesAtendente.html">IntencoesAtendente module</a></td>
+</tr>
+<tr>
+ <td><a class="file" href="AtorAprendiz.html">AtorAprendiz module</a></td>
+</tr>
+<tr>
+ <td><a class="file" href="IntencoesAprendiz.html">IntencoesAprendiz module</a></td>
+</tr>
+<tr>
+ <td><a class="file" href="ComandosAprendiz.html">ComandosAprendiz submodule</a></td>
+</tr>
+<tr>
+ <td><a class="file" href="PerguntasAprendiz.html">PerguntasAprendiz submodule</a></td>
+</tr>
+<tr>
+ <td><a class="file" href="TreinamentoAprendiz.html">TreinamentoAprendiz submodule</a></td>
+</tr>
+<tr>
+ <td><a class="file" href="ChatterActor.html">ChatterActor module</a></td>
+</tr>
+<tr>
+ <td><a class="file" href="ChatterIntents.html">ChatterIntents module</a></td>
+</tr>
+<tr>
+ <td><a class="file" href="TestActor.html">TestActor module</a></td>
+</tr></tbody></table>
+</body></html>

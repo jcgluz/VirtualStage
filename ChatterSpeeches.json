@@ -1,0 +1,26 @@
+{
+    "dontRememberMyName": [
+        "Well, that's strange, I don't remember my name",
+        "I don't rememeber my name"],
+    "dontSeeObject":["Can't find this thing","I don't see the object"],
+    "hello(USER)myNameIs(NAME)": [
+        "Hello {0}, my name is {1}",
+        "Hi {0}, my name is {1}"],
+    "howAreYou(NAME)": [
+        "OK, and how are you {0}?",
+        "Hello {0}",
+        "Hi, how are you, {0}"],
+    "iAmOK": ["I am OK", "I am fine"],
+    "iAm(GENDER)with(AGE)":["I am a {0} VR bot and have {1} years"],
+    "iAm(GENDER)":["I am a {0} VR bot"],
+    "iDontKnow": ["Sorry, I don't know", "Well, I don't know", "I don't know"],
+    "iDontKnowThis": ["sorry I don't know what this is it", "oops I don't know this"],
+    "iHave(AGE)":["I have {0} years"],
+    "letMeSee": ["Well, let me see ...", "I think ...", "I will check ..."],
+    "mustGoTo(X,Y)": [
+        "OK, you want me to go to the position {0},{1}?", 
+        "I must go to the location {0},{1}?", 
+        "Do you want me to walk up to the position {0},{1}?"],
+    "thisIsMyName": ["Yes, this is my name","Yes, you are right","This is my name"],
+    "thisIsNotMyName": ["This is not my name","No, this isn't my name"]
+}
